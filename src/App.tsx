@@ -13,7 +13,6 @@ import {
 import { LanguageProvider } from './context/LanguageContext';
 import { SiteHeader, SiteFooter } from './components/SiteLayout';
 import { InquiryModal } from './components/InquiryModal';
-import { ProposalBlueprintDrawer } from './components/ProposalBlueprintDrawer';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { BambooProductsPage } from './pages/BambooProductsPage';
@@ -55,7 +54,6 @@ export default function App() {
     () => resolveInquiryFromSearch(window.location.search) || 'Bamboo Split'
   );
   const [modalOpen, setModalOpen] = useState(false);
-  const [showArchitectureReport, setShowArchitectureReport] = useState(false);
 
   // Sync page-level SEO title, meta description, and OpenGraph tags
   useEffect(() => {
@@ -90,7 +88,6 @@ export default function App() {
   }, []);
 
   const handleNavigate = useCallback((route: PageRoute, inquiryParam?: InquiryTypeOption) => {
-    setShowArchitectureReport(false);
     setCurrentRoute(route);
 
     const url =
@@ -138,53 +135,42 @@ export default function App() {
 
         {/* Main Content Area */}
         <main id="main-content" className="flex-grow" tabIndex={-1}>
-          {showArchitectureReport ? (
-            <ProposalBlueprintDrawer
-              onSwitchToPrototype={() => {
-                setShowArchitectureReport(false);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+          {currentRoute === '/' && (
+            <HomePage
+              onNavigate={handleNavigate}
+              onInquireWithCategory={handleInquireWithCategory}
             />
-          ) : (
-            <>
-              {currentRoute === '/' && (
-                <HomePage
-                  onNavigate={handleNavigate}
-                  onInquireWithCategory={handleInquireWithCategory}
-                />
-              )}
-              {currentRoute === '/about' && (
-                <AboutPage
-                  onNavigate={handleNavigate}
-                  onInquireWithCategory={handleInquireWithCategory}
-                />
-              )}
-              {currentRoute === '/bamboo-products' && (
-                <BambooProductsPage
-                  onNavigate={handleNavigate}
-                  onInquireWithCategory={handleInquireWithCategory}
-                />
-              )}
-              {currentRoute === '/printing-services' && (
-                <PrintingServicesPage
-                  onNavigate={handleNavigate}
-                  onInquireWithCategory={handleInquireWithCategory}
-                />
-              )}
-              {currentRoute === '/gallery' && (
-                <GalleryPage
-                  onNavigate={handleNavigate}
-                  onInquireWithCategory={handleInquireWithCategory}
-                />
-              )}
-              {currentRoute === '/contact' && (
-                <ContactPage
-                  onNavigate={handleNavigate}
-                  selectedInquiryType={selectedInquiryType}
-                  onSelectInquiryType={setSelectedInquiryType}
-                />
-              )}
-            </>
+          )}
+          {currentRoute === '/about' && (
+            <AboutPage
+              onNavigate={handleNavigate}
+              onInquireWithCategory={handleInquireWithCategory}
+            />
+          )}
+          {currentRoute === '/bamboo-products' && (
+            <BambooProductsPage
+              onNavigate={handleNavigate}
+              onInquireWithCategory={handleInquireWithCategory}
+            />
+          )}
+          {currentRoute === '/printing-services' && (
+            <PrintingServicesPage
+              onNavigate={handleNavigate}
+              onInquireWithCategory={handleInquireWithCategory}
+            />
+          )}
+          {currentRoute === '/gallery' && (
+            <GalleryPage
+              onNavigate={handleNavigate}
+              onInquireWithCategory={handleInquireWithCategory}
+            />
+          )}
+          {currentRoute === '/contact' && (
+            <ContactPage
+              onNavigate={handleNavigate}
+              selectedInquiryType={selectedInquiryType}
+              onSelectInquiryType={setSelectedInquiryType}
+            />
           )}
         </main>
 
@@ -193,14 +179,9 @@ export default function App() {
           currentRoute={currentRoute}
           onNavigate={handleNavigate}
           onInquireWithCategory={handleInquireWithCategory}
-          onToggleArchitectureReport={() => {
-            setShowArchitectureReport((prev) => !prev);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          showingArchitectureReport={showArchitectureReport}
         />
 
-        {/* Optional Quick Inquiry Modal */}
+        {/* Quick Inquiry Modal */}
         <InquiryModal
           isOpen={modalOpen}
           defaultInquiryType={selectedInquiryType}

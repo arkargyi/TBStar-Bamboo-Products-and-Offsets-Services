@@ -9,6 +9,7 @@ import {
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
 import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import { ContactCTA } from '../components/CatalogComponents';
+import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
 
 interface AboutPageProps {
@@ -58,7 +59,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         }
       />
 
-      {/* Section 1: Company Introduction & Official Profile Table */}
+      {/* Section 1: Company Introduction & Official Profile Card */}
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -130,8 +131,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
             </div>
 
-            {/* Verified Corporate Profile Card */}
-            <div className="lg:col-span-5 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8">
+            {/* Official Corporate Profile Card */}
+            <div className="lg:col-span-5 bg-[#F6F8F3] border border-[#DDE5D9] rounded-2xl p-6 md:p-8 shadow-2xs">
               <div className="flex items-center gap-4 pb-5 mb-5 border-b border-[#DDE5D9]">
                 <img
                   src={COMPANY_INFO.logoPath}
@@ -178,7 +179,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 </div>
                 <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
                   <dt className="text-xs text-[#26332B]/70 font-medium">
-                    {t('Preferred Domain', 'ဝဘ်ဆိုက်ဒိုမိန်း')}
+                    {t('Corporate Domain', 'ဝဘ်ဆိုက်ဒိုမိန်း')}
                   </dt>
                   <dd className="font-mono-tabular font-semibold text-[#245C3A]">
                     {COMPANY_INFO.domain}
@@ -204,17 +205,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             {/* Activity 1: Bamboo Production & International Export */}
-            <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between">
+            <div className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between shadow-2xs transition-colors">
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
                   aspectClassName="aspect-[16/10]"
                   label={t(
-                    'Temporary Preview — Replace with TB Star Bamboo Production Photo',
-                    'ယာယီ နမူနာပုံစံ — ဝါးထုတ်လုပ်မှု ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                    '100% Natural Myanmar Bamboo · Production & Export',
+                    '၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန် · ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်'
                   )}
                 />
                 <div className="p-6">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                      <BambooProductIcon type="bamboo-split" className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">01</span>
+                  </div>
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                     {t('DIVISION A · PRODUCTION & EXPORT', 'လုပ်ငန်းကဏ္ဍ (က) · ထုတ်လုပ်ရေးနှင့် ပို့ကုန်')}
                   </p>
@@ -247,17 +254,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
 
             {/* Activity 2: Domestic Distribution in Myanmar */}
-            <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between">
+            <div className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between shadow-2xs transition-colors">
               <div>
                 <VisualAssetFrame
-                  type="bamboo-custom"
+                  type="bamboo-sticks"
                   aspectClassName="aspect-[16/10]"
                   label={t(
-                    'Temporary Preview — Replace with TB Star Distribution Photo',
-                    'ယာယီ နမူနာပုံစံ — ပြည်တွင်းဖြန့်ဖြူးရေး ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                    '30KG Export & Wholesale Bag Packaging · Domestic Supply',
+                    'တစ်အိတ် 30KG စံချိန်မီ ထုပ်ပိုးမှု · ပြည်တွင်းဖြန့်ဖြူးရေး'
                   )}
                 />
                 <div className="p-6">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                      <BambooProductIcon type="bamboo-sticks" className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">02</span>
+                  </div>
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                     {t('DOMESTIC SUPPLY · MYANMAR MARKET', 'ပြည်တွင်းဖြန့်ဖြူးရေး · မြန်မာ့စျေးကွက်')}
                   </p>
@@ -290,17 +303,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
 
             {/* Activity 3: One-Stop Offset Printing Services */}
-            <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between">
+            <div className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between shadow-2xs transition-colors">
               <div>
                 <VisualAssetFrame
                   type="books-printing"
                   aspectClassName="aspect-[16/10]"
                   label={t(
-                    'Temporary Preview — Replace with TB Star Offset Printing Photo',
-                    'ယာယီ နမူနာပုံစံ — ပုံနှိပ်လုပ်ငန်း ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                    'One-Stop Offset Printing · Books & Voucher Books',
+                    'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
                   )}
                 />
                 <div className="p-6">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                      <PrintingServiceIcon type="books-printing" className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">03</span>
+                  </div>
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                     {t('DIVISION B · COMMERCIAL PRESS', 'လုပ်ငန်းကဏ္ဍ (ခ) · အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း')}
                   </p>
@@ -335,29 +354,37 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </section>
 
-      {/* Section 3: Proposed Corporate Values */}
+      {/* Section 3: Core Corporate Values */}
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="03. Operating Principles · Proposed Draft Content for Client Review"
-            kickerMm="၀၃။ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများ · အဆိုပြုမူကြမ်း"
-            title="Proposed Corporate Values"
-            titleMm="ကုမ္ပဏီ၏ လုပ်ငန်းဆောင်ရွက်မှု စံနှုန်းများ (အဆိုပြုမူကြမ်း)"
-            description="The following operating principles are derived directly from TB Star Company Limited’s verified business activities and are clearly marked as proposed draft content for client review."
-            descriptionMm="အောက်ပါ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများသည် တီဘီစတား ကုမ္ပဏီ လီမိတက်၏ အဓိကလုပ်ငန်းဆောင်တာများအပေါ် အခြေခံ၍ ပြုစုထားသော အဆိုပြုမူကြမ်းများ ဖြစ်ပါသည်။"
+            kicker="03. Operating Principles · Corporate Commitment"
+            kickerMm="၀၃။ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများ · ကုမ္ပဏီ၏ စံနှုန်းများ"
+            title="Our Core Corporate Values"
+            titleMm="ကုမ္ပဏီ၏ အဓိက လုပ်ငန်းဆောင်ရွက်မှု စံနှုန်းများ"
+            description="Guided by clear product specifications, responsive B2B coordination in Yangon, and commitment to natural material and print quality."
+            descriptionMm="တိကျရှင်းလင်းသော ကုန်ပစ္စည်းစံချိန်စံညွှန်းများ၊ ယုံကြည်စိတ်ချရသော လုပ်ငန်းချိတ်ဆက်ဆောင်ရွက်မှုနှင့် အရည်အသွေးမီ ထုတ်လုပ်မှုတို့ကို အလေးထား ဆောင်ရွက်ပါသည်။"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {PROPOSED_CORPORATE_VALUES.map((val) => (
+            {PROPOSED_CORPORATE_VALUES.map((val, idx) => (
               <div
                 key={val.index}
-                className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 flex flex-col justify-between"
+                className="bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 flex flex-col justify-between transition-colors"
               >
                 <div>
-                  <div className="flex items-center justify-between text-xs font-mono-tabular text-[#245C3A] mb-3">
-                    <span className="font-bold text-base text-[#173D2A]">{val.index}.</span>
-                    <span>
-                      [{t(val.statusNote, 'အဆိုပြုမူကြမ်း')}]
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-11 h-11 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                      {idx === 0 ? (
+                        <BambooProductIcon type="bamboo-split" className="w-6 h-6" />
+                      ) : idx === 1 ? (
+                        <BambooProductIcon type="bamboo-custom" className="w-6 h-6" />
+                      ) : (
+                        <PrintingServiceIcon type="prepress-finishing" className="w-6 h-6" />
+                      )}
+                    </div>
+                    <span className="font-mono-tabular font-bold text-sm text-[#245C3A]">
+                      {val.index}
                     </span>
                   </div>
                   <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">

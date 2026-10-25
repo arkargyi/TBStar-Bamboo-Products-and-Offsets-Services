@@ -13,6 +13,7 @@ import {
   ProductCard,
   ProductSpecificationTable,
 } from '../components/CatalogComponents';
+import { BambooProductIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
 
 interface BambooProductsPageProps {
@@ -72,7 +73,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         }
       />
 
-      {/* Product Navigation Bar */}
+      {/* Product Navigation Bar with Custom SVG Icons */}
       <div className="bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-2">
@@ -82,23 +83,26 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             <button
               type="button"
               onClick={() => scrollToProductSection('product-bamboo-split')}
-              className="px-3.5 py-1.5 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977] text-[#173D2A] border border-[#DDE5D9] transition-colors cursor-pointer"
+              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
             >
-              {t('01. Bamboo Split', '၀၁။ ဝါးခြမ်းပြား (Bamboo Split)')}
+              <BambooProductIcon type="bamboo-split" className="w-4 h-4 shrink-0" />
+              <span>{t('01. Bamboo Split', '၀၁။ ဝါးခြမ်းပြား (Bamboo Split)')}</span>
             </button>
             <button
               type="button"
               onClick={() => scrollToProductSection('product-bamboo-sticks')}
-              className="px-3.5 py-1.5 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977] text-[#173D2A] border border-[#DDE5D9] transition-colors cursor-pointer"
+              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
             >
-              {t('02. Bamboo Sticks', '၀၂။ ဝါးတံ (Bamboo Sticks)')}
+              <BambooProductIcon type="bamboo-sticks" className="w-4 h-4 shrink-0" />
+              <span>{t('02. Bamboo Sticks', '၀၂။ ဝါးတံ (Bamboo Sticks)')}</span>
             </button>
             <button
               type="button"
               onClick={() => scrollToProductSection('product-other-bamboo')}
-              className="px-3.5 py-1.5 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977] text-[#173D2A] border border-[#DDE5D9] transition-colors cursor-pointer"
+              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
             >
-              {t('03. Other Bamboo Products', '၀၃။ အခြား ဝါးထုတ်ကုန်များ')}
+              <BambooProductIcon type="bamboo-custom" className="w-4 h-4 shrink-0" />
+              <span>{t('03. Other Bamboo Products', '၀၃။ အခြား ဝါးထုတ်ကုန်များ')}</span>
             </button>
           </div>
 
@@ -153,19 +157,30 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-5">
-              <VisualAssetFrame
-                type="bamboo-split"
-                aspectClassName="aspect-[4/3]"
-                label={bambooSplit.placeholderNote}
-              />
+              <div className="rounded-xl overflow-hidden border border-[#DDE5D9]">
+                <VisualAssetFrame
+                  type="bamboo-split"
+                  imagePath={bambooSplit.imagePath}
+                  aspectClassName="aspect-[4/3]"
+                  label={bambooSplit.placeholderNote}
+                />
+              </div>
 
-              <div className="mt-6 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-5">
-                <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                  {t('PRODUCT A · ORIGIN: MYANMAR', 'ထုတ်ကုန် (က) · မူရင်းနိုင်ငံ - မြန်မာ')}
-                </p>
-                <h2 className="text-2xl font-bold text-[#173D2A] mb-2">
-                  {isMm ? bambooSplit.nameMm : bambooSplit.name}
-                </h2>
+              <div className="mt-6 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                    <BambooProductIcon type="bamboo-split" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
+                      {t('PRODUCT 01 · ORIGIN: MYANMAR', 'ထုတ်ကုန် ၀၁ · မူရင်းနိုင်ငံ - မြန်မာ')}
+                    </p>
+                    <h2 className="text-2xl font-bold text-[#173D2A]">
+                      {isMm ? bambooSplit.nameMm : bambooSplit.name}
+                    </h2>
+                  </div>
+                </div>
+
                 <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                   {isMm ? bambooSplit.detailedDescriptionMm : bambooSplit.detailedDescription}
                 </p>
@@ -184,7 +199,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                     variant="outline-dark"
                     onClick={() => onInquireWithCategory('Bamboo Split', false)}
                   >
-                    {t('Quick Modal Form', 'အမြန် မေးမြန်းရန်')}
+                    {t('Quick Inquiry Modal', 'အမြန် မေးမြန်းရန်')}
                   </Button>
                 </div>
               </div>
@@ -194,8 +209,8 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               <ProductSpecificationTable
                 title="Bamboo Split — Technical Specification Table"
                 titleMm="ဝါးခြမ်းပြား (Bamboo Split) — အသေးစိတ်အချက်အလက်ဇယား"
-                subtitle="PRODUCT A · VERIFIED SPECIFICATIONS"
-                subtitleMm="ထုတ်ကုန် (က) · တရားဝင် စံချိန်စံညွှန်းများ"
+                subtitle="PRODUCT 01 · VERIFIED SPECIFICATIONS"
+                subtitleMm="ထုတ်ကုန် ၀၁ · တရားဝင် စံချိန်စံညွှန်းများ"
                 specifications={bambooSplit.specifications}
                 onInquire={() => onInquireWithCategory('Bamboo Split', true)}
                 inquireLabel="Inquire: Bamboo Split"
@@ -214,19 +229,30 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-5">
-              <VisualAssetFrame
-                type="bamboo-sticks"
-                aspectClassName="aspect-[4/3]"
-                label={bambooSticks.placeholderNote}
-              />
+              <div className="rounded-xl overflow-hidden border border-[#DDE5D9]">
+                <VisualAssetFrame
+                  type="bamboo-sticks"
+                  imagePath={bambooSticks.imagePath}
+                  aspectClassName="aspect-[4/3]"
+                  label={bambooSticks.placeholderNote}
+                />
+              </div>
 
-              <div className="mt-6 bg-white border border-[#DDE5D9] rounded-xl p-5">
-                <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                  {t('PRODUCT B · ORIGIN: MYANMAR', 'ထုတ်ကုန် (ခ) · မူရင်းနိုင်ငံ - မြန်မာ')}
-                </p>
-                <h2 className="text-2xl font-bold text-[#173D2A] mb-2">
-                  {isMm ? bambooSticks.nameMm : bambooSticks.name}
-                </h2>
+              <div className="mt-6 bg-white border border-[#DDE5D9] rounded-xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                    <BambooProductIcon type="bamboo-sticks" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
+                      {t('PRODUCT 02 · ORIGIN: MYANMAR', 'ထုတ်ကုန် ၀၂ · မူရင်းနိုင်ငံ - မြန်မာ')}
+                    </p>
+                    <h2 className="text-2xl font-bold text-[#173D2A]">
+                      {isMm ? bambooSticks.nameMm : bambooSticks.name}
+                    </h2>
+                  </div>
+                </div>
+
                 <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                   {isMm ? bambooSticks.detailedDescriptionMm : bambooSticks.detailedDescription}
                 </p>
@@ -245,7 +271,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                     variant="outline-dark"
                     onClick={() => onInquireWithCategory('Bamboo Sticks', false)}
                   >
-                    {t('Quick Modal Form', 'အမြန် မေးမြန်းရန်')}
+                    {t('Quick Inquiry Modal', 'အမြန် မေးမြန်းရန်')}
                   </Button>
                 </div>
               </div>
@@ -255,8 +281,8 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               <ProductSpecificationTable
                 title="Bamboo Sticks — Technical Specification Table"
                 titleMm="ဝါးတံ (Bamboo Sticks) — အသေးစိတ်အချက်အလက်ဇယား"
-                subtitle="PRODUCT B · VERIFIED SPECIFICATIONS"
-                subtitleMm="ထုတ်ကုန် (ခ) · တရားဝင် စံချိန်စံညွှန်းများ"
+                subtitle="PRODUCT 02 · VERIFIED SPECIFICATIONS"
+                subtitleMm="ထုတ်ကုန် ၀၂ · တရားဝင် စံချိန်စံညွှန်းများ"
                 specifications={bambooSticks.specifications}
                 onInquire={() => onInquireWithCategory('Bamboo Sticks', true)}
                 inquireLabel="Inquire: Bamboo Sticks"
@@ -267,21 +293,26 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         </div>
       </section>
 
-      {/* PRODUCT C: OTHER BAMBOO PRODUCTS (Expandable & Reusable Section) */}
+      {/* PRODUCT C: OTHER BAMBOO PRODUCTS */}
       <section
         id="product-other-bamboo"
         className="py-20 bg-white border-b border-[#DDE5D9]"
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl overflow-hidden">
+          <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs">
             <div className="p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DDE5D9]">
-              <div>
-                <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                  {t('PRODUCT C · EXPANDABLE PRODUCT CATEGORY', 'ထုတ်ကုန် (ဂ) · အခြား ဝါးထုတ်ကုန် အမျိုးအစား')}
-                </p>
-                <h2 className="text-2xl font-bold text-[#173D2A]">
-                  {isMm ? otherBamboo.nameMm : otherBamboo.name}
-                </h2>
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                  <BambooProductIcon type="bamboo-custom" className="w-7 h-7" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-0.5">
+                    {t('PRODUCT 03 · DOMESTIC & EXPORT SUPPLY', 'ထုတ်ကုန် ၀၃ · ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်')}
+                  </p>
+                  <h2 className="text-2xl font-bold text-[#173D2A]">
+                    {isMm ? otherBamboo.nameMm : otherBamboo.name}
+                  </h2>
+                </div>
               </div>
 
               <button
@@ -292,11 +323,11 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               >
                 {otherExpanded ? (
                   <>
-                    {t('Collapse Section', 'အချက်အလက် ပိတ်ရန်')} <ChevronUp className="w-4 h-4" />
+                    {t('Hide Details', 'အချက်အလက် ပိတ်ရန်')} <ChevronUp className="w-4 h-4" />
                   </>
                 ) : (
                   <>
-                    {t('Expand Details', 'အသေးစိတ် ဖွင့်ကြည့်ရန်')} <ChevronDown className="w-4 h-4" />
+                    {t('Show Details', 'အသေးစိတ် ဖွင့်ကြည့်ရန်')} <ChevronDown className="w-4 h-4" />
                   </>
                 )}
               </button>
@@ -304,9 +335,10 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
 
             {otherExpanded && (
               <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-5">
+                <div className="lg:col-span-5 rounded-xl overflow-hidden border border-[#DDE5D9]">
                   <VisualAssetFrame
                     type="bamboo-custom"
+                    imagePath={otherBamboo.imagePath}
                     aspectClassName="aspect-[16/10]"
                     label={otherBamboo.placeholderNote}
                   />

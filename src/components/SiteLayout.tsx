@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, Menu, X } from 'lucide-react';
+import { Globe, MapPin, Menu, Phone, X } from 'lucide-react';
 import {
   COMPANY_INFO,
   InquiryTypeOption,
@@ -12,7 +12,7 @@ export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] =
   { label: 'About Us', labelMm: 'ကုမ္ပဏီအကြောင်း', route: '/about' },
   { label: 'Bamboo Products', labelMm: 'ဝါးထုတ်ကုန်များ', route: '/bamboo-products' },
   { label: 'Printing Services', labelMm: 'ပုံနှိပ်ဝန်ဆောင်မှုများ', route: '/printing-services' },
-  { label: 'Gallery', labelMm: 'ဓာတ်ပုံမှတ်တမ်း', route: '/gallery' },
+  { label: 'Gallery', labelMm: 'ဓာတ်ပုံပြခန်း', route: '/gallery' },
   { label: 'Contact Us', labelMm: 'ဆက်သွယ်ရန်', route: '/contact' },
 ];
 
@@ -70,7 +70,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   return (
     <nav
       aria-label="Primary Navigation"
-      className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium text-[#26332B]"
+      className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#26332B]"
     >
       {NAV_ITEMS.map((item) => {
         const isActive = currentRoute === item.route;
@@ -83,11 +83,11 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
               e.preventDefault();
               onNavigate(item.route);
             }}
-            className={`py-1.5 border-b-2 transition-colors whitespace-nowrap shrink-0 ${
-              isMm ? 'font-myanmar text-xs xl:text-sm' : ''
+            className={`py-2 border-b-2 transition-colors whitespace-nowrap shrink-0 ${
+              isMm ? 'font-myanmar text-xs xl:text-[13px]' : 'text-xs xl:text-sm'
             } ${
               isActive
-                ? 'border-[#245C3A] text-[#173D2A] font-bold'
+                ? 'border-[#173D2A] text-[#173D2A] font-bold'
                 : 'border-transparent text-[#26332B] hover:text-[#245C3A] hover:border-[#A8D977]'
             }`}
           >
@@ -119,7 +119,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden bg-white border-b border-[#DDE5D9] px-4 pt-3 pb-5 space-y-2">
+    <div className="lg:hidden bg-white border-b border-[#DDE5D9] px-4 pt-3 pb-5 space-y-2 shadow-lg">
       <div className="flex items-center justify-between pb-2.5 mb-1 border-b border-[#DDE5D9]">
         <span className="text-xs font-semibold text-[#245C3A]">
           {t('Select Language:', 'ဘာသာစကား ရွေးချယ်ရန် -')}
@@ -192,7 +192,44 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#DDE5D9]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      {/* Executive Corporate Top Utility Bar */}
+      <div className="hidden md:block bg-[#112E1F] text-white/85 border-b border-white/10">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4 text-xs">
+          <div className="flex items-center gap-4 min-w-0">
+            <span className="inline-flex items-center gap-1.5 text-white/90 truncate">
+              <MapPin className="w-3.5 h-3.5 text-[#A8D977] shrink-0" />
+              <span className="truncate">
+                {t(
+                  'Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon',
+                  'Central Tower (၁၁) လွှာ၊ အခန်း (၁၁၀၃)၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့'
+                )}
+              </span>
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 shrink-0">
+            <span className="hidden xl:inline text-white/70">
+              {t(
+                '100% Natural Myanmar Bamboo · One-Stop Offset Printing',
+                '၁၀၀% သဘာဝမြန်မာ့ဝါးထုတ်ကုန် · အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
+              )}
+            </span>
+            <span className="hidden xl:inline text-white/30" aria-hidden="true">
+              |
+            </span>
+            <a
+              href={COMPANY_INFO.telephoneHref}
+              className="inline-flex items-center gap-1.5 font-mono-tabular font-bold text-[#A8D977] hover:text-white transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>{COMPANY_INFO.telephone}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navigation Row */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
         {/* Zone 1: Official TB Star Company Limited Logo + Brand Title */}
         <a
           href="/"
@@ -207,28 +244,33 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
             src={COMPANY_INFO.logoPath}
             alt="TB Star Company Limited Official Logo"
             referrerPolicy="no-referrer"
-            className="h-12 w-12 object-contain shrink-0 rounded-full"
+            className="h-11 w-11 sm:h-12 sm:w-12 object-contain shrink-0 rounded-full border border-[#DDE5D9] bg-white p-0.5"
           />
-          <span
-            className={`font-display text-base sm:text-lg font-bold tracking-tight text-[#173D2A] group-hover:text-[#245C3A] transition-colors whitespace-nowrap shrink-0 ${
-              isMm ? 'font-myanmar' : ''
-            }`}
-          >
-            {isMm ? 'တီဘီစတား ကုမ္ပဏီ လီမိတက်' : COMPANY_INFO.name}
-          </span>
+          <div className="min-w-0">
+            <span
+              className={`font-display text-sm sm:text-base xl:text-lg font-bold tracking-tight text-[#173D2A] group-hover:text-[#245C3A] transition-colors block whitespace-nowrap ${
+                isMm ? 'font-myanmar' : ''
+              }`}
+            >
+              {isMm ? 'တီဘီစတား ကုမ္ပဏီ လီမိတက်' : COMPANY_INFO.name}
+            </span>
+            <span className="text-[11px] text-[#245C3A] font-medium hidden sm:block">
+              {t('Bamboo Export & Offset Printing', 'TB Star Company Limited')}
+            </span>
+          </div>
         </a>
 
         {/* Zone 2: Desktop Navigation */}
         <DesktopNavigation currentRoute={currentRoute} onNavigate={onNavigate} />
 
         {/* Zone 3: Language Switch Button + Primary Action Button + Mobile Menu Button */}
-        <div className="flex items-center gap-2.5 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           <LanguageSwitchButton />
 
           <button
             type="button"
             onClick={onOpenInquiry}
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="hidden sm:inline-flex items-center justify-center px-3.5 xl:px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
           </button>
@@ -260,16 +302,12 @@ interface SiteFooterProps {
   currentRoute: PageRoute;
   onNavigate: (route: PageRoute) => void;
   onInquireWithCategory: (type: InquiryTypeOption, navigateToContact?: boolean) => void;
-  onToggleArchitectureReport?: () => void;
-  showingArchitectureReport?: boolean;
 }
 
 export const SiteFooter: React.FC<SiteFooterProps> = ({
   currentRoute,
   onNavigate,
   onInquireWithCategory,
-  onToggleArchitectureReport,
-  showingArchitectureReport = false,
 }) => {
   const { isMm, t } = useLanguage();
 
@@ -309,7 +347,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
               )}
             </p>
             <p className="text-xs font-mono-tabular text-[#A8D977]">
-              {t('Preferred Corporate Domain:', 'ကုမ္ပဏီ ဝဘ်ဆိုက်ဒိုမိန်း -')} {COMPANY_INFO.domain}
+              {t('Official Domain:', 'ကုမ္ပဏီ ဝဘ်ဆိုက်ဒိုမိန်း -')} {COMPANY_INFO.domain}
             </p>
           </div>
 
@@ -460,22 +498,22 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
             © {new Date().getFullYear()} {t(COMPANY_INFO.name, COMPANY_INFO.nameMm)}.{' '}
             {t('All rights reserved.', 'မူပိုင်ခွင့်များအားလုံး သိမ်းဆည်းထားပါသည်။')}
           </p>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3 text-white/70">
+            <span>
+              {t(
+                'Natural Bamboo Production & Export',
+                'သဘာဝဝါးထုတ်ကုန်နှင့် ပြည်ပပို့ကုန်'
+              )}
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>
+              {t(
+                'One-Stop Offset Printing Services',
+                'အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း'
+              )}
+            </span>
+            <span aria-hidden="true">·</span>
             <span>{t('Yangon, Myanmar', 'ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ')}</span>
-            {onToggleArchitectureReport && (
-              <>
-                <span aria-hidden="true">·</span>
-                <button
-                  type="button"
-                  onClick={onToggleArchitectureReport}
-                  className="text-[#A8D977] hover:underline cursor-pointer"
-                >
-                  {showingArchitectureReport
-                    ? t('Return to Live 6-Page Website', 'ပင်မဝဘ်ဆိုက်သို့ ပြန်သွားရန်')
-                    : t('View Phase 1–2 Architecture & Reference Report', 'ဗိသုကာနှင့် ဒီဇိုင်းအစီရင်ခံစာ ကြည့်ရှုရန်')}
-                </button>
-              </>
-            )}
           </div>
         </div>
       </div>

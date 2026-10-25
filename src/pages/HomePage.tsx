@@ -17,6 +17,7 @@ import {
   ProductCard,
   ServiceCard,
 } from '../components/CatalogComponents';
+import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { ClientTestimonials } from '../components/ClientTestimonials';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -33,12 +34,11 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div>
-      {/* SECTION B: HERO WITH OPTIMIZED NON-BLOCKING BACKGROUND IMAGE & READABILITY OVERLAY */}
+      {/* HERO SECTION WITH OPTIMIZED BACKGROUND IMAGE & READABILITY OVERLAY */}
       <section
         aria-label="Hero Banner"
         className="relative bg-[#173D2A] text-white overflow-hidden border-b border-[#245C3A]"
       >
-        {/* High-Quality Relevant Background Image + Multi-Layer Readability Overlay */}
         <div className="absolute inset-0 z-0 pointer-events-none select-none">
           <img
             src="/assets/hero-bamboo-background.svg"
@@ -54,8 +54,8 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-[#0E2619]/90 via-[#173D2A]/25 to-[#0E2619]/50" />
         </div>
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-22 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Proposition & CTAs */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <div className="flex flex-wrap items-center gap-2 text-xs text-[#A8D977] font-medium tracking-wide mb-4">
@@ -70,7 +70,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <h1
-                className={`text-3xl sm:text-5xl lg:text-[48px] font-extrabold text-white tracking-tight mb-5 ${
+                className={`text-3xl sm:text-5xl lg:text-[46px] font-extrabold text-white tracking-tight mb-5 ${
                   isMm ? 'font-myanmar leading-[1.38]' : 'leading-[1.12]'
                 }`}
                 style={{ textWrap: 'balance' }}
@@ -88,7 +88,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 )}
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 mb-10">
+              <div className="flex flex-wrap items-center gap-3.5 mb-10">
                 <Button
                   type="button"
                   variant="primary-light"
@@ -117,7 +117,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </button>
               </div>
 
-              {/* Verified Quick Summary Row */}
+              {/* Quick Summary Row */}
               <div className="pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-white/85">
                 <div>
                   <p className="text-[#A8D977] font-semibold mb-0.5">
@@ -155,15 +155,15 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Dual-Division Architectural Visual Showcase */}
-            <div className="lg:col-span-5 flex flex-col justify-between bg-[#173D2A]/80 backdrop-blur-xs border border-[#A8D977]/35 rounded-xl p-5">
-              <div className="flex items-center justify-between gap-3 pb-4 mb-4 border-b border-white/15">
+            {/* Right Column: Dual-Division Product & Service Showcase */}
+            <div className="lg:col-span-5 flex flex-col justify-between bg-[#173D2A]/85 backdrop-blur-xs border border-[#A8D977]/35 rounded-2xl p-5 shadow-xl">
+              <div className="flex items-center justify-between gap-3 pb-3.5 mb-3.5 border-b border-white/15">
                 <div className="flex items-center gap-3">
                   <img
                     src={COMPANY_INFO.logoPath}
                     alt="TB Star Official Star Emblem"
                     referrerPolicy="no-referrer"
-                    className="w-10 h-10 rounded-full object-contain bg-white p-0.5"
+                    className="w-10 h-10 rounded-full object-contain bg-white p-0.5 shrink-0"
                   />
                   <div>
                     <p className="text-xs font-bold text-white">
@@ -171,28 +171,24 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </p>
                     <p className="text-[11px] text-[#A8D977]">
                       {t(
-                        'Two Core Business Divisions',
-                        'အဓိက စီးပွားရေးလုပ်ငန်းကြီး (၂) ခု'
+                        'Core Products & Printing Showcase',
+                        'အဓိက ထုတ်ကုန်နှင့် ပုံနှိပ်လုပ်ငန်း ပြကွက်'
                       )}
                     </p>
                   </div>
                 </div>
-                <span className="text-[11px] font-mono-tabular text-white/75">
-                  {t('Myanmar Origin', 'မြန်မာနိုင်ငံ')}
+                <span className="text-[11px] font-mono-tabular text-[#A8D977] font-semibold">
+                  {t('Myanmar Origin', 'မြန်မာနိုင်ငံထုတ်')}
                 </span>
               </div>
 
               <VisualAssetFrame
                 type="hero-bamboo"
-                aspectClassName="aspect-[16/10]"
-                label={t(
-                  'Temporary Hero Visual — Replace with TB Star Bamboo & Press Photography',
-                  'ယာယီ နမူနာပုံစံ — ကုမ္ပဏီ၏ ဝါးထုတ်ကုန်နှင့် ပုံနှိပ်လုပ်ငန်း ဓာတ်ပုံဖြင့် အစားထိုးရန်'
-                )}
+                aspectClassName="aspect-[4/3]"
               />
 
-              <div className="mt-4 pt-3 border-t border-white/15 flex items-center justify-between text-xs text-white/85">
-                <span>
+              <div className="mt-3.5 pt-3 border-t border-white/15 flex items-center justify-between text-xs text-white/85">
+                <span className="truncate">
                   {t(
                     'Central Tower, Kyauktada Township, Yangon',
                     'Central Tower၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့'
@@ -201,9 +197,9 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <button
                   type="button"
                   onClick={() => onNavigate('/contact')}
-                  className="text-[#A8D977] hover:underline font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  className="text-[#A8D977] hover:underline font-semibold whitespace-nowrap shrink-0 cursor-pointer ml-2"
                 >
-                  {t('Contact Office →', 'ရုံးသို့ ဆက်သွယ်ရန် →')}
+                  {t('Inquire Now →', 'ဆက်သွယ်ရန် →')}
                 </button>
               </div>
             </div>
@@ -211,7 +207,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION C: BUSINESS DIVISIONS */}
+      {/* CORE BUSINESS DIVISIONS */}
       <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -225,25 +221,30 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* Division 1: Bamboo Production & Export */}
-            <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between">
+            <div className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-2xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200">
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
                   aspectClassName="aspect-[16/9]"
                   label={t(
-                    'Division A Visual — Replace with TB Star Bamboo Production Photography',
-                    'လုပ်ငန်းကဏ္ဍ (က) နမူနာပုံ — ဝါးထုတ်လုပ်မှု ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                    '100% Natural Myanmar Bamboo · Split & Sticks Export',
+                    '၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန် · ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်'
                   )}
                 />
-                <div className="p-8">
-                  <div className="flex items-center justify-between text-xs text-[#245C3A] font-medium mb-3 pb-3 border-b border-[#DDE5D9]">
-                    <span>
-                      {t(
-                        'Division A · Manufacturing & Global Trade',
-                        'လုပ်ငန်းကဏ္ဍ (က) · ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်'
-                      )}
-                    </span>
-                    <span className="font-mono-tabular">
+                <div className="p-7 sm:p-8">
+                  <div className="flex items-center justify-between gap-4 mb-4 pb-4 border-b border-[#DDE5D9]">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                        <BambooProductIcon type="bamboo-split" className="w-6 h-6" />
+                      </div>
+                      <span className="text-xs text-[#245C3A] font-semibold">
+                        {t(
+                          'Division A · Manufacturing & Global Trade',
+                          'လုပ်ငန်းကဏ္ဍ (က) · ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်'
+                        )}
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono-tabular font-semibold text-[#173D2A]">
                       {t('100% Natural Bamboo', '၁၀၀% သဘာဝဝါးစစ်စစ်')}
                     </span>
                   </div>
@@ -264,11 +265,12 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
                     {[
-                      { en: 'Bamboo Split (3 mm)', mm: 'ဝါးခြမ်းပြား (အထူ 3 mm)' },
+                      { en: 'Bamboo Split (3 mm · 20"–48")', mm: 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")' },
                       { en: 'Bamboo Sticks (1.2–2.5 mm)', mm: 'ဝါးတံ (အထူ 1.2–2.5 mm)' },
+                      { en: 'Standard 30 kg/bag packaging', mm: 'တစ်အိတ် 30 kg စံနှုန်းထုပ်ပိုးမှု' },
                       { en: 'Other Bamboo Products', mm: 'အခြား ဝါးထုတ်ကုန်များ' },
-                      { en: 'Domestic distribution', mm: 'ပြည်တွင်းဖြန့်ဖြူးရေး' },
-                      { en: 'International export', mm: 'နိုင်ငံတကာ ပြည်ပပို့ကုန်' },
+                      { en: 'Domestic Myanmar distribution', mm: 'ပြည်တွင်းဖြန့်ဖြူးရေး' },
+                      { en: 'International export supply', mm: 'နိုင်ငံတကာ ပြည်ပပို့ကုန်' },
                     ].map((item) => (
                       <div
                         key={item.en}
@@ -282,7 +284,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </div>
 
-              <div className="px-8 pb-8 pt-4 border-t border-[#DDE5D9] flex flex-wrap items-center justify-between gap-4">
+              <div className="px-7 sm:px-8 pb-7 pt-4 border-t border-[#DDE5D9] flex flex-wrap items-center justify-between gap-4">
                 <Button
                   type="button"
                   variant="primary-dark"
@@ -298,25 +300,30 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Division 2: Offset Printing Services */}
-            <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between">
+            <div className="bg-[#173D2A] text-white border border-[#245C3A] hover:border-[#A8D977]/60 rounded-2xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200">
               <div>
                 <VisualAssetFrame
                   type="books-printing"
                   aspectClassName="aspect-[16/9]"
                   label={t(
-                    'Division B Visual — Replace with TB Star Offset Press Photography',
-                    'လုပ်ငန်းကဏ္ဍ (ခ) နမူနာပုံ — အော့ဖ်ဆက်ပုံနှိပ်စက် ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                    'One-Stop Offset Printing · Books, Voucher Books & Commercial Print',
+                    'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း · စာအုပ်နှင့် ဘောင်ချာစာအုပ်များ'
                   )}
                 />
-                <div className="p-8">
-                  <div className="flex items-center justify-between text-xs text-[#A8D977] font-medium mb-3 pb-3 border-b border-white/15">
-                    <span>
-                      {t(
-                        'Division B · Commercial Press Solutions',
-                        'လုပ်ငန်းကဏ္ဍ (ခ) · စီးပွားရေးလုပ်ငန်းသုံး ပုံနှိပ်ဝန်ဆောင်မှု'
-                      )}
-                    </span>
-                    <span className="font-mono-tabular">
+                <div className="p-7 sm:p-8">
+                  <div className="flex items-center justify-between gap-4 mb-4 pb-4 border-b border-white/15">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-lg bg-white/95 border border-white/20 flex items-center justify-center shrink-0">
+                        <PrintingServiceIcon type="books-printing" className="w-6 h-6" />
+                      </div>
+                      <span className="text-xs text-[#A8D977] font-semibold">
+                        {t(
+                          'Division B · Commercial Press Solutions',
+                          'လုပ်ငန်းကဏ္ဍ (ခ) · စီးပွားရေးလုပ်ငန်းသုံး ပုံနှိပ်ဝန်ဆောင်မှု'
+                        )}
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono-tabular text-[#A8D977]">
                       {t('Yangon, Myanmar', 'ရန်ကုန်မြို့')}
                     </span>
                   </div>
@@ -339,8 +346,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                     {[
                       { en: 'Books Printing', mm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း' },
                       { en: 'Voucher Books Printing', mm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်း' },
+                      { en: 'Brochures & Pamphlets', mm: 'လက်ကမ်းစာစောင်နှင့် ကတ်တလောက်' },
+                      { en: 'Business Cards & Stationery', mm: 'လိပ်စာကတ်နှင့် ရုံးသုံးပုံနှိပ်' },
                       { en: 'Other Offset Printing Services', mm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများ' },
-                      { en: 'One-stop printing services', mm: 'တစ်နေရာတည်းတွင် အပြီးအစီး ဝန်ဆောင်မှု' },
+                      { en: 'One-stop printing workflow', mm: 'တစ်နေရာတည်း အပြီးအစီး ဝန်ဆောင်မှု' },
                     ].map((item) => (
                       <div
                         key={item.en}
@@ -354,7 +363,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </div>
 
-              <div className="px-8 pb-8 pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
+              <div className="px-7 sm:px-8 pb-7 pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
                 <Button
                   type="button"
                   variant="primary-light"
@@ -372,7 +381,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION D: FEATURED BAMBOO PRODUCTS */}
+      {/* FEATURED BAMBOO PRODUCTS */}
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -407,7 +416,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION E: OFFSET PRINTING SERVICES */}
+      {/* OFFSET PRINTING SERVICES */}
       <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -442,7 +451,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION F: COMPANY INTRODUCTION */}
+      {/* COMPANY INTRODUCTION */}
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -496,7 +505,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8">
+            <div className="lg:col-span-5 bg-[#F6F8F3] border border-[#DDE5D9] rounded-2xl p-6 md:p-8 shadow-2xs">
               <div className="flex items-center gap-4 pb-5 mb-5 border-b border-[#DDE5D9]">
                 <img
                   src={COMPANY_INFO.logoPath}
@@ -506,7 +515,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 />
                 <div>
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
-                    {t('VERIFIED CORPORATE PROFILE', 'တရားဝင် ကုမ္ပဏီအချက်အလက်')}
+                    {t('CORPORATE HEADQUARTERS', 'တရားဝင် ကုမ္ပဏီအချက်အလက်')}
                   </p>
                   <h3 className="text-lg font-bold text-[#173D2A]">
                     {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
@@ -548,31 +557,44 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION G: WHY CHOOSE US */}
+      {/* WHY CHOOSE US */}
       <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="Core Capabilities · Verified Business Activities"
+            kicker="Core Capabilities · Business Excellence"
             kickerMm="အဓိက လုပ်ငန်းစွမ်းဆောင်ရည်များ"
             title={`Why Partner With ${COMPANY_INFO.name}`}
             titleMm="တီဘီစတား ကုမ္ပဏီ လီမိတက်နှင့် လက်တွဲဆောင်ရွက်သင့်သည့် အချက်များ"
-            description="Built on verified manufacturing, domestic distribution, export supply, and one-stop offset printing operations."
+            description="Built on dependable manufacturing, domestic distribution, export supply, and one-stop offset printing operations."
             descriptionMm="သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်မှု၊ ပြည်တွင်းဖြန့်ဖြူးရေး၊ နိုင်ငံတကာပြည်ပပို့ကုန်နှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများကို စနစ်တကျ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {WHY_CHOOSE_US_ITEMS.map((pillar) => (
+            {WHY_CHOOSE_US_ITEMS.map((pillar, idx) => (
               <div
                 key={pillar.index}
-                className="bg-white border border-[#DDE5D9] rounded-xl p-6 flex flex-col justify-between"
+                className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 flex flex-col justify-between shadow-2xs transition-colors"
               >
                 <div>
-                  <div className="flex items-center justify-between text-xs font-mono-tabular text-[#245C3A] mb-4">
-                    <span className="font-bold text-base text-[#173D2A]">
-                      {pillar.index}.
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                      {idx === 0 ? (
+                        <BambooProductIcon type="bamboo-split" className="w-6 h-6" />
+                      ) : idx === 1 ? (
+                        <BambooProductIcon type="bamboo-custom" className="w-6 h-6" />
+                      ) : idx === 2 ? (
+                        <BambooProductIcon type="bamboo-sticks" className="w-6 h-6" />
+                      ) : (
+                        <PrintingServiceIcon type="books-printing" className="w-6 h-6" />
+                      )}
+                    </div>
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                      {pillar.index}
                     </span>
-                    <span>{pillar.divisionTag}</span>
                   </div>
+                  <p className="text-xs text-[#245C3A] font-medium mb-1">
+                    {pillar.divisionTag}
+                  </p>
                   <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
                     {isMm ? pillar.titleMm : pillar.title}
                   </h3>
@@ -586,21 +608,21 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION H: CLIENT TESTIMONIALS & PARTNER TRUST */}
+      {/* CLIENT TESTIMONIALS & PARTNER TRUST */}
       <ClientTestimonials
         onNavigate={onNavigate}
         onInquireWithCategory={onInquireWithCategory}
       />
 
-      {/* SECTION I: GALLERY PREVIEW */}
+      {/* GALLERY PREVIEW */}
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="Visual Documentation · Clearly Marked Placeholder Assets"
+            kicker="Product & Service Showcase · Visual Portfolio"
             kickerMm="ဓာတ်ပုံမှတ်တမ်း · ကဏ္ဍအလိုက် ထုတ်ကုန်ပြခန်း"
-            title="Projects & Product Gallery Preview"
+            title="Products, Packaging & Printing Gallery"
             titleMm="ထုတ်ကုန်နှင့် လုပ်ငန်းဆောင်ရွက်မှု ဓာတ်ပုံမှတ်တမ်း"
-            description="Browse our product and service visual categories. Temporary placeholder graphics are clearly marked for replacement with actual TB Star photography."
+            description="Explore our natural Myanmar bamboo products, 30 kg export bag packaging, and one-stop offset printing deliverables."
             descriptionMm="ဝါးထုတ်ကုန်များ၊ ထုတ်လုပ်မှုလုပ်ငန်းစဉ်၊ ထုပ်ပိုးမှုပုံစံနှင့် ပုံနှိပ်ထုတ်ကုန် အမျိုးအစားများကို ကဏ္ဍအလိုက် လေ့လာကြည့်ရှုနိုင်ပါသည်။"
             action={
               <Button
@@ -622,7 +644,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION I: CONTACT CTA */}
+      {/* CONTACT CTA */}
       <ContactCTA
         onNavigate={onNavigate}
         onInquireWithCategory={onInquireWithCategory}

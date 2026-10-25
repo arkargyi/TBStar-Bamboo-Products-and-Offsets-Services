@@ -12,7 +12,7 @@ export type VisualAssetType =
 
 const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
   'bamboo-split': '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
-  'bamboo-sticks': '/assets/aistudio/Bamboo-Sticks.svg',
+  'bamboo-sticks': '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
   'bamboo-custom': '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
   'books-printing': '/assets/aistudio/Offset-Printing.svg',
   'voucher-printing': '/assets/aistudio/Offset-Printing.svg',
@@ -63,7 +63,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         {/* Top-Right: Bamboo Sticks (30KG per bag) */}
         <div className="relative overflow-hidden rounded-md border border-white/15 group">
           <img
-            src="/assets/aistudio/Bamboo-Sticks.svg"
+            src="/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg"
             alt="TB Star Company Limited Bamboo Sticks (1.2mm to 2.5mm, 30KG per bag)"
             referrerPolicy="no-referrer"
             decoding="async"

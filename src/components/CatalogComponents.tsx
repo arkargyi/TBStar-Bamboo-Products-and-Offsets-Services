@@ -12,7 +12,7 @@ import {
 } from '../data/companyData';
 import { VisualAssetFrame } from './VisualAssetFrame';
 import { Button } from './SharedUI';
-import { PrintingServiceIcon } from './PrintingIcons';
+import { BambooProductIcon, PrintingServiceIcon } from './PrintingIcons';
 import { GALLERY_CATEGORY_LABELS, useLanguage } from '../context/LanguageContext';
 
 interface ProductSpecificationTableProps {
@@ -39,7 +39,7 @@ export const ProductSpecificationTable: React.FC<ProductSpecificationTableProps>
   const { isMm, t } = useLanguage();
 
   return (
-    <div className="bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8">
+    <div className="bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 shadow-2xs">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-[#DDE5D9]">
         <div>
           <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
@@ -112,7 +112,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   const { isMm, t } = useLanguage();
 
   return (
-    <article className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between group">
+    <article className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200">
       <div>
         <VisualAssetFrame
           type={product.visualType}
@@ -122,8 +122,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         />
 
         <div className="p-6">
+          <div className="flex items-start justify-between gap-4 mb-3">
+            <div className="w-12 h-12 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0 group-hover:border-[#245C3A] transition-colors">
+              <BambooProductIcon type={product.visualType} className="w-7 h-7" />
+            </div>
+            <span className="text-xs font-mono-tabular font-bold text-[#245C3A] pt-1">
+              {product.index}
+            </span>
+          </div>
+
           <p className="text-xs text-[#245C3A] font-medium mb-1">
-            {product.index}. {isMm ? product.categoryMm : product.category}
+            {isMm ? product.categoryMm : product.category}
           </p>
           <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
             {isMm ? product.nameMm : product.name}
@@ -172,7 +181,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           className="flex-1"
           onClick={() => onInquireProduct(product.inquiryType)}
         >
-          {isMm ? `${product.nameMm} မေးမြန်းရန်` : `Inquire: ${product.name}`}
+          {isMm ? 'စုံစမ်းမေးမြန်းရန်' : `Inquire: ${product.name}`}
           <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
         </Button>
 
@@ -206,7 +215,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   const points = isMm ? service.scopePointsMm : service.scopePoints;
 
   return (
-    <article className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between group">
+    <article className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200">
       <div>
         <VisualAssetFrame
           type={service.visualType}
@@ -331,7 +340,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
         {filteredItems.map((item) => (
           <article
             key={item.id}
-            className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between group"
+            className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200"
           >
             <div className="relative">
               <VisualAssetFrame
@@ -339,17 +348,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                 imagePath={item.imagePath}
                 altText={item.altText}
                 aspectClassName="aspect-[16/10]"
-                showReplacementNote={item.isPlaceholder}
-                label={
-                  item.isPlaceholder
-                    ? t(
-                        'Temporary Illustrative Asset — Marked for Photo Replacement',
-                        'ယာယီ နမူနာပုံစံ — ကုမ္ပဏီ၏ တရားဝင်ဓာတ်ပုံဖြင့် အစားထိုးရန်'
-                      )
-                    : isMm
-                    ? item.titleMm
-                    : item.title
-                }
+                label={isMm ? item.titleMm : item.title}
               />
               <button
                 type="button"
@@ -358,7 +357,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                 aria-label={`Inspect enlarged preview for ${item.title}`}
               >
                 <Maximize2 className="w-3.5 h-3.5 text-[#A8D977]" />
-                {t('Inspect', 'ချဲ့ကြည့်ရန်')}
+                {t('View', 'ကြည့်ရှုရန်')}
               </button>
             </div>
 
@@ -371,9 +370,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                       : GALLERY_CATEGORY_LABELS[item.category].en}
                   </span>
                   <span className="font-mono-tabular text-[#26332B]/65">
-                    {item.isPlaceholder
-                      ? t('Replaceable Slot', 'အစားထိုးနိုင်သောပုံ')
-                      : t('Verified Photo', 'တရားဝင်ဓာတ်ပုံ')}
+                    {t('TB Star Showcase', 'တီဘီစတား ထုတ်ကုန်')}
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-[#173D2A] mb-1.5">
@@ -384,18 +381,31 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between gap-2 text-[11px] text-[#26332B]/70">
-                <span className="font-mono-tabular truncate" title={item.replacementFileHint}>
-                  {item.isPlaceholder
-                    ? `Slot: ${item.replacementFileHint}`
-                    : t('Official Product Photo', 'တရားဝင် ကုန်ပစ္စည်းဓာတ်ပုံ')}
-                </span>
+              <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between gap-2 text-xs">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onInquireFromGallery) {
+                      onInquireFromGallery(
+                        item.category === 'Printing Products'
+                          ? 'Books Printing'
+                          : item.visualType === 'bamboo-sticks'
+                          ? 'Bamboo Sticks'
+                          : 'Bamboo Split'
+                      );
+                    }
+                  }}
+                  className="font-semibold text-[#245C3A] hover:text-[#173D2A] inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>{t('Inquire Now', 'ဆက်သွယ်မေးမြန်းရန်')}</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
                 <button
                   type="button"
                   onClick={() => setLightboxItem(item)}
                   className="font-semibold text-[#173D2A] hover:text-[#245C3A] underline whitespace-nowrap shrink-0 cursor-pointer"
                 >
-                  {t('Enlarge', 'အကြီးချဲ့ရန်')}
+                  {t('Enlarge Photo', 'ပုံကြီးချဲ့ကြည့်ရန်')}
                 </button>
               </div>
             </div>
@@ -411,17 +421,14 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
           aria-modal="true"
           aria-label={isMm ? lightboxItem.titleMm : lightboxItem.title}
         >
-          <div className="bg-white border border-[#DDE5D9] rounded-xl max-w-3xl w-full overflow-hidden">
+          <div className="bg-white border border-[#DDE5D9] rounded-xl max-w-3xl w-full overflow-hidden shadow-xl">
             <div className="px-6 py-4 bg-[#173D2A] text-white flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs font-mono-tabular text-[#A8D977]">
                   {isMm
                     ? GALLERY_CATEGORY_LABELS[lightboxItem.category].mm
                     : GALLERY_CATEGORY_LABELS[lightboxItem.category].en}{' '}
-                  ·{' '}
-                  {lightboxItem.isPlaceholder
-                    ? t('Temporary Illustrative Slot', 'ယာယီ နမူနာပုံစံ')
-                    : t('Verified Company Photo', 'တရားဝင် ကုမ္ပဏီဓာတ်ပုံ')}
+                  · {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
                 </p>
                 <h3 className="text-lg font-bold text-white">
                   {isMm ? lightboxItem.titleMm : lightboxItem.title}
@@ -442,36 +449,20 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
               imagePath={lightboxItem.imagePath}
               altText={lightboxItem.altText}
               aspectClassName="aspect-[16/9]"
-              showReplacementNote={lightboxItem.isPlaceholder}
-              label={
-                lightboxItem.isPlaceholder
-                  ? `Replacement Target: ${lightboxItem.replacementFileHint}`
-                  : isMm
-                  ? lightboxItem.titleMm
-                  : lightboxItem.title
-              }
+              label={isMm ? lightboxItem.titleMm : lightboxItem.title}
             />
 
             <div className="p-6 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-medium text-[#173D2A] mb-1.5">
+                <p className="text-sm font-bold text-[#173D2A] mb-1">
                   {isMm ? lightboxItem.captionMm : lightboxItem.caption}
                 </p>
-                {lightboxItem.isPlaceholder ? (
-                  <p className="text-xs text-[#26332B]/70">
-                    {t(
-                      'Note: This temporary graphic does not depict actual TB Star factory facilities and is structured for direct drop-in photo replacement.',
-                      'မှတ်ချက် - ဤယာယီသရုပ်ဖော်ပုံသည် ကုမ္ပဏီ၏ တရားဝင်ဓာတ်ပုံများဖြင့် အလွယ်တကူ အစားထိုးထည့်သွင်းနိုင်ရန် စနစ်တကျ ပုံစံထုတ်ထားခြင်း ဖြစ်ပါသည်။'
-                    )}
-                  </p>
-                ) : (
-                  <p className="text-xs text-[#245C3A] font-medium">
-                    {t(
-                      'Official TB Star Company Limited product photograph — 100% Natural Myanmar Bamboo.',
-                      'တီဘီစတား ကုမ္ပဏီ လီမိတက်၏ တရားဝင် ကုန်ပစ္စည်းဓာတ်ပုံ — ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်။'
-                    )}
-                  </p>
-                )}
+                <p className="text-xs text-[#245C3A] font-medium">
+                  {t(
+                    `${COMPANY_INFO.name} · Natural Myanmar Bamboo & One-Stop Offset Printing`,
+                    'တီဘီစတား ကုမ္ပဏီ လီမိတက် · သဘာဝမြန်မာ့ဝါးထုတ်ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
+                  )}
+                </p>
               </div>
               <div className="flex items-center gap-2.5 shrink-0">
                 {onInquireFromGallery && (
@@ -481,15 +472,18 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                     size="sm"
                     onClick={() => {
                       const cat = lightboxItem.category;
+                      const vType = lightboxItem.visualType;
                       setLightboxItem(null);
                       onInquireFromGallery(
                         cat === 'Printing Products'
                           ? 'Books Printing'
+                          : vType === 'bamboo-sticks'
+                          ? 'Bamboo Sticks'
                           : 'Bamboo Split'
                       );
                     }}
                   >
-                    {t('Inquire About This Category', 'ဤကဏ္ဍအကြောင်း မေးမြန်းရန်')}
+                    {t('Inquire About This Product', 'ဤထုတ်ကုန်အကြောင်း မေးမြန်းရန်')}
                   </Button>
                 )}
                 <Button

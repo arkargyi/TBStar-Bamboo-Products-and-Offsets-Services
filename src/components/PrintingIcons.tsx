@@ -8,10 +8,168 @@ export type PrintingIconType =
   | 'brochures-pamphlets'
   | 'prepress-finishing';
 
+export type BambooIconType =
+  | 'bamboo-split'
+  | 'bamboo-sticks'
+  | 'bamboo-custom';
+
 interface PrintingServiceIconProps {
   type: PrintingIconType;
   className?: string;
 }
+
+interface BambooProductIconProps {
+  type: BambooIconType;
+  className?: string;
+}
+
+/**
+ * Custom, domain-crafted SVG icons for TB Star Company Limited's
+ * Bamboo Production & Export division.
+ */
+export const BambooProductIcon: React.FC<BambooProductIconProps> = ({
+  type,
+  className = 'w-7 h-7',
+}) => {
+  switch (type) {
+    case 'bamboo-split':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Three Parallel Split Bamboo Strips (3mm uniform profile) */}
+          <rect
+            x="7"
+            y="6"
+            width="6.5"
+            height="28"
+            rx="1.8"
+            fill="#A8D977"
+            fillOpacity="0.4"
+            stroke="#173D2A"
+            strokeWidth="1.9"
+          />
+          <rect
+            x="16.75"
+            y="6"
+            width="6.5"
+            height="28"
+            rx="1.8"
+            fill="#F6F8F3"
+            stroke="#173D2A"
+            strokeWidth="1.9"
+          />
+          <rect
+            x="26.5"
+            y="6"
+            width="6.5"
+            height="28"
+            rx="1.8"
+            fill="#A8D977"
+            fillOpacity="0.65"
+            stroke="#173D2A"
+            strokeWidth="1.9"
+          />
+          {/* Bamboo Node Rings */}
+          <path
+            d="M7 14.5H13.5M7 25.5H13.5M16.75 18.5H23.25M26.5 13H33M26.5 24H33"
+            stroke="#245C3A"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'bamboo-sticks':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Precision Bamboo Sticks Bundle */}
+          <path
+            d="M11 7V33M15.5 6V34M20 6V34M24.5 6V34M29 7V33"
+            stroke="#173D2A"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+          />
+          {/* Binding Band (30KG Export Bundle) */}
+          <rect
+            x="8"
+            y="16.5"
+            width="24"
+            height="7"
+            rx="2"
+            fill="#A8D977"
+            stroke="#173D2A"
+            strokeWidth="1.9"
+          />
+          <path
+            d="M13 20H27"
+            stroke="#173D2A"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'bamboo-custom':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Export Package / Natural Bamboo Supply */}
+          <rect
+            x="7"
+            y="11"
+            width="26"
+            height="21"
+            rx="2.5"
+            fill="#F6F8F3"
+            stroke="#173D2A"
+            strokeWidth="2"
+          />
+          <path
+            d="M7 17.5H33"
+            stroke="#245C3A"
+            strokeWidth="1.8"
+          />
+          <rect
+            x="16"
+            y="14"
+            width="8"
+            height="7"
+            rx="1.2"
+            fill="#A8D977"
+            stroke="#173D2A"
+            strokeWidth="1.6"
+          />
+          {/* Natural Bamboo Leaf Accent */}
+          <path
+            d="M20 6C23.5 6 26.5 8 27.5 11H12.5C13.5 8 16.5 6 20 6Z"
+            fill="#245C3A"
+          />
+          <path
+            d="M13 25.5H27"
+            stroke="#173D2A"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+  }
+};
 
 /**
  * Custom, domain-crafted SVG icons for TB Star Company Limited's

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Phone, Copy, Check, FileText } from 'lucide-react';
+import { X, Phone, Copy, Check, FileText, CheckCircle2 } from 'lucide-react';
 import {
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
@@ -117,21 +117,26 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   if (submittedSummary) {
     return (
-      <div className="bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 text-[#26332B]">
+      <div className="bg-white border border-[#DDE5D9] rounded-2xl p-6 md:p-8 text-[#26332B] shadow-2xs">
         <div className="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <p className="text-xs font-mono-tabular text-[#245C3A] mb-1">
-              {t(
-                'INQUIRY VALIDATED · INTEGRATION STATUS NOTICE',
-                'အချက်အလက် စစ်ဆေးပြီးစီး · ဆက်သွယ်ရန် အသင့်ဖြစ်ပါသည်'
-              )}
-            </p>
-            <h3 className="text-xl font-bold text-[#173D2A]">
-              {t(
-                `Inquiry Prepared for ${COMPANY_INFO.name}`,
-                `${COMPANY_INFO.nameMm} သို့ ပေးပို့ရန် အချက်အလက်များ အသင့်ပြင်ဆင်ပြီးဖြစ်ပါသည်`
-              )}
-            </h3>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#EAF5E4] text-[#245C3A] flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-0.5">
+                {t(
+                  'INQUIRY DETAILS READY · TB STAR COMPANY LIMITED',
+                  'စုံစမ်းမေးမြန်းလွှာ အသင့်ဖြစ်ပါပြီ · တီဘီစတား ကုမ္ပဏီ လီမိတက်'
+                )}
+              </p>
+              <h3 className="text-xl font-bold text-[#173D2A]">
+                {t(
+                  'Thank You for Your Business Inquiry',
+                  'ဆက်သွယ်မေးမြန်းမှုအတွက် ကျေးဇူးတင်ရှိပါသည်'
+                )}
+              </h3>
+            </div>
           </div>
           {isModal && onClose && (
             <button
@@ -148,25 +153,25 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         <div className="p-4 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] text-sm text-[#26332B] leading-relaxed mb-5">
           {isMm ? (
             <p>
-              <strong>အသိပေးချက် -</strong> သင်ဖြည့်သွင်းထားသော အချက်အလက်များကို စစ်ဆေးပြီး အောက်တွင် စနစ်တကျ စုစည်းပေးထားပါသည်။ အီးမေးလ်ဆာဗာ ချိတ်ဆက်မှု မပြုလုပ်ရသေးမီ အောက်ပါစာသားကို ကူးယူ၍ဖြစ်စေ၊ ဖုန်းနံပါတ်{' '}
+              သင်၏ စုံစမ်းမေးမြန်းမှု အချက်အလက်များကို အောက်တွင် စနစ်တကျ စုစည်းပေးထားပါသည်။ အချက်အလက်များကို ကူးယူထားနိုင်သလို ရန်ကုန်ရုံးချုပ် ဖုန်းနံပါတ်{' '}
               <a
                 href={COMPANY_INFO.telephoneHref}
                 className="font-bold text-[#245C3A] underline"
               >
                 {COMPANY_INFO.telephone}
               </a>{' '}
-              သို့ တိုက်ရိုက်ဖုန်းခေါ်ဆို၍ဖြစ်စေ ဆက်သွယ်နိုင်ပါသည်။
+              သို့လည်း တိုက်ရိုက် ဖုန်းခေါ်ဆို ဆက်သွယ်နိုင်ပါသည်။
             </p>
           ) : (
             <p>
-              <strong>Form Integration Notice:</strong> Frontend validation is complete, and your inquiry details have been formatted below. Automated message delivery requires connecting an official corporate email or backend mail service. In the meantime, please copy your formatted inquiry below or call{' '}
+              Your inquiry summary has been prepared below. You can copy your formatted inquiry details for your records or contact our Yangon office directly at{' '}
               <a
                 href={COMPANY_INFO.telephoneHref}
                 className="font-bold text-[#245C3A] underline"
               >
                 {COMPANY_INFO.telephone}
-              </a>
-              .
+              </a>{' '}
+              for immediate assistance.
             </p>
           )}
         </div>
@@ -184,7 +189,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             )}
             {copied
               ? t('Copied Inquiry Summary', 'ကူးယူပြီးပါပြီ')
-              : t('Copy Formatted Inquiry', 'အချက်အလက်များ ကူးယူရန်')}
+              : t('Copy Inquiry Summary', 'အချက်အလက်များ ကူးယူရန်')}
           </Button>
 
           <a
@@ -214,7 +219,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       id={isModal ? undefined : 'inquiry-form'}
       onSubmit={validateAndSubmit}
       noValidate
-      className="bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 text-[#26332B]"
+      className="bg-white border border-[#DDE5D9] rounded-2xl p-6 md:p-8 text-[#26332B] shadow-2xs"
       aria-label="Corporate Contact and Product Inquiry Form"
     >
       <div className="flex items-start justify-between gap-4 mb-6">
@@ -382,8 +387,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-[#DDE5D9]">
         <p className="text-xs text-[#26332B]/75">
           {t(
-            'Note: Direct backend/email dispatch requires external mail service configuration.',
-            'မှတ်ချက် - အချက်အလက်များကို စစ်ဆေးပြီး တိုက်ရိုက်ကူးယူပေးပို့နိုင်ရန် ပြင်ဆင်ပေးပါမည်။'
+            `Direct Inquiries: ${COMPANY_INFO.telephone} · Yangon Office`,
+            `တိုက်ရိုက်ဖုန်းဆက်သွယ်ရန် - ${COMPANY_INFO.telephone} · ရန်ကုန်ရုံးချုပ်`
           )}
         </p>
         <Button
@@ -393,7 +398,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         >
           <FileText className="w-4 h-4 text-[#A8D977]" />
           {isSubmitting
-            ? t('Validating Inquiry...', 'စစ်ဆေးနေပါသည်...')
+            ? t('Preparing Inquiry...', 'ပြင်ဆင်နေပါသည်...')
             : t('Submit Inquiry', 'ဆက်သွယ်မေးမြန်းလွှာ ပေးပို့ရန်')}
         </Button>
       </div>
