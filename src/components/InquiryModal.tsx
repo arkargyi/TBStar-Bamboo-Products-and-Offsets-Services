@@ -1,0 +1,438 @@
+import React, { useState, useEffect } from 'react';
+import { X, Phone, Copy, Check, FileText } from 'lucide-react';
+import {
+  COMPANY_INFO,
+  INQUIRY_TYPE_OPTIONS,
+  InquiryTypeOption,
+} from '../data/companyData';
+import { Button, ErrorMessage } from './SharedUI';
+import { INQUIRY_TYPE_LABELS, useLanguage } from '../context/LanguageContext';
+
+export type { InquiryTypeOption };
+export { INQUIRY_TYPE_OPTIONS };
+
+interface ContactFormProps {
+  selectedInquiryType: InquiryTypeOption;
+  onSelectInquiryType?: (type: InquiryTypeOption) => void;
+  onClose?: () => void;
+  isModal?: boolean;
+}
+
+export const ContactForm: React.FC<ContactFormProps> = ({
+  selectedInquiryType,
+  onSelectInquiryType,
+  onClose,
+  isModal = false,
+}) => {
+  const { isMm, t } = useLanguage();
+  const [name, setName] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [inquiryType, setInquiryType] = useState<InquiryTypeOption>(selectedInquiryType);
+  const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [submittedSummary, setSubmittedSummary] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    setInquiryType(selectedInquiryType);
+  }, [selectedInquiryType]);
+
+  const handleCategoryChange = (value: InquiryTypeOption) => {
+    setInquiryType(value);
+    if (onSelectInquiryType) {
+      onSelectInquiryType(value);
+    }
+  };
+
+  const validateAndSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+
+    if (!name.trim()) {
+      setErrorMessage(
+        t('Please enter your Full Name.', 'သင်၏ အမည်အပြည့်အစုံကို ထည့်သွင်းပေးပါ။')
+      );
+      return;
+    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.trim())) {
+      setErrorMessage(
+        t('Please enter a valid Email Address.', 'မှန်ကန်သော အီးမေးလ်လိပ်စာ ထည့်သွင်းပေးပါ။')
+      );
+      return;
+    }
+    const phonePattern = /^[0-9+\-\s()]{6,22}$/;
+    if (!phonePattern.test(phone.trim())) {
+      setErrorMessage(
+        t('Please enter a valid Phone Number.', 'မှန်ကန်သော ဖုန်းနံပါတ် ထည့်သွင်းပေးပါ။')
+      );
+      return;
+    }
+    if (message.trim().length < 10) {
+      setErrorMessage(
+        t(
+          'Please enter a Message describing your product or printing inquiry (at least 10 characters).',
+          'မေးမြန်းလိုသော အကြောင်းအရာကို အနည်းဆုံး စာလုံးရေ ၁၀ လုံး ရေးသားပေးပါ။'
+        )
+      );
+      return;
+    }
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      const label = isMm
+        ? INQUIRY_TYPE_LABELS[inquiryType].mm
+        : INQUIRY_TYPE_LABELS[inquiryType].en;
+      const summaryText = [
+        `INQUIRY FOR: ${COMPANY_INFO.name}`,
+        `Inquiry Type: ${label}`,
+        `Full Name: ${name.trim()}`,
+        `Company Name: ${companyName.trim() || 'Not specified'}`,
+        `Email Address: ${email.trim()}`,
+        `Phone Number: ${phone.trim()}`,
+        `Message / Specifications:`,
+        message.trim(),
+      ].join('\n');
+
+      setIsSubmitting(false);
+      setSubmittedSummary(summaryText);
+    }, 350);
+  };
+
+  const handleCopySummary = async () => {
+    if (!submittedSummary) return;
+    try {
+      await navigator.clipboard.writeText(submittedSummary);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  const prefix = isModal ? 'modal' : 'page';
+
+  if (submittedSummary) {
+    return (
+      <div className="bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 text-[#26332B]">
+        <div className="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <p className="text-xs font-mono-tabular text-[#245C3A] mb-1">
+              {t(
+                'INQUIRY VALIDATED · INTEGRATION STATUS NOTICE',
+                'အချက်အလက် စစ်ဆေးပြီးစီး · ဆက်သွယ်ရန် အသင့်ဖြစ်ပါသည်'
+              )}
+            </p>
+            <h3 className="text-xl font-bold text-[#173D2A]">
+              {t(
+                `Inquiry Prepared for ${COMPANY_INFO.name}`,
+                `${COMPANY_INFO.nameMm} သို့ ပေးပို့ရန် အချက်အလက်များ အသင့်ပြင်ဆင်ပြီးဖြစ်ပါသည်`
+              )}
+            </h3>
+          </div>
+          {isModal && onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-2 text-[#26332B]/70 hover:text-[#173D2A] rounded-lg transition-colors cursor-pointer"
+              aria-label="Close inquiry modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
+        </div>
+
+        <div className="p-4 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] text-sm text-[#26332B] leading-relaxed mb-5">
+          {isMm ? (
+            <p>
+              <strong>အသိပေးချက် -</strong> သင်ဖြည့်သွင်းထားသော အချက်အလက်များကို စစ်ဆေးပြီး အောက်တွင် စနစ်တကျ စုစည်းပေးထားပါသည်။ အီးမေးလ်ဆာဗာ ချိတ်ဆက်မှု မပြုလုပ်ရသေးမီ အောက်ပါစာသားကို ကူးယူ၍ဖြစ်စေ၊ ဖုန်းနံပါတ်{' '}
+              <a
+                href={COMPANY_INFO.telephoneHref}
+                className="font-bold text-[#245C3A] underline"
+              >
+                {COMPANY_INFO.telephone}
+              </a>{' '}
+              သို့ တိုက်ရိုက်ဖုန်းခေါ်ဆို၍ဖြစ်စေ ဆက်သွယ်နိုင်ပါသည်။
+            </p>
+          ) : (
+            <p>
+              <strong>Form Integration Notice:</strong> Frontend validation is complete, and your inquiry details have been formatted below. Automated message delivery requires connecting an official corporate email or backend mail service. In the meantime, please copy your formatted inquiry below or call{' '}
+              <a
+                href={COMPANY_INFO.telephoneHref}
+                className="font-bold text-[#245C3A] underline"
+              >
+                {COMPANY_INFO.telephone}
+              </a>
+              .
+            </p>
+          )}
+        </div>
+
+        <pre className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg p-4 text-xs font-mono-tabular text-[#173D2A] whitespace-pre-wrap mb-6 overflow-x-auto">
+          {submittedSummary}
+        </pre>
+
+        <div className="flex flex-wrap items-center gap-3">
+          <Button type="button" variant="primary-dark" onClick={handleCopySummary}>
+            {copied ? (
+              <Check className="w-4 h-4 text-[#A8D977]" />
+            ) : (
+              <Copy className="w-4 h-4 text-[#A8D977]" />
+            )}
+            {copied
+              ? t('Copied Inquiry Summary', 'ကူးယူပြီးပါပြီ')
+              : t('Copy Formatted Inquiry', 'အချက်အလက်များ ကူးယူရန်')}
+          </Button>
+
+          <a
+            href={COMPANY_INFO.telephoneHref}
+            className="px-5 py-2.5 bg-[#A8D977] hover:bg-[#97cc64] text-[#173D2A] text-sm font-semibold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+          >
+            <Phone className="w-4 h-4" />
+            {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
+          </a>
+
+          <Button
+            type="button"
+            variant="outline-dark"
+            onClick={() => {
+              setSubmittedSummary(null);
+            }}
+          >
+            {t('Edit Inquiry Details', 'ပြန်လည်ပြင်ဆင်ရန်')}
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      id={isModal ? undefined : 'inquiry-form'}
+      onSubmit={validateAndSubmit}
+      noValidate
+      className="bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 text-[#26332B]"
+      aria-label="Corporate Contact and Product Inquiry Form"
+    >
+      <div className="flex items-start justify-between gap-4 mb-6">
+        <div>
+          <p className="text-xs text-[#245C3A] font-medium mb-1">
+            {t(
+              'Bamboo Export & Offset Printing Inquiry',
+              'ဝါးပို့ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း စုံစမ်းမေးမြန်းလွှာ'
+            )}
+          </p>
+          <h3 className="text-xl md:text-2xl font-bold text-[#173D2A]">
+            {t(
+              `Send an Inquiry to ${COMPANY_INFO.name}`,
+              'တီဘီစတား ကုမ္ပဏီ လီမိတက်သို့ ဆက်သွယ်မေးမြန်းရန်'
+            )}
+          </h3>
+        </div>
+        {isModal && onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-2 text-[#26332B]/70 hover:text-[#173D2A] rounded-lg transition-colors cursor-pointer"
+            aria-label="Close modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
+      </div>
+
+      {errorMessage && (
+        <div className="mb-6">
+          <ErrorMessage
+            message={errorMessage}
+            onDismiss={() => setErrorMessage(null)}
+          />
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label
+            htmlFor={`full-name-${prefix}`}
+            className="block text-xs font-semibold text-[#173D2A] mb-1.5"
+          >
+            {t('Full Name', 'အမည်အပြည့်အစုံ')} <span className="text-red-600">*</span>
+          </label>
+          <input
+            id={`full-name-${prefix}`}
+            name="fullName"
+            type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder={t('Your Full Name', 'သင်၏ အမည်')}
+            className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor={`company-name-${prefix}`}
+            className="block text-xs font-semibold text-[#173D2A] mb-1.5"
+          >
+            {t('Company Name', 'ကုမ္ပဏီ / လုပ်ငန်းအမည်')}{' '}
+            <span className="text-[#26332B]/60 font-normal">
+              {t('(optional)', '(ထည့်သွင်းနိုင်သည်)')}
+            </span>
+          </label>
+          <input
+            id={`company-name-${prefix}`}
+            name="companyName"
+            type="text"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
+            placeholder={t('Company or Business Name', 'ကုမ္ပဏီ သို့မဟုတ် လုပ်ငန်းအမည်')}
+            className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label
+            htmlFor={`email-${prefix}`}
+            className="block text-xs font-semibold text-[#173D2A] mb-1.5"
+          >
+            {t('Email Address', 'အီးမေးလ်လိပ်စာ')} <span className="text-red-600">*</span>
+          </label>
+          <input
+            id={`email-${prefix}`}
+            name="email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="name@company.com"
+            className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor={`phone-${prefix}`}
+            className="block text-xs font-semibold text-[#173D2A] mb-1.5"
+          >
+            {t('Phone Number', 'ဖုန်းနံပါတ်')} <span className="text-red-600">*</span>
+          </label>
+          <input
+            id={`phone-${prefix}`}
+            name="phone"
+            type="tel"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder={t('+95 9 ... or International Number', '+95 9 ... သို့မဟုတ် ဆက်သွယ်ရန်ဖုန်း')}
+            className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors"
+          />
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <label
+          htmlFor={`inquiry-type-${prefix}`}
+          className="block text-xs font-semibold text-[#173D2A] mb-1.5"
+        >
+          {t('Inquiry Type', 'မေးမြန်းလိုသည့် ကဏ္ဍ')} <span className="text-red-600">*</span>
+        </label>
+        <select
+          id={`inquiry-type-${prefix}`}
+          name="inquiryType"
+          value={inquiryType}
+          onChange={(e) => handleCategoryChange(e.target.value as InquiryTypeOption)}
+          className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors"
+        >
+          {INQUIRY_TYPE_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {isMm ? INQUIRY_TYPE_LABELS[option].mm : INQUIRY_TYPE_LABELS[option].en}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="mb-5">
+        <label
+          htmlFor={`message-${prefix}`}
+          className="block text-xs font-semibold text-[#173D2A] mb-1.5"
+        >
+          {t('Message', 'မေးမြန်းလိုသည့် အကြောင်းအရာ အသေးစိတ်')} <span className="text-red-600">*</span>
+        </label>
+        <textarea
+          id={`message-${prefix}`}
+          name="message"
+          rows={4}
+          required
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder={t(
+            'Specify product dimensions (e.g., Bamboo Split 3 mm with/without nodes, Bamboo Sticks 8"/9"/10" in 30 kg bags, or Books / Voucher Books Offset Printing requirements)...',
+            'လိုအပ်သော ကုန်ပစ္စည်းအရွယ်အစား (ဥပမာ - 3 mm ဝါးခြမ်း အဆစ်ပါ/အဆစ်မပါ၊ 30 kg အိတ်သွင်း ဝါးတံ ၈"/၉"/၁၀" သို့မဟုတ် စာအုပ်နှင့် ဘောင်ချာစာအုပ် ပုံနှိပ်လိုအပ်ချက်များ) ကို ရေးသားပေးပါ...'
+          )}
+          className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors resize-y"
+        />
+      </div>
+
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-[#DDE5D9]">
+        <p className="text-xs text-[#26332B]/75">
+          {t(
+            'Note: Direct backend/email dispatch requires external mail service configuration.',
+            'မှတ်ချက် - အချက်အလက်များကို စစ်ဆေးပြီး တိုက်ရိုက်ကူးယူပေးပို့နိုင်ရန် ပြင်ဆင်ပေးပါမည်။'
+          )}
+        </p>
+        <Button
+          type="submit"
+          variant="primary-dark"
+          isLoading={isSubmitting}
+        >
+          <FileText className="w-4 h-4 text-[#A8D977]" />
+          {isSubmitting
+            ? t('Validating Inquiry...', 'စစ်ဆေးနေပါသည်...')
+            : t('Submit Inquiry', 'ဆက်သွယ်မေးမြန်းလွှာ ပေးပို့ရန်')}
+        </Button>
+      </div>
+    </form>
+  );
+};
+
+export const InquiryForm = ContactForm;
+
+interface InquiryModalProps {
+  isOpen: boolean;
+  defaultInquiryType: InquiryTypeOption;
+  onSelectInquiryType?: (type: InquiryTypeOption) => void;
+  onClose: () => void;
+}
+
+export const InquiryModal: React.FC<InquiryModalProps> = ({
+  isOpen,
+  defaultInquiryType,
+  onSelectInquiryType,
+  onClose,
+}) => {
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#173D2A]/75 backdrop-blur-xs overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Business Inquiry Dialog"
+    >
+      <div className="w-full max-w-2xl my-8">
+        <ContactForm
+          selectedInquiryType={defaultInquiryType}
+          onSelectInquiryType={onSelectInquiryType}
+          onClose={onClose}
+          isModal={true}
+        />
+      </div>
+    </div>
+  );
+};

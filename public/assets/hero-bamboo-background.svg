@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Deep Forest Base Gradient -->
+    <linearGradient id="forestCanvas" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2216" />
+      <stop offset="42%" stop-color="#143624" />
+      <stop offset="78%" stop-color="#1D4B32" />
+      <stop offset="100%" stop-color="#102C1D" />
+    </linearGradient>
+
+    <!-- Golden Hour Canopy Sunlight -->
+    <radialGradient id="canopyLight" cx="76%" cy="18%" r="62%">
+      <stop offset="0%" stop-color="#D4F0A8" stop-opacity="0.42" />
+      <stop offset="35%" stop-color="#A8D977" stop-opacity="0.22" />
+      <stop offset="70%" stop-color="#245C3A" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0B2216" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Warm Natural Split Bamboo Glow -->
+    <radialGradient id="splitBambooWarmth" cx="82%" cy="82%" r="50%">
+      <stop offset="0%" stop-color="#E6DFC8" stop-opacity="0.26" />
+      <stop offset="55%" stop-color="#C8B682" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#143624" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Cylindrical 3D Shading for Primary Bamboo Culms -->
+    <linearGradient id="culmCylinderPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#173D2A" />
+      <stop offset="22%" stop-color="#35734A" />
+      <stop offset="58%" stop-color="#8BC355" />
+      <stop offset="78%" stop-color="#B8E28A" />
+      <stop offset="92%" stop-color="#4A8548" />
+      <stop offset="100%" stop-color="#123020" />
+    </linearGradient>
+
+    <!-- Cylindrical 3D Shading for Secondary Bamboo Culms -->
+    <linearGradient id="culmCylinderSecondary" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#112E1F" />
+      <stop offset="30%" stop-color="#285E3B" />
+      <stop offset="68%" stop-color="#6EA856" />
+      <stop offset="86%" stop-color="#9BD06B" />
+      <stop offset="100%" stop-color="#143523" />
+    </linearGradient>
+
+    <!-- Warm Seasoned / Split Bamboo Strips Gradient -->
+    <linearGradient id="seasonedBamboo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#78683E" />
+      <stop offset="35%" stop-color="#CBB882" />
+      <stop offset="68%" stop-color="#EFE8D4" />
+      <stop offset="90%" stop-color="#B5A068" />
+      <stop offset="100%" stop-color="#5E502D" />
+    </linearGradient>
+
+    <!-- Sunbeam Ray Gradient -->
+    <linearGradient id="sunRay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4F0A8" stop-opacity="0.20" />
+      <stop offset="55%" stop-color="#A8D977" stop-opacity="0.07" />
+      <stop offset="100%" stop-color="#A8D977" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Subtle Architectural Grid -->
+    <pattern id="fineGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#A8D977" stroke-width="0.5" stroke-opacity="0.09" />
+    </pattern>
+  </defs>
+
+  <!-- 1. Base Canvas & Atmospheric Lighting -->
+  <rect width="1920" height="1080" fill="url(#forestCanvas)" />
+  <rect width="1920" height="1080" fill="url(#fineGrid)" />
+  <rect width="1920" height="1080" fill="url(#canopyLight)" />
+  <rect width="1920" height="1080" fill="url(#splitBambooWarmth)" />
+
+  <!-- 2. Soft Bokeh Canopy Light Orbs in Background -->
+  <g fill="#A8D977">
+    <circle cx="1340" cy="190" r="95" opacity="0.07" />
+    <circle cx="1520" cy="140" r="130" opacity="0.06" />
+    <circle cx="1180" cy="310" r="70" opacity="0.05" />
+    <circle cx="1680" cy="380" r="110" opacity="0.06" />
+    <circle cx="1440" cy="640" r="85" opacity="0.05" />
+  </g>
+
+  <!-- 3. Diagonal Sunlight Beams -->
+  <g>
+    <polygon points="980,0 1320,0 760,1080 460,1080" fill="url(#sunRay)" />
+    <polygon points="1360,0 1720,0 1180,1080 860,1080" fill="url(#sunRay)" />
+    <polygon points="1740,0 1920,0 1920,460 1540,1080 1260,1080" fill="url(#sunRay)" />
+  </g>
+
+  <!-- 4. Distant Mist Bamboo Grove (Soft Depth Layer) -->
+  <g opacity="0.24" fill="#467E46">
+    <rect x="640" y="-40" width="18" height="1160" transform="rotate(1.5 640 540)" />
+    <rect x="740" y="-40" width="22" height="1160" transform="rotate(-1 740 540)" />
+    <rect x="850" y="-40" width="26" height="1160" transform="rotate(2 850 540)" />
+    <rect x="960" y="-40" width="20" height="1160" transform="rotate(-1.8 960 540)" />
+    <rect x="1090" y="-40" width="28" height="1160" transform="rotate(1.2 1090 540)" />
+    <rect x="1260" y="-40" width="24" height="1160" transform="rotate(-2.2 1260 540)" />
+    <rect x="1450" y="-40" width="30" height="1160" transform="rotate(1.6 1450 540)" />
+    <rect x="1640" y="-40" width="24" height="1160" transform="rotate(-1.2 1640 540)" />
+    <rect x="1810" y="-40" width="28" height="1160" transform="rotate(2 1810 540)" />
+  </g>
+
+  <!-- 5. Midground & Foreground Detailed Myanmar Bamboo Culms -->
+  <g opacity="0.72">
+    <!-- Stalk A (Center-Right Midground) -->
+    <g transform="translate(990, -30) rotate(2.8)">
+      <rect x="0" y="0" width="36" height="1150" fill="url(#culmCylinderSecondary)" />
+      <rect x="-3" y="160" width="42" height="6" rx="3" fill="#0E2619" />
+      <rect x="-3" y="166" width="42" height="3" rx="1.5" fill="#A8D977" opacity="0.75" />
+      <rect x="-3" y="420" width="42" height="6" rx="3" fill="#0E2619" />
+      <rect x="-3" y="426" width="42" height="3" rx="1.5" fill="#A8D977" opacity="0.75" />
+      <rect x="-3" y="680" width="42" height="6" rx="3" fill="#0E2619" />
+      <rect x="-3" y="686" width="42" height="3" rx="1.5" fill="#A8D977" opacity="0.75" />
+      <rect x="-3" y="940" width="42" height="6" rx="3" fill="#0E2619" />
+    </g>
+
+    <!-- Stalk B (Primary Sunlit Culm) -->
+    <g transform="translate(1150, -40) rotate(-1.8)">
+      <rect x="0" y="0" width="52" height="1160" fill="url(#culmCylinderPrimary)" />
+      <rect x="-4" y="130" width="60" height="8" rx="4" fill="#0E2619" />
+      <rect x="-4" y="138" width="60" height="4" rx="2" fill="#E6DFC8" opacity="0.85" />
+      <rect x="-4" y="395" width="60" height="8" rx="4" fill="#0E2619" />
+      <rect x="-4" y="403" width="60" height="4" rx="2" fill="#E6DFC8" opacity="0.85" />
+      <rect x="-4" y="665" width="60" height="8" rx="4" fill="#0E2619" />
+      <rect x="-4" y="673" width="60" height="4" rx="2" fill="#E6DFC8" opacity="0.85" />
+      <rect x="-4" y="935" width="60" height="8" rx="4" fill="#0E2619" />
+    </g>
+
+    <!-- Stalk C (Seasoned Split Bamboo Tone) -->
+    <g transform="translate(1310, -30) rotate(3.2)">
+      <rect x="0" y="0" width="38" height="1150" fill="url(#seasonedBamboo)" opacity="0.85" />
+      <rect x="-3" y="210" width="44" height="7" rx="3" fill="#3D331B" />
+      <rect x="-3" y="485" width="44" height="7" rx="3" fill="#3D331B" />
+      <rect x="-3" y="760" width="44" height="7" rx="3" fill="#3D331B" />
+    </g>
+
+    <!-- Stalk D (Tall Green Culm) -->
+    <g transform="translate(1445, -30) rotate(-0.8)">
+      <rect x="0" y="0" width="46" height="1150" fill="url(#culmCylinderSecondary)" />
+      <rect x="-4" y="240" width="54" height="7" rx="3" fill="#0E2619" />
+      <rect x="-4" y="247" width="54" height="3.5" rx="1.5" fill="#A8D977" opacity="0.85" />
+      <rect x="-4" y="530" width="54" height="7" rx="3" fill="#0E2619" />
+      <rect x="-4" y="537" width="54" height="3.5" rx="1.5" fill="#A8D977" opacity="0.85" />
+      <rect x="-4" y="820" width="54" height="7" rx="3" fill="#0E2619" />
+      <rect x="-4" y="827" width="54" height="3.5" rx="1.5" fill="#A8D977" opacity="0.85" />
+    </g>
+
+    <!-- Stalk E (Foreground Prominent Culm) -->
+    <g transform="translate(1615, -50) rotate(-3.4)">
+      <rect x="0" y="0" width="62" height="1180" fill="url(#culmCylinderPrimary)" />
+      <rect x="-5" y="185" width="72" height="9" rx="4" fill="#0B2216" />
+      <rect x="-5" y="194" width="72" height="4" rx="2" fill="#E6DFC8" opacity="0.9" />
+      <rect x="-5" y="485" width="72" height="9" rx="4" fill="#0B2216" />
+      <rect x="-5" y="494" width="72" height="4" rx="2" fill="#E6DFC8" opacity="0.9" />
+      <rect x="-5" y="785" width="72" height="9" rx="4" fill="#0B2216" />
+      <rect x="-5" y="794" width="72" height="4" rx="2" fill="#E6DFC8" opacity="0.9" />
+    </g>
+
+    <!-- Stalk F (Far Right Warm Split Strip Bundle) -->
+    <g transform="translate(1790, -30) rotate(1.5)">
+      <rect x="0" y="0" width="48" height="1150" fill="url(#seasonedBamboo)" opacity="0.8" />
+      <rect x="-3" y="290" width="54" height="8" rx="3" fill="#3D331B" />
+      <rect x="-3" y="590" width="54" height="8" rx="3" fill="#3D331B" />
+      <rect x="-3" y="890" width="54" height="8" rx="3" fill="#3D331B" />
+    </g>
+  </g>
+
+  <!-- 6. Detailed Bamboo Foliage & Leaf Sprays -->
+  <g fill="#A8D977" opacity="0.42">
+    <path d="M1145,138 Q1065,102 995,152 Q1075,168 1145,138 Z" />
+    <path d="M1145,144 Q1055,158 985,218 Q1072,198 1145,144 Z" />
+    <path d="M1208,136 Q1285,98 1358,144 Q1282,162 1208,136 Z" />
+    <path d="M1440,245 Q1525,205 1600,255 Q1515,278 1440,245 Z" />
+    <path d="M1440,252 Q1512,268 1572,328 Q1492,306 1440,252 Z" />
+    <path d="M1610,192 Q1530,155 1455,205 Q1538,224 1610,192 Z" />
+    <path d="M1675,492 Q1760,455 1840,505 Q1755,528 1675,492 Z" />
+    <path d="M985,425 Q905,392 835,442 Q918,458 985,425 Z" />
+    <path d="M1145,402 Q1068,372 1002,418 Q1080,432 1145,402 Z" />
+  </g>
+</svg>

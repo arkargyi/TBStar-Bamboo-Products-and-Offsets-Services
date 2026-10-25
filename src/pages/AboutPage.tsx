@@ -1,0 +1,415 @@
+import React from 'react';
+import { ArrowRight, Check, MapPin, Phone } from 'lucide-react';
+import {
+  COMPANY_INFO,
+  InquiryTypeOption,
+  PageRoute,
+  PROPOSED_CORPORATE_VALUES,
+} from '../data/companyData';
+import { VisualAssetFrame } from '../components/VisualAssetFrame';
+import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
+import { ContactCTA } from '../components/CatalogComponents';
+import { useLanguage } from '../context/LanguageContext';
+
+interface AboutPageProps {
+  onNavigate: (route: PageRoute) => void;
+  onInquireWithCategory: (type: InquiryTypeOption, navigateToContact?: boolean) => void;
+}
+
+export const AboutPage: React.FC<AboutPageProps> = ({
+  onNavigate,
+  onInquireWithCategory,
+}) => {
+  const { isMm, t } = useLanguage();
+
+  return (
+    <div>
+      {/* Page Hero with Breadcrumbs */}
+      <HeroSection
+        breadcrumbs={[
+          { label: 'Home', route: '/' },
+          { label: 'About Us', route: '/about' },
+        ]}
+        onNavigate={onNavigate}
+        kicker="Corporate Profile · Kyauktada Township, Yangon, Myanmar"
+        kickerMm="ကုမ္ပဏီအချက်အလက် · ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ"
+        title={`About ${COMPANY_INFO.name}`}
+        titleMm="တီဘီစတား ကုမ္ပဏီ လီမိတက် အကြောင်း"
+        description="TB Star Company Limited operates across two core business divisions—Bamboo Production & Export and One-Stop Offset Printing Services—serving domestic customers in Myanmar and international buyers."
+        descriptionMm="တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited) သည် သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်တင်ပို့ခြင်းလုပ်ငန်းနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း ဟူသော အဓိကကဏ္ဍကြီး (၂) ခုဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာဝယ်ယူသူများအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။"
+        actions={
+          <>
+            <Button
+              type="button"
+              variant="primary-light"
+              onClick={() => onNavigate('/bamboo-products')}
+            >
+              {t('View Bamboo Products', 'ဝါးထုတ်ကုန်များ ကြည့်ရှုရန်')}
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+            <Button
+              type="button"
+              variant="outline-light"
+              onClick={() => onNavigate('/printing-services')}
+            >
+              {t('Offset Printing Services', 'အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများ')}
+            </Button>
+          </>
+        }
+      />
+
+      {/* Section 1: Company Introduction & Official Profile Table */}
+      <section className="py-20 bg-white border-b border-[#DDE5D9]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-medium text-[#245C3A] mb-2">
+                {t(
+                  '01. Company Introduction & Business Overview',
+                  '၀၁။ ကုမ္ပဏီမိတ်ဆက်နှင့် လုပ်ငန်းအကျဉ်းချုပ်'
+                )}
+              </p>
+              <h2
+                className="text-2xl sm:text-4xl font-bold text-[#173D2A] tracking-tight mb-6"
+                style={{ textWrap: 'balance' }}
+              >
+                {t(
+                  'A Dual-Division Enterprise Focused on Natural Bamboo & Commercial Printing',
+                  'သဘာဝဝါးထုတ်ကုန်လုပ်ငန်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု လုပ်ငန်းကြီး (၂) ခု ပေါင်းစပ်ဆောင်ရွက်နေသော ကုမ္ပဏီ'
+                )}
+              </h2>
+
+              <div className="space-y-4 text-base text-[#26332B]/90 leading-relaxed">
+                <p>
+                  {isMm ? (
+                    <>
+                      <strong>တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited)</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower၊ (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် ရုံးချုပ်ဖွင့်လှစ်ထားသော ကုမ္ပဏီတစ်ခု ဖြစ်ပါသည်။
+                    </>
+                  ) : (
+                    <>
+                      <strong>{COMPANY_INFO.name}</strong> is a corporate enterprise headquartered at Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar.
+                    </>
+                  )}
+                </p>
+                <p>
+                  {t(
+                    'Our company is structured into two specialized business divisions so that both international commodity buyers and local commercial clients receive dedicated support:',
+                    'ပြည်တွင်းနှင့် နိုင်ငံတကာမှ ဝယ်ယူသူများအား စနစ်တကျ ဝန်ဆောင်မှုပေးနိုင်ရန် အောက်ပါ အဓိက စီးပွားရေးလုပ်ငန်းကဏ္ဍကြီး (၂) ခုဖြင့် ဖွဲ့စည်းဆောင်ရွက်လျက်ရှိပါသည် -'
+                  )}
+                </p>
+                <ul className="space-y-4 pt-2">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-[#245C3A] shrink-0 mt-0.5" />
+                    <div>
+                      {isMm ? (
+                        <p>
+                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (က) — ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း -</strong> မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks) နှင့် အခြားဝါးထုတ်ကုန်များကို ထုတ်လုပ်ပြီး ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာစျေးကွက်သို့ တင်ပို့ရောင်းချခြင်း။
+                        </p>
+                      ) : (
+                        <p>
+                          <strong>Business Division A — Bamboo Production and Export:</strong> Manufacturing 100% natural Myanmar bamboo products (including Bamboo Split, Bamboo Sticks, and other bamboo products), exporting to international markets, and distributing products locally within Myanmar.
+                        </p>
+                      )}
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-[#245C3A] shrink-0 mt-0.5" />
+                    <div>
+                      {isMm ? (
+                        <p>
+                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (ခ) — အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း -</strong> စာအုပ်ပုံနှိပ်ခြင်း (Books Printing)၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်း (Voucher Books Printing) နှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများကို တစ်နေရာတည်းတွင် အပြီးအစီး (One-Stop Service) ဆောင်ရွက်ပေးခြင်း။
+                        </p>
+                      ) : (
+                        <p>
+                          <strong>Business Division B — Offset Printing Services:</strong> Providing one-stop offset printing services covering Books Printing, Voucher Books Printing, and other commercial offset printing needs.
+                        </p>
+                      )}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Verified Corporate Profile Card */}
+            <div className="lg:col-span-5 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8">
+              <div className="flex items-center gap-4 pb-5 mb-5 border-b border-[#DDE5D9]">
+                <img
+                  src={COMPANY_INFO.logoPath}
+                  alt="TB Star Company Limited Official Logo"
+                  referrerPolicy="no-referrer"
+                  className="w-16 h-16 rounded-full object-contain bg-white p-1 border border-[#DDE5D9] shrink-0"
+                />
+                <div>
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
+                    {t('OFFICIAL CORPORATE INFORMATION', 'တရားဝင် ကုမ္ပဏီအချက်အလက်များ')}
+                  </p>
+                  <h3 className="text-lg font-bold text-[#173D2A]">
+                    {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
+                  </h3>
+                </div>
+              </div>
+
+              <dl className="space-y-4 text-sm">
+                <div>
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Company Name', 'ကုမ္ပဏီအမည်')}
+                  </dt>
+                  <dd className="text-[#173D2A] font-bold mt-0.5">
+                    {t(COMPANY_INFO.name, COMPANY_INFO.nameMm)}
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9]">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Office Address', 'ရုံးချုပ်လိပ်စာ')}
+                  </dt>
+                  <dd className="text-[#173D2A] font-medium mt-0.5 leading-snug">
+                    {t(COMPANY_INFO.address.full, COMPANY_INFO.address.fullMm)}
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Contact Number', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ်')}
+                  </dt>
+                  <dd className="font-mono-tabular font-bold text-[#173D2A]">
+                    <a href={COMPANY_INFO.telephoneHref} className="hover:underline">
+                      {COMPANY_INFO.telephone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Preferred Domain', 'ဝဘ်ဆိုက်ဒိုမိန်း')}
+                  </dt>
+                  <dd className="font-mono-tabular font-semibold text-[#245C3A]">
+                    {COMPANY_INFO.domain}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Detailed Breakdown of Core Business Activities */}
+      <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="02. Operational Scope"
+            kickerMm="၀၂။ လုပ်ငန်းဆောင်ရွက်မှု နယ်ပယ်"
+            title="Core Business Activities & Market Coverage"
+            titleMm="အဓိက လုပ်ငန်းဆောင်ရွက်မှုများနှင့် စျေးကွက်ဖြန့်ကျက်မှု"
+            description="An organized breakdown of our manufacturing, domestic distribution, export, and commercial offset printing activities."
+            descriptionMm="သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်ခြင်း၊ ပြည်တွင်းဖြန့်ဖြူးခြင်း၊ ပြည်ပတင်ပို့ခြင်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများကို ကဏ္ဍအလိုက် စနစ်တကျ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            {/* Activity 1: Bamboo Production & International Export */}
+            <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between">
+              <div>
+                <VisualAssetFrame
+                  type="bamboo-split"
+                  aspectClassName="aspect-[16/10]"
+                  label={t(
+                    'Temporary Preview — Replace with TB Star Bamboo Production Photo',
+                    'ယာယီ နမူနာပုံစံ — ဝါးထုတ်လုပ်မှု ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                  )}
+                />
+                <div className="p-6">
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                    {t('DIVISION A · PRODUCTION & EXPORT', 'လုပ်ငန်းကဏ္ဍ (က) · ထုတ်လုပ်ရေးနှင့် ပို့ကုန်')}
+                  </p>
+                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                    {t(
+                      'Bamboo Production & Export Activities',
+                      'ဝါးထုတ်ကုန် ထုတ်လုပ်ခြင်းနှင့် ပြည်ပတင်ပို့ခြင်း'
+                    )}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed">
+                    {t(
+                      'We manufacture 100% natural bamboo products originating in Myanmar—featuring 3 mm Bamboo Split (20" to 48", With Nodes or Without Nodes) and Bamboo Sticks (1.2 mm to 2.5 mm, 8"/9"/10", packed at 30 kg per bag)—prepared for international export markets.',
+                      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 3 mm ဝါးခြမ်းပြားများ (၂၀"–၄၈"၊ အဆစ်ပါ/အဆစ်မပါ) နှင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော ဝါးတံများ (၈"၊ ၉"၊ ၁၀") ကို နိုင်ငံတကာ ပို့ကုန်စျေးကွက်သို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။'
+                    )}
+                  </p>
+                </div>
+              </div>
+              <div className="px-6 pb-6">
+                <Button
+                  type="button"
+                  variant="outline-dark"
+                  size="sm"
+                  className="w-full"
+                  onClick={() => onNavigate('/bamboo-products')}
+                >
+                  {t('Inspect Bamboo Specifications', 'ဝါးထုတ်ကုန် စံချိန်စံညွှန်း ကြည့်ရှုရန်')}
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Activity 2: Domestic Distribution in Myanmar */}
+            <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between">
+              <div>
+                <VisualAssetFrame
+                  type="bamboo-custom"
+                  aspectClassName="aspect-[16/10]"
+                  label={t(
+                    'Temporary Preview — Replace with TB Star Distribution Photo',
+                    'ယာယီ နမူနာပုံစံ — ပြည်တွင်းဖြန့်ဖြူးရေး ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                  )}
+                />
+                <div className="p-6">
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                    {t('DOMESTIC SUPPLY · MYANMAR MARKET', 'ပြည်တွင်းဖြန့်ဖြူးရေး · မြန်မာ့စျေးကွက်')}
+                  </p>
+                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                    {t(
+                      'Domestic Distribution Activities',
+                      'မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက်သို့ ဖြန့်ဖြူးပေးခြင်း'
+                    )}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed">
+                    {t(
+                      `Alongside international export, ${COMPANY_INFO.name} distributes bamboo products locally within Myanmar, providing reliable supply to domestic commercial buyers, agricultural users, and industrial customers from our Yangon office.`,
+                      'နိုင်ငံတကာသို့ တင်ပို့ရုံသာမက မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက်ရှိ လုပ်ငန်းရှင်များနှင့် ဝယ်ယူသူများအတွက်လည်း အရည်အသွေးမီ ဝါးထုတ်ကုန်ပစ္စည်းများကို ရန်ကုန်ရုံးချုပ်မှတစ်ဆင့် ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။'
+                    )}
+                  </p>
+                </div>
+              </div>
+              <div className="px-6 pb-6">
+                <Button
+                  type="button"
+                  variant="outline-dark"
+                  size="sm"
+                  className="w-full"
+                  onClick={() => onInquireWithCategory('Other Bamboo Products', true)}
+                >
+                  {t('Inquire About Domestic Supply', 'ပြည်တွင်းဖြန့်ဖြူးရေး မေးမြန်းရန်')}
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Activity 3: One-Stop Offset Printing Services */}
+            <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden flex flex-col justify-between">
+              <div>
+                <VisualAssetFrame
+                  type="books-printing"
+                  aspectClassName="aspect-[16/10]"
+                  label={t(
+                    'Temporary Preview — Replace with TB Star Offset Printing Photo',
+                    'ယာယီ နမူနာပုံစံ — ပုံနှိပ်လုပ်ငန်း ဓာတ်ပုံဖြင့် အစားထိုးရန်'
+                  )}
+                />
+                <div className="p-6">
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                    {t('DIVISION B · COMMERCIAL PRESS', 'လုပ်ငန်းကဏ္ဍ (ခ) · အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း')}
+                  </p>
+                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                    {t(
+                      'One-Stop Offset Printing Services',
+                      'တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု'
+                    )}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed">
+                    {t(
+                      'Our Offset Printing Services division provides one-stop printing solutions for Books Printing, Voucher Books Printing, and other offset printing services—supporting businesses, publishers, and organizations in Yangon.',
+                      'စာအုပ်ပုံနှိပ်ခြင်း၊ လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်းနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများကို တစ်နေရာတည်းတွင် အပြီးအစီး တာဝန်ယူ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                    )}
+                  </p>
+                </div>
+              </div>
+              <div className="px-6 pb-6">
+                <Button
+                  type="button"
+                  variant="outline-dark"
+                  size="sm"
+                  className="w-full"
+                  onClick={() => onNavigate('/printing-services')}
+                >
+                  {t('Explore Offset Printing Services', 'ပုံနှိပ်ဝန်ဆောင်မှုများ လေ့လာရန်')}
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Proposed Corporate Values */}
+      <section className="py-20 bg-white border-b border-[#DDE5D9]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="03. Operating Principles · Proposed Draft Content for Client Review"
+            kickerMm="၀၃။ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများ · အဆိုပြုမူကြမ်း"
+            title="Proposed Corporate Values"
+            titleMm="ကုမ္ပဏီ၏ လုပ်ငန်းဆောင်ရွက်မှု စံနှုန်းများ (အဆိုပြုမူကြမ်း)"
+            description="The following operating principles are derived directly from TB Star Company Limited’s verified business activities and are clearly marked as proposed draft content for client review."
+            descriptionMm="အောက်ပါ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများသည် တီဘီစတား ကုမ္ပဏီ လီမိတက်၏ အဓိကလုပ်ငန်းဆောင်တာများအပေါ် အခြေခံ၍ ပြုစုထားသော အဆိုပြုမူကြမ်းများ ဖြစ်ပါသည်။"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {PROPOSED_CORPORATE_VALUES.map((val) => (
+              <div
+                key={val.index}
+                className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs font-mono-tabular text-[#245C3A] mb-3">
+                    <span className="font-bold text-base text-[#173D2A]">{val.index}.</span>
+                    <span>
+                      [{t(val.statusNote, 'အဆိုပြုမူကြမ်း')}]
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
+                    {isMm ? val.titleMm : val.title}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed">
+                    {isMm ? val.descriptionMm : val.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Office Contact Banner */}
+          <div className="mt-12 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <MapPin className="w-6 h-6 text-[#245C3A] shrink-0 mt-1" />
+              <div>
+                <h3 className="text-base font-bold text-[#173D2A] mb-1">
+                  {t('Visit or Contact Our Yangon Office', 'ရန်ကုန်ရုံးချုပ် လိပ်စာ')}
+                </h3>
+                <p className="text-sm text-[#26332B]/85">
+                  {t(COMPANY_INFO.address.full, COMPANY_INFO.address.fullMm)}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href={COMPANY_INFO.telephoneHref}
+                className="px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+              >
+                <Phone className="w-4 h-4 text-[#A8D977]" />
+                {COMPANY_INFO.telephone}
+              </a>
+              <Button
+                type="button"
+                variant="outline-dark"
+                size="sm"
+                onClick={() => onNavigate('/contact')}
+              >
+                {t('Open Contact Form', 'ဆက်သွယ်ရန် ဖောင်ဖွင့်ရန်')}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ContactCTA
+        onNavigate={onNavigate}
+        onInquireWithCategory={onInquireWithCategory}
+      />
+    </div>
+  );
+};

@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary-light-green: #A8D977;
+    --color-dark-green: #245C3A;
+    --color-deep-green: #173D2A;
+    --color-canvas-light: #F6F8F3;
+    --color-surface-white: #FFFFFF;
+    --color-body-text: #26332B;
+    --color-border-hairline: #DDE5D9;
+    --color-bamboo-warm: #E6DFC8;
+    --font-display: 'Plus Jakarta Sans', 'Noto Sans Myanmar', sans-serif;
+    --font-sans: 'DM Sans', 'Noto Sans Myanmar', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-body-text);
+    background-color: var(--color-canvas-light);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-myanmar {
+    font-family: 'Noto Sans Myanmar', 'DM Sans', sans-serif;
+    line-height: 1.85;
+  }
+}
