@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, ChevronDown, ChevronUp, Phone } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown, ChevronUp, Phone } from 'lucide-react';
 import {
   BAMBOO_PRODUCTS,
   COMPANY_INFO,
@@ -13,13 +13,124 @@ import {
   ProductCard,
   ProductSpecificationTable,
 } from '../components/CatalogComponents';
-import { BambooProductIcon } from '../components/PrintingIcons';
+import {
+  BambooProductIcon,
+  EcoAdvantageIcon,
+  EcoAdvantageType,
+} from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
 
 interface BambooProductsPageProps {
   onNavigate: (route: PageRoute) => void;
   onInquireWithCategory: (type: InquiryTypeOption, navigateToContact?: boolean) => void;
 }
+
+interface EcoAdvantageItem {
+  id: string;
+  index: string;
+  icon: EcoAdvantageType;
+  kicker: string;
+  kickerMm: string;
+  title: string;
+  titleMm: string;
+  description: string;
+  descriptionMm: string;
+  metricLabel: string;
+  metricLabelMm: string;
+}
+
+const ECO_ADVANTAGE_ITEMS: EcoAdvantageItem[] = [
+  {
+    id: 'eco-regeneration',
+    index: '01',
+    icon: 'rapid-regeneration',
+    kicker: 'Rapidly Renewable Resource',
+    kickerMm: 'ပြန်လည်ရှင်သန်ကြီးထွားမှု မြန်ဆန်ခြင်း',
+    title: 'Fast Natural Regeneration Without Replanting',
+    titleMm: 'ပြန်လည်စိုက်ပျိုးရန်မလိုဘဲ သဘာဝအလျောက် လျင်မြန်စွာ ရှင်သန်ခြင်း',
+    description:
+      'Unlike slow-growing hardwood timber that takes decades to mature, Myanmar bamboo regenerates naturally from its established root system, preserving soil stability and forest cover.',
+    descriptionMm:
+      'နှစ်ပေါင်းများစွာ စောင့်ဆိုင်းရသော သစ်မာပင်များနှင့်မတူဘဲ မြန်မာ့သဘာဝဝါးပင်များသည် မူလအမြစ်စနစ်မှ သဘာဝအလျောက် လျင်မြန်စွာ ပြန်လည်ရှင်သန်ကြီးထွားနိုင်သဖြင့် သစ်တောပြုန်းတီးမှုကို ကာကွယ်ပေးပါသည်။',
+    metricLabel: 'Self-Renewing Root System · Zero Deforestation',
+    metricLabelMm: 'သဘာဝအမြစ်စနစ်မှ ပြန်လည်ရှင်သန်နိုင်မှု',
+  },
+  {
+    id: 'eco-pure',
+    index: '02',
+    icon: 'zero-chemical',
+    kicker: '100% Natural Material',
+    kickerMm: '၁၀၀% သဘာဝ ကုန်ကြမ်းစစ်စစ်',
+    title: 'Chemical-Free Mechanical Splitting & Sizing',
+    titleMm: 'ဓာတုဆေးဝါး ကင်းစင်သော သဘာဝဝါး စိတ်ဖြာထုတ်လုပ်မှု',
+    description:
+      'Our 3 mm Bamboo Split and 1.2–2.5 mm Bamboo Sticks are mechanically split, sized, and naturally seasoned from 100% raw Myanmar bamboo without synthetic resins or toxic additives.',
+    descriptionMm:
+      'ကျွန်ုပ်တို့၏ အထူ 3 mm ဝါးခြမ်းပြားများနှင့် 1.2–2.5 mm ဝါးတံများကို ဓာတုဆေးဝါးနှင့် ကော်ရည်များ လုံးဝမပါဝင်ဘဲ ၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်မှ စက်မှုနည်းပညာဖြင့် စနစ်တကျ စိတ်ဖြာထုတ်လုပ်ထားပါသည်။',
+    metricLabel: '100% Natural Bamboo · No Synthetic Binders',
+    metricLabelMm: '၁၀၀% သဘာဝဝါးစစ်စစ် · ဓာတုကင်းစင်',
+  },
+  {
+    id: 'eco-biodegradable',
+    index: '03',
+    icon: 'biodegradable',
+    kicker: 'Circular & Earth-Safe',
+    kickerMm: 'သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်မှု',
+    title: '100% Biodegradable Plastic Alternative',
+    titleMm: 'ပလတ်စတစ်အစားထိုး သဘာဝအလျောက် ဆွေးမြည့်နိုင်သော ထုတ်ကုန်',
+    description:
+      'Ideal for agricultural stakes, incense sticks, handicrafts, and industrial applications where buyers seek a fully compostable, zero-microplastic replacement for synthetic materials.',
+    descriptionMm:
+      'စိုက်ပျိုးရေး၊ လက်မှုလုပ်ငန်းနှင့် စက်မှုကုန်ထုတ်လုပ်ငန်းများတွင် ပလတ်စတစ်နှင့် သံထည်ပစ္စည်းများအစား သဘာဝမြေသြဇာအဖြစ် ပြန်လည်ဆွေးမြည့်နိုင်သော သဘာဝဝါးကို စိတ်ချစွာ အသုံးပြုနိုင်ပါသည်။',
+    metricLabel: 'Fully Compostable · Plastic-Free Supply',
+    metricLabelMm: 'သဘာဝမြေသြဇာအဖြစ် ပြန်လည်ဆွေးမြည့်နိုင်မှု',
+  },
+  {
+    id: 'eco-strength',
+    index: '04',
+    icon: 'tensile-durability',
+    kicker: 'Structural Fiber Integrity',
+    kickerMm: 'သဘာဝအမျှင်ဓာတ် ခိုင်ခံ့မှု',
+    title: 'High Tensile Strength & Natural Flexibility',
+    titleMm: 'သဘာဝအမျှင်ဓာတ် မြင့်မားပြီး ခိုင်ခံ့ပျော့ပျောင်းမှုရှိခြင်း',
+    description:
+      'Myanmar bamboo possesses dense longitudinal vascular fibers that deliver exceptional bending resilience—available both With Nodes for rigidity and Without Nodes for smooth flexibility.',
+    descriptionMm:
+      'မြန်မာ့သဘာဝဝါးသည် သိပ်သည်းသော အမျှင်ဖွဲ့စည်းပုံကြောင့် ကွေးညွှတ်ခံနိုင်ရည်နှင့် ခိုင်ခံ့မှု မြင့်မားပြီး လုပ်ငန်းလိုအပ်ချက်အလိုက် အဆစ်ပါ (With Nodes) နှင့် အဆစ်မပါ (Without Nodes) ရွေးချယ်နိုင်ပါသည်။',
+    metricLabel: 'With Nodes & Without Nodes · 20" to 48"',
+    metricLabelMm: 'အဆစ်ပါ / အဆစ်မပါ · အရှည် ၂၀" မှ ၄၈"',
+  },
+  {
+    id: 'eco-low-waste',
+    index: '05',
+    icon: 'low-waste',
+    kicker: 'Resource Efficiency',
+    kickerMm: 'ကုန်ကြမ်းအပြည့်အဝ အသုံးချနိုင်မှု',
+    title: 'High-Yield Culm Utilization & Low Waste',
+    titleMm: 'စွန့်ပစ်ပစ္စည်း နည်းပါးပြီး ကုန်ကြမ်းအကျိုးရှိစွာ ထုတ်လုပ်ခြင်း',
+    description:
+      'By coordinating both wide Bamboo Split (20"–48") and precision Bamboo Sticks (8", 9", 10"), our production maximizes every harvested bamboo culm while minimizing off-cut waste.',
+    descriptionMm:
+      'ဝါးခြမ်းပြား (၂၀"–၄၈") နှင့် ဝါးတံ (၈"၊ ၉"၊ ၁၀") နှစ်မျိုးလုံးကို အချိုးကျ ပေါင်းစပ်ထုတ်လုပ်သဖြင့် သဘာဝဝါးပင်တစ်ပင်လုံးကို အလေအလွင့်အနည်းဆုံးဖြင့် အပြည့်အဝ အသုံးချနိုင်ပါသည်။',
+    metricLabel: 'Multi-Format Processing · Minimal Off-Cuts',
+    metricLabelMm: 'အလေအလွင့်နည်းပါးသော စနစ်တကျ ထုတ်လုပ်မှု',
+  },
+  {
+    id: 'eco-packaging',
+    index: '06',
+    icon: 'sustainable-packaging',
+    kicker: 'Export Logistics Efficiency',
+    kickerMm: 'ပြည်ပပို့ကုန် စံချိန်မီ ထုပ်ပိုးမှု',
+    title: 'Breathable 30KG Export Bagging & Bundling',
+    titleMm: 'လေဝင်လေထွက်ကောင်းမွန်သော 30KG စံချိန်မီ ထုပ်ပိုးမှုပုံစံ',
+    description:
+      'Standardized 30 kg per bag packaging and tightly bound bundles protect natural bamboo moisture balance during sea freight and maximize container loading efficiency.',
+    descriptionMm:
+      'တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg) စံနှုန်းဖြင့် လေဝင်လေထွက်ကောင်းမွန်စွာ ထုပ်ပိုးထားသဖြင့် ပင်လယ်ရေကြောင်း တင်ပို့ရာတွင် အစိုဓာတ်ထိန်းညှိပေးပြီး သဘာဝအရည်အသွေးကို အပြည့်အဝ ထိန်းသိမ်းပေးပါသည်။',
+    metricLabel: 'Standardized 30 kg/bag · Export Ready',
+    metricLabelMm: 'တစ်အိတ်လျှင် 30 kg စံနှုန်း · ပြည်ပပို့ကုန်အဆင့်',
+  },
+];
 
 export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
   onNavigate,
@@ -78,7 +189,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-semibold text-[#245C3A] mr-2">
-              {t('Jump to Product Section:', 'ကုန်ပစ္စည်းအလိုက် ကြည့်ရှုရန် -')}
+              {t('Jump to Section:', 'ကဏ္ဍအလိုက် ကြည့်ရှုရန် -')}
             </span>
             <button
               type="button"
@@ -86,7 +197,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
             >
               <BambooProductIcon type="bamboo-split" className="w-4 h-4 shrink-0" />
-              <span>{t('01. Bamboo Split', '၀၁။ ဝါးခြမ်းပြား (Bamboo Split)')}</span>
+              <span>{t('01. Bamboo Split', '၀၁။ ဝါးခြမ်းပြား')}</span>
             </button>
             <button
               type="button"
@@ -94,7 +205,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
             >
               <BambooProductIcon type="bamboo-sticks" className="w-4 h-4 shrink-0" />
-              <span>{t('02. Bamboo Sticks', '၀၂။ ဝါးတံ (Bamboo Sticks)')}</span>
+              <span>{t('02. Bamboo Sticks', '၀၂။ ဝါးတံ')}</span>
             </button>
             <button
               type="button"
@@ -103,6 +214,14 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             >
               <BambooProductIcon type="bamboo-custom" className="w-4 h-4 shrink-0" />
               <span>{t('03. Other Bamboo Products', '၀၃။ အခြား ဝါးထုတ်ကုန်များ')}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToProductSection('eco-advantages')}
+              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#EAF5E4] hover:bg-[#A8D977]/50 text-[#173D2A] border border-[#C3E4B5] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
+            >
+              <EcoAdvantageIcon type="rapid-regeneration" className="w-4 h-4 shrink-0" />
+              <span>{t('Eco-Advantages', 'သဘာဝပတ်ဝန်းကျင် အားသာချက်များ')}</span>
             </button>
           </div>
 
@@ -149,10 +268,117 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         </div>
       </section>
 
+      {/* ECO-ADVANTAGES & SUSTAINABILITY SECTION */}
+      <section
+        id="eco-advantages"
+        aria-label="Eco-Advantages of TB Star Natural Myanmar Bamboo"
+        className="py-20 bg-white border-b border-[#DDE5D9]"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="Eco-Advantages · Sustainable Myanmar Bamboo Supply"
+            kickerMm="သဘာဝပတ်ဝန်းကျင်ဆိုင်ရာ အားသာချက်များ · ရေရှည်တည်တံ့သော မြန်မာ့သဘာဝဝါး"
+            title="Why TB Star’s 100% Natural Bamboo Is a Sustainable Choice"
+            titleMm="တီဘီစတား၏ ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ ရေရှည်တည်တံ့ပြီး သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သည့် အချက်များ"
+            description="Sourced from rapidly regenerating bamboo groves in Myanmar and mechanically processed without synthetic chemicals, our bamboo products support environmentally responsible manufacturing and global trade."
+            descriptionMm="မြန်မာနိုင်ငံရှိ သဘာဝအလျောက် ပြန်လည်ရှင်သန်ကြီးထွားသော ဝါးတောများမှ ရယူပြီး ဓာတုဆေးဝါးမပါဘဲ စနစ်တကျ စိတ်ဖြာထုတ်လုပ်ထားသဖြင့် သဘာဝပတ်ဝန်းကျင်ကို ထိန်းသိမ်းရာရောက်သည့် စံချိန်မီ ထုတ်ကုန်များ ဖြစ်ပါသည်။"
+            action={
+              <Button
+                type="button"
+                variant="primary-dark"
+                size="sm"
+                onClick={() => onInquireWithCategory('Bamboo Split', true)}
+              >
+                {t('Inquire About Sustainable Supply', 'သဘာဝဝါးထုတ်ကုန် မှာယူရန် မေးမြန်းရန်')}
+                <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
+              </Button>
+            }
+          />
+
+          {/* 6-Card Professional Eco-Advantages Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {ECO_ADVANTAGE_ITEMS.map((item) => (
+              <article
+                key={item.id}
+                className="bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200"
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] group-hover:border-[#245C3A] flex items-center justify-center shrink-0 transition-colors">
+                      <EcoAdvantageIcon type={item.icon} className="w-7 h-7" />
+                    </div>
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A] pt-1">
+                      {item.index}
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-[#245C3A] font-medium mb-1">
+                    {isMm ? item.kickerMm : item.kicker}
+                  </p>
+                  <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
+                    {isMm ? item.titleMm : item.title}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
+                    {isMm ? item.descriptionMm : item.description}
+                  </p>
+                </div>
+
+                <div className="pt-3.5 border-t border-[#DDE5D9] flex items-center gap-2 text-xs font-semibold text-[#173D2A]">
+                  <Check className="w-4 h-4 text-[#245C3A] shrink-0" />
+                  <span>{isMm ? item.metricLabelMm : item.metricLabel}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Sustainability & Export Compliance Summary Strip */}
+          <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="max-w-3xl">
+              <p className="text-xs font-mono-tabular text-[#A8D977] font-semibold mb-1.5">
+                {t(
+                  'SUSTAINABLE RAW MATERIAL · 100% NATURAL MYANMAR BAMBOO',
+                  'သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သော ကုန်ကြမ်း · ၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်'
+                )}
+              </p>
+              <h3 className="text-xl font-bold text-white mb-2">
+                {t(
+                  'Ready for Eco-Conscious Domestic & International Buyers',
+                  'ပြည်တွင်းနှင့် နိုင်ငံတကာမှ သဘာဝပတ်ဝန်းကျင် အလေးထားသော လုပ်ငန်းများအတွက် အသင့်တော်ဆုံး'
+                )}
+              </h3>
+              <p className="text-sm text-white/85 leading-relaxed">
+                {t(
+                  'Every shipment of TB Star Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.2–2.5 mm · 30 kg per bag) is produced from 100% natural bamboo harvested in Myanmar, delivering consistent dimensional quality with a low environmental footprint.',
+                  'တီဘီစတား ကုမ္ပဏီ လီမိတက်မှ ထုတ်လုပ်တင်ပို့သော ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30 kg) တိုင်းသည် သဘာဝပတ်ဝန်းကျင် ထိခိုက်မှုမရှိသော မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြင့် အရည်အသွေးမီ ထုတ်လုပ်ထားပါသည်။'
+                )}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <Button
+                type="button"
+                variant="primary-light"
+                onClick={() => onInquireWithCategory('Bamboo Split', true)}
+              >
+                {t('Request Export Quote', 'ပြည်ပပို့ကုန် ဈေးနှုန်းမေးမြန်းရန်')}
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+              <a
+                href={COMPANY_INFO.telephoneHref}
+                className="px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors"
+              >
+                <Phone className="w-4 h-4 text-[#A8D977]" />
+                <span>{COMPANY_INFO.telephone}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PRODUCT A: BAMBOO SPLIT */}
       <section
         id="product-bamboo-split"
-        className="py-20 bg-white border-b border-[#DDE5D9]"
+        className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -166,9 +392,9 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 />
               </div>
 
-              <div className="mt-6 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6">
+              <div className="mt-6 bg-white border border-[#DDE5D9] rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-11 h-11 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
                     <BambooProductIcon type="bamboo-split" className="w-6 h-6" />
                   </div>
                   <div>
@@ -224,7 +450,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
       {/* PRODUCT B: BAMBOO STICKS */}
       <section
         id="product-bamboo-sticks"
-        className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
+        className="py-20 bg-white border-b border-[#DDE5D9]"
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -238,9 +464,9 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 />
               </div>
 
-              <div className="mt-6 bg-white border border-[#DDE5D9] rounded-xl p-6">
+              <div className="mt-6 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-11 h-11 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0">
                     <BambooProductIcon type="bamboo-sticks" className="w-6 h-6" />
                   </div>
                   <div>
@@ -296,13 +522,13 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
       {/* PRODUCT C: OTHER BAMBOO PRODUCTS */}
       <section
         id="product-other-bamboo"
-        className="py-20 bg-white border-b border-[#DDE5D9]"
+        className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs">
+          <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs">
             <div className="p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DDE5D9]">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
                   <BambooProductIcon type="bamboo-custom" className="w-7 h-7" />
                 </div>
                 <div>
@@ -319,7 +545,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 type="button"
                 onClick={() => setOtherExpanded(!otherExpanded)}
                 aria-expanded={otherExpanded}
-                className="px-4 py-2 bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-lg text-xs font-semibold text-[#173D2A] inline-flex items-center gap-2 self-start sm:self-auto cursor-pointer"
+                className="px-4 py-2 bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-lg text-xs font-semibold text-[#173D2A] inline-flex items-center gap-2 self-start sm:self-auto cursor-pointer"
               >
                 {otherExpanded ? (
                   <>
@@ -355,7 +581,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                     {isMm ? otherBamboo.detailedDescriptionMm : otherBamboo.detailedDescription}
                   </p>
 
-                  <div className="p-4 bg-white border border-[#DDE5D9] rounded-lg text-xs text-[#26332B]/80 mb-6">
+                  <div className="p-4 bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg text-xs text-[#26332B]/80 mb-6">
                     {isMm ? (
                       <p>
                         <strong>ဆက်သွယ်မေးမြန်းရန် လမ်းညွှန်ချက် -</strong> လူကြီးမင်းတို့ လိုအပ်သော ဝါးထုတ်ကုန်အမျိုးအစား၊ အရွယ်အစား၊ ထုပ်ပိုးမှုပုံစံနှင့် ပြည်တွင်းဖြန့်ဖြူးရန် သို့မဟုတ် ပြည်ပတင်ပို့ရန် လိုအပ်ချက်များကို ထည့်သွင်းမေးမြန်းနိုင်ပါသည်။

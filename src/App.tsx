@@ -13,6 +13,7 @@ import {
 import { LanguageProvider } from './context/LanguageContext';
 import { SiteHeader, SiteFooter } from './components/SiteLayout';
 import { InquiryModal } from './components/InquiryModal';
+import { BackToTopButton } from './components/SharedUI';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { BambooProductsPage } from './pages/BambooProductsPage';
@@ -180,6 +181,9 @@ export default function App() {
           onNavigate={handleNavigate}
           onInquireWithCategory={handleInquireWithCategory}
         />
+
+        {/* Floating Back to Top Button */}
+        <BackToTopButton />
 
         {/* Quick Inquiry Modal */}
         <InquiryModal

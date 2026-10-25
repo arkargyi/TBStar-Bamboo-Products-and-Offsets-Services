@@ -1,5 +1,5 @@
-import React from 'react';
-import { AlertCircle, ChevronRight, Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { AlertCircle, ArrowUp, ChevronRight, Loader2 } from 'lucide-react';
 import { PageRoute } from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -325,3 +325,45 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
     </div>
   );
 };
+
+export const BackToTopButton: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show floating button once user scrolls past the sticky site header (~120px)
+      setIsVisible(window.scrollY > 140);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={scrollToTop}
+      aria-label={t('Back to top', 'စာမျက်နှာ အပေါ်ဆုံးသို့ ပြန်သွားရန်')}
+      title={t('Back to top', 'စာမျက်နှာ အပေါ်ဆုံးသို့ ပြန်သွားရန်')}
+      className={`fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 px-3.5 py-3 rounded-full bg-[#173D2A] hover:bg-[#245C3A] text-white border border-[#A8D977]/45 shadow-lg transition-all duration-300 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A8D977] ${
+        isVisible
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 translate-y-4 pointer-events-none'
+      }`}
+    >
+      <span className="w-6 h-6 rounded-full bg-[#A8D977] text-[#173D2A] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5">
+        <ArrowUp className="w-3.5 h-3.5 stroke-[2.5]" />
+      </span>
+      <span className="hidden sm:inline text-xs font-semibold tracking-wide pr-1">
+        {t('Back to Top', 'အပေါ်သို့')}
+      </span>
+    </button>
+  );
+};
+

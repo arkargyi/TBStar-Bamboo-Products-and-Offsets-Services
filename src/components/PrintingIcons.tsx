@@ -13,6 +13,14 @@ export type BambooIconType =
   | 'bamboo-sticks'
   | 'bamboo-custom';
 
+export type EcoAdvantageType =
+  | 'rapid-regeneration'
+  | 'zero-chemical'
+  | 'biodegradable'
+  | 'tensile-durability'
+  | 'low-waste'
+  | 'sustainable-packaging';
+
 interface PrintingServiceIconProps {
   type: PrintingIconType;
   className?: string;
@@ -22,6 +30,286 @@ interface BambooProductIconProps {
   type: BambooIconType;
   className?: string;
 }
+
+interface EcoAdvantageIconProps {
+  type: EcoAdvantageType;
+  className?: string;
+}
+
+/**
+ * Custom, domain-crafted SVG icons highlighting the Eco-Advantages &
+ * Sustainability of TB Star Company Limited's 100% Natural Myanmar Bamboo.
+ */
+export const EcoAdvantageIcon: React.FC<EcoAdvantageIconProps> = ({
+  type,
+  className = 'w-7 h-7',
+}) => {
+  switch (type) {
+    case 'rapid-regeneration':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Soft Renewal Halo */}
+          <circle
+            cx="20"
+            cy="20"
+            r="14"
+            fill="#A8D977"
+            fillOpacity="0.22"
+            stroke="#245C3A"
+            strokeWidth="1.4"
+            strokeDasharray="3 2.5"
+          />
+          {/* Left & Center Bamboo Culm Stems */}
+          <path
+            d="M15 31V13M22 31V9"
+            stroke="#173D2A"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+          />
+          {/* Culm Node Rings */}
+          <path
+            d="M13 19H17M13 25H17M20 15H24M20 22H24"
+            stroke="#245C3A"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+          {/* Fresh Bamboo Leaves */}
+          <path
+            d="M22 12C25.5 9.5 29.5 9.5 31.5 11.5C29.5 14 25.5 14.5 22 12Z"
+            fill="#A8D977"
+            stroke="#173D2A"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M15 16C11.5 13.5 8 14 6.5 16C8.5 18 12 18.5 15 16Z"
+            fill="#245C3A"
+          />
+          {/* Ground Root Line */}
+          <path
+            d="M10 31.5H30"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'zero-chemical':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Botanical Shield Outline */}
+          <path
+            d="M20 6L31 10.5V19.5C31 26.8 26.2 32.2 20 34.5C13.8 32.2 9 26.8 9 19.5V10.5L20 6Z"
+            fill="#F6F8F3"
+            stroke="#173D2A"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+          {/* Inner Natural Leaf Accent */}
+          <path
+            d="M20 9.5L28 12.8V19.2C28 24.6 24.5 28.8 20 30.8V9.5Z"
+            fill="#A8D977"
+            fillOpacity="0.35"
+          />
+          {/* Verification Checkmark */}
+          <path
+            d="M15.5 20.2L18.6 23.3L25 16.5"
+            stroke="#173D2A"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+
+    case 'biodegradable':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Circular Eco Cycle Arrows */}
+          <path
+            d="M20 7C27.1797 7 33 12.8203 33 20C33 24.8 30.4 29 26.5 31.2"
+            stroke="#173D2A"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M20 33C12.8203 33 7 27.1797 7 20C7 15.2 9.6 11 13.5 8.8"
+            stroke="#245C3A"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          {/* Arrowheads */}
+          <path
+            d="M26 28V31.5H29.5"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M14 12V8.5H10.5"
+            stroke="#245C3A"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          {/* Center Organic Leaf */}
+          <path
+            d="M15 24.5C15 18.5 19.5 14 25.5 14C25.5 20 21 24.5 15 24.5Z"
+            fill="#A8D977"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M15 24.5L21.5 18"
+            stroke="#173D2A"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'tensile-durability':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Flexed Resilient Bamboo Strip */}
+          <path
+            d="M8 26C14 14 26 14 32 26"
+            stroke="#173D2A"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M8 30C14 18 26 18 32 30"
+            stroke="#245C3A"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          {/* Node & Strength Diamond */}
+          <rect
+            x="20"
+            y="8"
+            width="7"
+            height="7"
+            rx="1.2"
+            transform="rotate(45 20 8)"
+            fill="#A8D977"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+          />
+          {/* Support Base Indicators */}
+          <circle cx="8" cy="28" r="2" fill="#173D2A" />
+          <circle cx="32" cy="28" r="2" fill="#173D2A" />
+        </svg>
+      );
+
+    case 'low-waste':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Outer Bamboo Culm Cross-Section Ring */}
+          <circle
+            cx="20"
+            cy="20"
+            r="13"
+            fill="#A8D977"
+            fillOpacity="0.38"
+            stroke="#173D2A"
+            strokeWidth="2"
+          />
+          {/* Inner Hollow Culm Core */}
+          <circle
+            cx="20"
+            cy="20"
+            r="6.5"
+            fill="#F6F8F3"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+          />
+          {/* Radial Precision Splitting Lines */}
+          <path
+            d="M20 7V13.5M20 26.5V33M7 20H13.5M26.5 20H33M10.8 10.8L15.4 15.4M24.6 24.6L29.2 29.2M29.2 10.8L24.6 15.4M15.4 24.6L10.8 29.2"
+            stroke="#245C3A"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'sustainable-packaging':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* 30KG Export Sack Body */}
+          <path
+            d="M11 14C11 12.3431 12.3431 11 14 11H26C27.6569 11 29 12.3431 29 14L31 30C31 31.6569 29.6569 33 28 33H12C10.3431 33 9 31.6569 9 30L11 14Z"
+            fill="#F6F8F3"
+            stroke="#173D2A"
+            strokeWidth="2"
+          />
+          {/* Tied Sack Top Crest */}
+          <path
+            d="M15 11L13.5 7H26.5L25 11"
+            fill="#A8D977"
+            fillOpacity="0.5"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+            strokeLinejoin="round"
+          />
+          {/* Eco Leaf Emblem on Bag */}
+          <path
+            d="M16.5 24.5C16.5 20 19.8 17 23.5 17C23.5 21.5 20.2 24.5 16.5 24.5Z"
+            fill="#A8D977"
+            stroke="#245C3A"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M15 28.5H25"
+            stroke="#173D2A"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+  }
+};
 
 /**
  * Custom, domain-crafted SVG icons for TB Star Company Limited's
