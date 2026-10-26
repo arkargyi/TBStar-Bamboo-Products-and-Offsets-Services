@@ -133,15 +133,15 @@ export const COMPANY_INFO = {
   nameMm: 'TBStar Company Limited',
   logoEmblemText: 'TUN BROTHERS',
   logoPath: '/assets/aistudio/TBStar_073dded3.jpeg',
-  domain: 'tbstar.com',
-  canonicalBase: 'https://tbstar.com',
+  domain: 'tbstarcompany.com',
+  canonicalBase: 'https://tbstarcompany.com',
   telephone: '+95 9 450048547',
   telephoneHref: 'tel:+959450048547',
   whatsapp: '+95 9 450048547',
   whatsappNumberClean: '959450048547',
   whatsappHref: 'https://wa.me/959450048547',
-  email: 'info@tbstar.com',
-  emailHref: 'mailto:info@tbstar.com',
+  email: 'info@tbstarcompany.com',
+  emailHref: 'mailto:info@tbstarcompany.com',
   address: {
     shortAddress: 'Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon',
     shortAddressMm: 'Central Tower (၁၁) လွှာ၊ အခန်း (၁၁၀၃)၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့',
@@ -803,7 +803,7 @@ export const MISSING_INFORMATION_CHECKLIST = [
   {
     category: '1. Official Contact & Form Delivery Integration',
     items: [
-      'Official corporate email address (e.g., info@tbstar.com) and backend/SMTP or form endpoint credentials to enable live email delivery from the Contact Form.',
+      'Official corporate email address (e.g., info@tbstarcompany.com) and backend/SMTP or form endpoint credentials to enable live email delivery from the Contact Form.',
       'Confirmation of messaging app availability on +95 9 450048547 (e.g., Viber, WhatsApp, or WeChat for international buyers).',
       'Official office hours at Room No. 1103, 11th Floor, Central Tower, Yangon.',
     ],
