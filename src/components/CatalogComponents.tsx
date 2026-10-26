@@ -117,7 +117,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <VisualAssetFrame
           type={product.visualType}
           imagePath={product.imagePath}
-          label={product.placeholderNote}
+          label={isMm && product.placeholderNoteMm ? product.placeholderNoteMm : product.placeholderNote}
           aspectClassName="aspect-[4/3]"
         />
 
@@ -220,7 +220,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         <VisualAssetFrame
           type={service.visualType}
           imagePath={service.imagePath}
-          label={service.placeholderNote}
+          label={isMm && service.placeholderNoteMm ? service.placeholderNoteMm : service.placeholderNote}
           aspectClassName="aspect-[4/3]"
         />
         <div className="p-6">

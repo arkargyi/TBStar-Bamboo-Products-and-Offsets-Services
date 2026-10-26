@@ -388,7 +388,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   type="bamboo-split"
                   imagePath={bambooSplit.imagePath}
                   aspectClassName="aspect-[4/3]"
-                  label={bambooSplit.placeholderNote}
+                  label={isMm && bambooSplit.placeholderNoteMm ? bambooSplit.placeholderNoteMm : bambooSplit.placeholderNote}
                 />
               </div>
 
@@ -460,7 +460,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   type="bamboo-sticks"
                   imagePath={bambooSticks.imagePath}
                   aspectClassName="aspect-[4/3]"
-                  label={bambooSticks.placeholderNote}
+                  label={isMm && bambooSticks.placeholderNoteMm ? bambooSticks.placeholderNoteMm : bambooSticks.placeholderNote}
                 />
               </div>
 
@@ -566,7 +566,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                     type="bamboo-custom"
                     imagePath={otherBamboo.imagePath}
                     aspectClassName="aspect-[16/10]"
-                    label={otherBamboo.placeholderNote}
+                    label={isMm && otherBamboo.placeholderNoteMm ? otherBamboo.placeholderNoteMm : otherBamboo.placeholderNote}
                   />
                 </div>
 

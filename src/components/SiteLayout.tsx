@@ -16,45 +16,116 @@ export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] =
   { label: 'Contact Us', labelMm: 'ဆက်သွယ်ရန်', route: '/contact' },
 ];
 
-export const LanguageSwitchButton: React.FC<{ className?: string }> = ({
+export interface LanguageToggleSwitchProps {
+  className?: string;
+  compact?: boolean;
+}
+
+export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
   className = '',
+  compact = false,
 }) => {
-  const { lang, setLang } = useLanguage();
+  const { lang, isMm, setLang, toggleLang, t } = useLanguage();
+
+  const handleSegmentClick = (targetLang: 'en' | 'mm', e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lang === targetLang) {
+      toggleLang();
+    } else {
+      setLang(targetLang);
+    }
+  };
 
   return (
     <div
-      role="group"
-      aria-label="Language Switcher / ဘာသာစကား ရွေးချယ်ရန်"
-      className={`inline-flex items-center bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg p-0.5 shrink-0 ${className}`}
+      role="switch"
+      aria-checked={isMm}
+      tabIndex={0}
+      aria-label={t(
+        'Language toggle switch: Currently English. Click to switch to Burmese (မြန်မာ).',
+        'ဘာသာစကား ပြောင်းလဲရန် ခလုတ် - လက်ရှိ မြန်မာဘာသာ။ English သို့ ပြောင်းရန် နှိပ်ပါ။'
+      )}
+      title={t(
+        'Switch site language between English and Burmese (မြန်မာ)',
+        'English နှင့် မြန်မာဘာသာစကား အပြန်အလှန် ပြောင်းလဲရန်'
+      )}
+      onClick={toggleLang}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleLang();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          setLang('en');
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          setLang('mm');
+        }
+      }}
+      className={`group relative inline-flex items-center bg-[#F6F8F3] hover:bg-[#EDF3E8] border border-[#DDE5D9] hover:border-[#245C3A]/60 rounded-full p-1 shrink-0 cursor-pointer select-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173D2A] ${className}`}
     >
-      <Globe className="w-3.5 h-3.5 text-[#245C3A] ml-2 mr-1 shrink-0" aria-hidden="true" />
-      <button
-        type="button"
-        onClick={() => setLang('en')}
-        aria-pressed={lang === 'en'}
-        className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-          lang === 'en'
-            ? 'bg-[#173D2A] text-white shadow-2xs'
-            : 'text-[#26332B] hover:text-[#173D2A]'
+      <span
+        className={`inline-flex items-center justify-center text-[#245C3A] shrink-0 ${
+          compact ? 'pl-1.5 pr-1' : 'pl-2 pr-1.5'
         }`}
+        aria-hidden="true"
       >
-        EN
-      </button>
-      <button
-        type="button"
-        onClick={() => setLang('mm')}
-        aria-pressed={lang === 'mm'}
-        className={`px-2.5 py-1 text-xs font-semibold font-myanmar rounded-md transition-colors cursor-pointer whitespace-nowrap ${
-          lang === 'mm'
-            ? 'bg-[#173D2A] text-white shadow-2xs'
-            : 'text-[#26332B] hover:text-[#173D2A]'
-        }`}
-      >
-        မြန်မာ
-      </button>
+        <Globe className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-12" />
+      </span>
+
+      {/* Interactive Sliding Toggle Track */}
+      <div className="relative grid grid-cols-2 items-center rounded-full bg-white/80 border border-[#DDE5D9]/80 p-0.5 min-w-[116px] sm:min-w-[128px]">
+        {/* Sliding Thumb Indicator */}
+        <span
+          aria-hidden="true"
+          className={`pointer-events-none absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] rounded-full bg-[#173D2A] shadow-xs transition-transform duration-200 ease-out ${
+            isMm ? 'translate-x-full' : 'translate-x-0'
+          }`}
+        />
+
+        <button
+          type="button"
+          tabIndex={-1}
+          onClick={(e) => handleSegmentClick('en', e)}
+          className={`relative z-10 px-2.5 py-1 text-[11px] sm:text-xs font-bold rounded-full transition-colors duration-200 cursor-pointer text-center whitespace-nowrap flex items-center justify-center gap-1 ${
+            !isMm
+              ? 'text-white'
+              : 'text-[#26332B]/75 hover:text-[#173D2A]'
+          }`}
+        >
+          {!isMm && (
+            <span
+              className="w-1.5 h-1.5 rounded-full bg-[#A8D977] shrink-0"
+              aria-hidden="true"
+            />
+          )}
+          <span>EN</span>
+        </button>
+
+        <button
+          type="button"
+          tabIndex={-1}
+          onClick={(e) => handleSegmentClick('mm', e)}
+          className={`relative z-10 px-2.5 py-1 text-[11px] sm:text-xs font-bold font-myanmar rounded-full transition-colors duration-200 cursor-pointer text-center whitespace-nowrap flex items-center justify-center gap-1 ${
+            isMm
+              ? 'text-white'
+              : 'text-[#26332B]/75 hover:text-[#173D2A]'
+          }`}
+        >
+          {isMm && (
+            <span
+              className="w-1.5 h-1.5 rounded-full bg-[#A8D977] shrink-0"
+              aria-hidden="true"
+            />
+          )}
+          <span>မြန်မာ</span>
+        </button>
+      </div>
     </div>
   );
 };
+
+export const LanguageSwitchButton = LanguageToggleSwitch;
 
 interface DesktopNavigationProps {
   currentRoute: PageRoute;
@@ -120,11 +191,16 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
 
   return (
     <div className="lg:hidden bg-white border-b border-[#DDE5D9] px-4 pt-3 pb-5 space-y-2 shadow-lg">
-      <div className="flex items-center justify-between pb-2.5 mb-1 border-b border-[#DDE5D9]">
-        <span className="text-xs font-semibold text-[#245C3A]">
-          {t('Select Language:', 'ဘာသာစကား ရွေးချယ်ရန် -')}
-        </span>
-        <LanguageSwitchButton />
+      <div className="flex items-center justify-between pb-3 mb-1 border-b border-[#DDE5D9]">
+        <div>
+          <span className="text-xs font-semibold text-[#173D2A] block">
+            {t('Site Language', 'ဘာသာစကား ရွေးချယ်ရန်')}
+          </span>
+          <span className="text-[11px] text-[#245C3A] block">
+            {t('Currently viewing in English', 'လက်ရှိ မြန်မာဘာသာဖြင့် ကြည့်ရှုနေပါသည်')}
+          </span>
+        </div>
+        <LanguageToggleSwitch compact />
       </div>
 
       <nav aria-label="Mobile Primary Navigation" className="space-y-1">
@@ -188,33 +264,67 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
   onOpenInquiry,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isMm, t } = useLanguage();
+  const { isMm, toggleLang, t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#DDE5D9]">
       {/* Executive Corporate Top Utility Bar */}
       <div className="hidden md:block bg-[#112E1F] text-white/85 border-b border-white/10">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-4 min-w-0">
-            <span className="inline-flex items-center gap-1.5 text-white/90 truncate">
+          <div className="flex items-center gap-3 min-w-0">
+            <button
+              type="button"
+              onClick={() => {
+                onNavigate('/contact');
+                setTimeout(() => {
+                  document
+                    .getElementById('location-maps')
+                    ?.scrollIntoView({ behavior: 'smooth' });
+                }, 120);
+              }}
+              className="inline-flex items-center gap-1.5 text-white/90 hover:text-[#A8D977] transition-colors truncate cursor-pointer text-left"
+              title="View Central Tower, Kyauktada Township, Yangon on Google Maps"
+            >
               <MapPin className="w-3.5 h-3.5 text-[#A8D977] shrink-0" />
-              <span className="truncate">
+              <span className="truncate underline-offset-4 hover:underline">
                 {t(
-                  'Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon',
-                  'Central Tower (၁၁) လွှာ၊ အခန်း (၁၁၀၃)၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့'
+                  COMPANY_INFO.address.shortAddress,
+                  COMPANY_INFO.address.shortAddressMm
                 )}
               </span>
-            </span>
+            </button>
+            <a
+              href={COMPANY_INFO.address.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/10 hover:bg-[#A8D977] text-[#A8D977] hover:text-[#173D2A] text-[11px] font-semibold transition-colors shrink-0"
+            >
+              {t('Google Maps ↗', 'မြေပုံကြည့်ရန် ↗')}
+            </a>
           </div>
 
-          <div className="flex items-center gap-4 shrink-0">
+          <div className="flex items-center gap-3.5 shrink-0">
             <span className="hidden xl:inline text-white/70">
               {t(
                 '100% Natural Myanmar Bamboo · One-Stop Offset Printing',
                 '၁၀၀% သဘာဝမြန်မာ့ဝါးထုတ်ကုန် · အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
               )}
             </span>
-            <span className="hidden xl:inline text-white/30" aria-hidden="true">
+            <span className="hidden xl:inline text-white/25" aria-hidden="true">
+              |
+            </span>
+            <button
+              type="button"
+              onClick={toggleLang}
+              className="inline-flex items-center gap-1.5 text-[11px] text-white/80 hover:text-[#A8D977] transition-colors cursor-pointer"
+              title={t('Switch to Burmese (မြန်မာ)', 'Switch to English')}
+            >
+              <Globe className="w-3 h-3 text-[#A8D977]" />
+              <span>
+                {t('Language: English (Switch to မြန်မာ)', 'ဘာသာစကား - မြန်မာ (Switch to EN)')}
+              </span>
+            </button>
+            <span className="text-white/25" aria-hidden="true">
               |
             </span>
             <a
@@ -263,9 +373,9 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
         {/* Zone 2: Desktop Navigation */}
         <DesktopNavigation currentRoute={currentRoute} onNavigate={onNavigate} />
 
-        {/* Zone 3: Language Switch Button + Primary Action Button + Mobile Menu Button */}
-        <div className="flex items-center gap-2 shrink-0">
-          <LanguageSwitchButton />
+        {/* Zone 3: Language Toggle Switch + Primary Action Button + Mobile Menu Button */}
+        <div className="flex items-center gap-2.5 shrink-0">
+          <LanguageToggleSwitch />
 
           <button
             type="button"
@@ -479,7 +589,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 </>
               )}
             </address>
-            <p className="text-sm">
+            <p className="text-sm mb-3">
               <span className="text-white/60 block text-xs mb-0.5">
                 {t('Telephone:', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ် -')}
               </span>
@@ -490,6 +600,15 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 {COMPANY_INFO.telephone}
               </a>
             </p>
+            <a
+              href={COMPANY_INFO.address.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A8D977] hover:text-white transition-colors"
+            >
+              <MapPin className="w-3.5 h-3.5 shrink-0" />
+              <span>{t('Open Central Tower in Google Maps ↗', 'Google Maps တွင် ရုံးချုပ်တည်နေရာကြည့်ရန် ↗')}</span>
+            </a>
           </div>
         </div>
 

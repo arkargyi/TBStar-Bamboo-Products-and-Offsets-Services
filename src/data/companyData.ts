@@ -59,6 +59,7 @@ export interface BambooProductItem {
   visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom';
   imagePath?: string;
   placeholderNote: string;
+  placeholderNoteMm?: string;
   specifications: SpecificationRow[];
   inquiryType: InquiryTypeOption;
 }
@@ -79,6 +80,7 @@ export interface PrintingServiceItem {
   visualType: 'books-printing' | 'voucher-printing' | 'commercial-printing';
   imagePath?: string;
   placeholderNote: string;
+  placeholderNoteMm?: string;
   inquiryType: InquiryTypeOption;
 }
 
@@ -136,6 +138,8 @@ export const COMPANY_INFO = {
   telephone: '+95 9 450048547',
   telephoneHref: 'tel:+959450048547',
   address: {
+    shortAddress: 'Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon',
+    shortAddressMm: 'Central Tower (၁၁) လွှာ၊ အခန်း (၁၁၀၃)၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့',
     line1: 'Room No. 1103, 11th Floor, Central Tower',
     line2: 'Corner of 39th Street and Anawrahta Road',
     township: 'Kyauktada Township',
@@ -144,6 +148,12 @@ export const COMPANY_INFO = {
     full: 'Room No. 1103, 11th Floor, Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar.',
     fullMm:
       'အခန်းအမှတ် (၁၁၀၃)၊ (၁၁) လွှာ၊ Central Tower၊ ၃၉ လမ်း နှင့် အနော်ရထာလမ်းထောင့်၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ။',
+    googleMapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=Central+Tower+Anawrahta+Road+39th+Street+Kyauktada+Township+Yangon',
+    coordinates: {
+      latitude: 16.7745,
+      longitude: 96.1618,
+    },
   },
 };
 
@@ -208,6 +218,7 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     visualType: 'bamboo-split',
     imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
     placeholderNote: 'TB Star Company Limited · 100% Natural Bamboo Split (3 mm · 20"–48")',
+    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")',
     inquiryType: 'Bamboo Split',
     specifications: [
       {
@@ -278,6 +289,7 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     visualType: 'bamboo-sticks',
     imagePath: '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
     placeholderNote: 'TB Star Company Limited · Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30KG/bag)',
+    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · သဘာဝဝါးတံ (1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30KG)',
     inquiryType: 'Bamboo Sticks',
     specifications: [
       {
@@ -348,6 +360,7 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     visualType: 'bamboo-custom',
     imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
     placeholderNote: 'TB Star Company Limited · 100% Natural Myanmar Bamboo Products',
+    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ',
     inquiryType: 'Other Bamboo Products',
     specifications: [
       {
@@ -423,6 +436,7 @@ export const PRINTING_SERVICES: PrintingServiceItem[] = [
     visualType: 'books-printing',
     imagePath: '/assets/aistudio/Offset-Printing.svg',
     placeholderNote: 'TB Star Company Limited · Books Printing & Bound Publications',
+    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · စာအုပ်ပုံနှိပ်ခြင်းနှင့် စာပေထုတ်ဝေမှုလုပ်ငန်း',
     inquiryType: 'Books Printing',
   },
   {
@@ -453,6 +467,7 @@ export const PRINTING_SERVICES: PrintingServiceItem[] = [
     visualType: 'voucher-printing',
     imagePath: '/assets/aistudio/Offset-Printing.svg',
     placeholderNote: 'TB Star Company Limited · Commercial Voucher Books Printing',
+    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · လုပ်ငန်းသုံး ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း',
     inquiryType: 'Voucher Books Printing',
   },
   {
@@ -483,6 +498,7 @@ export const PRINTING_SERVICES: PrintingServiceItem[] = [
     visualType: 'commercial-printing',
     imagePath: '/assets/aistudio/Offset-Printing.svg',
     placeholderNote: 'TB Star Company Limited · One-Stop Offset Printing Services',
+    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု',
     inquiryType: 'Other Offset Printing Services',
   },
 ];
@@ -497,6 +513,7 @@ export const WHY_CHOOSE_US_ITEMS = [
     descriptionMm:
       'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 3 mm ဝါးခြမ်းများ (၂၀"–၄၈") နှင့် ဝါးတံများ (1.2–2.5 mm) ကို တိကျသော အတိုင်းအတာ စံချိန်စံညွှန်းများအတိုင်း ထုတ်လုပ်ပေးလျက်ရှိပါသည်။',
     divisionTag: 'Division A · Manufacturing',
+    divisionTagMm: 'လုပ်ငန်းကဏ္ဍ (က) · ထုတ်လုပ်ရေး',
   },
   {
     index: '02',
@@ -507,6 +524,7 @@ export const WHY_CHOOSE_US_ITEMS = [
     descriptionMm:
       'သဘာဝဝါးထုတ်ကုန်များနှင့် ပုံနှိပ်ပစ္စည်းများကို ရန်ကုန်မြို့နှင့် မြန်မာနိုင်ငံတစ်ဝန်းရှိ လုပ်ငန်းရှင်များနှင့် ဝယ်ယူသူများထံသို့ စနစ်တကျ ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
     divisionTag: 'Division A & B · Myanmar Distribution',
+    divisionTagMm: 'လုပ်ငန်းကဏ္ဍ (က နှင့် ခ) · ပြည်တွင်းဖြန့်ဖြူးရေး',
   },
   {
     index: '03',
@@ -517,6 +535,7 @@ export const WHY_CHOOSE_US_ITEMS = [
     descriptionMm:
       'နိုင်ငံတကာဝယ်ယူသူများအတွက် တစ်အိတ်လျှင် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံများနှင့် အဆစ်ပါ/အဆစ်မပါ ဝါးခြမ်းများကို ပြည်ပပို့ကုန်အဖြစ် တင်ပို့ပေးလျက်ရှိပါသည်။',
     divisionTag: 'Division A · Global Export',
+    divisionTagMm: 'လုပ်ငန်းကဏ္ဍ (က) · ပြည်ပပို့ကုန်',
   },
   {
     index: '04',
@@ -527,6 +546,7 @@ export const WHY_CHOOSE_US_ITEMS = [
     descriptionMm:
       'စာအုပ်ပုံနှိပ်ခြင်း၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်းနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများကို တစ်နေရာတည်းတွင် အပြီးအစီး (One-Stop Service) ဆောင်ရွက်ပေးပါသည်။',
     divisionTag: 'Division B · Offset Printing',
+    divisionTagMm: 'လုပ်ငန်းကဏ္ဍ (ခ) · အော့ဖ်ဆက်ပုံနှိပ်',
   },
 ];
 

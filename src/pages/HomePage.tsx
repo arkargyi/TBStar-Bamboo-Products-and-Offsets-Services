@@ -19,6 +19,7 @@ import {
 } from '../components/CatalogComponents';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { ClientTestimonials } from '../components/ClientTestimonials';
+import { LocationMapsExplorer } from '../components/LocationMapsExplorer';
 import { useLanguage } from '../context/LanguageContext';
 
 interface HomePageProps {
@@ -593,7 +594,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </span>
                   </div>
                   <p className="text-xs text-[#245C3A] font-medium mb-1">
-                    {pillar.divisionTag}
+                    {isMm && pillar.divisionTagMm ? pillar.divisionTagMm : pillar.divisionTag}
                   </p>
                   <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
                     {isMm ? pillar.titleMm : pillar.title}
@@ -641,6 +642,22 @@ export const HomePage: React.FC<HomePageProps> = ({
             showCategoryFilters={true}
             onInquireFromGallery={(type) => onInquireWithCategory(type, true)}
           />
+        </div>
+      </section>
+
+      {/* HEADQUARTERS LOCATION & GOOGLE MAPS GROUNDING */}
+      <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="Corporate Headquarters · Google Maps Grounding"
+            kickerMm="ရုံးချုပ်တည်နေရာ · Google Maps မြေပုံလမ်းညွှန်"
+            title="Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon"
+            titleMm="Central Tower (၁၁) လွှာ၊ အခန်း (၁၁၀၃)၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့"
+            description="Located at the corner of 39th Street and Anawrahta Road in downtown Kyauktada Township, Yangon. Explore verified Google Maps location details, nearby landmarks, and visitor access below."
+            descriptionMm="ရန်ကုန်မြို့လယ်၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower တွင် တည်ရှိသော ကျွန်ုပ်တို့၏ ရုံးချုပ်တည်နေရာနှင့် ပတ်ဝန်းကျင်လမ်းညွှန်ချက်များကို Google Maps အချက်အလက်များဖြင့် လေ့လာနိုင်ပါသည်။"
+          />
+
+          <LocationMapsExplorer compact />
         </div>
       </section>
 

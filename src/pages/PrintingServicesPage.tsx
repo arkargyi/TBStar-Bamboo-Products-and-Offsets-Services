@@ -300,7 +300,7 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
                     type={service.visualType}
                     imagePath={service.imagePath}
                     aspectClassName="aspect-[4/3]"
-                    label={service.placeholderNote}
+                    label={isMm && service.placeholderNoteMm ? service.placeholderNoteMm : service.placeholderNote}
                   />
                 </div>
 
