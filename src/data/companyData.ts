@@ -130,13 +130,18 @@ export interface ReferencePatternAnalysis {
 
 export const COMPANY_INFO = {
   name: 'TB Star Company Limited',
-  nameMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited)',
+  nameMm: 'TBStar Company Limited',
   logoEmblemText: 'TUN BROTHERS',
   logoPath: '/assets/aistudio/TBStar_073dded3.jpeg',
   domain: 'tbstar.com',
   canonicalBase: 'https://tbstar.com',
   telephone: '+95 9 450048547',
   telephoneHref: 'tel:+959450048547',
+  whatsapp: '+95 9 450048547',
+  whatsappNumberClean: '959450048547',
+  whatsappHref: 'https://wa.me/959450048547',
+  email: 'info@tbstar.com',
+  emailHref: 'mailto:info@tbstar.com',
   address: {
     shortAddress: 'Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon',
     shortAddressMm: 'Central Tower (၁၁) လွှာ၊ အခန်း (၁၁၀၃)၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့',
@@ -218,7 +223,7 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     visualType: 'bamboo-split',
     imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
     placeholderNote: 'TB Star Company Limited · 100% Natural Bamboo Split (3 mm · 20"–48")',
-    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")',
+    placeholderNoteMm: 'TBStar Company Limited · ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")',
     inquiryType: 'Bamboo Split',
     specifications: [
       {
@@ -289,7 +294,7 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     visualType: 'bamboo-sticks',
     imagePath: '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
     placeholderNote: 'TB Star Company Limited · Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30KG/bag)',
-    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · သဘာဝဝါးတံ (1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30KG)',
+    placeholderNoteMm: 'TBStar Company Limited · သဘာဝဝါးတံ (1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30KG)',
     inquiryType: 'Bamboo Sticks',
     specifications: [
       {
@@ -360,7 +365,7 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     visualType: 'bamboo-custom',
     imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
     placeholderNote: 'TB Star Company Limited · 100% Natural Myanmar Bamboo Products',
-    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ',
+    placeholderNoteMm: 'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ',
     inquiryType: 'Other Bamboo Products',
     specifications: [
       {
@@ -436,7 +441,7 @@ export const PRINTING_SERVICES: PrintingServiceItem[] = [
     visualType: 'books-printing',
     imagePath: '/assets/aistudio/Offset-Printing.svg',
     placeholderNote: 'TB Star Company Limited · Books Printing & Bound Publications',
-    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · စာအုပ်ပုံနှိပ်ခြင်းနှင့် စာပေထုတ်ဝေမှုလုပ်ငန်း',
+    placeholderNoteMm: 'TBStar Company Limited · စာအုပ်ပုံနှိပ်ခြင်းနှင့် စာပေထုတ်ဝေမှုလုပ်ငန်း',
     inquiryType: 'Books Printing',
   },
   {
@@ -467,7 +472,7 @@ export const PRINTING_SERVICES: PrintingServiceItem[] = [
     visualType: 'voucher-printing',
     imagePath: '/assets/aistudio/Offset-Printing.svg',
     placeholderNote: 'TB Star Company Limited · Commercial Voucher Books Printing',
-    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · လုပ်ငန်းသုံး ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း',
+    placeholderNoteMm: 'TBStar Company Limited · လုပ်ငန်းသုံး ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း',
     inquiryType: 'Voucher Books Printing',
   },
   {
@@ -498,7 +503,7 @@ export const PRINTING_SERVICES: PrintingServiceItem[] = [
     visualType: 'commercial-printing',
     imagePath: '/assets/aistudio/Offset-Printing.svg',
     placeholderNote: 'TB Star Company Limited · One-Stop Offset Printing Services',
-    placeholderNoteMm: 'တီဘီစတား ကုမ္ပဏီ လီမိတက် · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု',
+    placeholderNoteMm: 'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု',
     inquiryType: 'Other Offset Printing Services',
   },
 ];
@@ -988,4 +993,362 @@ export const CLIENT_TESTIMONIALS: ClientTestimonialItem[] = [
     avatarInitials: 'MT',
   },
 ];
+
+export const COMPANY_VISION_MISSION = {
+  vision: {
+    kicker: 'Corporate Vision · ကုမ္ပဏီ၏ မျှော်မှန်းချက်',
+    title: 'Our Vision',
+    titleMm: 'ကျွန်ုပ်တို့၏ မျှော်မှန်းချက် (Vision)',
+    statement:
+      'To become a trusted regional and international leader in sustainable 100% natural Myanmar bamboo exports and a premier one-stop commercial offset printing partner in Myanmar.',
+    statementMm:
+      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးထုတ်ကုန်များကို ပြည်တွင်းနှင့် နိုင်ငံတကာစျေးကွက်သို့ ရေရှည်တည်တံ့စွာ တင်ပို့ဖြန့်ဖြူးသည့် ဦးဆောင်ကုမ္ပဏီတစ်ခုဖြစ်လာစေရန်နှင့် မြန်မာနိုင်ငံ၏ အားကိုးယုံကြည်ရဆုံး တစ်နေရာတည်း အပြီးအစီး (One-Stop) အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု လုပ်ငန်းရှင်ဖြစ်လာစေရန်။',
+    highlights: [
+      'Sustainable global supply of 100% natural Myanmar bamboo products',
+      'Dependable long-term trade relationships across domestic and overseas markets',
+      'Modern, high-precision commercial offset printing under one roof in Yangon',
+    ],
+    highlightsMm: [
+      '၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များကို နိုင်ငံတကာစံချိန်မီ စဉ်ဆက်မပြတ် ထုတ်လုပ်တင်ပို့နိုင်ရန်',
+      'ပြည်တွင်းနှင့် ပြည်ပ စီးပွားရေးမိတ်ဖက်များနှင့် ရေရှည်ခိုင်မာသော ယုံကြည်မှု တည်ဆောက်ရန်',
+      'ရန်ကုန်မြို့တွင် အရည်အသွေးမြင့် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုကို တစ်နေရာတည်း အပြီးအစီး ပေးအပ်နိုင်ရန်',
+    ],
+  },
+  mission: {
+    kicker: 'Corporate Mission · ကုမ္ပဏီ၏ ရည်မှန်းချက်တာဝန်',
+    title: 'Our Mission',
+    titleMm: 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက် (Mission)',
+    statement:
+      'To manufacture and supply precision-graded natural bamboo products with transparent specifications and export-ready packaging, while delivering accurate, timely, and cost-effective offset printing solutions for businesses and institutions.',
+    statementMm:
+      'တိကျသော အတိုင်းအတာ စံချိန်စံညွှန်းနှင့် ပြည်ပပို့ကုန်အဆင့် ထုပ်ပိုးမှုရှိသည့် သဘာဝဝါးထုတ်ကုန်များကို ထုတ်လုပ်ဖြန့်ဖြူးပေးရန်နှင့် စီးပွားရေးလုပ်ငန်းများ၊ အဖွဲ့အစည်းများအတွက် သပ်ရပ်တိကျပြီး အချိန်မီပြီးစီးသော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများကို ဆောင်ရွက်ပေးရန်။',
+    highlights: [
+      'Maintain strict dimensional grading (3 mm Bamboo Split & 1.2–2.5 mm Bamboo Sticks)',
+      'Provide standardized 30 kg export packaging and responsive Yangon B2B coordination',
+      'Deliver sharp typography, accurate color reproduction, and durable binding for every print run',
+    ],
+    highlightsMm: [
+      'ဝါးခြမ်းပြား (3 mm) နှင့် ဝါးတံ (1.2–2.5 mm) အရွယ်အစား စံချိန်စံညွှန်း တိကျမှုကို အစဉ်ထိန်းသိမ်းရန်',
+      'တစ်အိတ် 30 kg စံနှုန်း ထုပ်ပိုးမှုနှင့် ရန်ကုန်ရုံးချုပ်မှ မြန်ဆန်တိကျသော B2B ဝန်ဆောင်မှုပေးရန်',
+      'စာအုပ်နှင့် ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းတိုင်းတွင် စာလုံးကြည်လင်မှုနှင့် ချုပ်လုပ်မှု ခိုင်ခံ့သပ်ရပ်စေရန်',
+    ],
+  },
+};
+
+export interface IndustryServedItem {
+  id: string;
+  index: string;
+  sector: 'Bamboo Division' | 'Printing Division' | 'Dual Division';
+  sectorMm: string;
+  title: string;
+  titleMm: string;
+  description: string;
+  descriptionMm: string;
+  productsUsed: string;
+  productsUsedMm: string;
+  inquiryType: InquiryTypeOption;
+}
+
+export const INDUSTRIES_SERVED: IndustryServedItem[] = [
+  {
+    id: 'ind-agriculture',
+    index: '01',
+    sector: 'Bamboo Division',
+    sectorMm: 'ဝါးထုတ်ကုန် ကဏ္ဍ',
+    title: 'Agriculture, Horticulture & Plant Nurseries',
+    titleMm: 'စိုက်ပျိုးရေး၊ ပျိုးဥယျာဉ်နှင့် စိုက်ခင်းလုပ်ငန်းများ',
+    description:
+      'Supplying strong 3 mm natural Bamboo Split (20"–48", with or without nodes) for crop support stakes, greenhouse trellises, orchard fencing, and nursery plant ties.',
+    descriptionMm:
+      'စိုက်ပျိုးရေးခြံများ၊ ပျိုးဥယျာဉ်များနှင့် ဟင်းသီးဟင်းရွက်စိုက်ခင်းများတွင် အပင်ထောက်တိုင်၊ စင်တိုင်နှင့် ခြံစည်းရိုးများအဖြစ် အသုံးပြုရန် အထူ 3 mm သဘာဝဝါးခြမ်းပြားများ (၂၀"–၄၈") ကို ဖြန့်ဖြူးပေးပါသည်။',
+    productsUsed: 'Bamboo Split (3 mm · 20"–48" · With/Without Nodes)',
+    productsUsedMm: 'ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈" · အဆစ်ပါ/အဆစ်မပါ)',
+    inquiryType: 'Bamboo Split',
+  },
+  {
+    id: 'ind-incense',
+    index: '02',
+    sector: 'Bamboo Division',
+    sectorMm: 'ဝါးထုတ်ကုန် ပြည်ပပို့ကုန်ကဏ္ဍ',
+    title: 'Incense (Agarbatti) & Fragrance Manufacturing',
+    titleMm: 'အမွှေးတိုင်နှင့် လူသုံးကုန် ထုတ်လုပ်ရေးစက်ရုံများ',
+    description:
+      'Exporting precision-sized Bamboo Sticks (1.2 mm to 2.5 mm thickness in 8", 9", and 10" lengths, packed 30 kg/bag) for raw incense stick production and aromatic goods.',
+    descriptionMm:
+      'ပြည်တွင်းနှင့် ပြည်ပ အမွှေးတိုင်စက်ရုံများအတွက် အထူ 1.2–2.5 mm နှင့် အရှည် ၈"၊ ၉"၊ ၁၀" ရှိသော စံချိန်မီ သဘာဝဝါးတံများကို တစ်အိတ် 30 kg ထုပ်ပိုးမှုဖြင့် တင်ပို့ပေးပါသည်။',
+    productsUsed: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30 kg/bag)',
+    productsUsedMm: 'ဝါးတံ (1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg)',
+    inquiryType: 'Bamboo Sticks',
+  },
+  {
+    id: 'ind-handicraft',
+    index: '03',
+    sector: 'Bamboo Division',
+    sectorMm: 'ဝါးထုတ်ကုန် ကဏ္ဍ',
+    title: 'Handicrafts, Weaving, Furniture & Eco-Packaging',
+    titleMm: 'လက်မှုအနုပညာ၊ ဝါးရက်လုပ်ငန်းနှင့် ပရိဘောဂကဏ္ဍ',
+    description:
+      'Providing flexible node-free and structural node-intact bamboo strips for woven baskets, blinds, mats, furniture panels, and biodegradable packaging manufacturers.',
+    descriptionMm:
+      'ဝါးရက်လုပ်ငန်း၊ လက်မှုပစ္စည်း၊ ဝါးယင်းလိပ်၊ ပရိဘောဂနှင့် သဘာဝထုပ်ပိုးပစ္စည်း ထုတ်လုပ်သူများအတွက် ကွေးညွှတ်ရလွယ်ကူသော ဝါးခြမ်းနှင့် အခြားဝါးထုတ်ကုန်များကို ထောက်ပံ့ပေးပါသည်။',
+    productsUsed: 'Bamboo Split & Other Natural Bamboo Products',
+    productsUsedMm: 'ဝါးခြမ်းပြားနှင့် အခြား သဘာဝဝါးထုတ်ကုန်များ',
+    inquiryType: 'Other Bamboo Products',
+  },
+  {
+    id: 'ind-publishing',
+    index: '04',
+    sector: 'Printing Division',
+    sectorMm: 'အော့ဖ်ဆက် ပုံနှိပ်ကဏ္ဍ',
+    title: 'Publishing Houses, Schools & Educational Institutions',
+    titleMm: 'စာပေထုတ်ဝေရေး၊ ကျောင်းနှင့် ပညာရေးအဖွဲ့အစည်းများ',
+    description:
+      'Delivering one-stop offset book printing for textbooks, literary publications, instructional manuals, workbooks, and institutional periodicals.',
+    descriptionMm:
+      'စာအုပ်ထုတ်ဝေသူများ၊ ပုဂ္ဂလိကကျောင်းများနှင့် ပညာရေးအဖွဲ့အစည်းများအတွက် ဖတ်စာအုပ်၊ လမ်းညွှန်စာအုပ်နှင့် စာပေစာအုပ်အမျိုးမျိုးကို အော့ဖ်ဆက်စနစ်ဖြင့် ပုံနှိပ်ချုပ်လုပ်ပေးပါသည်။',
+    productsUsed: 'Books Printing, Manuals & Educational Editions',
+    productsUsedMm: 'စာအုပ်ပုံနှိပ်ခြင်းနှင့် ပညာရေးစာစောင်များ',
+    inquiryType: 'Books Printing',
+  },
+  {
+    id: 'ind-retail',
+    index: '05',
+    sector: 'Printing Division',
+    sectorMm: 'အော့ဖ်ဆက် ပုံနှိပ်ကဏ္ဍ',
+    title: 'Retail Chains, Wholesale Distribution & Logistics',
+    titleMm: 'လက်လီလက်ကား အရောင်းဆိုင်များနှင့် ကုန်သွယ်ရေးလုပ်ငန်းများ',
+    description:
+      'Producing serially numbered commercial voucher books, carbonless NCR invoice pads, delivery orders, and warehouse inventory forms.',
+    descriptionMm:
+      'အရောင်းဆိုင်များ၊ ကုမ္ပဏီများနှင့် ကုန်စည်ပို့ဆောင်ရေးလုပ်ငန်းများတွင် နေ့စဉ်သုံးစွဲရသော ဘောင်ချာစာအုပ်၊ ပြေစာနှင့် ငွေတောင်းခံလွှာစာအုပ်များကို စိတ်ကြိုက်ပုံနှိပ်ပေးပါသည်။',
+    productsUsed: 'Voucher Books, Invoice Pads & Receipt Books',
+    productsUsedMm: 'ဘောင်ချာစာအုပ်၊ ပြေစာနှင့် ငွေတောင်းခံလွှာစာအုပ်များ',
+    inquiryType: 'Voucher Books Printing',
+  },
+  {
+    id: 'ind-corporate',
+    index: '06',
+    sector: 'Printing Division',
+    sectorMm: 'အော့ဖ်ဆက် ပုံနှိပ်ကဏ္ဍ',
+    title: 'Corporate Offices, NGOs & Commercial Enterprises',
+    titleMm: 'ကုမ္ပဏီရုံးများ၊ အဖွဲ့အစည်းများနှင့် စီးပွားရေးလုပ်ငန်းများ',
+    description:
+      'Supporting corporate branding and administrative operations with executive business cards, company profiles, brochures, pamphlets, and custom stationery.',
+    descriptionMm:
+      'ကုမ္ပဏီနှင့် အဖွဲ့အစည်းများအတွက် လိပ်စာကတ်၊ လက်ကမ်းစာစောင် (Brochures)၊ ကုမ္ပဏီမိတ်ဆက်စာအုပ်နှင့် ရုံးသုံးပုံနှိပ်ပစ္စည်းအမျိုးမျိုးကို တစ်နေရာတည်း အပြီးအစီး ဆောင်ရွက်ပေးပါသည်။',
+    productsUsed: 'Brochures, Business Cards & Corporate Print',
+    productsUsedMm: 'လက်ကမ်းစာစောင်၊ လိပ်စာကတ်နှင့် ရုံးသုံးပုံနှိပ်များ',
+    inquiryType: 'Other Offset Printing Services',
+  },
+];
+
+export const EXPORT_AND_DOMESTIC_MARKETS = {
+  domestic: {
+    badge: 'Domestic Market · ပြည်တွင်းစျေးကွက်',
+    title: 'Myanmar Domestic Distribution Network',
+    titleMm: 'မြန်မာနိုင်ငံ ပြည်တွင်းဖြန့်ဖြူးရေး စျေးကွက်',
+    description:
+      'From our headquarters in Kyauktada Township, Yangon, we supply natural bamboo products and commercial offset printing across key commercial hubs in Myanmar.',
+    descriptionMm:
+      'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်မှတစ်ဆင့် မြန်မာနိုင်ငံတစ်ဝန်းရှိ အဓိက စီးပွားရေးမြို့ကြီးများနှင့် လုပ်ငန်းနယ်ပယ်အသီးသီးသို့ သဘာဝဝါးထုတ်ကုန်များနှင့် ပုံနှိပ်ပစ္စည်းများကို ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
+    regions: [
+      {
+        name: 'Yangon Region (Commercial & Industrial Hub)',
+        nameMm: 'ရန်ကုန်တိုင်းဒေသကြီး (ရုံးချုပ်နှင့် အဓိကဖြန့်ဖြူးရေးဗဟို)',
+      },
+      {
+        name: 'Mandalay, Bago & Central Myanmar Supply',
+        nameMm: 'မန္တလေး၊ ပဲခူးနှင့် မြန်မာပြည်အလယ်ပိုင်း ဒေသများ',
+      },
+      {
+        name: 'Ayeyarwady & Regional Agricultural Zones',
+        nameMm: 'ဧရာဝတီတိုင်းနှင့် စိုက်ပျိုးရေး/ကုန်ထုတ်လုပ်ငန်း ဒေသများ',
+      },
+      {
+        name: 'Direct Wholesale & B2B Factory Delivery',
+        nameMm: 'စက်ရုံနှင့် လုပ်ငန်းများသို့ လက်ကားတိုက်ရိုက် ပို့ဆောင်ပေးခြင်း',
+      },
+    ],
+  },
+  international: {
+    badge: 'International Export · ပြည်ပပို့ကုန်စျေးကွက်',
+    title: 'Global & Regional Bamboo Export Markets',
+    titleMm: 'နိုင်ငံတကာနှင့် ဒေသတွင်း ပြည်ပပို့ကုန် စျေးကွက်',
+    description:
+      'TB Star Company Limited exports 100% natural Myanmar Bamboo Split and Bamboo Sticks in standardized 30 kg export bags to international commodity buyers and manufacturing factories.',
+    descriptionMm:
+      'TB Star Company Limited သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (Bamboo Split) နှင့် တစ်အိတ် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို နိုင်ငံတကာ ဝယ်ယူသူများနှင့် စက်ရုံများသို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။',
+    regions: [
+      {
+        name: 'South Asia & Regional Manufacturing Markets',
+        nameMm: 'တောင်အာရှနှင့် ဒေသတွင်း ကုန်ထုတ်လုပ်ငန်း စျေးကွက်များ',
+      },
+      {
+        name: 'Southeast Asia (ASEAN) & East Asia Trade Partners',
+        nameMm: 'အရှေ့တောင်အာရှ (ASEAN) နှင့် အရှေ့အာရှ ပို့ကုန်စျေးကွက်များ',
+      },
+      {
+        name: 'Port of Loading: Yangon Port, Myanmar (Sea & Land Trade)',
+        nameMm: 'တင်ပို့သည့်ဆိပ်ကမ်း - ရန်ကုန်ဆိပ်ကမ်း (ပင်လယ်ရေကြောင်းနှင့် နယ်စပ်ကုန်သွယ်ရေး)',
+      },
+      {
+        name: 'Export Packaging: Standardized 30 kg Woven Bags & Bundles',
+        nameMm: 'ပို့ကုန်ထုပ်ပိုးမှု - တစ်အိတ် 30 kg စံချိန်မီအိတ်နှင့် စနစ်တကျစည်းနှောင်မှု',
+      },
+    ],
+  },
+};
+
+export interface QualityStandardItem {
+  id: string;
+  index: string;
+  category: string;
+  categoryMm: string;
+  title: string;
+  titleMm: string;
+  description: string;
+  descriptionMm: string;
+  standardSpec: string;
+  standardSpecMm: string;
+}
+
+export const QUALITY_AND_STANDARDS: QualityStandardItem[] = [
+  {
+    id: 'qual-raw-material',
+    index: '01',
+    category: 'Raw Material Standard',
+    categoryMm: 'ကုန်ကြမ်း အရည်အသွေးစံနှုန်း',
+    title: '100% Mature Natural Myanmar Bamboo Selection',
+    titleMm: 'ရင့်မှည့်သန်စွမ်းသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ် ရွေးချယ်မှု',
+    description:
+      'Only mature, high-density Myanmar bamboo culms with strong longitudinal fibers are selected prior to mechanical splitting and sizing, ensuring superior tensile strength.',
+    descriptionMm:
+      'သဘာဝအမျှင်ဓာတ် သိပ်သည်းခိုင်ခံ့ပြီး ရင့်မှည့်သော မြန်မာ့သဘာဝဝါးပင်များကိုသာ စနစ်တကျ ရွေးချယ်အသုံးပြုသဖြင့် ကွေးညွှတ်ခံနိုင်ရည်နှင့် တာရှည်ခံမှု မြင့်မားပါသည်။',
+    standardSpec: '100% Natural Bamboo · Zero Synthetic Additives',
+    standardSpecMm: '၁၀၀% သဘာဝဝါးစစ်စစ် · ဓာတုဆေးဝါး ကင်းစင်',
+  },
+  {
+    id: 'qual-dimensional',
+    index: '02',
+    category: 'Dimensional Tolerance',
+    categoryMm: 'အတိုင်းအတာ တိကျမှုစံနှုန်း',
+    title: 'Precision Thickness, Length & Node Grading',
+    titleMm: 'အထူ၊ အရှည်နှင့် အဆစ်ပါ/အဆစ်မပါ တိကျစွာ အဆင့်ခွဲခြားခြင်း',
+    description:
+      'Every batch is calibrated to strict dimensional specifications: 3 mm uniform thickness for Bamboo Split (20"–48", With/Without Nodes) and 1.2–2.5 mm gauge for Bamboo Sticks (8", 9", 10").',
+    descriptionMm:
+      'ဝါးခြမ်းပြားများကို အထူ 3 mm (အရှည် ၂၀"–၄၈"၊ အဆစ်ပါ/အဆစ်မပါ) နှင့် ဝါးတံများကို အထူ 1.2–2.5 mm (အရှည် ၈"၊ ၉"၊ ၁၀") စံချိန်စံညွှန်းအတိုင်း တစ်ပြေးညီ တိကျစွာ စစ်ဆေးထုတ်လုပ်ပါသည်။',
+    standardSpec: '3 mm Split · 1.2–2.5 mm Sticks · Calibrated Sizing',
+    standardSpecMm: '3 mm ဝါးခြမ်း · 1.2–2.5 mm ဝါးတံ · စံချိန်မီအရွယ်အစား',
+  },
+  {
+    id: 'qual-moisture-pack',
+    index: '03',
+    category: 'Drying & Export Packaging',
+    categoryMm: 'အခြောက်ခံခြင်းနှင့် ပို့ကုန်ထုပ်ပိုးမှုစံနှုန်း',
+    title: 'Moisture Control & Standardized 30KG Export Bagging',
+    titleMm: 'အစိုဓာတ်ထိန်းညှိ အခြောက်ခံခြင်းနှင့် 30KG စံချိန်မီ ထုပ်ပိုးမှု',
+    description:
+      'Properly seasoned and dried to prevent mold during transit, then packed into breathable, durable 30 kg export bags for safe sea freight and warehouse storage.',
+    descriptionMm:
+      'သယ်ယူပို့ဆောင်စဉ် မှိုတက်ခြင်းကင်းဝေးစေရန် စနစ်တကျ အခြောက်ခံထားပြီး တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg) စံနှုန်းဖြင့် ခိုင်ခံ့သပ်ရပ်စွာ ထုပ်ပိုးပေးပါသည်။',
+    standardSpec: 'Seasoned Dry Bamboo · 30 kg per Bag Standard',
+    standardSpecMm: 'စနစ်တကျ အခြောက်ခံပြီး · တစ်အိတ် 30 kg စံနှုန်း',
+  },
+  {
+    id: 'qual-print-qc',
+    index: '04',
+    category: 'Offset Printing Quality',
+    categoryMm: 'ပုံနှိပ်အရည်အသွေး စံနှုန်း',
+    title: 'Sharp Offset Typography, Color Accuracy & Durable Binding',
+    titleMm: 'ကြည်လင်ပြတ်သားသော အော့ဖ်ဆက်ပုံနှိပ်နှင့် ခိုင်ခံ့သော စာအုပ်ချုပ်လုပ်မှု',
+    description:
+      'Our printing division verifies prepress plates, ink density, serial numbering accuracy on voucher pads, and sturdy spine binding for multi-page books.',
+    descriptionMm:
+      'ပုံနှိပ်လုပ်ငန်းတိုင်းတွင် စာလုံးကြည်လင်ပြတ်သားမှု၊ အရောင်မှန်ကန်မှု၊ ဘောင်ချာနံပါတ်စဉ် တိကျမှုနှင့် စာအုပ်ချုပ်လုပ်မှု ခိုင်ခံ့သပ်ရပ်ရေးတို့ကို အဆင့်ဆင့် စစ်ဆေးဆောင်ရွက်ပါသည်။',
+    standardSpec: 'Prepress Check · Serial Numbering · Durable Binding',
+    standardSpecMm: 'Prepress စစ်ဆေးမှု · နံပါတ်စဉ်တိကျမှု · ခိုင်ခံ့သောချုပ်ရိုး',
+  },
+];
+
+export interface BusinessPartnerCategory {
+  id: string;
+  index: string;
+  title: string;
+  titleMm: string;
+  partnerType: string;
+  partnerTypeMm: string;
+  description: string;
+  descriptionMm: string;
+  collaborationPoints: string[];
+  collaborationPointsMm: string[];
+  inquiryType: InquiryTypeOption;
+}
+
+export const BUSINESS_PARTNERS_COLLABORATION: BusinessPartnerCategory[] = [
+  {
+    id: 'partner-export',
+    index: '01',
+    title: 'International Importers & Commodity Trading Houses',
+    titleMm: 'နိုင်ငံတကာ သွင်းကုန်လုပ်ငန်းရှင်များနှင့် ကုန်သွယ်ရေးမိတ်ဖက်များ',
+    partnerType: 'Global Bamboo Export Partners',
+    partnerTypeMm: 'ပြည်ပပို့ကုန် မိတ်ဖက်များ',
+    description:
+      'We collaborate with overseas importers, incense manufacturers, and agricultural supply distributors seeking recurring container shipments of Myanmar Bamboo Split and Bamboo Sticks.',
+    descriptionMm:
+      'မြန်မာ့သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံများကို ပုံမှန်ဝယ်ယူတင်သွင်းလိုသော နိုင်ငံတကာ ကုန်သွယ်ရေးကုမ္ပဏီများ၊ စက်ရုံများနှင့် ရေရှည်လက်တွဲ ဆောင်ရွက်လျက်ရှိပါသည်။',
+    collaborationPoints: [
+      'Consistent 30 kg bag packaging & custom length/node selection',
+      'Direct coordination with our Yangon headquarters for export orders',
+    ],
+    collaborationPointsMm: [
+      'တစ်အိတ် 30 kg စံနှုန်း ထုပ်ပိုးမှုနှင့် လိုအပ်သော အရွယ်အစားအလိုက် ထုတ်လုပ်ပေးခြင်း',
+      'ရန်ကုန်ရုံးချုပ်နှင့် တိုက်ရိုက်ချိတ်ဆက်၍ ပို့ကုန်အော်ဒါများ စနစ်တကျ ဆောင်ရွက်ခြင်း',
+    ],
+    inquiryType: 'Bamboo Sticks',
+  },
+  {
+    id: 'partner-domestic',
+    index: '02',
+    title: 'Domestic Wholesale Distributors & Industrial Buyers',
+    titleMm: 'ပြည်တွင်း လက်ကားဖြန့်ချိရေးနှင့် စက်မှု/စိုက်ပျိုးရေး မိတ်ဖက်များ',
+    partnerType: 'Myanmar Distribution Partners',
+    partnerTypeMm: 'ပြည်တွင်းဖြန့်ဖြူးရေး မိတ်ဖက်များ',
+    description:
+      'Partnering with regional wholesalers, agricultural plantations, and craft manufacturers across Yangon, Mandalay, and throughout Myanmar.',
+    descriptionMm:
+      'ရန်ကုန်၊ မန္တလေးနှင့် မြန်မာနိုင်ငံတစ်ဝန်းရှိ လက်ကားဒိုင်များ၊ စိုက်ပျိုးရေးခြံများနှင့် လက်မှုကုန်ထုတ်လုပ်ငန်းရှင်များထံ ပုံမှန်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
+    collaborationPoints: [
+      'Reliable domestic supply of 3 mm Bamboo Split (20"–48") and Bamboo Sticks',
+      'Flexible wholesale order quantities for local businesses',
+    ],
+    collaborationPointsMm: [
+      'အထူ 3 mm ဝါးခြမ်းပြား (၂၀"–၄၈") နှင့် ဝါးတံများကို ပြည်တွင်း၌ စဉ်ဆက်မပြတ် ဖြန့်ဖြူးပေးခြင်း',
+      'ပြည်တွင်းလုပ်ငန်းရှင်များအတွက် လက်ကားပမာဏအလိုက် အဆင်ပြေစွာ မှာယူနိုင်ခြင်း',
+    ],
+    inquiryType: 'Bamboo Split',
+  },
+  {
+    id: 'partner-print',
+    index: '03',
+    title: 'Publishers, Educational Institutions & Corporate Print Clients',
+    titleMm: 'စာပေထုတ်ဝေသူများ၊ ပညာရေးအဖွဲ့အစည်းများနှင့် ကော်ပိုရိတ်မိတ်ဖက်များ',
+    partnerType: 'One-Stop Offset Printing Partners',
+    partnerTypeMm: 'ပုံနှိပ်လုပ်ငန်း မိတ်ဖက်များ',
+    description:
+      'Serving as the dedicated offset printing partner for publishing houses, retail networks, SMEs, and corporate offices requiring books, voucher books, and business forms.',
+    descriptionMm:
+      'စာအုပ်ထုတ်ဝေရေးလုပ်ငန်းများ၊ အရောင်းဆိုင်ခွဲများနှင့် ကုမ္ပဏီများအတွက် စာအုပ်များနှင့် ဘောင်ချာစာအုပ်များကို လစဉ်/နှစ်စဉ် ပုံမှန်ပုံနှိပ်ပေးသည့် မိတ်ဖက်အဖြစ် ဆောင်ရွက်ပါသည်။',
+    collaborationPoints: [
+      'Recurring printing of commercial voucher books, receipt pads, and bound books',
+      'End-to-end prepress, press run, numbering, and finishing under one roof',
+    ],
+    collaborationPointsMm: [
+      'စာအုပ်များနှင့် လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များကို ပုံမှန်လက်တွဲ ပုံနှိပ်ပေးခြင်း',
+      'ဒီဇိုင်းစစ်ဆေးခြင်းမှ စာအုပ်ချုပ်လုပ်ပြီးစီးသည်အထိ တစ်နေရာတည်း တာဝန်ယူပေးခြင်း',
+    ],
+    inquiryType: 'Books Printing',
+  },
+];
+
 

@@ -370,7 +370,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                       : GALLERY_CATEGORY_LABELS[item.category].en}
                   </span>
                   <span className="font-mono-tabular text-[#26332B]/65">
-                    {t('TB Star Showcase', 'တီဘီစတား ထုတ်ကုန်')}
+                    {t('TB Star Showcase', 'TBStar Company Limited')}
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-[#173D2A] mb-1.5">
@@ -428,7 +428,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                   {isMm
                     ? GALLERY_CATEGORY_LABELS[lightboxItem.category].mm
                     : GALLERY_CATEGORY_LABELS[lightboxItem.category].en}{' '}
-                  · {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
+                  · {t(COMPANY_INFO.name, 'TBStar Company Limited')}
                 </p>
                 <h3 className="text-lg font-bold text-white">
                   {isMm ? lightboxItem.titleMm : lightboxItem.title}
@@ -460,7 +460,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                 <p className="text-xs text-[#245C3A] font-medium">
                   {t(
                     `${COMPANY_INFO.name} · Natural Myanmar Bamboo & One-Stop Offset Printing`,
-                    'တီဘီစတား ကုမ္ပဏီ လီမိတက် · သဘာဝမြန်မာ့ဝါးထုတ်ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
+                    'TBStar Company Limited · သဘာဝမြန်မာ့ဝါးထုတ်ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
                   )}
                 </p>
               </div>
@@ -538,7 +538,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
               <p className="text-sm sm:text-base text-white/85 leading-relaxed mb-6 max-w-2xl">
                 {t(
                   `Contact ${COMPANY_INFO.name} for natural Myanmar bamboo export and distribution inquiries or one-stop offset printing services.`,
-                  'သဘာဝဝါးထုတ်ကုန်များ ပြည်တွင်းဖြန့်ဖြူးရေး၊ ပြည်ပတင်ပို့ရေးနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများအတွက် တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited) သို့ ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
+                  'သဘာဝဝါးထုတ်ကုန်များ ပြည်တွင်းဖြန့်ဖြူးရေး၊ ပြည်ပတင်ပို့ရေးနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများအတွက် TBStar Company Limited သို့ ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
                 )}
               </p>
 

@@ -142,7 +142,7 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
         title="One-Stop Offset Printing Services"
         titleMm="တစ်နေရာတည်းတွင် ပြီးပြည့်စုံသော အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများ"
         description="TB Star Company Limited provides one-stop offset printing services for books, voucher books, and other printing needs."
-        descriptionMm="တီဘီစတား ကုမ္ပဏီ လီမိတက်သည် စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် အခြားပုံနှိပ်လုပ်ငန်း လိုအပ်ချက်များအတွက် တစ်နေရာတည်းတွင် ပြီးပြည့်စုံသော အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
+        descriptionMm="TBStar Company Limited သည် စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် အခြားပုံနှိပ်လုပ်ငန်း လိုအပ်ချက်များအတွက် တစ်နေရာတည်းတွင် ပြီးပြည့်စုံသော အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
         actions={
           <>
             <Button

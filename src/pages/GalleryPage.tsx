@@ -77,7 +77,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1.5">
                 {t(
                   'TB STAR COMPANY LIMITED · YANGON, MYANMAR',
-                  'တီဘီစတား ကုမ္ပဏီ လီမိတက် · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
+                  'TBStar Company Limited · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
                 )}
               </p>
               <h2 className="text-2xl font-bold text-[#173D2A] mb-3">

@@ -127,7 +127,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-0.5">
                 {t(
                   'INQUIRY DETAILS READY · TB STAR COMPANY LIMITED',
-                  'စုံစမ်းမေးမြန်းလွှာ အသင့်ဖြစ်ပါပြီ · တီဘီစတား ကုမ္ပဏီ လီမိတက်'
+                  'စုံစမ်းမေးမြန်းလွှာ အသင့်ဖြစ်ပါပြီ · TBStar Company Limited'
                 )}
               </p>
               <h3 className="text-xl font-bold text-[#173D2A]">
@@ -233,7 +233,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           <h3 className="text-xl md:text-2xl font-bold text-[#173D2A]">
             {t(
               `Send an Inquiry to ${COMPANY_INFO.name}`,
-              'တီဘီစတား ကုမ္ပဏီ လီမိတက်သို့ ဆက်သွယ်မေးမြန်းရန်'
+              'TBStar Company Limited သို့ ဆက်သွယ်မေးမြန်းရန်'
             )}
           </h3>
         </div>

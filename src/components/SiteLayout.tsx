@@ -362,10 +362,10 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                 isMm ? 'font-myanmar' : ''
               }`}
             >
-              {isMm ? 'တီဘီစတား ကုမ္ပဏီ လီမိတက်' : COMPANY_INFO.name}
+              {isMm ? 'TBStar Company Limited' : COMPANY_INFO.name}
             </span>
             <span className="text-[11px] text-[#245C3A] font-medium hidden sm:block">
-              {t('Bamboo Export & Offset Printing', 'TB Star Company Limited')}
+              {t('Bamboo Export & Offset Printing', 'ဝါးပို့ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း')}
             </span>
           </div>
         </a>
@@ -443,17 +443,17 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
               />
               <div>
                 <span className="font-display text-lg font-bold text-white block">
-                  {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
+                  {t(COMPANY_INFO.name, 'TBStar Company Limited')}
                 </span>
                 <span className="text-xs text-[#A8D977] block">
-                  {t('Yangon, Myanmar', 'TB Star Company Limited')}
+                  {t('Yangon, Myanmar', 'ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ')}
                 </span>
               </div>
             </a>
             <p className="text-sm text-white/80 leading-relaxed mb-4">
               {t(
                 `${COMPANY_INFO.name} manufactures natural bamboo products for domestic distribution in Myanmar and international export markets, and provides one-stop offset printing services.`,
-                'တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited) သည် သဘာဝဝါးထုတ်ကုန်များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များအတွက် ထုတ်လုပ်တင်ပို့ပြီး တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုကိုလည်း ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                'TBStar Company Limited သည် သဘာဝဝါးထုတ်ကုန်များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များအတွက် ထုတ်လုပ်တင်ပို့ပြီး တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုကိုလည်း ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
               )}
             </p>
             <p className="text-xs font-mono-tabular text-[#A8D977]">
@@ -589,15 +589,34 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 </>
               )}
             </address>
-            <p className="text-sm mb-3">
+            <p className="text-sm mb-2.5">
               <span className="text-white/60 block text-xs mb-0.5">
-                {t('Telephone:', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ် -')}
+                {t('Phone & WhatsApp:', 'ဖုန်း နှင့် WhatsApp -')}
               </span>
               <a
                 href={COMPANY_INFO.telephoneHref}
-                className="font-mono-tabular font-bold text-[#A8D977] hover:underline"
+                className="font-mono-tabular font-bold text-[#A8D977] hover:underline mr-2"
               >
                 {COMPANY_INFO.telephone}
+              </a>
+              <a
+                href={COMPANY_INFO.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-2 py-0.5 rounded bg-[#25D366]/20 border border-[#25D366]/40 text-[#A8D977] hover:bg-[#25D366] hover:text-white text-[11px] font-semibold transition-colors"
+              >
+                WhatsApp ↗
+              </a>
+            </p>
+            <p className="text-sm mb-3">
+              <span className="text-white/60 block text-xs mb-0.5">
+                {t('Email:', 'အီးမေးလ် -')}
+              </span>
+              <a
+                href={COMPANY_INFO.emailHref}
+                className="font-mono-tabular font-semibold text-white hover:text-[#A8D977] hover:underline transition-colors"
+              >
+                {COMPANY_INFO.email}
               </a>
             </p>
             <a

@@ -1,7 +1,21 @@
 import React from 'react';
-import { ArrowRight, Check, MapPin, Phone } from 'lucide-react';
 import {
+  ArrowRight,
+  Check,
+  Compass,
+  Globe2,
+  Handshake,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Target,
+} from 'lucide-react';
+import {
+  BUSINESS_PARTNERS_COLLABORATION,
   COMPANY_INFO,
+  COMPANY_VISION_MISSION,
+  EXPORT_AND_DOMESTIC_MARKETS,
   InquiryTypeOption,
   PageRoute,
   PROPOSED_CORPORATE_VALUES,
@@ -35,9 +49,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         kicker="Corporate Profile · Kyauktada Township, Yangon, Myanmar"
         kickerMm="ကုမ္ပဏီအချက်အလက် · ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ"
         title={`About ${COMPANY_INFO.name}`}
-        titleMm="တီဘီစတား ကုမ္ပဏီ လီမိတက် အကြောင်း"
+        titleMm="TBStar Company Limited အကြောင်း"
         description="TB Star Company Limited operates across two core business divisions—Bamboo Production & Export and One-Stop Offset Printing Services—serving domestic customers in Myanmar and international buyers."
-        descriptionMm="တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited) သည် သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်တင်ပို့ခြင်းလုပ်ငန်းနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း ဟူသော အဓိကကဏ္ဍကြီး (၂) ခုဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာဝယ်ယူသူများအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။"
+        descriptionMm="TBStar Company Limited သည် သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်တင်ပို့ခြင်းလုပ်ငန်းနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း ဟူသော အဓိကကဏ္ဍကြီး (၂) ခုဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာဝယ်ယူသူများအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။"
         actions={
           <>
             <Button
@@ -84,7 +98,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <p>
                   {isMm ? (
                     <>
-                      <strong>တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited)</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower၊ (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် ရုံးချုပ်ဖွင့်လှစ်ထားသော ကုမ္ပဏီတစ်ခု ဖြစ်ပါသည်။
+                      <strong>TBStar Company Limited</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower၊ (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် ရုံးချုပ်ဖွင့်လှစ်ထားသော ကုမ္ပဏီတစ်ခု ဖြစ်ပါသည်။
                     </>
                   ) : (
                     <>
@@ -145,7 +159,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     {t('OFFICIAL CORPORATE INFORMATION', 'တရားဝင် ကုမ္ပဏီအချက်အလက်များ')}
                   </p>
                   <h3 className="text-lg font-bold text-[#173D2A]">
-                    {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
+                    {t(COMPANY_INFO.name, 'TBStar Company Limited')}
                   </h3>
                 </div>
               </div>
@@ -169,11 +183,21 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 </div>
                 <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
                   <dt className="text-xs text-[#26332B]/70 font-medium">
-                    {t('Contact Number', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ်')}
+                    {t('Phone & WhatsApp', 'ဖုန်း နှင့် WhatsApp')}
                   </dt>
                   <dd className="font-mono-tabular font-bold text-[#173D2A]">
                     <a href={COMPANY_INFO.telephoneHref} className="hover:underline">
                       {COMPANY_INFO.telephone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Corporate Email', 'အီးမေးလ်လိပ်စာ')}
+                  </dt>
+                  <dd className="font-mono-tabular font-semibold text-[#245C3A]">
+                    <a href={COMPANY_INFO.emailHref} className="hover:underline">
+                      {COMPANY_INFO.email}
                     </a>
                   </dd>
                 </div>
@@ -186,6 +210,114 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   </dd>
                 </div>
               </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Corporate Vision & Mission */}
+      <section
+        id="vision-mission"
+        aria-label="Corporate Vision and Mission"
+        className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="02. Corporate Direction · Vision & Mission"
+            kickerMm="၀၂။ ကုမ္ပဏီ၏ ဦးတည်ချက် · မျှော်မှန်းချက်နှင့် ရည်မှန်းချက်"
+            title="Our Corporate Vision & Mission"
+            titleMm="ကုမ္ပဏီ၏ မျှော်မှန်းချက် (Vision) နှင့် ရည်မှန်းချက် (Mission)"
+            description="Driving sustainable Myanmar bamboo manufacturing and dependable one-stop commercial offset printing services."
+            descriptionMm="မြန်မာ့သဘာဝဝါးထုတ်ကုန်များကို နိုင်ငံတကာစံချိန်မီ တင်ပို့ဖြန့်ဖြူးရန်နှင့် ယုံကြည်စိတ်ချရသော One-Stop အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု ပေးအပ်ရန် ချမှတ်ထားသော ဦးတည်ချက်များ။"
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Vision Card */}
+            <div className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-2xl p-7 sm:p-8 flex flex-col justify-between shadow-2xs transition-colors">
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-5 pb-4 border-b border-[#DDE5D9]">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-[#EAF5E4] border border-[#C3E4B5] text-[#173D2A] flex items-center justify-center shrink-0">
+                      <Compass className="w-6 h-6 text-[#245C3A]" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-mono-tabular font-semibold text-[#245C3A]">
+                        {COMPANY_VISION_MISSION.vision.kicker}
+                      </p>
+                      <h3 className="text-2xl font-bold text-[#173D2A]">
+                        {isMm
+                          ? COMPANY_VISION_MISSION.vision.titleMm
+                          : COMPANY_VISION_MISSION.vision.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="text-xs font-mono-tabular font-bold text-[#245C3A] bg-[#F6F8F3] px-2.5 py-1 rounded border border-[#DDE5D9]">
+                    VISION
+                  </span>
+                </div>
+
+                <p className="text-base text-[#173D2A] font-medium leading-relaxed mb-6">
+                  {isMm
+                    ? COMPANY_VISION_MISSION.vision.statementMm
+                    : COMPANY_VISION_MISSION.vision.statement}
+                </p>
+
+                <ul className="space-y-3 text-sm text-[#26332B]/90">
+                  {(isMm
+                    ? COMPANY_VISION_MISSION.vision.highlightsMm
+                    : COMPANY_VISION_MISSION.vision.highlights
+                  ).map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Mission Card */}
+            <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl p-7 sm:p-8 flex flex-col justify-between shadow-2xs">
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-5 pb-4 border-b border-white/15">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 text-[#A8D977] flex items-center justify-center shrink-0">
+                      <Target className="w-6 h-6 text-[#A8D977]" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-mono-tabular font-semibold text-[#A8D977]">
+                        {COMPANY_VISION_MISSION.mission.kicker}
+                      </p>
+                      <h3 className="text-2xl font-bold text-white">
+                        {isMm
+                          ? COMPANY_VISION_MISSION.mission.titleMm
+                          : COMPANY_VISION_MISSION.mission.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="text-xs font-mono-tabular font-bold text-[#173D2A] bg-[#A8D977] px-2.5 py-1 rounded">
+                    MISSION
+                  </span>
+                </div>
+
+                <p className="text-base text-white/95 font-medium leading-relaxed mb-6">
+                  {isMm
+                    ? COMPANY_VISION_MISSION.mission.statementMm
+                    : COMPANY_VISION_MISSION.mission.statement}
+                </p>
+
+                <ul className="space-y-3 text-sm text-white/85">
+                  {(isMm
+                    ? COMPANY_VISION_MISSION.mission.highlightsMm
+                    : COMPANY_VISION_MISSION.mission.highlights
+                  ).map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 text-[#A8D977] shrink-0 mt-0.5" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -420,6 +552,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <Phone className="w-4 h-4 text-[#A8D977]" />
                 {COMPANY_INFO.telephone}
               </a>
+              <a
+                href={COMPANY_INFO.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2.5 bg-[#25D366] hover:bg-[#1fb855] text-white text-xs font-bold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
+              </a>
               <Button
                 type="button"
                 variant="outline-dark"
@@ -428,6 +569,134 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               >
                 {t('Open Contact Form', 'ဆက်သွယ်ရန် ဖောင်ဖွင့်ရန်')}
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Business Partners & Collaboration */}
+      <section
+        id="business-partners"
+        aria-label="Business Partners and Collaboration"
+        className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="05. Business Partners & B2B Collaboration"
+            kickerMm="၀၅။ လုပ်ငန်းမိတ်ဖက်များနှင့် ပူးပေါင်းဆောင်ရွက်မှု"
+            title="Long-Term Partnerships Across Export, Distribution & Printing"
+            titleMm="လုပ်ငန်းမိတ်ဖက်များနှင့် ရေရှည်လက်တွဲ ပူးပေါင်းဆောင်ရွက်မှု"
+            description="We build dependable B2B partnerships with international bamboo importers, domestic wholesalers, agricultural enterprises, and corporate printing clients."
+            descriptionMm="နိုင်ငံတကာ ဝါးပို့ကုန်ဝယ်ယူသူများ၊ ပြည်တွင်းလက်ကားဖြန့်ချိရေးလုပ်ငန်းများ၊ စိုက်ပျိုးရေးနှင့် စက်မှုလုပ်ငန်းများ၊ စာပေထုတ်ဝေရေးနှင့် ကုမ္ပဏီများနှင့် ရေရှည်မိတ်ဖက်အဖြစ် ပူးပေါင်းဆောင်ရွက်လျက်ရှိပါသည်။"
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-12">
+            {BUSINESS_PARTNERS_COLLABORATION.map((partner) => (
+              <div
+                key={partner.id}
+                className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 sm:p-7 flex flex-col justify-between shadow-2xs transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-lg bg-[#EAF5E4] border border-[#C3E4B5] flex items-center justify-center shrink-0">
+                      <Handshake className="w-5 h-5 text-[#245C3A]" />
+                    </div>
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                      {partner.index}
+                    </span>
+                  </div>
+
+                  <p className="text-xs font-semibold text-[#245C3A] mb-1">
+                    {isMm ? partner.partnerTypeMm : partner.partnerType}
+                  </p>
+                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                    {isMm ? partner.titleMm : partner.title}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
+                    {isMm ? partner.descriptionMm : partner.description}
+                  </p>
+
+                  <ul className="space-y-2.5 text-xs text-[#173D2A] font-medium mb-6 pt-4 border-t border-[#DDE5D9]">
+                    {(isMm
+                      ? partner.collaborationPointsMm
+                      : partner.collaborationPoints
+                    ).map((pt) => (
+                      <li key={pt} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Button
+                  type="button"
+                  variant="outline-dark"
+                  size="sm"
+                  className="w-full"
+                  onClick={() => onInquireWithCategory(partner.inquiryType, true)}
+                >
+                  {t('Become a Business Partner', 'မိတ်ဖက်အဖြစ် ပူးပေါင်းဆောင်ရွက်ရန်')}
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          {/* Domestic & International Export Markets Summary on About Page */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div className="bg-white border border-[#DDE5D9] rounded-xl p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <Globe2 className="w-5 h-5 text-[#245C3A]" />
+                <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                  {EXPORT_AND_DOMESTIC_MARKETS.domestic.badge}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.domestic.titleMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.domestic.title}
+              </h3>
+              <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.domestic.descriptionMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.domestic.description}
+              </p>
+              <ul className="space-y-2 text-xs text-[#173D2A] font-medium">
+                {EXPORT_AND_DOMESTIC_MARKETS.domestic.regions.map((reg) => (
+                  <li key={reg.name} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
+                    <span>{isMm ? reg.nameMm : reg.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white border border-[#DDE5D9] rounded-xl p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <Globe2 className="w-5 h-5 text-[#245C3A]" />
+                <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                  {EXPORT_AND_DOMESTIC_MARKETS.international.badge}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.international.titleMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.international.title}
+              </h3>
+              <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.international.descriptionMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.international.description}
+              </p>
+              <ul className="space-y-2 text-xs text-[#173D2A] font-medium">
+                {EXPORT_AND_DOMESTIC_MARKETS.international.regions.map((reg) => (
+                  <li key={reg.name} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
+                    <span>{isMm ? reg.nameMm : reg.name}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

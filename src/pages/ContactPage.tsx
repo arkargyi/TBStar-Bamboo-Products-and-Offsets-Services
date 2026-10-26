@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Building2 } from 'lucide-react';
+import { MapPin, Phone, Building2, Mail, MessageCircle } from 'lucide-react';
 import {
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
@@ -36,17 +36,35 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         kicker="Corporate Office & Inquiry Desk · Kyauktada Township, Yangon"
         kickerMm="ရုံးချုပ်နှင့် ဆက်သွယ်စုံစမ်းရေးဌာန · ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့"
         title={`Contact ${COMPANY_INFO.name}`}
-        titleMm="တီဘီစတား ကုမ္ပဏီ လီမိတက်သို့ ဆက်သွယ်ရန်"
+        titleMm="TBStar Company Limited သို့ ဆက်သွယ်ရန်"
         description="Get in touch with our Yangon office for Bamboo Split, Bamboo Sticks, other natural bamboo product inquiries, and one-stop Offset Printing services."
         descriptionMm="ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks)၊ အခြားသဘာဝဝါးထုတ်ကုန်များနှင့် အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများအတွက် ကျွန်ုပ်တို့၏ ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
         actions={
-          <a
-            href={COMPANY_INFO.telephoneHref}
-            className="px-6 py-3.5 bg-[#A8D977] hover:bg-[#97cc64] text-[#173D2A] text-sm font-bold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
-          >
-            <Phone className="w-4 h-4" />
-            {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href={COMPANY_INFO.telephoneHref}
+              className="px-5 py-3 bg-[#A8D977] hover:bg-[#97cc64] text-[#173D2A] text-sm font-bold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+            >
+              <Phone className="w-4 h-4" />
+              {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
+            </a>
+            <a
+              href={COMPANY_INFO.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-3 bg-[#25D366] hover:bg-[#1fb855] text-white text-sm font-bold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+            >
+              <MessageCircle className="w-4 h-4" />
+              {t('Chat on WhatsApp', 'WhatsApp ဖြင့် ဆက်သွယ်ရန်')}
+            </a>
+            <a
+              href={COMPANY_INFO.emailHref}
+              className="px-5 py-3 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-sm font-semibold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+            >
+              <Mail className="w-4 h-4 text-[#A8D977]" />
+              {COMPANY_INFO.email}
+            </a>
+          </div>
         }
       />
 
@@ -69,7 +87,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       {t('OFFICIAL CONTACT DETAILS', 'တရားဝင် ဆက်သွယ်ရန် အချက်အလက်များ')}
                     </p>
                     <h2 className="text-xl font-bold text-[#173D2A]">
-                      {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
+                      {t(COMPANY_INFO.name, 'TBStar Company Limited')}
                     </h2>
                   </div>
                 </div>
@@ -97,12 +115,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     </div>
                   </div>
 
-                  {/* Telephone */}
+                  {/* Telephone & WhatsApp */}
                   <div className="pt-5 border-t border-[#DDE5D9] flex items-start gap-3.5">
                     <Phone className="w-5 h-5 text-[#245C3A] shrink-0 mt-1" />
-                    <div>
+                    <div className="w-full">
                       <h3 className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1">
-                        {t('Telephone Contact', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ်')}
+                        {t('Phone & WhatsApp Contact', 'ဖုန်း နှင့် WhatsApp ဆက်သွယ်ရန်')}
                       </h3>
                       <a
                         href={COMPANY_INFO.telephoneHref}
@@ -110,13 +128,46 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       >
                         {COMPANY_INFO.telephone}
                       </a>
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <a
+                          href={COMPANY_INFO.telephoneHref}
+                          className="px-4 py-2 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+                        >
+                          <Phone className="w-3.5 h-3.5 text-[#A8D977]" />
+                          {t('Call Office', 'ဖုန်းခေါ်ဆိုရန်')}
+                        </a>
+                        <a
+                          href={COMPANY_INFO.whatsappHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-[#25D366] hover:bg-[#1fb855] text-white text-xs font-bold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+                        >
+                          <MessageCircle className="w-3.5 h-3.5" />
+                          {t('WhatsApp Chat', 'WhatsApp ပို့ရန်')}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Official Email */}
+                  <div className="pt-5 border-t border-[#DDE5D9] flex items-start gap-3.5">
+                    <Mail className="w-5 h-5 text-[#245C3A] shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1">
+                        {t('Official Email Address', 'တရားဝင် အီးမေးလ်လိပ်စာ')}
+                      </h3>
                       <a
-                        href={COMPANY_INFO.telephoneHref}
-                        className="px-4 py-2 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+                        href={COMPANY_INFO.emailHref}
+                        className="text-base font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] transition-colors block mb-1"
                       >
-                        <Phone className="w-3.5 h-3.5 text-[#A8D977]" />
-                        {t('Tap to Call Office', 'ရုံးသို့ ဖုန်းခေါ်ဆိုရန်')}
+                        {COMPANY_INFO.email}
                       </a>
+                      <p className="text-xs text-[#26332B]/75">
+                        {t(
+                          'For export quotations, specifications, and offset printing files',
+                          'ပြည်ပပို့ကုန် စျေးနှုန်းမေးမြန်းရန်နှင့် ပုံနှိပ်ဖိုင်များ ပေးပို့ရန်'
+                        )}
+                      </p>
                     </div>
                   </div>
 

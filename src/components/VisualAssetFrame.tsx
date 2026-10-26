@@ -111,21 +111,21 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
     type === 'bamboo-split'
       ? t(
           'TB Star Company · Bamboo Split (3 mm · 20"–48")',
-          'တီဘီစတား ကုမ္ပဏီ · ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")'
+          'TBStar Company Limited · ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")'
         )
       : type === 'bamboo-sticks'
       ? t(
           'TB Star Company · Bamboo Sticks (1.2–2.5 mm · 30KG/bag)',
-          'တီဘီစတား ကုမ္ပဏီ · ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30KG)'
+          'TBStar Company Limited · ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30KG)'
         )
       : type === 'bamboo-custom'
       ? t(
           'TB Star Company · 100% Natural Myanmar Bamboo Products',
-          'တီဘီစတား ကုမ္ပဏီ · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
+          'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
         )
       : t(
           'TB Star Company · One-Stop Offset Printing Services',
-          'တီဘီစတား ကုမ္ပဏီ · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
+          'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
         );
 
   const badgeText =

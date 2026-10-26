@@ -162,7 +162,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         title="100% Natural Myanmar Bamboo Products & Export Specifications"
         titleMm="၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များနှင့် ပြည်ပပို့ကုန် အချက်အလက်များ"
         description="TB Star Company Limited manufactures and supplies Bamboo Split, Bamboo Sticks, and other bamboo products for domestic distribution within Myanmar and export to international markets."
-        descriptionMm="တီဘီစတား ကုမ္ပဏီ လီမိတက်သည် မြန်မာနိုင်ငံတွင်း ဖြန့်ဖြူးရောင်းချရန်နှင့် နိုင်ငံတကာဈေးကွက်သို့ တင်ပို့ရန် ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks) နှင့် အခြားဝါးထုတ်ကုန်များကို ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
+        descriptionMm="TBStar Company Limited သည် မြန်မာနိုင်ငံတွင်း ဖြန့်ဖြူးရောင်းချရန်နှင့် နိုင်ငံတကာဈေးကွက်သို့ တင်ပို့ရန် ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks) နှင့် အခြားဝါးထုတ်ကုန်များကို ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
         actions={
           <>
             <Button
@@ -279,7 +279,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             kicker="Eco-Advantages · Sustainable Myanmar Bamboo Supply"
             kickerMm="သဘာဝပတ်ဝန်းကျင်ဆိုင်ရာ အားသာချက်များ · ရေရှည်တည်တံ့သော မြန်မာ့သဘာဝဝါး"
             title="Why TB Star’s 100% Natural Bamboo Is a Sustainable Choice"
-            titleMm="တီဘီစတား၏ ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ ရေရှည်တည်တံ့ပြီး သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သည့် အချက်များ"
+            titleMm="TBStar Company Limited ၏ ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ ရေရှည်တည်တံ့ပြီး သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သည့် အချက်များ"
             description="Sourced from rapidly regenerating bamboo groves in Myanmar and mechanically processed without synthetic chemicals, our bamboo products support environmentally responsible manufacturing and global trade."
             descriptionMm="မြန်မာနိုင်ငံရှိ သဘာဝအလျောက် ပြန်လည်ရှင်သန်ကြီးထွားသော ဝါးတောများမှ ရယူပြီး ဓာတုဆေးဝါးမပါဘဲ စနစ်တကျ စိတ်ဖြာထုတ်လုပ်ထားသဖြင့် သဘာဝပတ်ဝန်းကျင်ကို ထိန်းသိမ်းရာရောက်သည့် စံချိန်မီ ထုတ်ကုန်များ ဖြစ်ပါသည်။"
             action={
@@ -349,7 +349,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               <p className="text-sm text-white/85 leading-relaxed">
                 {t(
                   'Every shipment of TB Star Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.2–2.5 mm · 30 kg per bag) is produced from 100% natural bamboo harvested in Myanmar, delivering consistent dimensional quality with a low environmental footprint.',
-                  'တီဘီစတား ကုမ္ပဏီ လီမိတက်မှ ထုတ်လုပ်တင်ပို့သော ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30 kg) တိုင်းသည် သဘာဝပတ်ဝန်းကျင် ထိခိုက်မှုမရှိသော မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြင့် အရည်အသွေးမီ ထုတ်လုပ်ထားပါသည်။'
+                  'TBStar Company Limited မှ ထုတ်လုပ်တင်ပို့သော ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30 kg) တိုင်းသည် သဘာဝပတ်ဝန်းကျင် ထိခိုက်မှုမရှိသော မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြင့် အရည်အသွေးမီ ထုတ်လုပ်ထားပါသည်။'
                 )}
               </p>
             </div>

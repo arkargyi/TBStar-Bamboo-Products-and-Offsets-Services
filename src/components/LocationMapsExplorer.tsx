@@ -134,7 +134,7 @@ function getDefaultPresetData(
     query: preset.query,
     text: isMm
       ? [
-          '* တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited) ရုံးချုပ်သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower၊ (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် တည်ရှိပါသည်။',
+          '* TBStar Company Limited ရုံးချုပ်သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower၊ (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် တည်ရှိပါသည်။',
           '* မြေပုံတည်နေရာအညွှန်း (Coordinates): 16.7745° N, 96.1618° E ဖြစ်ပြီး ပန်းဆိုးတန်းလမ်းမကြီးနှင့် ဆူးလေစေတီတော်အနီး ရန်ကုန်မြို့လယ် စီးပွားရေးဇုန်တွင် တည်ရှိပါသည်။',
           '* ရုံးချိန်အတွင်း ဝါးထုတ်ကုန် နမူနာများ (Bamboo Raw Materials) နှင့် ပုံနှိပ်လုပ်ငန်း (Printing Services) ဆိုင်ရာ ကိစ္စရပ်များကို အခန်း (၁၁၀၃) သို့ လူကိုယ်တိုင် လာရောက်ဆွေးနွေးနိုင်ပါသည်။',
         ].join('\n')
@@ -507,7 +507,7 @@ export const LocationMapsExplorer: React.FC<{ compact?: boolean }> = ({
                   <p className="text-sm text-[#26332B]/90 leading-relaxed">
                     {t(
                       'TB Star Company Limited is located at Room No. 1103, 11th Floor, Central Tower, at the corner of 39th Street and Anawrahta Road in Kyauktada Township, downtown Yangon.',
-                      'တီဘီစတား ကုမ္ပဏီ လီမိတက်သည် ရန်ကုန်မြို့လယ်၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် တည်ရှိပါသည်။'
+                      'TBStar Company Limited သည် ရန်ကုန်မြို့လယ်၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် တည်ရှိပါသည်။'
                     )}
                   </p>
                 </div>

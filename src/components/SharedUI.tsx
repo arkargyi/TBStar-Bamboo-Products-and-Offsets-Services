@@ -251,10 +251,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </p>
             )}
             <h1
-              className={`text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 ${
-                isMm ? 'font-myanmar leading-[1.38]' : 'leading-[1.12]'
+              className={`w-[900px] max-w-full rounded-none text-left text-[48px] leading-[77.24px] font-extrabold text-white tracking-tight mb-4 ${
+                isMm ? 'font-myanmar' : ''
               }`}
-              style={{ textWrap: 'balance' }}
             >
               {displayTitle}
             </h1>

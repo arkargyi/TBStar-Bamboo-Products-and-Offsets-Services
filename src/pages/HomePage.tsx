@@ -1,12 +1,15 @@
 import React from 'react';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { ArrowRight, Check, Globe2, Phone, ShieldCheck } from 'lucide-react';
 import {
   BAMBOO_PRODUCTS,
   COMPANY_INFO,
+  EXPORT_AND_DOMESTIC_MARKETS,
   GALLERY_PREVIEW_ITEMS,
+  INDUSTRIES_SERVED,
   InquiryTypeOption,
   PageRoute,
   PRINTING_SERVICES,
+  QUALITY_AND_STANDARDS,
   WHY_CHOOSE_US_ITEMS,
 } from '../data/companyData';
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
@@ -60,7 +63,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Left Column: Proposition & CTAs */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <div className="flex flex-wrap items-center gap-2 text-xs text-[#A8D977] font-medium tracking-wide mb-4">
-                <span>{t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}</span>
+                <span>{t(COMPANY_INFO.name, 'TBStar Company Limited')}</span>
                 <span aria-hidden="true">·</span>
                 <span>
                   {t(
@@ -85,7 +88,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl mb-8">
                 {t(
                   'TB Star Company Limited manufactures bamboo products for local distribution and international markets while providing one-stop offset printing services.',
-                  'တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited) သည် သဘာဝဝါးထုတ်ကုန်များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာပို့ကုန်စျေးကွက်များအတွက် ထုတ်လုပ်တင်ပို့လျက်ရှိပြီး၊ တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု (One-Stop Offset Printing Services) ကိုလည်း ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                  'TBStar Company Limited သည် သဘာဝဝါးထုတ်ကုန်များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာပို့ကုန်စျေးကွက်များအတွက် ထုတ်လုပ်တင်ပို့လျက်ရှိပြီး၊ တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု (One-Stop Offset Printing Services) ကိုလည်း ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
                 )}
               </p>
 
@@ -168,7 +171,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   />
                   <div>
                     <p className="text-xs font-bold text-white">
-                      {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
+                      {t(COMPANY_INFO.name, 'TBStar Company Limited')}
                     </p>
                     <p className="text-[11px] text-[#A8D977]">
                       {t(
@@ -217,7 +220,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             title="Two Specialized Divisions Serving Local & International Markets"
             titleMm="ပြည်တွင်းနှင့် နိုင်ငံတကာစျေးကွက်များအတွက် အဓိက စီးပွားရေးလုပ်ငန်းကဏ္ဍကြီး (၂) ခု"
             description="TB Star Company Limited operates dedicated manufacturing and export for natural Myanmar bamboo products alongside commercial one-stop offset printing services."
-            descriptionMm="တီဘီစတား ကုမ္ပဏီ လီမိတက်သည် မြန်မာ့သဘာဝဝါးထုတ်ကုန်များ ထုတ်လုပ်ဖြန့်ဖြူးခြင်းနှင့် ပြည်ပတင်ပို့ခြင်းလုပ်ငန်းအပြင် တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းကိုပါ စနစ်တကျ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
+            descriptionMm="TBStar Company Limited သည် မြန်မာ့သဘာဝဝါးထုတ်ကုန်များ ထုတ်လုပ်ဖြန့်ဖြူးခြင်းနှင့် ပြည်ပတင်ပို့ခြင်းလုပ်ငန်းအပြင် တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းကိုပါ စနစ်တကျ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -426,7 +429,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             title="Offset Printing Services"
             titleMm="အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများ"
             description="TB Star Company Limited provides one-stop offset printing services for books, voucher books, and other printing needs."
-            descriptionMm="တီဘီစတား ကုမ္ပဏီ လီမိတက်သည် စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် အခြားပုံနှိပ်လုပ်ငန်း လိုအပ်ချက်များအတွက် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
+            descriptionMm="TBStar Company Limited သည် စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် အခြားပုံနှိပ်လုပ်ငန်း လိုအပ်ချက်များအတွက် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
             action={
               <Button
                 type="button"
@@ -464,13 +467,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                 className="text-2xl sm:text-4xl font-bold text-[#173D2A] tracking-tight mb-5"
                 style={{ textWrap: 'balance' }}
               >
-                {t(`About ${COMPANY_INFO.name}`, 'တီဘီစတား ကုမ္ပဏီ လီမိတက် အကြောင်း မိတ်ဆက်')}
+                {t(`About ${COMPANY_INFO.name}`, 'TBStar Company Limited အကြောင်း မိတ်ဆက်')}
               </h2>
 
               <p className="text-base text-[#26332B]/90 leading-relaxed mb-4">
                 {isMm ? (
                   <>
-                    <strong>တီဘီစတား ကုမ္ပဏီ လီမိတက် (TB Star Company Limited)</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower တွင် ရုံးချုပ်တည်ရှိပြီး <strong>ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း</strong> နှင့် <strong>အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း</strong> ဟူသော အဓိက စီးပွားရေးလုပ်ငန်းကြီး (၂) ခုကို ဆောင်ရွက်လျက်ရှိပါသည်။
+                    <strong>TBStar Company Limited</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower တွင် ရုံးချုပ်တည်ရှိပြီး <strong>ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း</strong> နှင့် <strong>အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း</strong> ဟူသော အဓိက စီးပွားရေးလုပ်ငန်းကြီး (၂) ခုကို ဆောင်ရွက်လျက်ရှိပါသည်။
                   </>
                 ) : (
                   <>
@@ -519,7 +522,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     {t('CORPORATE HEADQUARTERS', 'တရားဝင် ကုမ္ပဏီအချက်အလက်')}
                   </p>
                   <h3 className="text-lg font-bold text-[#173D2A]">
-                    {t(COMPANY_INFO.name, 'တီဘီစတား ကုမ္ပဏီ လီမိတက်')}
+                    {t(COMPANY_INFO.name, 'TBStar Company Limited')}
                   </h3>
                 </div>
               </div>
@@ -565,7 +568,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             kicker="Core Capabilities · Business Excellence"
             kickerMm="အဓိက လုပ်ငန်းစွမ်းဆောင်ရည်များ"
             title={`Why Partner With ${COMPANY_INFO.name}`}
-            titleMm="တီဘီစတား ကုမ္ပဏီ လီမိတက်နှင့် လက်တွဲဆောင်ရွက်သင့်သည့် အချက်များ"
+            titleMm="TBStar Company Limited နှင့် လက်တွဲဆောင်ရွက်သင့်သည့် အချက်များ"
             description="Built on dependable manufacturing, domestic distribution, export supply, and one-stop offset printing operations."
             descriptionMm="သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်မှု၊ ပြည်တွင်းဖြန့်ဖြူးရေး၊ နိုင်ငံတကာပြည်ပပို့ကုန်နှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများကို စနစ်တကျ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
           />
@@ -602,6 +605,172 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {isMm ? pillar.descriptionMm : pillar.description}
                   </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INDUSTRIES WE SERVE */}
+      <section
+        id="industries-served"
+        aria-label="Industries Served by TB Star Company Limited"
+        className="py-20 bg-white border-b border-[#DDE5D9]"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="Industries We Serve · ဝန်ဆောင်မှုပေးနေသော လုပ်ငန်းကဏ္ဍများ"
+            kickerMm="ကုမ္ပဏီဝန်ဆောင်မှုပေးနေသော လုပ်ငန်းကဏ္ဍများ · Industries We Serve"
+            title="Serving Diverse Industrial, Agricultural & Commercial Sectors"
+            titleMm="စိုက်ပျိုးရေး၊ ကုန်ထုတ်လုပ်ငန်း၊ စာပေထုတ်ဝေရေးနှင့် စီးပွားရေးလုပ်ငန်းကဏ္ဍများ"
+            description="Our natural Myanmar bamboo products and one-stop offset printing services support key domestic and international industries."
+            descriptionMm="သဘာဝဝါးထုတ်ကုန်များနှင့် One-Stop အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာရှိ အောက်ပါ လုပ်ငန်းကဏ္ဍအသီးသီးကို ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {INDUSTRIES_SERVED.map((ind) => (
+              <div
+                key={ind.id}
+                className="bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 flex flex-col justify-between transition-colors shadow-2xs"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded bg-[#EAF5E4] text-[#173D2A] border border-[#C3E4B5]">
+                      {isMm ? ind.sectorMm : ind.sector}
+                    </span>
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                      {ind.index}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#173D2A] mb-2">
+                    {isMm ? ind.titleMm : ind.title}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
+                    {isMm ? ind.descriptionMm : ind.description}
+                  </p>
+                </div>
+
+                <div className="pt-3.5 border-t border-[#DDE5D9]">
+                  <p className="text-xs font-semibold text-[#173D2A] mb-2.5 flex items-start gap-2">
+                    <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
+                    <span>{isMm ? ind.productsUsedMm : ind.productsUsed}</span>
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => onInquireWithCategory(ind.inquiryType, true)}
+                    className="text-xs font-bold text-[#245C3A] hover:text-[#173D2A] inline-flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>{t('Inquire for This Sector', 'ဤလုပ်ငန်းကဏ္ဍအတွက် မေးမြန်းရန်')}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EXPORT MARKETS (DOMESTIC / INTERNATIONAL) & QUALITY STANDARDS */}
+      <section
+        id="markets-and-quality"
+        aria-label="Export Markets and Quality Standards"
+        className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            kicker="Export Markets & Quality Standards · ပြည်တွင်း/ပြည်ပ စျေးကွက်နှင့် စံချိန်စံညွှန်းများ"
+            kickerMm="ပြည်တွင်း/ပြည်ပ စျေးကွက်များနှင့် ထုတ်ကုန်အရည်အသွေး စံနှုန်းများ"
+            title="Domestic & International Supply Backed by Strict Quality Standards"
+            titleMm="ပြည်တွင်းနှင့် ပြည်ပ စျေးကွက်ဖြန့်ဖြူးမှုနှင့် အရည်အသွေး စံချိန်စံညွှန်းများ"
+            description="Supplying local commercial hubs across Myanmar and international export destinations with calibrated specifications."
+            descriptionMm="မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက်နှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်စျေးကွက်များသို့ တိကျသော အရည်အသွေးစံနှုန်းများဖြင့် ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
+          />
+
+          {/* Domestic vs International Export Markets */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white border border-[#DDE5D9] rounded-2xl p-6 sm:p-8 shadow-2xs">
+              <div className="flex items-center gap-2.5 mb-3">
+                <Globe2 className="w-5 h-5 text-[#245C3A]" />
+                <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                  {EXPORT_AND_DOMESTIC_MARKETS.domestic.badge}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.domestic.titleMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.domestic.title}
+              </h3>
+              <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.domestic.descriptionMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.domestic.description}
+              </p>
+              <ul className="space-y-2.5 text-sm text-[#173D2A] font-medium">
+                {EXPORT_AND_DOMESTIC_MARKETS.domestic.regions.map((reg) => (
+                  <li key={reg.name} className="flex items-start gap-2.5">
+                    <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
+                    <span>{isMm ? reg.nameMm : reg.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl p-6 sm:p-8 shadow-2xs">
+              <div className="flex items-center gap-2.5 mb-3">
+                <Globe2 className="w-5 h-5 text-[#A8D977]" />
+                <span className="text-xs font-mono-tabular font-bold text-[#A8D977]">
+                  {EXPORT_AND_DOMESTIC_MARKETS.international.badge}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2.5">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.international.titleMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.international.title}
+              </h3>
+              <p className="text-sm text-white/85 leading-relaxed mb-5">
+                {isMm
+                  ? EXPORT_AND_DOMESTIC_MARKETS.international.descriptionMm
+                  : EXPORT_AND_DOMESTIC_MARKETS.international.description}
+              </p>
+              <ul className="space-y-2.5 text-sm text-white/95 font-medium">
+                {EXPORT_AND_DOMESTIC_MARKETS.international.regions.map((reg) => (
+                  <li key={reg.name} className="flex items-start gap-2.5">
+                    <Check className="w-4 h-4 text-[#A8D977] shrink-0 mt-0.5" />
+                    <span>{isMm ? reg.nameMm : reg.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Quality & Standards 4-Pillar Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {QUALITY_AND_STANDARDS.map((q) => (
+              <div
+                key={q.id}
+                className="bg-white border border-[#DDE5D9] rounded-xl p-6 flex flex-col justify-between shadow-2xs"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <ShieldCheck className="w-5 h-5 text-[#245C3A]" />
+                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                      {q.index}
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#245C3A] font-semibold mb-1">
+                    {isMm ? q.categoryMm : q.category}
+                  </p>
+                  <h4 className="text-base font-bold text-[#173D2A] mb-2">
+                    {isMm ? q.titleMm : q.title}
+                  </h4>
+                  <p className="text-xs text-[#26332B]/85 leading-relaxed mb-4">
+                    {isMm ? q.descriptionMm : q.description}
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9] text-[11px] font-semibold text-[#173D2A]">
+                  {isMm ? q.standardSpecMm : q.standardSpec}
                 </div>
               </div>
             ))}
