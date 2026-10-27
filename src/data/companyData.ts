@@ -162,45 +162,99 @@ export const COMPANY_INFO = {
   },
 };
 
-export const PAGE_SEO: Record<
-  PageRoute,
-  { title: string; description: string; heading: string }
-> = {
+export interface PageSeoMetadata {
+  title: string;
+  description: string;
+  heading: string;
+  canonicalUrl: string;
+  ogImage: string;
+  ogImageAlt: string;
+  breadcrumbs: { name: string; url: string }[];
+}
+
+export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   '/': {
-    title: 'TB Star Company Limited – Bamboo Products & Offset Printing Myanmar',
+    title: 'TB Star Company Limited – Bamboo Export & Offset Printing',
     description:
       'TB Star Company Limited manufactures and exports 100% natural Myanmar bamboo split and bamboo sticks while providing one-stop offset printing services in Yangon.',
     heading: 'Home',
+    canonicalUrl: 'https://tbstarcompany.com/',
+    ogImage: 'https://tbstarcompany.com/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    ogImageAlt:
+      'TB Star Company Limited 100% Natural Myanmar Bamboo Products and Offset Printing Services',
+    breadcrumbs: [{ name: 'Home', url: 'https://tbstarcompany.com/' }],
   },
   '/about': {
     title: 'About Us – TB Star Company Limited | Yangon, Myanmar',
     description:
       'Learn about TB Star Company Limited in Yangon, Myanmar—operating across Bamboo Production & Export, Domestic Distribution, and One-Stop Offset Printing Services.',
     heading: 'About Us',
+    canonicalUrl: 'https://tbstarcompany.com/about',
+    ogImage: 'https://tbstarcompany.com/assets/aistudio/TBStar_073dded3.jpeg',
+    ogImageAlt: 'TB Star Company Limited Official Corporate Emblem – Yangon, Myanmar',
+    breadcrumbs: [
+      { name: 'Home', url: 'https://tbstarcompany.com/' },
+      { name: 'About Us', url: 'https://tbstarcompany.com/about' },
+    ],
   },
   '/bamboo-products': {
-    title: 'Bamboo Split & Bamboo Sticks Specifications – TB Star Company Limited',
+    title: 'Bamboo Split & Bamboo Sticks Specifications – TB Star Company',
     description:
       'Review technical specifications for 100% natural Myanmar Bamboo Split (3 mm, 20"–48") and Bamboo Sticks (1.2–2.5 mm, 8"/9"/10", 30 kg per bag) from TB Star Company Limited.',
     heading: 'Bamboo Products',
+    canonicalUrl: 'https://tbstarcompany.com/bamboo-products',
+    ogImage: 'https://tbstarcompany.com/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    ogImageAlt:
+      'TB Star Company Limited 100% Natural Myanmar Bamboo Split (3 mm, 20 to 48 inches) and Bamboo Sticks (30 kg per bag)',
+    breadcrumbs: [
+      { name: 'Home', url: 'https://tbstarcompany.com/' },
+      { name: 'Bamboo Products', url: 'https://tbstarcompany.com/bamboo-products' },
+    ],
   },
   '/printing-services': {
     title: 'Offset Printing Services Myanmar – Books & Voucher Books | TB Star',
     description:
       'TB Star Company Limited provides one-stop offset printing services in Yangon, Myanmar for books printing, voucher books printing, and commercial printing requirements.',
     heading: 'Offset Printing Services',
+    canonicalUrl: 'https://tbstarcompany.com/printing-services',
+    ogImage: 'https://tbstarcompany.com/assets/aistudio/Offset-Printing.svg',
+    ogImageAlt:
+      'TB Star Company Limited One-Stop Offset Printing Services in Yangon, Myanmar',
+    breadcrumbs: [
+      { name: 'Home', url: 'https://tbstarcompany.com/' },
+      {
+        name: 'Offset Printing Services',
+        url: 'https://tbstarcompany.com/printing-services',
+      },
+    ],
   },
   '/gallery': {
     title: 'Projects & Product Gallery – TB Star Company Limited',
     description:
       'Explore visual categories for TB Star Company Limited including Bamboo Products, Bamboo Production, Packaging, Printing Products, and Company Activities.',
     heading: 'Projects / Gallery',
+    canonicalUrl: 'https://tbstarcompany.com/gallery',
+    ogImage: 'https://tbstarcompany.com/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
+    ogImageAlt:
+      'TB Star Company Limited Bamboo Products, 30 kg Export Packaging, and Printing Gallery',
+    breadcrumbs: [
+      { name: 'Home', url: 'https://tbstarcompany.com/' },
+      { name: 'Projects / Gallery', url: 'https://tbstarcompany.com/gallery' },
+    ],
   },
   '/contact': {
-    title: 'Contact TB Star Company Limited – Bamboo Export & Printing Inquiries',
+    title: 'Contact TB Star Company Limited – Bamboo Export & Printing',
     description:
-      'Contact TB Star Company Limited at Central Tower, Kyauktada Township, Yangon (+95 9 450048547) for Bamboo Split, Bamboo Sticks, and Offset Printing inquiries.',
+      'Contact TB Star Company Limited at Central Tower, Kyauktada Township, Yangon (+95 9 450048547, info@tbstarcompany.com) for Bamboo Export and Offset Printing inquiries.',
     heading: 'Contact Us',
+    canonicalUrl: 'https://tbstarcompany.com/contact',
+    ogImage: 'https://tbstarcompany.com/assets/aistudio/TBStar_073dded3.jpeg',
+    ogImageAlt:
+      'Contact TB Star Company Limited at Central Tower, Kyauktada Township, Yangon, Myanmar',
+    breadcrumbs: [
+      { name: 'Home', url: 'https://tbstarcompany.com/' },
+      { name: 'Contact Us', url: 'https://tbstarcompany.com/contact' },
+    ],
   },
 };
 
@@ -1180,8 +1234,8 @@ export const EXPORT_AND_DOMESTIC_MARKETS = {
       'TB Star Company Limited သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (Bamboo Split) နှင့် တစ်အိတ် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို နိုင်ငံတကာ ဝယ်ယူသူများနှင့် စက်ရုံများသို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။',
     regions: [
       {
-        name: 'South Asia & Regional Manufacturing Markets',
-        nameMm: 'တောင်အာရှနှင့် ဒေသတွင်း ကုန်ထုတ်လုပ်ငန်း စျေးကွက်များ',
+        name: 'South Asia (India, Pakistan) & Regional Manufacturing Markets',
+        nameMm: 'တောင်အာရှ (အိန္ဒိယ၊ ပါကစ္စတန်) နှင့် ဒေသတွင်း ကုန်ထုတ်လုပ်ငန်း စျေးကွက်များ',
       },
       {
         name: 'Southeast Asia (ASEAN) & East Asia Trade Partners',

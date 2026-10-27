@@ -250,9 +250,9 @@ export const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({
                 <CheckCircle2 className="w-5 h-5 text-[#245C3A]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-[#173D2A]">
+                <h3 className="text-sm font-bold text-[#173D2A]">
                   {t('100% Natural Material', '၁၀၀% သဘာဝဝါးစစ်စစ်')}
-                </h4>
+                </h3>
                 <p className="text-xs text-[#26332B]/75 mt-0.5 leading-relaxed">
                   {t(
                     'Precision split & stick sizing from raw Myanmar bamboo.',
@@ -267,9 +267,9 @@ export const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({
                 <Globe2 className="w-5 h-5 text-[#245C3A]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-[#173D2A]">
+                <h3 className="text-sm font-bold text-[#173D2A]">
                   {t('Standard 30KG Packaging', '၃၀ ကီလိုဂရမ် စံနှုန်းထုပ်ပိုးမှု')}
-                </h4>
+                </h3>
                 <p className="text-xs text-[#26332B]/75 mt-0.5 leading-relaxed">
                   {t(
                     'Export-ready bagging optimized for international container freight.',
@@ -284,9 +284,9 @@ export const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({
                 <Building2 className="w-5 h-5 text-[#245C3A]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-[#173D2A]">
+                <h3 className="text-sm font-bold text-[#173D2A]">
                   {t('One-Stop Offset Press', 'One-Stop အော့ဖ်ဆက်ပုံနှိပ်')}
-                </h4>
+                </h3>
                 <p className="text-xs text-[#26332B]/75 mt-0.5 leading-relaxed">
                   {t(
                     'Books, voucher books, and commercial form production.',
@@ -301,9 +301,9 @@ export const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({
                 <ShieldCheck className="w-5 h-5 text-[#245C3A]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-[#173D2A]">
+                <h3 className="text-sm font-bold text-[#173D2A]">
                   {t('Central Tower Headquarters', 'Central Tower ရုံးချုပ်')}
-                </h4>
+                </h3>
                 <p className="text-xs text-[#26332B]/75 mt-0.5 leading-relaxed">
                   {t(
                     'Direct B2B coordination in Kyauktada, Yangon.',
@@ -337,6 +337,7 @@ export const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({
                   type="button"
                   variant="primary-dark"
                   size="sm"
+                  href="/contact"
                   onClick={() => onNavigate('/contact')}
                 >
                   {t('Contact Our Team', 'ဆက်သွယ်မေးမြန်းရန်')}

@@ -41,6 +41,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             <Button
               type="button"
               variant="primary-light"
+              href="/bamboo-products"
               onClick={() => onNavigate('/bamboo-products')}
             >
               {t('View Bamboo Specifications', 'ဝါးထုတ်ကုန် စံချိန်စံညွှန်း ကြည့်ရန်')}
@@ -49,6 +50,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             <Button
               type="button"
               variant="outline-light"
+              href="/contact"
               onClick={() => onNavigate('/contact')}
             >
               {t('Contact Our Office', 'ရုံးသို့ ဆက်သွယ်ရန်')}
@@ -65,6 +67,10 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               <img
                 src={COMPANY_INFO.logoPath}
                 alt="Official TB Star Company Limited (TUN BROTHERS) Star Emblem Logo"
+                width={144}
+                height={144}
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
                 className="w-36 h-36 object-contain"
               />
@@ -109,6 +115,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                   type="button"
                   variant="primary-dark"
                   size="sm"
+                  href="/contact"
                   onClick={() => onNavigate('/contact')}
                 >
                   {t('Request Product Inquiry', 'ထုတ်ကုန်နှင့် ဝန်ဆောင်မှု မေးမြန်းရန်')}

@@ -546,6 +546,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                 <Button
                   type="button"
                   variant="primary-light"
+                  href="/contact"
                   onClick={() => onNavigate('/contact')}
                 >
                   {t('Contact Us', 'ဆက်သွယ်ရန်')}

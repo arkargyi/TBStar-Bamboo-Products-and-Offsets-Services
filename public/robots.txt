@@ -1,4 +1,11 @@
+# robots.txt for TBStar Company Limited (https://tbstarcompany.com)
 User-agent: *
 Allow: /
 
-Sitemap: https://tbstar.com/sitemap.xml
+# Prevent crawling of backend API and administrative paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://tbstarcompany.com/sitemap.xml

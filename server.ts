@@ -351,6 +351,26 @@ async function startServer() {
   const app = express();
   const PORT = Number(process.env.PORT) || 3000;
 
+  const VALID_SPA_ROUTES = new Set([
+    '/',
+    '/about',
+    '/bamboo-products',
+    '/printing-services',
+    '/gallery',
+    '/contact',
+  ]);
+
+  app.use((_req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    next();
+  });
+
+  app.use('/api', (_req, res, next) => {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    next();
+  });
+
   app.use(express.json());
 
   app.post('/api/maps/grounding', async (req, res) => {
@@ -387,14 +407,25 @@ async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { middlewareMode: true, hmr: false },
       appType: 'spa',
     });
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(__dirname, 'dist');
+    app.use(
+      '/assets',
+      express.static(path.join(distPath, 'assets'), {
+        maxAge: '1y',
+        immutable: true,
+      })
+    );
     app.use(express.static(distPath));
-    app.get('*', (_req, res) => {
+    app.get('*', (req, res) => {
+      const normalizedPath = req.path.replace(/\/+$/, '') || '/';
+      if (!VALID_SPA_ROUTES.has(normalizedPath)) {
+        res.status(404).setHeader('X-Robots-Tag', 'noindex, nofollow');
+      }
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }

@@ -43,10 +43,13 @@ export const HomePage: React.FC<HomePageProps> = ({
         aria-label="Hero Banner"
         className="relative bg-[#173D2A] text-white overflow-hidden border-b border-[#245C3A]"
       >
-        <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 z-0 pointer-events-none select-none"
+        >
           <img
             src="/assets/hero-bamboo-background.svg"
-            alt="Natural Myanmar bamboo stalks, split bamboo strips, and precision offset press geometry background"
+            alt=""
             width={1920}
             height={1080}
             referrerPolicy="no-referrer"
@@ -97,6 +100,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   type="button"
                   variant="primary-light"
                   size="lg"
+                  href="/bamboo-products"
                   onClick={() => onNavigate('/bamboo-products')}
                 >
                   {t('Explore Bamboo Products', 'ဝါးထုတ်ကုန်များ လေ့လာရန်')}
@@ -107,18 +111,22 @@ export const HomePage: React.FC<HomePageProps> = ({
                   type="button"
                   variant="outline-light"
                   size="lg"
+                  href="/printing-services"
                   onClick={() => onNavigate('/printing-services')}
                 >
                   {t('Printing Services', 'ပုံနှိပ်ဝန်ဆောင်မှုများ')}
                 </Button>
 
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/contact')}
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/contact');
+                  }}
                   className="px-3 py-3 text-sm font-medium text-[#A8D977] hover:text-white underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                 >
                   {t('Contact Us', 'ဆက်သွယ်ရန်')}
-                </button>
+                </a>
               </div>
 
               {/* Quick Summary Row */}
@@ -166,6 +174,9 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <img
                     src={COMPANY_INFO.logoPath}
                     alt="TB Star Official Star Emblem"
+                    width={40}
+                    height={40}
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-10 h-10 rounded-full object-contain bg-white p-0.5 shrink-0"
                   />
@@ -198,13 +209,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                     'Central Tower၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့'
                   )}
                 </span>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/contact')}
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/contact');
+                  }}
                   className="text-[#A8D977] hover:underline font-semibold whitespace-nowrap shrink-0 cursor-pointer ml-2"
                 >
                   {t('Inquire Now →', 'ဆက်သွယ်ရန် →')}
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -292,6 +306,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <Button
                   type="button"
                   variant="primary-dark"
+                  href="/bamboo-products"
                   onClick={() => onNavigate('/bamboo-products')}
                 >
                   {t('Explore Bamboo Products', 'ဝါးထုတ်ကုန်များ ကြည့်ရှုရန်')}
@@ -371,6 +386,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <Button
                   type="button"
                   variant="primary-light"
+                  href="/printing-services"
                   onClick={() => onNavigate('/printing-services')}
                 >
                   {t('Explore Printing Services', 'ပုံနှိပ်ဝန်ဆောင်မှုများ ကြည့်ရှုရန်')}
@@ -399,6 +415,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <Button
                 type="button"
                 variant="outline-dark"
+                href="/bamboo-products"
                 onClick={() => onNavigate('/bamboo-products')}
               >
                 {t('View All Bamboo Specifications', 'ဝါးထုတ်ကုန် စံချိန်စံညွှန်းအားလုံး ကြည့်ရန်')}
@@ -434,6 +451,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <Button
                 type="button"
                 variant="primary-dark"
+                href="/printing-services"
                 onClick={() => onNavigate('/printing-services')}
               >
                 {t('View All Printing Services', 'ပုံနှိပ်ဝန်ဆောင်မှုအားလုံး ကြည့်ရန်')}
@@ -493,6 +511,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <Button
                   type="button"
                   variant="primary-dark"
+                  href="/about"
                   onClick={() => onNavigate('/about')}
                 >
                   {t('Learn More About Us', 'ကုမ္ပဏီအကြောင်း အပြည့်အစုံ ဖတ်ရှုရန်')}
@@ -514,6 +533,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <img
                   src={COMPANY_INFO.logoPath}
                   alt="TB Star Company Limited Official Logo"
+                  width={64}
+                  height={64}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-16 h-16 rounded-full object-contain bg-white p-1 border border-[#DDE5D9] shrink-0"
                 />
@@ -762,9 +785,9 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <p className="text-xs text-[#245C3A] font-semibold mb-1">
                     {isMm ? q.categoryMm : q.category}
                   </p>
-                  <h4 className="text-base font-bold text-[#173D2A] mb-2">
+                  <h3 className="text-base font-bold text-[#173D2A] mb-2">
                     {isMm ? q.titleMm : q.title}
-                  </h4>
+                  </h3>
                   <p className="text-xs text-[#26332B]/85 leading-relaxed mb-4">
                     {isMm ? q.descriptionMm : q.description}
                   </p>
@@ -798,6 +821,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <Button
                 type="button"
                 variant="outline-dark"
+                href="/gallery"
                 onClick={() => onNavigate('/gallery')}
               >
                 {t('Open Full Gallery Page', 'ဓာတ်ပုံပြခန်းအပြည့်အစုံ ကြည့်ရန်')}

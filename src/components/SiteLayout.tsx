@@ -272,9 +272,10 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
       <div className="hidden md:block bg-[#112E1F] text-white/85 border-b border-white/10">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3 min-w-0">
-            <button
-              type="button"
-              onClick={() => {
+            <a
+              href="/contact#location-maps"
+              onClick={(e) => {
+                e.preventDefault();
                 onNavigate('/contact');
                 setTimeout(() => {
                   document
@@ -282,17 +283,17 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                     ?.scrollIntoView({ behavior: 'smooth' });
                 }, 120);
               }}
-              className="inline-flex items-center gap-1.5 text-white/90 hover:text-[#A8D977] transition-colors truncate cursor-pointer text-left"
+              className="relative inline-flex items-center gap-1.5 text-white/90 hover:text-[#A8D977] transition-colors overflow-hidden max-w-[260px] sm:max-w-[360px] lg:max-w-[440px] cursor-pointer text-left"
               title="View Central Tower, Kyauktada Township, Yangon on Google Maps"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#A8D977] shrink-0" />
-              <span className="truncate underline-offset-4 hover:underline">
+              <MapPin className="relative z-10 w-3.5 h-3.5 text-[#A8D977] bg-[#112E1F] shrink-0" />
+              <span className="animate-slide-ltr underline-offset-4 hover:underline">
                 {t(
                   COMPANY_INFO.address.shortAddress,
                   COMPANY_INFO.address.shortAddressMm
                 )}
               </span>
-            </button>
+            </a>
             <a
               href={COMPANY_INFO.address.googleMapsUrl}
               target="_blank"
@@ -353,6 +354,9 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
           <img
             src={COMPANY_INFO.logoPath}
             alt="TB Star Company Limited Official Logo"
+            width={48}
+            height={48}
+            decoding="async"
             referrerPolicy="no-referrer"
             className="h-11 w-11 sm:h-12 sm:w-12 object-contain shrink-0 rounded-full border border-[#DDE5D9] bg-white p-0.5"
           />
@@ -377,13 +381,16 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
         <div className="flex items-center gap-2.5 shrink-0">
           <LanguageToggleSwitch />
 
-          <button
-            type="button"
-            onClick={onOpenInquiry}
+          <a
+            href="/contact"
+            onClick={(e) => {
+              e.preventDefault();
+              onOpenInquiry();
+            }}
             className="hidden sm:inline-flex items-center justify-center px-3.5 xl:px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
-          </button>
+          </a>
 
           <button
             type="button"
@@ -438,6 +445,10 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
               <img
                 src={COMPANY_INFO.logoPath}
                 alt="TB Star Company Limited Official Logo"
+                width={48}
+                height={48}
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
                 className="w-12 h-12 rounded-full object-contain bg-white p-0.5 shrink-0"
               />
@@ -463,9 +474,9 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 
           {/* Col 2: Navigation Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
+            <h2 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
               {t('Navigation', 'စာမျက်နှာများ')}
-            </h4>
+            </h2>
             <ul className="space-y-2.5 text-sm">
               {NAV_ITEMS.map((nav) => (
                 <li key={nav.route}>
@@ -491,9 +502,9 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 
           {/* Col 3: Bamboo Products & Printing Services Links */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
+            <h2 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
               {t('Products & Services', 'ထုတ်ကုန်နှင့် ဝန်ဆောင်မှုများ')}
-            </h4>
+            </h2>
             <div className="space-y-4 text-sm">
               <div>
                 <p className="text-xs font-semibold text-[#A8D977] mb-1.5">
@@ -501,31 +512,40 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 </p>
                 <ul className="space-y-1.5 text-white/80">
                   <li>
-                    <button
-                      type="button"
-                      onClick={() => onInquireWithCategory('Bamboo Split', true)}
-                      className="hover:text-white transition-colors text-left cursor-pointer"
+                    <a
+                      href="/bamboo-products"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onInquireWithCategory('Bamboo Split', true);
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Bamboo Split (3 mm · 20"–48")', 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")')}
-                    </button>
+                    </a>
                   </li>
                   <li>
-                    <button
-                      type="button"
-                      onClick={() => onInquireWithCategory('Bamboo Sticks', true)}
-                      className="hover:text-white transition-colors text-left cursor-pointer"
+                    <a
+                      href="/bamboo-products"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onInquireWithCategory('Bamboo Sticks', true);
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Bamboo Sticks (8", 9", 10" · 30 kg/bag)', 'ဝါးတံ (၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg)')}
-                    </button>
+                    </a>
                   </li>
                   <li>
-                    <button
-                      type="button"
-                      onClick={() => onInquireWithCategory('Other Bamboo Products', true)}
-                      className="hover:text-white transition-colors text-left cursor-pointer"
+                    <a
+                      href="/bamboo-products"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onInquireWithCategory('Other Bamboo Products', true);
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Other Bamboo Products', 'အခြား ဝါးထုတ်ကုန်များ')}
-                    </button>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -536,33 +556,40 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 </p>
                 <ul className="space-y-1.5 text-white/80">
                   <li>
-                    <button
-                      type="button"
-                      onClick={() => onInquireWithCategory('Books Printing', true)}
-                      className="hover:text-white transition-colors text-left cursor-pointer"
+                    <a
+                      href="/printing-services"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onInquireWithCategory('Books Printing', true);
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Books Printing', 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း')}
-                    </button>
+                    </a>
                   </li>
                   <li>
-                    <button
-                      type="button"
-                      onClick={() => onInquireWithCategory('Voucher Books Printing', true)}
-                      className="hover:text-white transition-colors text-left cursor-pointer"
+                    <a
+                      href="/printing-services"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onInquireWithCategory('Voucher Books Printing', true);
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Voucher Books Printing', 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း')}
-                    </button>
+                    </a>
                   </li>
                   <li>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        onInquireWithCategory('Other Offset Printing Services', true)
-                      }
-                      className="hover:text-white transition-colors text-left cursor-pointer"
+                    <a
+                      href="/printing-services"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onInquireWithCategory('Other Offset Printing Services', true);
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Other Offset Printing Services', 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ')}
-                    </button>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -571,9 +598,9 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 
           {/* Col 4: Verified Office Address & Telephone */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
+            <h2 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
               {t('Office & Contact', 'ရုံးချုပ်လိပ်စာနှင့် ဖုန်းနံပါတ်')}
-            </h4>
+            </h2>
             <address className="not-italic text-sm text-white/80 leading-relaxed mb-4">
               <strong className="text-white block mb-1">
                 {t(COMPANY_INFO.name, COMPANY_INFO.nameMm)}

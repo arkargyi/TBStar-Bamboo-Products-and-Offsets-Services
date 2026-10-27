@@ -79,6 +79,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <img
                     src={COMPANY_INFO.logoPath}
                     alt="TB Star Company Limited Official Logo"
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-14 h-14 rounded-full object-contain bg-white p-0.5 border border-[#DDE5D9] shrink-0"
                   />

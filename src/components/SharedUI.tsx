@@ -7,6 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary-light' | 'primary-dark' | 'outline-light' | 'outline-dark' | 'subtle';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
+  href?: string;
   children: React.ReactNode;
 }
 
@@ -14,8 +15,10 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary-dark',
   size = 'md',
   isLoading = false,
+  href,
   className = '',
   disabled,
+  onClick,
   children,
   ...rest
 }) => {
@@ -39,10 +42,30 @@ export const Button: React.FC<ButtonProps> = ({
     lg: 'px-6 py-3.5 text-sm',
   };
 
+  const combinedClassName = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
+  if (href && !disabled && !isLoading) {
+    return (
+      <a
+        href={href}
+        onClick={(e) => {
+          if (onClick) {
+            e.preventDefault();
+            (onClick as unknown as (ev: React.MouseEvent<HTMLAnchorElement>) => void)(e);
+          }
+        }}
+        className={combinedClassName}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <button
-      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      className={combinedClassName}
       disabled={disabled || isLoading}
+      onClick={onClick}
       {...rest}
     >
       {isLoading && <Loader2 className="w-4 h-4 animate-spin shrink-0" />}
@@ -156,15 +179,18 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
           return (
             <li key={item.label} className="inline-flex items-center gap-1.5">
               {item.route && !isLast ? (
-                <button
-                  type="button"
-                  onClick={() => onNavigate(item.route!)}
+                <a
+                  href={item.route}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate(item.route!);
+                  }}
                   className={`hover:underline cursor-pointer ${
                     light ? 'hover:text-[#A8D977]' : 'hover:text-[#173D2A]'
                   } ${isMm ? 'font-myanmar' : ''}`}
                 >
                   {displayLabel}
-                </button>
+                </a>
               ) : (
                 <span
                   aria-current={isLast ? 'page' : undefined}
@@ -221,11 +247,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section className="relative bg-[#173D2A] text-white overflow-hidden border-b border-[#245C3A]">
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+      <div className="absolute inset-0 z-0 pointer-events-none select-none" aria-hidden="true">
         <img
           src="/assets/hero-bamboo-background.svg"
-          alt="Natural Myanmar bamboo and precision offset printing background"
-          referrerPolicy="no-referrer"
+          alt=""
+          width={1920}
+          height={1080}
+          fetchPriority="high"
           decoding="async"
           className="w-full h-full object-cover object-center opacity-75"
         />

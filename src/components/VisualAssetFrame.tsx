@@ -48,6 +48,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
           <img
             src="/assets/aistudio/Bamboo-Splits_4fe94386.jpeg"
             alt="TB Star Company Limited Bamboo Split (3mm, 20 to 48 inches)"
+            width={400}
+            height={300}
             referrerPolicy="no-referrer"
             decoding="async"
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -65,6 +67,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
           <img
             src="/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg"
             alt="TB Star Company Limited Bamboo Sticks (1.2mm to 2.5mm, 30KG per bag)"
+            width={400}
+            height={300}
             referrerPolicy="no-referrer"
             decoding="async"
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -82,6 +86,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
           <img
             src="/assets/aistudio/Offset-Printing.svg"
             alt="TB Star Company Limited One-Stop Offset Printing Services — Books, Voucher Books & Brochures"
+            width={800}
+            height={300}
             referrerPolicy="no-referrer"
             decoding="async"
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -142,6 +148,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
       <img
         src={resolvedImage}
         alt={altText || label || defaultLabel}
+        width={640}
+        height={480}
         referrerPolicy="no-referrer"
         loading="lazy"
         decoding="async"

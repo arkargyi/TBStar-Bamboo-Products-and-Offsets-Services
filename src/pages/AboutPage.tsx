@@ -57,6 +57,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <Button
               type="button"
               variant="primary-light"
+              href="/bamboo-products"
               onClick={() => onNavigate('/bamboo-products')}
             >
               {t('View Bamboo Products', 'ဝါးထုတ်ကုန်များ ကြည့်ရှုရန်')}
@@ -65,6 +66,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <Button
               type="button"
               variant="outline-light"
+              href="/printing-services"
               onClick={() => onNavigate('/printing-services')}
             >
               {t('Offset Printing Services', 'အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများ')}
@@ -151,6 +153,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <img
                   src={COMPANY_INFO.logoPath}
                   alt="TB Star Company Limited Official Logo"
+                  width={64}
+                  height={64}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-16 h-16 rounded-full object-contain bg-white p-1 border border-[#DDE5D9] shrink-0"
                 />
