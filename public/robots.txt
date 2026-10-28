@@ -1,6 +1,8 @@
-# robots.txt for TBStar Company Limited (https://tbstarcompany.com)
+# robots.txt for TB Star Company Limited (https://tbstarcompany.com)
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /assets/
 
 # Prevent crawling of backend API and administrative paths
 Disallow: /api/

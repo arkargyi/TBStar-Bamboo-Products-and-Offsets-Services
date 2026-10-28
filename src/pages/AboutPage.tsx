@@ -384,6 +384,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   type="button"
                   variant="outline-dark"
                   size="sm"
+                  href="/bamboo-products"
                   className="w-full"
                   onClick={() => onNavigate('/bamboo-products')}
                 >
@@ -435,6 +436,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   type="button"
                   variant="outline-dark"
                   size="sm"
+                  href="/contact?inquiry=Other%20Bamboo%20Products"
                   className="w-full"
                   onClick={() => onInquireWithCategory('Other Bamboo Products', true)}
                 >
@@ -484,6 +486,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   type="button"
                   variant="outline-dark"
                   size="sm"
+                  href="/printing-services"
                   className="w-full"
                   onClick={() => onNavigate('/printing-services')}
                 >
@@ -575,6 +578,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 type="button"
                 variant="outline-dark"
                 size="sm"
+                href="/contact"
                 onClick={() => onNavigate('/contact')}
               >
                 {t('Open Contact Form', 'ဆက်သွယ်ရန် ဖောင်ဖွင့်ရန်')}
@@ -643,6 +647,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   type="button"
                   variant="outline-dark"
                   size="sm"
+                  href={`/contact?inquiry=${encodeURIComponent(partner.inquiryType)}`}
                   className="w-full"
                   onClick={() => onInquireWithCategory(partner.inquiryType, true)}
                 >

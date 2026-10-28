@@ -6,9 +6,8 @@ import {
   InquiryTypeOption,
   PageRoute,
 } from '../data/companyData';
-import { HeroSection, SectionHeading } from '../components/SharedUI';
+import { HeroSection } from '../components/SharedUI';
 import { ContactForm } from '../components/InquiryModal';
-import { LocationMapsExplorer } from '../components/LocationMapsExplorer';
 import { INQUIRY_TYPE_LABELS, useLanguage } from '../context/LanguageContext';
 
 interface ContactPageProps {
@@ -230,19 +229,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 onSelectInquiryType={onSelectInquiryType}
               />
             </div>
-          </div>
-
-          {/* Interactive Google Maps Grounding & Office Location Section */}
-          <div className="mt-16 pt-16 border-t border-[#DDE5D9]">
-            <SectionHeading
-              kicker="Interactive Location Intelligence · Google Maps Grounding"
-              kickerMm="ရုံးချုပ်တည်နေရာနှင့် မြေပုံလမ်းညွှန် · Google Maps Grounding"
-              title="Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon"
-              titleMm="Central Tower (၁၁) လွှာ၊ အခန်း (၁၁၀၃)၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့"
-              description="Explore verified Google Maps place details, surrounding downtown Yangon landmarks at 39th Street and Anawrahta Road, and visitor navigation."
-              descriptionMm="၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower ရုံးချုပ်တည်နေရာ၊ အနီးပတ်ဝန်းကျင် အထင်ကရနေရာများနှင့် လမ်းညွှန်ချက်များကို Google Maps အချက်အလက်များဖြင့် တိုက်ရိုက်ကြည့်ရှုနိုင်ပါသည်။"
-            />
-            <LocationMapsExplorer />
           </div>
         </div>
       </section>

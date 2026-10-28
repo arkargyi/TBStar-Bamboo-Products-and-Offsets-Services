@@ -129,11 +129,13 @@ export const LanguageSwitchButton = LanguageToggleSwitch;
 
 interface DesktopNavigationProps {
   currentRoute: PageRoute;
+  isNotFound?: boolean;
   onNavigate: (route: PageRoute) => void;
 }
 
 export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   currentRoute,
+  isNotFound = false,
   onNavigate,
 }) => {
   const { isMm } = useLanguage();
@@ -144,7 +146,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
       className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#26332B]"
     >
       {NAV_ITEMS.map((item) => {
-        const isActive = currentRoute === item.route;
+        const isActive = !isNotFound && currentRoute === item.route;
         return (
           <a
             key={item.route}
@@ -173,6 +175,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
 interface MobileNavigationProps {
   isOpen: boolean;
   currentRoute: PageRoute;
+  isNotFound?: boolean;
   onNavigate: (route: PageRoute) => void;
   onClose: () => void;
   onOpenInquiry: () => void;
@@ -181,6 +184,7 @@ interface MobileNavigationProps {
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   isOpen,
   currentRoute,
+  isNotFound = false,
   onNavigate,
   onClose,
   onOpenInquiry,
@@ -205,7 +209,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
 
       <nav aria-label="Mobile Primary Navigation" className="space-y-1">
         {NAV_ITEMS.map((item) => {
-          const isActive = currentRoute === item.route;
+          const isActive = !isNotFound && currentRoute === item.route;
           return (
             <a
               key={item.route}
@@ -231,16 +235,17 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
       </nav>
 
       <div className="pt-3 mt-2 border-t border-[#DDE5D9] flex flex-col gap-2">
-        <button
-          type="button"
-          onClick={() => {
+        <a
+          href="/contact"
+          onClick={(e) => {
+            e.preventDefault();
             onClose();
             onOpenInquiry();
           }}
-          className="w-full py-2.5 px-4 bg-[#173D2A] text-white text-sm font-semibold rounded-lg text-center cursor-pointer"
+          className="w-full py-2.5 px-4 bg-[#173D2A] text-white text-sm font-semibold rounded-lg text-center cursor-pointer block"
         >
           {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
-        </button>
+        </a>
         <a
           href={COMPANY_INFO.telephoneHref}
           className="w-full py-2.5 px-4 bg-[#A8D977] text-[#173D2A] text-sm font-semibold rounded-lg text-center"
@@ -254,12 +259,14 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
 
 interface SiteHeaderProps {
   currentRoute: PageRoute;
+  isNotFound?: boolean;
   onNavigate: (route: PageRoute) => void;
   onOpenInquiry: () => void;
 }
 
 export const SiteHeader: React.FC<SiteHeaderProps> = ({
   currentRoute,
+  isNotFound = false,
   onNavigate,
   onOpenInquiry,
 }) => {
@@ -273,18 +280,13 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3 min-w-0">
             <a
-              href="/contact#location-maps"
+              href="/contact"
               onClick={(e) => {
                 e.preventDefault();
                 onNavigate('/contact');
-                setTimeout(() => {
-                  document
-                    .getElementById('location-maps')
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }, 120);
               }}
               className="relative inline-flex items-center gap-1.5 text-white/90 hover:text-[#A8D977] transition-colors overflow-hidden max-w-[260px] sm:max-w-[360px] lg:max-w-[440px] cursor-pointer text-left"
-              title="View Central Tower, Kyauktada Township, Yangon on Google Maps"
+              title="Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon"
             >
               <MapPin className="relative z-10 w-3.5 h-3.5 text-[#A8D977] bg-[#112E1F] shrink-0" />
               <span className="animate-slide-ltr hover:drop-shadow-sm underline-offset-4 hover:underline">
@@ -293,14 +295,6 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                   COMPANY_INFO.address.shortAddressMm
                 )}
               </span>
-            </a>
-            <a
-              href={COMPANY_INFO.address.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/10 hover:bg-[#A8D977] text-[#A8D977] hover:text-[#173D2A] text-[11px] font-semibold transition-colors shrink-0"
-            >
-              {t('Google Maps ↗', 'မြေပုံကြည့်ရန် ↗')}
             </a>
           </div>
 
@@ -375,7 +369,11 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
         </a>
 
         {/* Zone 2: Desktop Navigation */}
-        <DesktopNavigation currentRoute={currentRoute} onNavigate={onNavigate} />
+        <DesktopNavigation
+          currentRoute={currentRoute}
+          isNotFound={isNotFound}
+          onNavigate={onNavigate}
+        />
 
         {/* Zone 3: Language Toggle Switch + Primary Action Button + Mobile Menu Button */}
         <div className="flex items-center gap-2.5 shrink-0">
@@ -407,6 +405,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
       <MobileNavigation
         isOpen={mobileMenuOpen}
         currentRoute={currentRoute}
+        isNotFound={isNotFound}
         onNavigate={onNavigate}
         onClose={() => setMobileMenuOpen(false)}
         onOpenInquiry={onOpenInquiry}
@@ -417,16 +416,27 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
 
 interface SiteFooterProps {
   currentRoute: PageRoute;
+  isNotFound?: boolean;
   onNavigate: (route: PageRoute) => void;
   onInquireWithCategory: (type: InquiryTypeOption, navigateToContact?: boolean) => void;
 }
 
 export const SiteFooter: React.FC<SiteFooterProps> = ({
   currentRoute,
+  isNotFound = false,
   onNavigate,
-  onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
+
+  const navigateAndScroll = (route: PageRoute, sectionId: string) => {
+    onNavigate(route);
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 80);
+  };
 
   return (
     <footer className="bg-[#112E1F] text-white/80 border-t border-white/15">
@@ -478,25 +488,28 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
               {t('Navigation', 'စာမျက်နှာများ')}
             </h2>
             <ul className="space-y-2.5 text-sm">
-              {NAV_ITEMS.map((nav) => (
-                <li key={nav.route}>
-                  <a
-                    href={nav.route}
-                    aria-current={currentRoute === nav.route ? 'page' : undefined}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      onNavigate(nav.route);
-                    }}
-                    className={`transition-colors block ${
-                      currentRoute === nav.route
-                        ? 'text-[#A8D977] font-semibold'
-                        : 'hover:text-[#A8D977]'
-                    }`}
-                  >
-                    {isMm ? nav.labelMm : nav.label}
-                  </a>
-                </li>
-              ))}
+              {NAV_ITEMS.map((nav) => {
+                const isActive = !isNotFound && currentRoute === nav.route;
+                return (
+                  <li key={nav.route}>
+                    <a
+                      href={nav.route}
+                      aria-current={isActive ? 'page' : undefined}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigate(nav.route);
+                      }}
+                      className={`transition-colors block ${
+                        isActive
+                          ? 'text-[#A8D977] font-semibold'
+                          : 'hover:text-[#A8D977]'
+                      }`}
+                    >
+                      {isMm ? nav.labelMm : nav.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -513,10 +526,10 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 <ul className="space-y-1.5 text-white/80">
                   <li>
                     <a
-                      href="/bamboo-products"
+                      href="/bamboo-products#product-bamboo-split"
                       onClick={(e) => {
                         e.preventDefault();
-                        onInquireWithCategory('Bamboo Split', true);
+                        navigateAndScroll('/bamboo-products', 'product-bamboo-split');
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
@@ -525,10 +538,10 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                   </li>
                   <li>
                     <a
-                      href="/bamboo-products"
+                      href="/bamboo-products#product-bamboo-sticks"
                       onClick={(e) => {
                         e.preventDefault();
-                        onInquireWithCategory('Bamboo Sticks', true);
+                        navigateAndScroll('/bamboo-products', 'product-bamboo-sticks');
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
@@ -537,10 +550,10 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                   </li>
                   <li>
                     <a
-                      href="/bamboo-products"
+                      href="/bamboo-products#product-other-bamboo"
                       onClick={(e) => {
                         e.preventDefault();
-                        onInquireWithCategory('Other Bamboo Products', true);
+                        navigateAndScroll('/bamboo-products', 'product-other-bamboo');
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
@@ -557,10 +570,10 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 <ul className="space-y-1.5 text-white/80">
                   <li>
                     <a
-                      href="/printing-services"
+                      href="/printing-services#service-books-printing"
                       onClick={(e) => {
                         e.preventDefault();
-                        onInquireWithCategory('Books Printing', true);
+                        navigateAndScroll('/printing-services', 'service-books-printing');
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
@@ -569,10 +582,10 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                   </li>
                   <li>
                     <a
-                      href="/printing-services"
+                      href="/printing-services#service-voucher-books-printing"
                       onClick={(e) => {
                         e.preventDefault();
-                        onInquireWithCategory('Voucher Books Printing', true);
+                        navigateAndScroll('/printing-services', 'service-voucher-books-printing');
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
@@ -581,10 +594,10 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                   </li>
                   <li>
                     <a
-                      href="/printing-services"
+                      href="/printing-services#service-other-offset-printing"
                       onClick={(e) => {
                         e.preventDefault();
-                        onInquireWithCategory('Other Offset Printing Services', true);
+                        navigateAndScroll('/printing-services', 'service-other-offset-printing');
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
@@ -635,7 +648,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 WhatsApp ↗
               </a>
             </p>
-            <p className="text-sm mb-3">
+            <p className="text-sm">
               <span className="text-white/60 block text-xs mb-0.5">
                 {t('Email:', 'အီးမေးလ် -')}
               </span>
@@ -646,15 +659,6 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 {COMPANY_INFO.email}
               </a>
             </p>
-            <a
-              href={COMPANY_INFO.address.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A8D977] hover:text-white transition-colors"
-            >
-              <MapPin className="w-3.5 h-3.5 shrink-0" />
-              <span>{t('Open Central Tower in Google Maps ↗', 'Google Maps တွင် ရုံးချုပ်တည်နေရာကြည့်ရန် ↗')}</span>
-            </a>
           </div>
         </div>
 

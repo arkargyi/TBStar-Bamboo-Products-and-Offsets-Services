@@ -87,3 +87,21 @@
 .animate-slide-ltr:active {
   animation-play-state: paused;
 }
+
+@keyframes skeletonShimmer {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.animate-skeleton-shimmer {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  will-change: transform;
+  animation: skeletonShimmer 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}

@@ -129,14 +129,6 @@ export interface GalleryPreviewItem {
   isPlaceholder: boolean;
 }
 
-export interface ReferencePatternAnalysis {
-  id: string;
-  area: string;
-  observedOnReference: string;
-  whyUseful: string;
-  adaptationForTBStar: string;
-}
-
 export const COMPANY_INFO = {
   name: 'TB Star Company Limited',
   nameMm: 'TBStar Company Limited',
@@ -162,12 +154,6 @@ export const COMPANY_INFO = {
     full: 'Room No. 1103, 11th Floor, Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar.',
     fullMm:
       'အခန်းအမှတ် (၁၁၀၃)၊ (၁၁) လွှာ၊ Central Tower၊ ၃၉ လမ်း နှင့် အနော်ရထာလမ်းထောင့်၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ။',
-    googleMapsUrl:
-      'https://www.google.com/maps/search/?api=1&query=Central+Tower+Anawrahta+Road+39th+Street+Kyauktada+Township+Yangon',
-    coordinates: {
-      latitude: 16.7745,
-      longitude: 96.1618,
-    },
   },
 };
 
@@ -185,7 +171,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   '/': {
     title: 'TB Star Company Limited – Bamboo Export & Offset Printing',
     description:
-      'TB Star Company Limited manufactures and exports 100% natural Myanmar bamboo split and bamboo sticks while providing one-stop offset printing services in Yangon.',
+      'TB Star Company Limited manufactures and exports 100% natural Myanmar bamboo split and bamboo sticks with one-stop offset printing services in Yangon.',
     heading: 'Home',
     canonicalUrl: 'https://tbstarcompany.com/',
     ogImage: 'https://tbstarcompany.com/images/products/bamboo-split-main.webp',
@@ -196,7 +182,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   '/about': {
     title: 'About Us – TB Star Company Limited | Yangon, Myanmar',
     description:
-      'Learn about TB Star Company Limited in Yangon, Myanmar—operating across Bamboo Production & Export, Domestic Distribution, and One-Stop Offset Printing Services.',
+      'Learn about TB Star Company Limited in Yangon, Myanmar—operating across Bamboo Production & Export, Domestic Distribution, and One-Stop Offset Printing.',
     heading: 'About Us',
     canonicalUrl: 'https://tbstarcompany.com/about',
     ogImage: 'https://tbstarcompany.com/assets/aistudio/TBStar_073dded3.jpeg',
@@ -207,9 +193,9 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     ],
   },
   '/bamboo-products': {
-    title: 'Bamboo Split & Bamboo Sticks Specifications – TB Star Company',
+    title: 'Bamboo Split & Bamboo Sticks Specifications – TB Star',
     description:
-      'Review technical specifications for 100% natural Myanmar Bamboo Split (3 mm, 20"–48") and Bamboo Sticks (1.2–2.5 mm, 8"/9"/10", 30 kg per bag) from TB Star Company Limited.',
+      'Review specifications for 100% natural Myanmar Bamboo Split (3 mm, 20"–48") and Bamboo Sticks (1.2–2.5 mm, 8"/9"/10", 30 kg/bag) from TB Star Company.',
     heading: 'Bamboo Products',
     canonicalUrl: 'https://tbstarcompany.com/bamboo-products',
     ogImage: 'https://tbstarcompany.com/images/products/bamboo-split-main.webp',
@@ -221,9 +207,9 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     ],
   },
   '/printing-services': {
-    title: 'Offset Printing Services Myanmar – Books & Voucher Books | TB Star',
+    title: 'Offset Printing Services Myanmar – Books & Voucher Books',
     description:
-      'TB Star Company Limited provides one-stop offset printing services in Yangon, Myanmar for books printing, voucher books printing, and commercial printing requirements.',
+      'TB Star Company Limited provides one-stop offset printing services in Yangon, Myanmar for books printing, voucher books printing, and commercial print runs.',
     heading: 'Offset Printing Services',
     canonicalUrl: 'https://tbstarcompany.com/printing-services',
     ogImage: 'https://tbstarcompany.com/assets/aistudio/Offset-Printing.svg',
@@ -240,7 +226,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   '/gallery': {
     title: 'Projects & Product Gallery – TB Star Company Limited',
     description:
-      'Explore visual categories for TB Star Company Limited including Bamboo Products, Bamboo Production, Packaging, Printing Products, and Company Activities.',
+      'Explore visual categories for TB Star Company Limited including Bamboo Products, Bamboo Production, 30 kg Export Packaging, and Offset Printing Products.',
     heading: 'Projects / Gallery',
     canonicalUrl: 'https://tbstarcompany.com/gallery',
     ogImage: 'https://tbstarcompany.com/images/products/bamboo-sticks-wholesale.webp',
@@ -254,7 +240,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   '/contact': {
     title: 'Contact TB Star Company Limited – Bamboo Export & Printing',
     description:
-      'Contact TB Star Company Limited at Central Tower, Kyauktada Township, Yangon (+95 9 450048547, info@tbstarcompany.com) for Bamboo Export and Offset Printing inquiries.',
+      'Contact TB Star Company Limited at Central Tower, Kyauktada Township, Yangon (+95 9 450048547, info@tbstarcompany.com) for Bamboo & Offset Printing inquiries.',
     heading: 'Contact Us',
     canonicalUrl: 'https://tbstarcompany.com/contact',
     ogImage: 'https://tbstarcompany.com/assets/aistudio/TBStar_073dded3.jpeg',
@@ -753,330 +739,6 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   },
 ];
 
-export const REFERENCE_WEBSITE_ANALYSIS: ReferencePatternAnalysis[] = [
-  {
-    id: 'structure',
-    area: '1. Overall Website Structure & Routing',
-    observedOnReference:
-      'Inspected https://myanmar-su-tech-company-limited.vercel.app/ (React 19 + Vite + Tailwind CSS + Framer Motion SPA). The site routes across 9 views: Home (/), About (/about), Operations (/operations), Sustainability (/sustainability), Products (/products), News (/news), Contact (/contact), Privacy Policy, and Terms of Service.',
-    whyUseful:
-      'Provides a clean corporate B2B architecture where industrial capabilities, technical product specifications, and inquiry pathways are logically separated.',
-    adaptationForTBStar:
-      'Implemented a complete 6-page corporate architecture tailored to TB Star’s dual divisions: Home (/), About Us (/about), Bamboo Products (/bamboo-products), Offset Printing Services (/printing-services), Projects / Gallery (/gallery), and Contact Us (/contact).',
-  },
-  {
-    id: 'header-nav',
-    area: '2. Header & Navigation',
-    observedOnReference:
-      'Uses a sticky white navigation bar with logo mark on the left, horizontal page links with an active underline indicator in the center, and a primary CTA button on the right, plus a collapsible mobile drawer.',
-    whyUseful:
-      'Sticky high-contrast navigation keeps the primary inquiry button and core product links accessible at all scroll depths on both desktop and mobile.',
-    adaptationForTBStar:
-      'Implemented SiteHeader with DesktopNavigation and MobileNavigation displaying the official TB Star ("TUN BROTHERS" star emblem) logo in original proportions, active-page state across all 6 pages, and a direct "Contact Us" CTA.',
-  },
-  {
-    id: 'product-specs',
-    area: '3. Services & Technical Product Presentation',
-    observedOnReference:
-      'Pairs product imagery with a structured key-value technical specification list comparing parameter labels and bold values, plus packaging highlights.',
-    whyUseful:
-      'International commodity buyers scan technical specifications (thickness, dimensions, packaging weight, origin) before initiating trade inquiries.',
-    adaptationForTBStar:
-      'Implemented ProductSpecificationTable with tabular numerals and clear Burmese explanations for Bamboo Split (3 mm, 20"–48", With/Without Nodes) and Bamboo Sticks (1.2–2.5 mm, 8"/9"/10", 30 kg/bag), plus preselected inquiry routing to the Contact page.',
-  },
-];
-
-export const PROPOSED_SITEMAP = [
-  {
-    pageNumber: 'Page 1',
-    title: 'Home',
-    route: '/' as PageRoute,
-    status: 'Implemented & Active',
-    purpose:
-      'Introduce TB Star Company Limited, clearly present both business divisions in English and Burmese, showcase flagship bamboo specs and printing services, and drive trade inquiries.',
-    sections: [
-      'Section A: Shared SiteHeader & Navigation',
-      'Section B: Dual-Division Hero Section with Non-Blocking Background Image & Overlay',
-      'Section C: Business Divisions (Bamboo Production & Export + Offset Printing Services)',
-      'Section D: Featured Bamboo Products Cards',
-      'Section E: Offset Printing Services Grid',
-      'Section F: Company Introduction',
-      'Section G: Why Choose Us (4 Verified Activity Pillars)',
-      'Section H: Client Testimonials & Partner Trust (Grid with Division Filters)',
-      'Section I: Gallery Preview with Link to /gallery',
-      'Section J: Contact CTA (Phone, Contact Button, Product & Printing Inquiry CTAs)',
-      'Section K: Shared SiteFooter',
-    ],
-  },
-  {
-    pageNumber: 'Page 2',
-    title: 'About Us',
-    route: '/about' as PageRoute,
-    status: 'Implemented & Active',
-    purpose:
-      'Present verified corporate overview, dual business structure, domestic distribution and international export scope, and official Yangon office profile.',
-    sections: [
-      'Company Introduction & Corporate Profile (EN + Burmese)',
-      'Business Overview: Dual-Division Structure',
-      'Bamboo Production & International Export Activities',
-      'Domestic Distribution Activities in Myanmar',
-      'One-Stop Offset Printing Services Overview',
-      'Proposed Corporate Values (Clearly Marked as Proposed Draft)',
-    ],
-  },
-  {
-    pageNumber: 'Page 3',
-    title: 'Bamboo Products',
-    route: '/bamboo-products' as PageRoute,
-    status: 'Implemented & Active',
-    purpose:
-      'Serve international buyers and domestic distributors with complete technical tables for Bamboo Split, Bamboo Sticks, and Other Bamboo Products.',
-    sections: [
-      'Product Introduction & Category Quick-Jump Navigation',
-      'Product A: Bamboo Split (3 mm, 20"–48", With/Without Nodes) + Specification Table',
-      'Product B: Bamboo Sticks (1.2–2.5 mm, 8"/9"/10", 30 kg/bag) + Specification Table',
-      'Product C: Other Bamboo Products Expandable Section',
-      'Preselected Product Inquiry Routing & Contact Information',
-    ],
-  },
-  {
-    pageNumber: 'Page 4',
-    title: 'Offset Printing Services',
-    route: '/printing-services' as PageRoute,
-    status: 'Implemented & Active',
-    purpose:
-      'Guide local businesses and organizations through TB Star’s one-stop offset printing solutions.',
-    sections: [
-      'One-Stop Offset Printing Introduction',
-      'Service 1: Books Printing Section & Inquiry Trigger',
-      'Service 2: Voucher Books Printing Section & Inquiry Trigger',
-      'Service 3: Other Offset Printing Services Section & Inquiry Trigger',
-      'Printing Consultation & Direct Contact Section',
-    ],
-  },
-  {
-    pageNumber: 'Page 5',
-    title: 'Projects / Gallery',
-    route: '/gallery' as PageRoute,
-    status: 'Implemented & Active',
-    purpose:
-      'Provide responsive visual categories with lightbox inspection and clear placeholder identification.',
-    sections: [
-      '5 Category Filters: Bamboo Products, Bamboo Production, Packaging, Printing Products, Other Company Activities',
-      'Responsive GalleryGrid with Lightbox Enlarged Preview',
-      'Easy Placeholder Image Replacement Guide',
-    ],
-  },
-  {
-    pageNumber: 'Page 6',
-    title: 'Contact Us',
-    route: '/contact' as PageRoute,
-    status: 'Implemented & Active',
-    purpose:
-      'Enable seamless communication via telephone, office visit, or the 6-field validated Contact Form with 7 preselectable Inquiry Types.',
-    sections: [
-      'Official Company Information (Central Tower Yangon Address & +95 9 450048547)',
-      'Validated 6-Field Contact Form with 7 Inquiry Type Options & Loading/Success/Error States',
-      'Transparent Form Integration Notice & Verified Address Context',
-    ],
-  },
-];
-
-export const MISSING_INFORMATION_CHECKLIST = [
-  {
-    category: '1. Official Contact & Form Delivery Integration',
-    items: [
-      'Official corporate email address (e.g., info@tbstarcompany.com) and backend/SMTP or form endpoint credentials to enable live email delivery from the Contact Form.',
-      'Confirmation of messaging app availability on +95 9 450048547 (e.g., Viber, WhatsApp, or WeChat for international buyers).',
-      'Official office hours at Room No. 1103, 11th Floor, Central Tower, Yangon.',
-    ],
-  },
-  {
-    category: '2. Photography & Visual Assets',
-    items: [
-      'Actual company photographs of Bamboo Split (With Nodes and Without Nodes) and Bamboo Sticks (8", 9", 10" and 30 kg bags) to replace labeled placeholder illustrations.',
-      'Actual company photographs of Books Printing, Voucher Books Printing, and offset printing activities.',
-    ],
-  },
-  {
-    category: '3. Additional Product & Corporate Details',
-    items: [
-      'Specific product names or specifications under "Other Bamboo Products" and "Other Offset Printing Services" if the client wishes to list more items.',
-      'Approved company history, establishment year, or final approval of the draft Corporate Values on the About Us page.',
-    ],
-  },
-];
-
-export interface ClientTestimonialItem {
-  id: string;
-  clientName: string;
-  clientNameMm: string;
-  role: string;
-  roleMm: string;
-  organization: string;
-  organizationMm: string;
-  location: string;
-  locationMm: string;
-  division: 'Bamboo Export' | 'Offset Printing' | 'Domestic Distribution';
-  divisionMm: string;
-  badge: string;
-  badgeMm: string;
-  rating: number;
-  quote: string;
-  quoteMm: string;
-  highlightMetric: string;
-  highlightMetricMm: string;
-  yearOfPartnership: string;
-  avatarInitials: string;
-}
-
-export const CLIENT_TESTIMONIALS: ClientTestimonialItem[] = [
-  {
-    id: 'test-1',
-    clientName: 'Mr. Rajesh Sharma',
-    clientNameMm: 'မစ္စတာ ရာဂျက်ရှ် ရှာမာ',
-    role: 'Head of Overseas Procurement',
-    roleMm: 'ပြည်ပကုန်ကြမ်း ဝယ်ယူရေးဌာနမှူး',
-    organization: 'Apex Fragrance & Agarbatti Industries',
-    organizationMm: 'အပတ်စ် အမွှေးတိုင်နှင့် ကုန်ကြမ်းထုတ်လုပ်ရေး',
-    location: 'South Asia Export Partner',
-    locationMm: 'တောင်အာရှ ပြည်ပပို့ကုန် မိတ်ဖက်',
-    division: 'Bamboo Export',
-    divisionMm: 'ဝါးထုတ်ကုန် ပြည်ပပို့ကုန်',
-    badge: 'Verified Overseas Buyer',
-    badgeMm: 'အသိအမှတ်ပြု နိုင်ငံတကာဝယ်ယူသူ',
-    rating: 5,
-    quote:
-      'TB Star’s standardized 30 kg bag packaging and uniform bamboo stick thickness (1.2 mm to 2.5 mm) have significantly streamlined our processing efficiency. Their container shipment handling and export documentation from Yangon are top-tier.',
-    quoteMm:
-      'TB Star ရဲ့ တစ်အိတ် ၃၀ ကီလိုဂရမ် စံချိန်မီ ထုပ်ပိုးမှုနဲ့ ဝါးတံအထူ ၁.၂ mm မှ ၂.၅ mm အထိ တစ်သမတ်တည်း သပ်ရပ်မှုက ကျွန်ုပ်တို့ စက်ရုံထုတ်လုပ်မှုမှာ အချိန်ကုန်သက်သာစေပါတယ်။ ရန်ကုန်ဆိပ်ကမ်းမှတစ်ဆင့် ကွန်တိန်နာ တင်ပို့မှုနဲ့ ပို့ကုန်စာရွက်စာတမ်း တိကျမှုက အလွန်စိတ်ချရပါတယ်။',
-    highlightMetric: '100+ Metric Tons Supplied',
-    highlightMetricMm: 'တန် ၁၀၀ ကျော် အောင်မြင်စွာ တင်ပို့ပြီး',
-    yearOfPartnership: 'Partner since 2023',
-    avatarInitials: 'RS',
-  },
-  {
-    id: 'test-2',
-    clientName: 'Daw Khin Myo Aye',
-    clientNameMm: 'ဒေါ်ခင်မျိုးအေး',
-    role: 'Managing Editor & Publisher',
-    roleMm: 'အယ်ဒီတာချုပ်နှင့် ထုတ်ဝေသူ',
-    organization: 'Wisdom Light Media & Publishing',
-    organizationMm: 'ပညာ့အလင်း မီဒီယာနှင့် စာပေထုတ်ဝေရေး',
-    location: 'Yangon, Myanmar',
-    locationMm: 'ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ',
-    division: 'Offset Printing',
-    divisionMm: 'အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း',
-    badge: 'Publishing Partner',
-    badgeMm: 'စာအုပ်ထုတ်ဝေရေး မိတ်ဖက်',
-    rating: 5,
-    quote:
-      'We entrusted TB Star with printing our quarterly literary editions and educational textbook volumes. The offset press clarity, crisp typography, and sturdy binding exceeded our expectations. Truly a dependable one-stop printing house in Yangon.',
-    quoteMm:
-      'ကျွန်မတို့ရဲ့ သုံးလပတ် စာပေမဂ္ဂဇင်းတွေနဲ့ ပညာရေးဖတ်စာအုပ်တွေကို TB Star နဲ့ ပုံနှိပ်ခဲ့ပါတယ်။ အော့ဖ်ဆက်ပုံနှိပ်အရည်အသွေး ကြည်လင်ပြတ်သားပြီး စာအုပ်ချုပ်လုပ်မှု ခိုင်ခံ့သပ်ရပ်ပါတယ်။ ရန်ကုန်မှာ တကယ်ကို အားကိုးရတဲ့ One-Stop ပုံနှိပ်လုပ်ငန်းရှင် ဖြစ်ပါတယ်။',
-    highlightMetric: '20,000+ Bound Books Printed',
-    highlightMetricMm: 'စာအုပ်ရေ ၂၀,၀၀၀ ကျော် ပုံနှိပ်ပြီးစီး',
-    yearOfPartnership: 'Partner since 2022',
-    avatarInitials: 'KM',
-  },
-  {
-    id: 'test-3',
-    clientName: 'U Than Htike',
-    clientNameMm: 'ဦးသန်းထိုက်',
-    role: 'Operations & Supply Chain Director',
-    roleMm: 'လုပ်ငန်းလည်ပတ်ရေးနှင့် ထောက်ပံ့ပို့ဆောင်ရေး ဒါရိုက်တာ',
-    organization: 'Golden Delta Trading & Retail Chain',
-    organizationMm: 'ရွှေမြစ်ဝကျွန်းပေါ် ကုန်သွယ်ရေးနှင့် အရောင်းဆိုင်ခွဲများ',
-    location: 'Yangon & Regional Branches',
-    locationMm: 'ရန်ကုန်နှင့် နယ်မြေအရောင်းဆိုင်ခွဲများ',
-    division: 'Offset Printing',
-    divisionMm: 'အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း',
-    badge: 'Enterprise Retail Client',
-    badgeMm: 'လုပ်ငန်းသုံး ပုံနှိပ်မိတ်ဖက်',
-    rating: 5,
-    quote:
-      'Our retail network utilizes thousands of multi-copy voucher books each month. TB Star delivers clear form layouts, exact consecutive serial numbering, and crisp carbonless copying without fail or delay.',
-    quoteMm:
-      'ကျွန်တော်တို့ အရောင်းဆိုင်ခွဲတွေမှာ လစဉ် ဘောင်ချာစာအုပ်ပေါင်း ထောင်နဲ့ချီ အသုံးပြုရပါတယ်။ TB Star က နံပါတ်စဉ်တပ်ဆင်မှု တိကျပြီး၊ စာရွက်ဖြတ်ပိုင်းလိုင်း သပ်ရပ်သလို ကာဗွန်မဲ့ကော်ပီကူးယူမှုပါ အလွန်ကောင်းမွန်ပါတယ်။',
-    highlightMetric: 'Recurring Monthly Orders',
-    highlightMetricMm: 'လစဉ် ပုံမှန်မှာယူတင်ပို့မှု',
-    yearOfPartnership: 'Partner since 2021',
-    avatarInitials: 'TH',
-  },
-  {
-    id: 'test-4',
-    clientName: 'U Kyaw Zin Oo',
-    clientNameMm: 'ဦးကျော်ဇင်ဦး',
-    role: 'Managing Director',
-    roleMm: 'မန်နေဂျင်းဒါရိုက်တာ',
-    organization: 'Myanmar Green Craft & Living',
-    organizationMm: 'မြန်မာ့စိမ်းလန်း လက်မှုနှင့် အိမ်သုံးပစ္စည်းလုပ်ငန်း',
-    location: 'Mandalay & Lower Myanmar',
-    locationMm: 'မန္တလေးနှင့် အောက်မြန်မာပြည်',
-    division: 'Domestic Distribution',
-    divisionMm: 'ပြည်တွင်းဖြန့်ဖြူးရေး',
-    badge: 'Domestic Distribution Partner',
-    badgeMm: 'ပြည်တွင်းဖြန့်ဖြူးရေး မိတ်ဖက်',
-    rating: 5,
-    quote:
-      'TB Star’s 3 mm bamboo splits—both with nodes and without nodes—are consistently well-dimensioned, properly dried, and strong. Their Kyauktada team is responsive and transparent with delivery schedules.',
-    quoteMm:
-      'TB Star ရဲ့ အထူ ၃ mm ဝါးခြမ်းပြားတွေ (အဆစ်ပါရော အဆစ်မပါရော) အရွယ်အစား တိကျညီညာပြီး သဘာဝအတိုင်း ခြောက်သွေ့သန့်ရှင်းပါတယ်။ ကျောက်တံတားရုံးချုပ်က အဖွဲ့သားတွေဟာလည်း ပစ္စည်းရောက်ရှိမည့်အချိန်ကို ပွင့်လင်းမြင်သာစွာ ဆောင်ရွက်ပေးပါတယ်။',
-    highlightMetric: 'Regular Wholesale Supply',
-    highlightMetricMm: 'လက်ကား ပုံမှန်ဖြန့်ဖြူးမှု',
-    yearOfPartnership: 'Partner since 2022',
-    avatarInitials: 'KZ',
-  },
-  {
-    id: 'test-5',
-    clientName: 'Mr. Tan Wei Ming',
-    clientNameMm: 'မစ္စတာ တန်ဝေမင်း',
-    role: 'Regional Sourcing Manager',
-    roleMm: 'ဒေသတွင်း ကုန်ကြမ်းဝယ်ယူရေး မန်နေဂျာ',
-    organization: 'Orient Skewer & Bamboo Ware Co.',
-    organizationMm: 'အိုရီယန့် ဝါးထုတ်ကုန် ရောင်းဝယ်ရေး',
-    location: 'Southeast Asia Regional Supply',
-    locationMm: 'အရှေ့တောင်အာရှ ဒေသတွင်းပို့ကုန်',
-    division: 'Bamboo Export',
-    divisionMm: 'ဝါးထုတ်ကုန် ပြည်ပပို့ကုန်',
-    badge: 'Export Trade Partner',
-    badgeMm: 'ပြည်ပကုန်သွယ်ရေး မိတ်ဖက်',
-    rating: 5,
-    quote:
-      'Myanmar bamboo possesses great tensile strength and straight grain. TB Star’s precision-sized sticks in 8, 9, and 10 inches meet strict commercial grading criteria. We value their reliability as a long-term supplier.',
-    quoteMm:
-      'မြန်မာနိုင်ငံက သဘာဝဝါးကုန်ကြမ်းဟာ ခိုင်ခံ့မှုရှိပြီး အသားဖြောင့်တန်းပါတယ်။ TB Star ရဲ့ ၈၊ ၉၊ ၁၀ လက်မ ဝါးတံတွေဟာ ပြည်ပပို့ကုန် စံချိန်စံညွှန်းအတိုင်း တိကျမှုရှိပါတယ်။ ရေရှည်လက်တွဲရတဲ့ ပို့ကုန်လုပ်ငန်းရှင်အဖြစ် အထူးတန်ဖိုးထားပါတယ်။',
-    highlightMetric: 'Export-Grade Tolerance',
-    highlightMetricMm: 'ပြည်ပပို့ကုန် စံချိန်မီ အရည်အသွေး',
-    yearOfPartnership: 'Partner since 2023',
-    avatarInitials: 'TW',
-  },
-  {
-    id: 'test-6',
-    clientName: 'Daw May Thu Zaw',
-    clientNameMm: 'ဒေါ်မေသူဇော်',
-    role: 'Corporate Communications Manager',
-    roleMm: 'ပြင်ပဆက်ဆံရေး မန်နေဂျာ',
-    organization: 'Apex Logistics & Services Myanmar',
-    organizationMm: 'အပတ်စ် ထောက်ပံ့ပို့ဆောင်ရေးလုပ်ငန်း',
-    location: 'Yangon, Myanmar',
-    locationMm: 'ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ',
-    division: 'Offset Printing',
-    divisionMm: 'အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း',
-    badge: 'Corporate Print Client',
-    badgeMm: 'ကော်ပိုရိတ် ပုံနှိပ်မိတ်ဖက်',
-    rating: 5,
-    quote:
-      'From pre-press file checks to color balancing and prompt delivery, TB Star provided smooth coordination for our corporate brochures and profile booklets. Their one-stop workflow saved us significant time.',
-    quoteMm:
-      'ပုံနှိပ်မတိုင်မီ စစ်ဆေးခြင်းကနေ အရောင်တိကျမှုနဲ့ အချိန်မီပေးပို့မှုအထိ TB Star က အစစအရာရာ စိတ်ချရအောင် ဆောင်ရွက်ပေးခဲ့ပါတယ်။ သူတို့ရဲ့ One-Stop ပုံနှိပ်ဝန်ဆောင်မှုကြောင့် ကျွန်မတို့ အချိန်ကုန် အများကြီး သက်သာခဲ့ပါတယ်။',
-    highlightMetric: 'Pre-Press to Final Delivery',
-    highlightMetricMm: 'ဒီဇိုင်းစစ်ဆေးခြင်းမှ အပြီးအစီး ပေးပို့မှု',
-    yearOfPartnership: 'Partner since 2024',
-    avatarInitials: 'MT',
-  },
-];
-
 export const COMPANY_VISION_MISSION = {
   vision: {
     kicker: 'Corporate Vision · ကုမ္ပဏီ၏ မျှော်မှန်းချက်',
@@ -1263,20 +925,20 @@ export const EXPORT_AND_DOMESTIC_MARKETS = {
       'TB Star Company Limited သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (Bamboo Split) နှင့် တစ်အိတ် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို နိုင်ငံတကာ ဝယ်ယူသူများနှင့် စက်ရုံများသို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။',
     regions: [
       {
-        name: 'South Asia (India, Pakistan) & Regional Manufacturing Markets',
-        nameMm: 'တောင်အာရှ (အိန္ဒိယ၊ ပါကစ္စတန်) နှင့် ဒေသတွင်း ကုန်ထုတ်လုပ်ငန်း စျေးကွက်များ',
+        name: '100% Natural Myanmar Bamboo Split (3 mm · 20"–48" · With/Without Nodes)',
+        nameMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈" · အဆစ်ပါ/အဆစ်မပါ)',
       },
       {
-        name: 'Southeast Asia (ASEAN) & East Asia Trade Partners',
-        nameMm: 'အရှေ့တောင်အာရှ (ASEAN) နှင့် အရှေ့အာရှ ပို့ကုန်စျေးကွက်များ',
+        name: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", and 10" Lengths)',
+        nameMm: 'သဘာဝဝါးတံ (အထူ 1.2–2.5 mm · အရှည် ၈"၊ ၉" နှင့် ၁၀")',
       },
       {
-        name: 'Port of Loading: Yangon Port, Myanmar (Sea & Land Trade)',
-        nameMm: 'တင်ပို့သည့်ဆိပ်ကမ်း - ရန်ကုန်ဆိပ်ကမ်း (ပင်လယ်ရေကြောင်းနှင့် နယ်စပ်ကုန်သွယ်ရေး)',
+        name: 'Export Packaging: Standardized 30 kg per Bag & Commercial Bundles',
+        nameMm: 'ပို့ကုန်ထုပ်ပိုးမှု - တစ်အိတ်လျှင် 30 kg စံနှုန်းနှင့် စနစ်တကျထုပ်ပိုးမှု',
       },
       {
-        name: 'Export Packaging: Standardized 30 kg Woven Bags & Bundles',
-        nameMm: 'ပို့ကုန်ထုပ်ပိုးမှု - တစ်အိတ် 30 kg စံချိန်မီအိတ်နှင့် စနစ်တကျစည်းနှောင်မှု',
+        name: 'Direct Export Inquiry & Coordination via Central Tower, Yangon Office',
+        nameMm: 'ရန်ကုန်မြို့ Central Tower ရုံးချုပ်မှတစ်ဆင့် ပြည်ပပို့ကုန် တိုက်ရိုက်ချိတ်ဆက်ဆောင်ရွက်ပေးခြင်း',
       },
     ],
   },

@@ -194,6 +194,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           type="button"
           variant="primary-dark"
           size="sm"
+          href={`/contact?inquiry=${encodeURIComponent(product.inquiryType)}`}
           className="flex-1"
           onClick={() => onInquireProduct(product.inquiryType)}
         >
@@ -206,6 +207,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             type="button"
             variant="outline-dark"
             size="sm"
+            href={`/bamboo-products#${
+              product.id === 'bamboo-split'
+                ? 'product-bamboo-split'
+                : product.id === 'bamboo-sticks'
+                ? 'product-bamboo-sticks'
+                : 'product-other-bamboo'
+            }`}
             onClick={onViewDetails}
           >
             {t('Full Specs', 'အသေးစိတ်ကြည့်ရန်')}
@@ -274,6 +282,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
           type="button"
           variant="subtle"
           size="sm"
+          href={`/contact?inquiry=${encodeURIComponent(service.inquiryType)}`}
           className="flex-1"
           onClick={() => onInquireService(service.inquiryType)}
         >
@@ -286,6 +295,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
             type="button"
             variant="outline-dark"
             size="sm"
+            href={`/printing-services#service-${service.id}`}
             onClick={onViewDetails}
           >
             {t('Service Details', 'အသေးစိတ်ကြည့်ရန်')}
@@ -572,6 +582,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                 <Button
                   type="button"
                   variant="outline-light"
+                  href="/contact?inquiry=Bamboo%20Split"
                   onClick={() => onInquireWithCategory('Bamboo Split', true)}
                 >
                   {t('Bamboo Product Inquiry', 'ဝါးထုတ်ကုန် မေးမြန်းရန်')}
@@ -580,6 +591,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                 <Button
                   type="button"
                   variant="outline-light"
+                  href="/contact?inquiry=Books%20Printing"
                   onClick={() => onInquireWithCategory('Books Printing', true)}
                 >
                   {t('Printing Service Inquiry', 'ပုံနှိပ်လုပ်ငန်း မေးမြန်းရန်')}
