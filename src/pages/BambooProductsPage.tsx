@@ -252,6 +252,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               <ProductCard
                 key={product.id}
                 product={product}
+                imageLoading="eager"
                 onInquireProduct={(type) => onInquireWithCategory(type, true)}
                 onViewDetails={() =>
                   scrollToProductSection(
@@ -294,6 +295,73 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               </Button>
             }
           />
+
+          {/* Natural Bamboo Product Overview Showcase */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+            <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs flex flex-col">
+              <VisualAssetFrame
+                type="bamboo-split"
+                imagePath={bambooSplit.naturalImagePath}
+                altText={bambooSplit.naturalImageAlt}
+                aspectClassName="aspect-[16/10]"
+                label={t(
+                  '100% Natural Myanmar Bamboo Split · With Nodes & Without Nodes',
+                  '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြား · အဆစ်ပါ နှင့် အဆစ်မပါ'
+                )}
+              />
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                    {t('100% NATURAL BAMBOO · ORIGIN: MYANMAR', '၁၀၀% သဘာဝဝါးစစ်စစ် · မူရင်းနိုင်ငံ - မြန်မာ')}
+                  </p>
+                  <h3 className="text-lg font-bold text-[#173D2A] mb-2">
+                    {t(
+                      'Natural Bamboo Split (3 mm · 20–48 inches)',
+                      'သဘာဝ ဝါးခြမ်းပြား (အထူ 3 mm · အရှည် ၂၀–၄၈ လက်မ)'
+                    )}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#26332B]/85 leading-relaxed">
+                    {t(
+                      'Mechanically split from 100% natural Myanmar bamboo in uniform 3 mm thickness and 20 to 48 inch lengths, available both With Nodes and Without Nodes.',
+                      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်မှ အထူ 3 mm နှင့် အရှည် ၂၀ လက်မမှ ၄၈ လက်မအထိ တစ်ပြေးညီ ထုတ်လုပ်ထားပြီး အဆစ်ပါ (With Nodes) နှင့် အဆစ်မပါ (Without Nodes) ရရှိနိုင်ပါသည်။'
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs flex flex-col">
+              <VisualAssetFrame
+                type="bamboo-sticks"
+                imagePath={bambooSticks.naturalImagePath}
+                altText={bambooSticks.naturalImageAlt}
+                aspectClassName="aspect-[16/10]"
+                label={t(
+                  '100% Natural Myanmar Bamboo Sticks · 8", 9", and 10"',
+                  '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံ · ၈ လက်မ၊ ၉ လက်မ နှင့် ၁၀ လက်မ'
+                )}
+              />
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                    {t('100% NATURAL BAMBOO · ORIGIN: MYANMAR', '၁၀၀% သဘာဝဝါးစစ်စစ် · မူရင်းနိုင်ငံ - မြန်မာ')}
+                  </p>
+                  <h3 className="text-lg font-bold text-[#173D2A] mb-2">
+                    {t(
+                      'Natural Bamboo Sticks (1.2–2.5 mm · 8, 9, and 10 inches)',
+                      'သဘာဝ ဝါးတံ (အထူ 1.2–2.5 mm · အရှည် ၈၊ ၉ နှင့် ၁၀ လက်မ)'
+                    )}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#26332B]/85 leading-relaxed">
+                    {t(
+                      'Precision-sized from 100% natural Myanmar bamboo in 1.2 to 2.5 mm thickness across 8, 9, and 10 inch lengths, neatly bundled and packed at 30 kg per bag.',
+                      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် အထူ 1.2–2.5 mm နှင့် အရှည် ၈၊ ၉၊ ၁၀ လက်မ အရွယ်အစားများအတိုင်း သပ်ရပ်စွာ ထုတ်လုပ်ပြီး တစ်အိတ် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားပါသည်။'
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* 6-Card Professional Eco-Advantages Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
@@ -387,7 +455,9 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 <VisualAssetFrame
                   type="bamboo-split"
                   imagePath={bambooSplit.imagePath}
+                  altText={bambooSplit.imageAlt}
                   aspectClassName="aspect-[4/3]"
+                  loading="eager"
                   label={isMm && bambooSplit.placeholderNoteMm ? bambooSplit.placeholderNoteMm : bambooSplit.placeholderNote}
                 />
               </div>
@@ -431,7 +501,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               </div>
             </div>
 
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 space-y-6">
               <ProductSpecificationTable
                 title="Bamboo Split — Technical Specification Table"
                 titleMm="ဝါးခြမ်းပြား (Bamboo Split) — အသေးစိတ်အချက်အလက်ဇယား"
@@ -442,6 +512,69 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 inquireLabel="Inquire: Bamboo Split"
                 inquireLabelMm="ဝါးခြမ်းပြား မေးမြန်းရန်"
               />
+
+              {/* Product Details: Material Texture & Wholesale Supply Visuals */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs flex flex-col">
+                  <VisualAssetFrame
+                    type="bamboo-split"
+                    imagePath={bambooSplit.textureImagePath}
+                    altText={bambooSplit.textureImageAlt}
+                    aspectClassName="aspect-[4/3]"
+                    label={t(
+                      'Bamboo Split · 3 mm Thickness & Grain Texture',
+                      'ဝါးခြမ်းပြား · အထူ 3 mm နှင့် သဘာဝဝါးအသားဖွဲ့စည်းပုံ'
+                    )}
+                  />
+                  <div className="p-4 flex-1">
+                    <p className="text-[11px] font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                      {t('MATERIAL TEXTURE & APPEARANCE', 'သဘာဝဝါးအသားနှင့် အသွင်အပြင်')}
+                    </p>
+                    <h3 className="text-sm font-bold text-[#173D2A] mb-1">
+                      {t(
+                        '3 mm Natural Bamboo Split Texture',
+                        'အထူ 3 mm သဘာဝဝါးခြမ်းပြား အသေးစိတ်ပုံစံ'
+                      )}
+                    </h3>
+                    <p className="text-xs text-[#26332B]/80 leading-relaxed">
+                      {t(
+                        '100% natural Myanmar bamboo strips in 3 mm thickness, showing Both With Nodes and Without Nodes variations.',
+                        'အထူ 3 mm ရှိသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများ (အဆစ်ပါ နှင့် အဆစ်မပါ နှစ်မျိုး) ၏ အသားဖွဲ့စည်းပုံ။'
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs flex flex-col">
+                  <VisualAssetFrame
+                    type="bamboo-split"
+                    imagePath={bambooSplit.wholesaleImagePath}
+                    altText={bambooSplit.wholesaleImageAlt}
+                    aspectClassName="aspect-[4/3]"
+                    label={t(
+                      'Bamboo Split · Commercial & Wholesale Supply (20"–48")',
+                      'ဝါးခြမ်းပြား · လက်ကားနှင့် ပြည်ပပို့ကုန် ထုပ်ပိုးမှု (၂၀"–၄၈")'
+                    )}
+                  />
+                  <div className="p-4 flex-1">
+                    <p className="text-[11px] font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                      {t('COMMERCIAL & WHOLESALE SUPPLY', 'လက်ကားနှင့် ပြည်ပပို့ကုန်')}
+                    </p>
+                    <h3 className="text-sm font-bold text-[#173D2A] mb-1">
+                      {t(
+                        'Bundled Bamboo Split (20–48 inches)',
+                        'စနစ်တကျ စည်းနှောင်ထားသော ဝါးခြမ်းပြား (၂၀–၄၈ လက်မ)'
+                      )}
+                    </h3>
+                    <p className="text-xs text-[#26332B]/80 leading-relaxed">
+                      {t(
+                        'Uniformly graded bamboo splits in lengths from 20 to 48 inches prepared for domestic distribution and export.',
+                        'အရှည် ၂၀ လက်မမှ ၄၈ လက်မအထိ အရွယ်အစားတူ စနစ်တကျ စည်းနှောင်ထားသော ပြည်တွင်း/ပြည်ပပို့ကုန် ဝါးခြမ်းပြားများ။'
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -459,6 +592,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 <VisualAssetFrame
                   type="bamboo-sticks"
                   imagePath={bambooSticks.imagePath}
+                  altText={bambooSticks.imageAlt}
                   aspectClassName="aspect-[4/3]"
                   label={isMm && bambooSticks.placeholderNoteMm ? bambooSticks.placeholderNoteMm : bambooSticks.placeholderNote}
                 />
@@ -503,7 +637,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               </div>
             </div>
 
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 space-y-6">
               <ProductSpecificationTable
                 title="Bamboo Sticks — Technical Specification Table"
                 titleMm="ဝါးတံ (Bamboo Sticks) — အသေးစိတ်အချက်အလက်ဇယား"
@@ -514,6 +648,69 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 inquireLabel="Inquire: Bamboo Sticks"
                 inquireLabelMm="ဝါးတံ မေးမြန်းရန်"
               />
+
+              {/* Product Details: Material Texture & Wholesale Supply Visuals */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs flex flex-col">
+                  <VisualAssetFrame
+                    type="bamboo-sticks"
+                    imagePath={bambooSticks.textureImagePath}
+                    altText={bambooSticks.textureImageAlt}
+                    aspectClassName="aspect-[4/3]"
+                    label={t(
+                      'Bamboo Sticks · 1.2–2.5 mm Cross-Section & Texture',
+                      'ဝါးတံ · အထူ 1.2–2.5 mm နှင့် သဘာဝဝါးအသားဖွဲ့စည်းပုံ'
+                    )}
+                  />
+                  <div className="p-4 flex-1">
+                    <p className="text-[11px] font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                      {t('MATERIAL TEXTURE & APPEARANCE', 'သဘာဝဝါးအသားနှင့် အသွင်အပြင်')}
+                    </p>
+                    <h3 className="text-sm font-bold text-[#173D2A] mb-1">
+                      {t(
+                        '1.2–2.5 mm Natural Bamboo Stick Texture',
+                        'အထူ 1.2–2.5 mm သဘာဝဝါးတံ အသေးစိတ်ပုံစံ'
+                      )}
+                    </h3>
+                    <p className="text-xs text-[#26332B]/80 leading-relaxed">
+                      {t(
+                        'Close-up physical appearance of 100% natural Myanmar bamboo sticks in 1.2 to 2.5 mm thickness.',
+                        'အထူ 1.2 မှ 2.5 mm ရှိသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးတံများ၏ ဖြောင့်တန်းသပ်ရပ်သော အသားဖွဲ့စည်းပုံ။'
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs flex flex-col">
+                  <VisualAssetFrame
+                    type="bamboo-sticks"
+                    imagePath={bambooSticks.wholesaleImagePath}
+                    altText={bambooSticks.wholesaleImageAlt}
+                    aspectClassName="aspect-[4/3]"
+                    label={t(
+                      'Bamboo Sticks · 30 kg per Bag Wholesale & Export Packaging',
+                      'ဝါးတံ · တစ်အိတ် 30 kg လက်ကားနှင့် ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
+                    )}
+                  />
+                  <div className="p-4 flex-1">
+                    <p className="text-[11px] font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                      {t('COMMERCIAL & WHOLESALE SUPPLY', 'လက်ကားနှင့် ပြည်ပပို့ကုန်')}
+                    </p>
+                    <h3 className="text-sm font-bold text-[#173D2A] mb-1">
+                      {t(
+                        '30 kg per Bag Commercial Packaging',
+                        'တစ်အိတ်လျှင် 30 kg စံနှုန်း ထုပ်ပိုးထားရှိမှု'
+                      )}
+                    </h3>
+                    <p className="text-xs text-[#26332B]/80 leading-relaxed">
+                      {t(
+                        'Available in 8, 9, and 10 inch lengths and packed in standardized 30 kg bags for commercial supply.',
+                        'အရှည် ၈၊ ၉ နှင့် ၁၀ လက်မ အရွယ်အစားများဖြင့် တစ်အိတ်လျှင် 30 kg စံနှုန်း ထုပ်ပိုးထားသော ပို့ကုန်အဆင့် ဝါးတံများ။'
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -565,6 +762,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   <VisualAssetFrame
                     type="bamboo-custom"
                     imagePath={otherBamboo.imagePath}
+                    altText={otherBamboo.imageAlt}
                     aspectClassName="aspect-[16/10]"
                     label={isMm && otherBamboo.placeholderNoteMm ? otherBamboo.placeholderNoteMm : otherBamboo.placeholderNote}
                   />

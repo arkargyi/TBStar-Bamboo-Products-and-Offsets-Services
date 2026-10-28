@@ -287,7 +287,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
               title="View Central Tower, Kyauktada Township, Yangon on Google Maps"
             >
               <MapPin className="relative z-10 w-3.5 h-3.5 text-[#A8D977] bg-[#112E1F] shrink-0" />
-              <span className="animate-slide-ltr underline-offset-4 hover:underline">
+              <span className="animate-slide-ltr hover:drop-shadow-sm underline-offset-4 hover:underline">
                 {t(
                   COMPANY_INFO.address.shortAddress,
                   COMPANY_INFO.address.shortAddressMm

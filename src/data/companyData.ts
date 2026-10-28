@@ -58,6 +58,15 @@ export interface BambooProductItem {
   detailedDescriptionMm: string;
   visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom';
   imagePath?: string;
+  imageAlt?: string;
+  featuredImagePath?: string;
+  featuredImageAlt?: string;
+  naturalImagePath?: string;
+  naturalImageAlt?: string;
+  wholesaleImagePath?: string;
+  wholesaleImageAlt?: string;
+  textureImagePath?: string;
+  textureImageAlt?: string;
   placeholderNote: string;
   placeholderNoteMm?: string;
   specifications: SpecificationRow[];
@@ -179,7 +188,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
       'TB Star Company Limited manufactures and exports 100% natural Myanmar bamboo split and bamboo sticks while providing one-stop offset printing services in Yangon.',
     heading: 'Home',
     canonicalUrl: 'https://tbstarcompany.com/',
-    ogImage: 'https://tbstarcompany.com/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    ogImage: 'https://tbstarcompany.com/images/products/bamboo-split-main.webp',
     ogImageAlt:
       'TB Star Company Limited 100% Natural Myanmar Bamboo Products and Offset Printing Services',
     breadcrumbs: [{ name: 'Home', url: 'https://tbstarcompany.com/' }],
@@ -203,7 +212,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
       'Review technical specifications for 100% natural Myanmar Bamboo Split (3 mm, 20"–48") and Bamboo Sticks (1.2–2.5 mm, 8"/9"/10", 30 kg per bag) from TB Star Company Limited.',
     heading: 'Bamboo Products',
     canonicalUrl: 'https://tbstarcompany.com/bamboo-products',
-    ogImage: 'https://tbstarcompany.com/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    ogImage: 'https://tbstarcompany.com/images/products/bamboo-split-main.webp',
     ogImageAlt:
       'TB Star Company Limited 100% Natural Myanmar Bamboo Split (3 mm, 20 to 48 inches) and Bamboo Sticks (30 kg per bag)',
     breadcrumbs: [
@@ -234,7 +243,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
       'Explore visual categories for TB Star Company Limited including Bamboo Products, Bamboo Production, Packaging, Printing Products, and Company Activities.',
     heading: 'Projects / Gallery',
     canonicalUrl: 'https://tbstarcompany.com/gallery',
-    ogImage: 'https://tbstarcompany.com/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
+    ogImage: 'https://tbstarcompany.com/images/products/bamboo-sticks-wholesale.webp',
     ogImageAlt:
       'TB Star Company Limited Bamboo Products, 30 kg Export Packaging, and Printing Gallery',
     breadcrumbs: [
@@ -275,7 +284,16 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     detailedDescriptionMm:
       'TB Star Company Limited သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ကို အသုံးပြု၍ အထူ ၃ မီလီမီတာ (3 mm) နှင့် အရှည် ၂၀ လက်မမှ ၄၈ လက်မအထိ ရှိသော ဝါးခြမ်းများကို စနစ်တကျ ထုတ်လုပ်ပေးလျက်ရှိပါသည်။ ဝယ်ယူသူများ၏ လုပ်ငန်းလိုအပ်ချက်အလိုက် အဆစ်ပါ (With Nodes) နှင့် အဆစ်မပါ (Without Nodes) နှစ်မျိုးလုံးကို ရွေးချယ်မှာယူနိုင်ပါသည်။',
     visualType: 'bamboo-split',
-    imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    imagePath: '/images/products/bamboo-split-main.webp',
+    imageAlt: 'Natural Myanmar bamboo splits with nodes',
+    featuredImagePath: '/images/products/bamboo-split-featured.webp',
+    featuredImageAlt: 'Featured natural bamboo split product',
+    naturalImagePath: '/images/products/bamboo-split-natural.webp',
+    naturalImageAlt: 'Natural bamboo splits with authentic bamboo texture',
+    wholesaleImagePath: '/images/products/bamboo-split-wholesale.webp',
+    wholesaleImageAlt: 'Bamboo splits arranged for commercial supply',
+    textureImagePath: '/images/products/bamboo-split-texture.webp',
+    textureImageAlt: 'Close-up of natural bamboo split texture',
     placeholderNote: 'TB Star Company Limited · 100% Natural Bamboo Split (3 mm · 20"–48")',
     placeholderNoteMm: 'TBStar Company Limited · ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")',
     inquiryType: 'Bamboo Split',
@@ -346,7 +364,16 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     detailedDescriptionMm:
       '၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးတံများကို အထူ ၁.၂ မီလီမီတာမှ ၂.၅ မီလီမီတာအထိ နှင့် အရှည် ၈ လက်မ၊ ၉ လက်မ၊ ၁၀ လက်မ အရွယ်အစား (၃) မျိုးဖြင့် ရရှိနိုင်ပါသည်။ ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပတင်ပို့မှု လွယ်ကူစေရန် တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg per bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
     visualType: 'bamboo-sticks',
-    imagePath: '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
+    imagePath: '/images/products/bamboo-sticks-main.webp',
+    imageAlt: 'Natural bamboo sticks from Myanmar',
+    featuredImagePath: '/images/products/bamboo-sticks-featured.webp',
+    featuredImageAlt: 'Featured natural bamboo sticks',
+    naturalImagePath: '/images/products/bamboo-sticks-natural.webp',
+    naturalImageAlt: 'Bamboo sticks arranged in neat bundles',
+    wholesaleImagePath: '/images/products/bamboo-sticks-wholesale.webp',
+    wholesaleImageAlt: 'Bamboo sticks prepared for commercial supply',
+    textureImagePath: '/images/products/bamboo-sticks-texture.webp',
+    textureImageAlt: 'Close-up of natural bamboo stick texture',
     placeholderNote: 'TB Star Company Limited · Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30KG/bag)',
     placeholderNoteMm: 'TBStar Company Limited · သဘာဝဝါးတံ (1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30KG)',
     inquiryType: 'Bamboo Sticks',
@@ -417,7 +444,10 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
     detailedDescriptionMm:
       'TB Star Company Limited သည် ဝါးခြမ်း (Bamboo Split) နှင့် ဝါးတံ (Bamboo Sticks) များအပြင် အခြားသော ဝါးနှင့်ဆက်စပ်သည့် ထုတ်ကုန်ပစ္စည်းများကိုလည်း ပြည်တွင်းနှင့် နိုင်ငံတကာ ဝယ်ယူသူများအတွက် ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။ အခြားသော ဝါးထုတ်ကုန်များအကြောင်း အသေးစိတ်သိရှိလိုပါက ကျွန်ုပ်တို့ထံ တိုက်ရိုက်ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။',
     visualType: 'bamboo-custom',
-    imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    imagePath: '/images/products/bamboo-split-natural.webp',
+    imageAlt: 'Natural bamboo splits with authentic bamboo texture',
+    featuredImagePath: '/images/products/bamboo-split-natural.webp',
+    featuredImageAlt: 'Natural bamboo splits with authentic bamboo texture',
     placeholderNote: 'TB Star Company Limited · 100% Natural Myanmar Bamboo Products',
     placeholderNoteMm: 'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ',
     inquiryType: 'Other Bamboo Products',
@@ -650,10 +680,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     category: 'Bamboo Products',
     caption: '3 mm thickness · 20 inches to 48 inches · 100% Natural Myanmar Bamboo',
     captionMm: 'အထူ ၃ မီလီမီတာ · အရှည် ၂၀ လက်မ မှ ၄၈ လက်မ · ၁၀၀% သဘာဝမြန်မာ့ဝါး',
-    altText:
-      'TB Star Company Limited 100% natural Myanmar Bamboo Split (3 mm thickness, 20" to 48" with and without nodes)',
-    imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
-    replacementFileHint: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    altText: 'Natural Myanmar bamboo splits with nodes',
+    imagePath: '/images/products/bamboo-split-main.webp',
+    replacementFileHint: '/images/products/bamboo-split-main.webp',
     visualType: 'bamboo-split',
     isPlaceholder: false,
   },
@@ -664,9 +693,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     category: 'Bamboo Products',
     caption: '1.2 mm to 2.5 mm thickness · 100% Natural Myanmar Bamboo',
     captionMm: 'အထူ ၁.၂ မီလီမီတာ မှ ၂.၅ မီလီမီတာ · ၁၀၀% သဘာဝမြန်မာ့ဝါး',
-    altText: 'TB Star Company Limited natural Bamboo Sticks in 8, 9, and 10 inch lengths',
-    imagePath: '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
-    replacementFileHint: '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
+    altText: 'Natural bamboo sticks from Myanmar',
+    imagePath: '/images/products/bamboo-sticks-main.webp',
+    replacementFileHint: '/images/products/bamboo-sticks-main.webp',
     visualType: 'bamboo-sticks',
     isPlaceholder: false,
   },
@@ -677,9 +706,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     category: 'Bamboo Production',
     caption: 'Manufacturing bamboo-related products in Myanmar for local and export supply',
     captionMm: 'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် မြန်မာနိုင်ငံတွင် ဝါးထုတ်ကုန်များ ထုတ်လုပ်နေမှု',
-    altText: 'TB Star Company Limited bamboo splitting and sizing production activities',
-    imagePath: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
-    replacementFileHint: '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+    altText: 'Natural bamboo splits with authentic bamboo texture',
+    imagePath: '/images/products/bamboo-split-natural.webp',
+    replacementFileHint: '/images/products/bamboo-split-natural.webp',
     visualType: 'bamboo-custom',
     isPlaceholder: false,
   },
@@ -690,9 +719,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     category: 'Packaging',
     caption: 'Standardized 30 kg per bag packaging for Bamboo Sticks export and distribution',
     captionMm: 'ဝါးတံများ ပြည်ပတင်ပို့ရန်နှင့် ဖြန့်ဖြူးရန် တစ်အိတ်လျှင် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားရှိမှု',
-    altText: 'TB Star Company Limited 30 kg export bag packaging for bamboo sticks',
-    imagePath: '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
-    replacementFileHint: '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
+    altText: 'Bamboo sticks prepared for commercial supply',
+    imagePath: '/images/products/bamboo-sticks-wholesale.webp',
+    replacementFileHint: '/images/products/bamboo-sticks-wholesale.webp',
     visualType: 'bamboo-sticks',
     isPlaceholder: false,
   },

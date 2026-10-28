@@ -243,6 +243,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
+                  imagePath="/images/products/bamboo-split-natural.webp"
+                  altText="Natural bamboo splits with authentic bamboo texture"
                   aspectClassName="aspect-[16/9]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Split & Sticks Export',
@@ -429,6 +431,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <ProductCard
                 key={product.id}
                 product={product}
+                useFeaturedImage={true}
                 onInquireProduct={(type) => onInquireWithCategory(type, true)}
                 onViewDetails={() => onNavigate('/bamboo-products')}
               />
@@ -713,58 +716,82 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {/* Domestic vs International Export Markets */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white border border-[#DDE5D9] rounded-2xl p-6 sm:p-8 shadow-2xs">
-              <div className="flex items-center gap-2.5 mb-3">
-                <Globe2 className="w-5 h-5 text-[#245C3A]" />
-                <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
-                  {EXPORT_AND_DOMESTIC_MARKETS.domestic.badge}
-                </span>
+            <div className="bg-white border border-[#DDE5D9] rounded-2xl overflow-hidden shadow-2xs flex flex-col">
+              <VisualAssetFrame
+                type="bamboo-split"
+                imagePath="/images/products/bamboo-split-wholesale.webp"
+                altText="Bamboo splits arranged for commercial supply"
+                aspectClassName="aspect-[16/9]"
+                label={t(
+                  'Bamboo Split · Wholesale & Commercial Supply (3 mm · 20"–48")',
+                  'ဝါးခြမ်းပြား · ပြည်တွင်းနှင့် လက်ကားဖြန့်ဖြူးရေး (3 mm · ၂၀"–၄၈")'
+                )}
+              />
+              <div className="p-6 sm:p-8 flex-1">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <Globe2 className="w-5 h-5 text-[#245C3A]" />
+                  <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                    {EXPORT_AND_DOMESTIC_MARKETS.domestic.badge}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+                  {isMm
+                    ? EXPORT_AND_DOMESTIC_MARKETS.domestic.titleMm
+                    : EXPORT_AND_DOMESTIC_MARKETS.domestic.title}
+                </h3>
+                <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
+                  {isMm
+                    ? EXPORT_AND_DOMESTIC_MARKETS.domestic.descriptionMm
+                    : EXPORT_AND_DOMESTIC_MARKETS.domestic.description}
+                </p>
+                <ul className="space-y-2.5 text-sm text-[#173D2A] font-medium">
+                  {EXPORT_AND_DOMESTIC_MARKETS.domestic.regions.map((reg) => (
+                    <li key={reg.name} className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
+                      <span>{isMm ? reg.nameMm : reg.name}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
-                {isMm
-                  ? EXPORT_AND_DOMESTIC_MARKETS.domestic.titleMm
-                  : EXPORT_AND_DOMESTIC_MARKETS.domestic.title}
-              </h3>
-              <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
-                {isMm
-                  ? EXPORT_AND_DOMESTIC_MARKETS.domestic.descriptionMm
-                  : EXPORT_AND_DOMESTIC_MARKETS.domestic.description}
-              </p>
-              <ul className="space-y-2.5 text-sm text-[#173D2A] font-medium">
-                {EXPORT_AND_DOMESTIC_MARKETS.domestic.regions.map((reg) => (
-                  <li key={reg.name} className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 text-[#245C3A] shrink-0 mt-0.5" />
-                    <span>{isMm ? reg.nameMm : reg.name}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
-            <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl p-6 sm:p-8 shadow-2xs">
-              <div className="flex items-center gap-2.5 mb-3">
-                <Globe2 className="w-5 h-5 text-[#A8D977]" />
-                <span className="text-xs font-mono-tabular font-bold text-[#A8D977]">
-                  {EXPORT_AND_DOMESTIC_MARKETS.international.badge}
-                </span>
+            <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl overflow-hidden shadow-2xs flex flex-col">
+              <VisualAssetFrame
+                type="bamboo-sticks"
+                imagePath="/images/products/bamboo-sticks-wholesale.webp"
+                altText="Bamboo sticks prepared for commercial supply"
+                aspectClassName="aspect-[16/9]"
+                label={t(
+                  'Bamboo Sticks · Standardized 30 kg per Bag Export Supply',
+                  'ဝါးတံ · တစ်အိတ်လျှင် 30 kg စံနှုန်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
+                )}
+              />
+              <div className="p-6 sm:p-8 flex-1">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <Globe2 className="w-5 h-5 text-[#A8D977]" />
+                  <span className="text-xs font-mono-tabular font-bold text-[#A8D977]">
+                    {EXPORT_AND_DOMESTIC_MARKETS.international.badge}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2.5">
+                  {isMm
+                    ? EXPORT_AND_DOMESTIC_MARKETS.international.titleMm
+                    : EXPORT_AND_DOMESTIC_MARKETS.international.title}
+                </h3>
+                <p className="text-sm text-white/85 leading-relaxed mb-5">
+                  {isMm
+                    ? EXPORT_AND_DOMESTIC_MARKETS.international.descriptionMm
+                    : EXPORT_AND_DOMESTIC_MARKETS.international.description}
+                </p>
+                <ul className="space-y-2.5 text-sm text-white/95 font-medium">
+                  {EXPORT_AND_DOMESTIC_MARKETS.international.regions.map((reg) => (
+                    <li key={reg.name} className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 text-[#A8D977] shrink-0 mt-0.5" />
+                      <span>{isMm ? reg.nameMm : reg.name}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2.5">
-                {isMm
-                  ? EXPORT_AND_DOMESTIC_MARKETS.international.titleMm
-                  : EXPORT_AND_DOMESTIC_MARKETS.international.title}
-              </h3>
-              <p className="text-sm text-white/85 leading-relaxed mb-5">
-                {isMm
-                  ? EXPORT_AND_DOMESTIC_MARKETS.international.descriptionMm
-                  : EXPORT_AND_DOMESTIC_MARKETS.international.description}
-              </p>
-              <ul className="space-y-2.5 text-sm text-white/95 font-medium">
-                {EXPORT_AND_DOMESTIC_MARKETS.international.regions.map((reg) => (
-                  <li key={reg.name} className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 text-[#A8D977] shrink-0 mt-0.5" />
-                    <span>{isMm ? reg.nameMm : reg.name}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 

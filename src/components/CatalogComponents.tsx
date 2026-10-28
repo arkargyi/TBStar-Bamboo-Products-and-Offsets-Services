@@ -102,23 +102,39 @@ interface ProductCardProps {
   product: BambooProductItem;
   onInquireProduct: (type: InquiryTypeOption) => void;
   onViewDetails?: () => void;
+  useFeaturedImage?: boolean;
+  imageLoading?: 'lazy' | 'eager';
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onInquireProduct,
   onViewDetails,
+  useFeaturedImage = false,
+  imageLoading = 'lazy',
 }) => {
   const { isMm, t } = useLanguage();
+
+  const resolvedImagePath =
+    useFeaturedImage && product.featuredImagePath
+      ? product.featuredImagePath
+      : product.imagePath;
+
+  const resolvedAltText =
+    useFeaturedImage && product.featuredImageAlt
+      ? product.featuredImageAlt
+      : product.imageAlt;
 
   return (
     <article className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200">
       <div>
         <VisualAssetFrame
           type={product.visualType}
-          imagePath={product.imagePath}
+          imagePath={resolvedImagePath}
+          altText={resolvedAltText}
           label={isMm && product.placeholderNoteMm ? product.placeholderNoteMm : product.placeholderNote}
           aspectClassName="aspect-[4/3]"
+          loading={imageLoading}
         />
 
         <div className="p-6">

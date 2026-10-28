@@ -66,7 +66,7 @@ function buildStructuredData(route: PageRoute) {
       '@type': 'ImageObject',
       url: `${baseUrl}${COMPANY_INFO.logoPath}`,
     },
-    image: `${baseUrl}/assets/aistudio/Bamboo-Splits_4fe94386.jpeg`,
+    image: `${baseUrl}/images/products/bamboo-split-main.webp`,
     description:
       'TB Star Company Limited manufactures 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks) for domestic distribution and international export markets, and provides one-stop offset printing services in Yangon, Myanmar.',
     telephone: COMPANY_INFO.telephone,
@@ -159,7 +159,7 @@ function buildStructuredData(route: PageRoute) {
           description: prod.detailedDescription,
           image: prod.imagePath
             ? `${baseUrl}${prod.imagePath}`
-            : `${baseUrl}/assets/aistudio/Bamboo-Splits_4fe94386.jpeg`,
+            : `${baseUrl}/images/products/bamboo-split-main.webp`,
           brand: {
             '@type': 'Brand',
             name: COMPANY_INFO.name,

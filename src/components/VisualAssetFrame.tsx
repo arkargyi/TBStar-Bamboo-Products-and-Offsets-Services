@@ -11,12 +11,21 @@ export type VisualAssetType =
   | 'hero-bamboo';
 
 const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
-  'bamboo-split': '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
-  'bamboo-sticks': '/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg',
-  'bamboo-custom': '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg',
+  'bamboo-split': '/images/products/bamboo-split-main.webp',
+  'bamboo-sticks': '/images/products/bamboo-sticks-main.webp',
+  'bamboo-custom': '/images/products/bamboo-split-natural.webp',
   'books-printing': '/assets/aistudio/Offset-Printing.svg',
   'voucher-printing': '/assets/aistudio/Offset-Printing.svg',
   'commercial-printing': '/assets/aistudio/Offset-Printing.svg',
+};
+
+const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
+  'bamboo-split': 'Natural Myanmar bamboo splits with nodes',
+  'bamboo-sticks': 'Natural bamboo sticks from Myanmar',
+  'bamboo-custom': 'Natural bamboo splits with authentic bamboo texture',
+  'books-printing': 'TB Star Company Limited One-Stop Offset Books Printing Services',
+  'voucher-printing': 'TB Star Company Limited Commercial Voucher Books Printing Services',
+  'commercial-printing': 'TB Star Company Limited Commercial Offset Printing Services',
 };
 
 interface VisualAssetFrameProps {
@@ -26,6 +35,8 @@ interface VisualAssetFrameProps {
   label?: string;
   aspectClassName?: string;
   showReplacementNote?: boolean;
+  loading?: 'lazy' | 'eager';
+  fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
@@ -34,10 +45,12 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
   altText,
   label,
   aspectClassName = 'aspect-[4/3]',
+  loading = 'lazy',
+  fetchPriority,
 }) => {
   const { t } = useLanguage();
 
-  // Hero Dual-Division 3-Photo Showcase (replaces the SVG schematic boxes selected in Focus Mode)
+  // Hero Dual-Division 3-Photo Showcase
   if (type === 'hero-bamboo' && !imagePath) {
     return (
       <div
@@ -46,11 +59,13 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         {/* Top-Left: Bamboo Split */}
         <div className="relative overflow-hidden rounded-md border border-white/15 group">
           <img
-            src="/assets/aistudio/Bamboo-Splits_4fe94386.jpeg"
-            alt="TB Star Company Limited Bamboo Split (3mm, 20 to 48 inches)"
+            src="/images/products/bamboo-split-main.webp"
+            alt="Natural Myanmar bamboo splits with nodes"
             width={400}
             height={300}
             referrerPolicy="no-referrer"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
@@ -65,11 +80,12 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         {/* Top-Right: Bamboo Sticks (30KG per bag) */}
         <div className="relative overflow-hidden rounded-md border border-white/15 group">
           <img
-            src="/assets/aistudio/Bamboo-Sticks_1c5d3754.jpg"
-            alt="TB Star Company Limited Bamboo Sticks (1.2mm to 2.5mm, 30KG per bag)"
+            src="/images/products/bamboo-sticks-main.webp"
+            alt="Natural bamboo sticks from Myanmar"
             width={400}
             height={300}
             referrerPolicy="no-referrer"
+            loading="eager"
             decoding="async"
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
@@ -111,7 +127,11 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
   const resolvedImage =
     imagePath ||
     DEFAULT_IMAGE_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ||
-    '/assets/aistudio/Bamboo-Splits_4fe94386.jpeg';
+    '/images/products/bamboo-split-main.webp';
+
+  const defaultAlt =
+    DEFAULT_ALT_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ||
+    'Natural Myanmar bamboo splits with nodes';
 
   const defaultLabel =
     type === 'bamboo-split'
@@ -147,11 +167,12 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
     >
       <img
         src={resolvedImage}
-        alt={altText || label || defaultLabel}
+        alt={altText || defaultAlt}
         width={640}
         height={480}
         referrerPolicy="no-referrer"
-        loading="lazy"
+        loading={loading}
+        fetchPriority={fetchPriority}
         decoding="async"
         className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
       />

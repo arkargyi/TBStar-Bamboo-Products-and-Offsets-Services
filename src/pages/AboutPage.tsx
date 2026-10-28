@@ -347,6 +347,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
+                  imagePath="/images/products/bamboo-split-wholesale.webp"
+                  altText="Bamboo splits arranged for commercial supply"
                   aspectClassName="aspect-[16/10]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Production & Export',
@@ -396,6 +398,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-sticks"
+                  imagePath="/images/products/bamboo-sticks-wholesale.webp"
+                  altText="Bamboo sticks prepared for commercial supply"
                   aspectClassName="aspect-[16/10]"
                   label={t(
                     '30KG Export & Wholesale Bag Packaging · Domestic Supply',
