@@ -145,6 +145,7 @@ const DEFAULT_BREADCRUMB_MM: Record<string, string> = {
   Home: 'ပင်မစာမျက်နှာ',
   'About Us': 'ကုမ္ပဏီအကြောင်း',
   'Bamboo Products': 'ဝါးထုတ်ကုန်များ',
+  Charcoal: 'မီးသွေးထုတ်ကုန်',
   'Offset Printing Services': 'အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများ',
   'Projects / Gallery': 'ဓာတ်ပုံမှတ်တမ်း',
   'Contact Us': 'ဆက်သွယ်ရန်',
@@ -279,8 +280,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </p>
             )}
             <h1
-              className={`w-[900px] max-w-full rounded-none text-left text-[48px] leading-[77.24px] font-extrabold text-white tracking-tight mb-4 ${
-                isMm ? 'font-myanmar' : ''
+              className={`w-[900px] max-w-full rounded-none text-left text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-white tracking-tight mb-4 ${
+                isMm
+                  ? 'font-myanmar leading-[1.45] lg:leading-[77.24px]'
+                  : 'leading-[1.18] lg:leading-[1.22]'
               }`}
             >
               {displayTitle}

@@ -223,6 +223,17 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               <EcoAdvantageIcon type="rapid-regeneration" className="w-4 h-4 shrink-0" />
               <span>{t('Eco-Advantages', 'သဘာဝပတ်ဝန်းကျင် အားသာချက်များ')}</span>
             </button>
+            <a
+              href="/charcoal"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/charcoal');
+              }}
+              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
+            >
+              <BambooProductIcon type="charcoal" className="w-4 h-4 shrink-0" />
+              <span>{t('Charcoal Page →', 'မီးသွေးထုတ်ကုန် →')}</span>
+            </a>
           </div>
 
           <a

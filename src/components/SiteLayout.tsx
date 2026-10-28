@@ -11,6 +11,7 @@ export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] =
   { label: 'Home', labelMm: 'ပင်မစာမျက်နှာ', route: '/' },
   { label: 'About Us', labelMm: 'ကုမ္ပဏီအကြောင်း', route: '/about' },
   { label: 'Bamboo Products', labelMm: 'ဝါးထုတ်ကုန်များ', route: '/bamboo-products' },
+  { label: 'Charcoal', labelMm: 'မီးသွေးထုတ်ကုန်', route: '/charcoal' },
   { label: 'Printing Services', labelMm: 'ပုံနှိပ်ဝန်ဆောင်မှုများ', route: '/printing-services' },
   { label: 'Gallery', labelMm: 'ဓာတ်ပုံပြခန်း', route: '/gallery' },
   { label: 'Contact Us', labelMm: 'ဆက်သွယ်ရန်', route: '/contact' },
@@ -558,6 +559,18 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Other Bamboo Products', 'အခြား ဝါးထုတ်ကုန်များ')}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/charcoal"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigate('/charcoal');
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
+                    >
+                      {t('Charcoal Products', 'မီးသွေးထုတ်ကုန် (Charcoal)')}
                     </a>
                   </li>
                 </ul>

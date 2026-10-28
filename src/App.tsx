@@ -6,6 +6,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   BAMBOO_PRODUCTS,
+  CHARCOAL_PRODUCT_INFO,
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
   InquiryTypeOption,
@@ -20,14 +21,16 @@ import { BackToTopButton, Button } from './components/SharedUI';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { BambooProductsPage } from './pages/BambooProductsPage';
+import { CharcoalPage } from './pages/CharcoalPage';
 import { PrintingServicesPage } from './pages/PrintingServicesPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 
-const VALID_ROUTES: PageRoute[] = [
+export const VALID_ROUTES: PageRoute[] = [
   '/',
   '/about',
   '/bamboo-products',
+  '/charcoal',
   '/printing-services',
   '/gallery',
   '/contact',
@@ -72,7 +75,7 @@ export function buildStructuredData(route: PageRoute) {
     },
     image: `${baseUrl}/images/products/bamboo-split-main.webp`,
     description:
-      'TB Star Company Limited manufactures 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks) for domestic distribution and international export markets, and provides one-stop offset printing services in Yangon, Myanmar.',
+      'TB Star Company Limited supplies 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Charcoal, and one-stop offset printing services in Yangon, Myanmar.',
     telephone: COMPANY_INFO.telephone,
     email: COMPANY_INFO.email,
     address: {
@@ -112,7 +115,7 @@ export function buildStructuredData(route: PageRoute) {
       ? 'AboutPage'
       : route === '/contact'
       ? 'ContactPage'
-      : route === '/gallery' || route === '/bamboo-products'
+      : route === '/gallery' || route === '/bamboo-products' || route === '/charcoal'
       ? 'CollectionPage'
       : 'WebPage';
 
@@ -170,6 +173,23 @@ export function buildStructuredData(route: PageRoute) {
         description: prod.detailedDescription,
         url: `${seo.canonicalUrl}#${sectionAnchorById[prod.id] || prod.id}`,
       })),
+    });
+  }
+
+  if (route === '/charcoal') {
+    graph.push({
+      '@type': 'ItemList',
+      '@id': `${seo.canonicalUrl}#charcoal-list`,
+      name: 'TB Star Company Limited Charcoal Product Line',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: CHARCOAL_PRODUCT_INFO.name,
+          description: CHARCOAL_PRODUCT_INFO.detailedDescription,
+          url: `${seo.canonicalUrl}#product-charcoal`,
+        },
+      ],
     });
   }
 
@@ -439,6 +459,12 @@ export default function App() {
               )}
               {currentRoute === '/bamboo-products' && (
                 <BambooProductsPage
+                  onNavigate={handleNavigate}
+                  onInquireWithCategory={handleInquireWithCategory}
+                />
+              )}
+              {currentRoute === '/charcoal' && (
+                <CharcoalPage
                   onNavigate={handleNavigate}
                   onInquireWithCategory={handleInquireWithCategory}
                 />

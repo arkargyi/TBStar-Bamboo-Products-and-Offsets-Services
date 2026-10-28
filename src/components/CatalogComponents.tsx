@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check, Maximize2, Phone, X } from 'lucide-react';
 import {
   BambooProductItem,
@@ -207,13 +207,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             type="button"
             variant="outline-dark"
             size="sm"
-            href={`/bamboo-products#${
-              product.id === 'bamboo-split'
-                ? 'product-bamboo-split'
-                : product.id === 'bamboo-sticks'
-                ? 'product-bamboo-sticks'
-                : 'product-other-bamboo'
-            }`}
+            href={
+              product.id === 'charcoal'
+                ? '/charcoal'
+                : `/bamboo-products#${
+                    product.id === 'bamboo-split'
+                      ? 'product-bamboo-split'
+                      : product.id === 'bamboo-sticks'
+                      ? 'product-bamboo-sticks'
+                      : 'product-other-bamboo'
+                  }`
+            }
             onClick={onViewDetails}
           >
             {t('Full Specs', 'အသေးစိတ်ကြည့်ရန်')}
@@ -320,6 +324,17 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<'All' | GalleryCategoryName>('All');
   const [lightboxItem, setLightboxItem] = useState<GalleryPreviewItem | null>(null);
   const { isMm, t } = useLanguage();
+
+  useEffect(() => {
+    if (!lightboxItem) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxItem(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxItem]);
 
   const categories: ('All' | GalleryCategoryName)[] = [
     'All',

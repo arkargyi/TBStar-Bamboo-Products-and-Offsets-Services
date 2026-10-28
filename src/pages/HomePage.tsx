@@ -435,6 +435,57 @@ export const HomePage: React.FC<HomePageProps> = ({
               />
             ))}
           </div>
+
+          {/* Dedicated Charcoal Product Page Cross-Link Banner */}
+          <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="flex items-start gap-4 max-w-3xl">
+              <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
+                <BambooProductIcon type="charcoal" className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                  {t(
+                    'ADDITIONAL PRODUCT LINE · CHARCOAL SUPPLY',
+                    'ထပ်တိုး ထုတ်ကုန်ကဏ္ဍ · မီးသွေးထုတ်ကုန် (CHARCOAL)'
+                  )}
+                </p>
+                <h3 className="text-xl font-bold text-[#173D2A] mb-1.5">
+                  {t(
+                    'Looking for Charcoal Products?',
+                    'မီးသွေးထုတ်ကုန် (Charcoal) အတွက် ဆက်သွယ်စုံစမ်းလိုပါသလား?'
+                  )}
+                </h3>
+                <p className="text-sm text-[#26332B]/85 leading-relaxed">
+                  {t(
+                    'Visit our dedicated Charcoal page or contact our Yangon headquarters directly to discuss your specific charcoal requirements and order inquiries.',
+                    'မီးသွေးထုတ်ကုန် စာမျက်နှာသို့ ဝင်ရောက်ကြည့်ရှုနိုင်သလို လုပ်ငန်းလိုအပ်ချက်အလိုက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
+                  )}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <Button
+                type="button"
+                variant="primary-dark"
+                size="sm"
+                href="/charcoal"
+                onClick={() => onNavigate('/charcoal')}
+              >
+                {t('Explore Charcoal Page', 'မီးသွေးထုတ်ကုန် စာမျက်နှာသို့')}
+                <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
+              </Button>
+              <Button
+                type="button"
+                variant="outline-dark"
+                size="sm"
+                href="/contact?inquiry=Charcoal"
+                onClick={() => onInquireWithCategory('Charcoal', true)}
+              >
+                {t('Inquire About Charcoal', 'မီးသွေး မေးမြန်းရန်')}
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 

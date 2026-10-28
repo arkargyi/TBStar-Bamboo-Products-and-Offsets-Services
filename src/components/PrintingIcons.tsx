@@ -11,7 +11,8 @@ export type PrintingIconType =
 export type BambooIconType =
   | 'bamboo-split'
   | 'bamboo-sticks'
-  | 'bamboo-custom';
+  | 'bamboo-custom'
+  | 'charcoal';
 
 export type EcoAdvantageType =
   | 'rapid-regeneration'
@@ -453,6 +454,50 @@ export const BambooProductIcon: React.FC<BambooProductIconProps> = ({
             stroke="#173D2A"
             strokeWidth="1.6"
             strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'charcoal':
+      return (
+        <svg
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          aria-hidden="true"
+        >
+          {/* Carbonized Charcoal Logs Stack */}
+          <rect
+            x="9"
+            y="22"
+            width="22"
+            height="8"
+            rx="3.5"
+            fill="#173D2A"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+          />
+          <rect
+            x="11"
+            y="14"
+            width="18"
+            height="7.5"
+            rx="3.2"
+            fill="#245C3A"
+            stroke="#173D2A"
+            strokeWidth="1.8"
+          />
+          {/* Cross-Section Rings */}
+          <circle cx="13" cy="26" r="2" fill="#A8D977" />
+          <circle cx="15" cy="17.8" r="1.8" fill="#A8D977" />
+          {/* Warm Energy / Clean Flame Crest */}
+          <path
+            d="M20 6C22.2 8.5 23 10.5 21.5 12.2C20.2 13.5 18.2 12.8 18.2 10.8C18.2 9.2 19.2 7.5 20 6Z"
+            fill="#A8D977"
+            stroke="#173D2A"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
           />
         </svg>
       );

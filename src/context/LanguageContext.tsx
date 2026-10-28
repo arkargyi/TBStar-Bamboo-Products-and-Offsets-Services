@@ -98,6 +98,10 @@ export const INQUIRY_TYPE_LABELS: Record<
     en: 'Bamboo Sticks',
     mm: 'ဝါးတံ (Bamboo Sticks)',
   },
+  Charcoal: {
+    en: 'Charcoal',
+    mm: 'မီးသွေးထုတ်ကုန် (Charcoal)',
+  },
   'Other Bamboo Products': {
     en: 'Other Bamboo Products',
     mm: 'အခြား ဝါးထုတ်ကုန်များ',

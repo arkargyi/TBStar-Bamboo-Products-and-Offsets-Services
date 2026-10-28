@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#112E1F" />
+      <stop offset="55%" stop-color="#173D2A" />
+      <stop offset="100%" stop-color="#245C3A" />
+    </linearGradient>
+    <linearGradient id="charcoalPiece1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2E3631" />
+      <stop offset="50%" stop-color="#1E2420" />
+      <stop offset="100%" stop-color="#121614" />
+    </linearGradient>
+    <linearGradient id="charcoalPiece2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38423C" />
+      <stop offset="60%" stop-color="#222925" />
+      <stop offset="100%" stop-color="#141916" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)" />
+
+  <!-- Subtle Grid Pattern -->
+  <g stroke="#A8D977" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="120" x2="800" y2="120" />
+    <line x1="0" y1="240" x2="800" y2="240" />
+    <line x1="0" y1="360" x2="800" y2="360" />
+    <line x1="0" y1="480" x2="800" y2="480" />
+    <line x1="160" y1="0" x2="160" y2="600" />
+    <line x1="320" y1="0" x2="320" y2="600" />
+    <line x1="480" y1="0" x2="480" y2="600" />
+    <line x1="640" y1="0" x2="640" y2="600" />
+  </g>
+
+  <!-- Center Frame Card -->
+  <rect x="90" y="75" width="620" height="430" rx="20" fill="#0E2619" fill-opacity="0.72" stroke="#A8D977" stroke-opacity="0.32" stroke-width="2" />
+
+  <!-- Header Tag inside SVG -->
+  <rect x="130" y="110" width="210" height="30" rx="6" fill="#173D2A" stroke="#A8D977" stroke-opacity="0.4" />
+  <text x="146" y="130" fill="#A8D977" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">TB STAR COMPANY LIMITED</text>
+
+  <!-- Stylized Natural Charcoal Logs Illustration -->
+  <g transform="translate(210, 175)">
+    <!-- Soft Base Shadow -->
+    <ellipse cx="190" cy="215" rx="185" ry="26" fill="#091910" fill-opacity="0.85" />
+
+    <!-- Back Charcoal Cylinder -->
+    <path d="M55 125 L265 65 C282 60 302 76 306 98 C310 120 298 142 280 148 L70 208 Z" fill="url(#charcoalPiece2)" stroke="#A8D977" stroke-opacity="0.35" stroke-width="2" />
+    <ellipse cx="62" cy="166" rx="16" ry="42" transform="rotate(-15 62 166)" fill="#181E1B" stroke="#A8D977" stroke-opacity="0.45" stroke-width="2" />
+
+    <!-- Front Left Charcoal Cylinder -->
+    <path d="M35 160 L255 120 C274 117 292 135 294 158 C296 181 282 202 263 205 L43 245 Z" fill="url(#charcoalPiece1)" stroke="#A8D977" stroke-opacity="0.5" stroke-width="2.2" />
+    <ellipse cx="39" cy="202" rx="18" ry="43" transform="rotate(-9 39 202)" fill="#141A17" stroke="#A8D977" stroke-opacity="0.6" stroke-width="2" />
+    <!-- Radial Carbon Texture Lines on Cross Section -->
+    <path d="M39 175 L39 229 M26 202 L52 202 M29 184 L49 220 M29 220 L49 184" stroke="#A8D977" stroke-opacity="0.35" stroke-width="1.4" stroke-linecap="round" />
+
+    <!-- Front Right Angled Charcoal Piece -->
+    <path d="M165 155 L345 105 C362 101 378 117 380 138 C382 159 370 178 353 183 L173 233 Z" fill="url(#charcoalPiece2)" stroke="#A8D977" stroke-opacity="0.45" stroke-width="2" />
+    <ellipse cx="169" cy="194" rx="16" ry="39" transform="rotate(-14 169 194)" fill="#121714" stroke="#A8D977" stroke-opacity="0.55" stroke-width="2" />
+    <path d="M169 169 L169 219 M157 194 L181 194" stroke="#A8D977" stroke-opacity="0.35" stroke-width="1.4" stroke-linecap="round" />
+  </g>
+
+  <!-- Bottom Caption Label -->
+  <text x="130" y="458" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="700">Charcoal Products · မီးသွေးထုတ်ကုန်</text>
+  <text x="130" y="482" fill="#A8D977" font-family="DM Sans, sans-serif" font-size="14" font-weight="500">Origin: Myanmar · Direct Trade &amp; Commercial Inquiries via Yangon Office</text>
+</svg>

@@ -5,6 +5,7 @@ export type VisualAssetType =
   | 'bamboo-split'
   | 'bamboo-sticks'
   | 'bamboo-custom'
+  | 'charcoal'
   | 'books-printing'
   | 'voucher-printing'
   | 'commercial-printing'
@@ -14,6 +15,7 @@ const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, str
   'bamboo-split': '/images/products/bamboo-split-main.webp',
   'bamboo-sticks': '/images/products/bamboo-sticks-main.webp',
   'bamboo-custom': '/images/products/bamboo-split-natural.webp',
+  charcoal: '/assets/aistudio/Charcoal-Product.svg',
   'books-printing': '/assets/aistudio/Offset-Printing.svg',
   'voucher-printing': '/assets/aistudio/Offset-Printing.svg',
   'commercial-printing': '/assets/aistudio/Offset-Printing.svg',
@@ -23,6 +25,7 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
   'bamboo-split': 'Natural Myanmar bamboo splits with nodes',
   'bamboo-sticks': 'Natural bamboo sticks from Myanmar',
   'bamboo-custom': 'Natural bamboo splits with authentic bamboo texture',
+  charcoal: 'TB Star Company Limited Charcoal Products Inquiry Showcase',
   'books-printing': 'TB Star Company Limited One-Stop Offset Books Printing Services',
   'voucher-printing': 'TB Star Company Limited Commercial Voucher Books Printing Services',
   'commercial-printing': 'TB Star Company Limited Commercial Offset Printing Services',
@@ -270,6 +273,11 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
       ? t(
           'TB Star Company · 100% Natural Myanmar Bamboo Products',
           'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
+        )
+      : type === 'charcoal'
+      ? t(
+          'TB Star Company · Charcoal Products (Myanmar)',
+          'TBStar Company Limited · မီးသွေးထုတ်ကုန် (မြန်မာနိုင်ငံ)'
         )
       : t(
           'TB Star Company · One-Stop Offset Printing Services',
