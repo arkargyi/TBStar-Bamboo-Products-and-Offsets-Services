@@ -5,7 +5,7 @@ import {
   GALLERY_PREVIEW_ITEMS,
   InquiryTypeOption,
   PageRoute,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import { ContactCTA, GalleryGrid } from '../components/CatalogComponents';
 import { useLanguage } from '../context/LanguageContext';

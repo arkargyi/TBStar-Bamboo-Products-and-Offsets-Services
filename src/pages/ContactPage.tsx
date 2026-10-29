@@ -5,7 +5,7 @@ import {
   INQUIRY_TYPE_OPTIONS,
   InquiryTypeOption,
   PageRoute,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { HeroSection } from '../components/SharedUI';
 import { ContactForm } from '../components/InquiryModal';
 import { INQUIRY_TYPE_LABELS, useLanguage } from '../context/LanguageContext';

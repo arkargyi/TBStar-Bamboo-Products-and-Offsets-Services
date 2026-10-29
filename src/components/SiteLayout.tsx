@@ -4,7 +4,7 @@ import {
   COMPANY_INFO,
   InquiryTypeOption,
   PageRoute,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] = [

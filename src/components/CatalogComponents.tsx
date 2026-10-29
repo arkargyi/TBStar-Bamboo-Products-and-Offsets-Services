@@ -10,7 +10,7 @@ import {
   PageRoute,
   PrintingServiceItem,
   SpecificationRow,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { VisualAssetFrame } from './VisualAssetFrame';
 import { AdaptiveBackgroundMedia, Button } from './SharedUI';
 import { BambooProductIcon, PrintingServiceIcon } from './PrintingIcons';

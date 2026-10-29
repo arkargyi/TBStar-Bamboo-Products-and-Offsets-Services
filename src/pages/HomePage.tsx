@@ -12,7 +12,7 @@ import {
   PRINTING_SERVICES,
   QUALITY_AND_STANDARDS,
   WHY_CHOOSE_US_ITEMS,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
 import {
   AdaptiveBackgroundMedia,

@@ -6,7 +6,7 @@ import {
   PAGE_BACKGROUNDS,
   PageBackgroundConfig,
   PageRoute,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

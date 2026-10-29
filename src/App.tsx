@@ -14,7 +14,7 @@ import {
   PAGE_SEO,
   PageRoute,
   PRINTING_SERVICES,
-} from './data/companyData';
+} from './constants/companyData';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { SiteHeader, SiteFooter, NAV_ITEMS } from './components/SiteLayout';
 import { InquiryModal } from './components/InquiryModal';

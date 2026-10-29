@@ -6,7 +6,7 @@ import {
   COMPANY_INFO,
   InquiryTypeOption,
   PageRoute,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
 import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import { ContactCTA, ProductSpecificationTable } from '../components/CatalogComponents';

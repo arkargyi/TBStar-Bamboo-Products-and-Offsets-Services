@@ -13,7 +13,7 @@ import {
   PAGE_SEO,
   PageRoute,
   PRINTING_SERVICES,
-} from './src/data/companyData';
+} from './src/constants/companyData';
 
 const VALID_ROUTES: PageRoute[] = [
   '/',

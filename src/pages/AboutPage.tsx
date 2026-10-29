@@ -19,7 +19,7 @@ import {
   InquiryTypeOption,
   PageRoute,
   PROPOSED_CORPORATE_VALUES,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
 import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import { ContactCTA } from '../components/CatalogComponents';

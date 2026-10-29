@@ -14,7 +14,7 @@ import {
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
   InquiryTypeOption,
-} from '../data/companyData';
+} from '../constants/companyData';
 import { Button, ErrorMessage } from './SharedUI';
 import { INQUIRY_TYPE_LABELS, useLanguage } from '../context/LanguageContext';
 

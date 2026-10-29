@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { GalleryCategoryName, InquiryTypeOption } from '../data/companyData';
+import { GalleryCategoryName, InquiryTypeOption } from '../constants/companyData';
 
 export type LanguageCode = 'en' | 'mm';
 
