@@ -36,8 +36,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         kickerMm="ရုံးချုပ်နှင့် ဆက်သွယ်စုံစမ်းရေးဌာန · ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့"
         title={`Contact ${COMPANY_INFO.name}`}
         titleMm="TBStar Company Limited သို့ ဆက်သွယ်ရန်"
-        description="Get in touch with our Yangon office for Bamboo Split, Bamboo Sticks, other natural bamboo product inquiries, and one-stop Offset Printing services."
-        descriptionMm="ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks)၊ အခြားသဘာဝဝါးထုတ်ကုန်များနှင့် အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများအတွက် ကျွန်ုပ်တို့၏ ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
+        description="Get in touch with our Yangon office for Bamboo Split, Bamboo Sticks, Activated Carbon, one-stop Offset Printing services, and Ball Pen stationery inquiries."
+        descriptionMm="ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks)၊ Activated Carbon၊ အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် ဘောပင် (Ball Pen) စာရေးကိရိယာများအတွက် ကျွန်ုပ်တို့၏ ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
         actions={
           <div className="flex flex-wrap items-center gap-3">
             <a

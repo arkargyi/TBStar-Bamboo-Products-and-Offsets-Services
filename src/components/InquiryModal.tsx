@@ -362,8 +362,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         <div>
           <p className="text-xs text-[#245C3A] font-medium mb-1">
             {t(
-              'Bamboo, Charcoal & Offset Printing Inquiry',
-              'ဝါးထုတ်ကုန်၊ မီးသွေးနှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း စုံစမ်းမေးမြန်းလွှာ'
+              'Bamboo, Activated Carbon, Printing & Stationery Inquiry',
+              'ဝါးထုတ်ကုန်၊ အက်တီဗိတ်တက် ကာဗွန်၊ ပုံနှိပ်နှင့် စာရေးကိရိယာ စုံစမ်းမေးမြန်းလွှာ'
             )}
           </p>
           <h3 className="text-xl md:text-2xl font-bold text-[#173D2A]">
@@ -536,8 +536,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder={t(
-            'Specify product requirements (e.g., Bamboo Split 3 mm with/without nodes, Bamboo Sticks 8"/9"/10" in 30 kg bags, Charcoal inquiry details, or Books / Voucher Books Offset Printing)...',
-            'လိုအပ်သော ကုန်ပစ္စည်းအချက်အလက် (ဥပမာ - 3 mm ဝါးခြမ်း၊ 30 kg အိတ်သွင်း ဝါးတံ၊ မီးသွေးထုတ်ကုန် သို့မဟုတ် စာအုပ်နှင့် ဘောင်ချာစာအုပ် ပုံနှိပ်လိုအပ်ချက်များ) ကို ရေးသားပေးပါ...'
+            'Specify product requirements (e.g., Bamboo Split With Nodes 50 pcs/bundle or Without Nodes 100 pcs/bundle, Bamboo Sticks 8"/9"/10" in 30 kg bags, Activated Carbon inquiry, Books / Voucher Books Printing, or Ball Pen Klick 30 pcs/box / Plano 50 pcs/box)...',
+            'လိုအပ်သော ကုန်ပစ္စည်းအချက်အလက် (ဥပမာ - ဝါးခြမ်း အဆစ်ပါ 50 pcs/bundle သို့မဟုတ် အဆစ်မပါ 100 pcs/bundle၊ 30 kg အိတ်သွင်း ဝါးတံ၊ Activated Carbon၊ စာအုပ်/ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်း သို့မဟုတ် Ball Pen Klick / Plano) ကို ရေးသားပေးပါ...'
           )}
           className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors resize-y"
         />

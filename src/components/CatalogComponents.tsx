@@ -6,12 +6,13 @@ import {
   GalleryCategoryName,
   GalleryPreviewItem,
   InquiryTypeOption,
+  PAGE_BACKGROUNDS,
   PageRoute,
   PrintingServiceItem,
   SpecificationRow,
 } from '../data/companyData';
 import { VisualAssetFrame } from './VisualAssetFrame';
-import { Button } from './SharedUI';
+import { AdaptiveBackgroundMedia, Button } from './SharedUI';
 import { BambooProductIcon, PrintingServiceIcon } from './PrintingIcons';
 import { GALLERY_CATEGORY_LABELS, useLanguage } from '../context/LanguageContext';
 
@@ -208,14 +209,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             variant="outline-dark"
             size="sm"
             href={
-              product.id === 'charcoal'
+              product.id === 'charcoal' || product.id === 'activated-carbon'
                 ? '/charcoal'
                 : `/bamboo-products#${
                     product.id === 'bamboo-split'
                       ? 'product-bamboo-split'
-                      : product.id === 'bamboo-sticks'
-                      ? 'product-bamboo-sticks'
-                      : 'product-other-bamboo'
+                      : 'product-bamboo-sticks'
                   }`
             }
             onClick={onViewDetails}
@@ -547,28 +546,36 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
 interface ContactCTAProps {
   onNavigate: (route: PageRoute) => void;
   onInquireWithCategory: (type: InquiryTypeOption, navigateToContact?: boolean) => void;
+  backgroundRoute?: PageRoute;
 }
 
 export const ContactCTA: React.FC<ContactCTAProps> = ({
   onNavigate,
   onInquireWithCategory,
+  backgroundRoute = '/contact',
 }) => {
   const { t } = useLanguage();
+  const bgConfig = PAGE_BACKGROUNDS[backgroundRoute] || PAGE_BACKGROUNDS['/contact'];
 
   return (
-    <section className="py-16 md:py-20 bg-[#173D2A] text-white border-t border-[#245C3A]">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#245C3A]/45 border border-[#A8D977]/30 rounded-xl p-8 md:p-12">
+    <section className="relative py-16 md:py-20 bg-[#071A10] text-white border-t border-[#245C3A] overflow-hidden">
+      <AdaptiveBackgroundMedia
+        bgConfig={bgConfig}
+        loading="lazy"
+        fetchPriority="low"
+      />
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-[#0B2316]/88 backdrop-blur-md border border-[#A8D977]/35 rounded-xl p-8 md:p-12 shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-xs font-mono-tabular text-[#A8D977] mb-2">
+              <p className="text-xs font-mono-tabular text-[#A8D977] font-semibold mb-2">
                 {t(
                   'DIRECT B2B & COMMERCIAL INQUIRIES · YANGON, MYANMAR',
                   'စီးပွားရေးလုပ်ငန်း ဆက်သွယ်မေးမြန်းရန် · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
                 )}
               </p>
               <h2
-                className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-3"
+                className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
                 style={{ textWrap: 'balance' }}
               >
                 {t(
@@ -576,7 +583,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   'လူကြီးမင်းတို့၏ လုပ်ငန်းလိုအပ်ချက်များအတွက် ဆက်သွယ်ဆွေးနွေးနိုင်ပါသည်'
                 )}
               </h2>
-              <p className="text-sm sm:text-base text-white/85 leading-relaxed mb-6 max-w-2xl">
+              <p className="text-sm sm:text-base text-white/95 leading-relaxed mb-6 max-w-2xl">
                 {t(
                   `Contact ${COMPANY_INFO.name} for natural Myanmar bamboo export and distribution inquiries or one-stop offset printing services.`,
                   'သဘာဝဝါးထုတ်ကုန်များ ပြည်တွင်းဖြန့်ဖြူးရေး၊ ပြည်ပတင်ပို့ရေးနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများအတွက် TBStar Company Limited သို့ ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
@@ -614,7 +621,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-[#173D2A] border border-white/15 rounded-xl p-6 space-y-4">
+            <div className="lg:col-span-5 bg-[#173D2A]/90 border border-white/15 rounded-xl p-6 space-y-4">
               <div>
                 <p className="text-xs font-semibold text-[#A8D977] mb-1">
                   {t('Direct Telephone Contact', 'တိုက်ရိုက် ဖုန်းဆက်သွယ်ရန်')}

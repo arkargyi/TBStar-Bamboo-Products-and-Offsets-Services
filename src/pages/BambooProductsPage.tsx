@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowRight, Check, ChevronDown, ChevronUp, Phone } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Check, Phone } from 'lucide-react';
 import {
   BAMBOO_PRODUCTS,
   COMPANY_INFO,
@@ -136,12 +136,10 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
   onNavigate,
   onInquireWithCategory,
 }) => {
-  const [otherExpanded, setOtherExpanded] = useState(true);
   const { isMm, t } = useLanguage();
 
   const bambooSplit = BAMBOO_PRODUCTS[0];
   const bambooSticks = BAMBOO_PRODUCTS[1];
-  const otherBamboo = BAMBOO_PRODUCTS[2];
 
   const scrollToProductSection = (id: string) => {
     const el = document.getElementById(id);
@@ -161,8 +159,8 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         kickerMm="လုပ်ငန်းကဏ္ဍ (က) · သဘာဝဝါးထုတ်လုပ်ရေး၊ ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်"
         title="100% Natural Myanmar Bamboo Products & Export Specifications"
         titleMm="၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များနှင့် ပြည်ပပို့ကုန် အချက်အလက်များ"
-        description="TB Star Company Limited manufactures and supplies Bamboo Split, Bamboo Sticks, and other bamboo products for domestic distribution within Myanmar and export to international markets."
-        descriptionMm="TBStar Company Limited သည် မြန်မာနိုင်ငံတွင်း ဖြန့်ဖြူးရောင်းချရန်နှင့် နိုင်ငံတကာဈေးကွက်သို့ တင်ပို့ရန် ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks) နှင့် အခြားဝါးထုတ်ကုန်များကို ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
+        description="Established in 2013, TB Star Company Limited manufactures and supplies 100% natural Myanmar Bamboo Split (With Nodes: 50 pieces per bundle; Without Nodes: 100 pieces per bundle) and Bamboo Sticks (30 kg per bag) for domestic distribution within Myanmar and export to international markets."
+        descriptionMm="၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင်း ဖြန့်ဖြူးရောင်းချရန်နှင့် နိုင်ငံတကာဈေးကွက်သို့ တင်ပို့ရန် ဝါးခြမ်းပြား (Bamboo Split · အဆစ်ပါ တစ်စည်း 50 pcs နှင့် အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် ဝါးတံ (Bamboo Sticks · တစ်အိတ် 30 kg) များကို ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
         actions={
           <>
             <Button
@@ -209,14 +207,6 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => scrollToProductSection('product-other-bamboo')}
-              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
-            >
-              <BambooProductIcon type="bamboo-custom" className="w-4 h-4 shrink-0" />
-              <span>{t('03. Other Bamboo Products', '၀၃။ အခြား ဝါးထုတ်ကုန်များ')}</span>
-            </button>
-            <button
-              type="button"
               onClick={() => scrollToProductSection('eco-advantages')}
               className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#EAF5E4] hover:bg-[#A8D977]/50 text-[#173D2A] border border-[#C3E4B5] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
             >
@@ -232,7 +222,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
             >
               <BambooProductIcon type="charcoal" className="w-4 h-4 shrink-0" />
-              <span>{t('Charcoal Page →', 'မီးသွေးထုတ်ကုန် →')}</span>
+              <span>{t('Activated Carbon →', 'အက်တီဗိတ်တက် ကာဗွန် →')}</span>
             </a>
           </div>
 
@@ -258,7 +248,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             descriptionMm="သက်ဆိုင်ရာ ဝါးထုတ်ကုန်အလိုက် အသေးစိတ်အချက်အလက်ဇယားကို ကြည့်ရှုနိုင်ပြီး လိုအပ်သည့် အမျိုးအစားအလိုက် တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {BAMBOO_PRODUCTS.map((product) => (
               <ProductCard
                 key={product.id}
@@ -269,9 +259,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   scrollToProductSection(
                     product.id === 'bamboo-split'
                       ? 'product-bamboo-split'
-                      : product.id === 'bamboo-sticks'
-                      ? 'product-bamboo-sticks'
-                      : 'product-other-bamboo'
+                      : 'product-bamboo-sticks'
                   )
                 }
               />
@@ -488,9 +476,34 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   </div>
                 </div>
 
-                <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
+                <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                   {isMm ? bambooSplit.detailedDescriptionMm : bambooSplit.detailedDescription}
                 </p>
+
+                {/* Available Types & Bundle Packaging Summary */}
+                <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg p-4 mb-5">
+                  <p className="text-xs font-mono-tabular font-bold text-[#173D2A] uppercase tracking-wider mb-2.5">
+                    {t('Available Types & Bundle Packaging', 'အမျိုးအစားနှင့် အစည်းထုပ်ပိုးမှု စံနှုန်း')}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div className="bg-white border border-[#DDE5D9] rounded-md p-3">
+                      <p className="font-bold text-[#173D2A] mb-0.5">
+                        {t('Type: With Nodes', 'အမျိုးအစား - အဆစ်ပါ (With Nodes)')}
+                      </p>
+                      <p className="text-[#245C3A] font-semibold">
+                        {t('50 pieces per bundle (50 pcs/bundle)', 'တစ်စည်းလျှင် ၅၀ ချောင်း (50 pcs/bundle)')}
+                      </p>
+                    </div>
+                    <div className="bg-white border border-[#DDE5D9] rounded-md p-3">
+                      <p className="font-bold text-[#173D2A] mb-0.5">
+                        {t('Type: Without Nodes', 'အမျိုးအစား - အဆစ်မပါ (Without Nodes)')}
+                      </p>
+                      <p className="text-[#245C3A] font-semibold">
+                        {t('100 pieces per bundle (100 pcs/bundle)', 'တစ်စည်းလျှင် ၁၀၀ ချောင်း (100 pcs/bundle)')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="flex flex-wrap items-center gap-3">
                   <Button
@@ -533,24 +546,24 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                     altText={bambooSplit.textureImageAlt}
                     aspectClassName="aspect-[4/3]"
                     label={t(
-                      'Bamboo Split · 3 mm Thickness & Grain Texture',
-                      'ဝါးခြမ်းပြား · အထူ 3 mm နှင့် သဘာဝဝါးအသားဖွဲ့စည်းပုံ'
+                      'Bamboo Split · With Nodes & Without Nodes Texture',
+                      'ဝါးခြမ်းပြား · အဆစ်ပါ နှင့် အဆစ်မပါ သဘာဝဝါးအသားဖွဲ့စည်းပုံ'
                     )}
                   />
                   <div className="p-4 flex-1">
                     <p className="text-[11px] font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                      {t('MATERIAL TEXTURE & APPEARANCE', 'သဘာဝဝါးအသားနှင့် အသွင်အပြင်')}
+                      {t('PRODUCT TYPES · WITH NODES & WITHOUT NODES', 'အမျိုးအစား · အဆစ်ပါ နှင့် အဆစ်မပါ')}
                     </p>
                     <h3 className="text-sm font-bold text-[#173D2A] mb-1">
                       {t(
-                        '3 mm Natural Bamboo Split Texture',
-                        'အထူ 3 mm သဘာဝဝါးခြမ်းပြား အသေးစိတ်ပုံစံ'
+                        'With Nodes & Without Nodes Bamboo Split',
+                        'အဆစ်ပါ (With Nodes) နှင့် အဆစ်မပါ (Without Nodes) ဝါးခြမ်းပြား'
                       )}
                     </h3>
                     <p className="text-xs text-[#26332B]/80 leading-relaxed">
                       {t(
-                        '100% natural Myanmar bamboo strips in 3 mm thickness, showing Both With Nodes and Without Nodes variations.',
-                        'အထူ 3 mm ရှိသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများ (အဆစ်ပါ နှင့် အဆစ်မပါ နှစ်မျိုး) ၏ အသားဖွဲ့စည်းပုံ။'
+                        '100% natural Myanmar bamboo splits supplied in two distinct types: With Nodes (50 pieces per bundle) and Without Nodes (100 pieces per bundle).',
+                        '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများကို အဆစ်ပါ (တစ်စည်း ၅၀ ချောင်း) နှင့် အဆစ်မပါ (တစ်စည်း ၁၀၀ ချောင်း) ဟူ၍ အမျိုးအစား (၂) မျိုးဖြင့် ထုတ်လုပ်ပေးပါသည်။'
                       )}
                     </p>
                   </div>
@@ -563,24 +576,24 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                     altText={bambooSplit.wholesaleImageAlt}
                     aspectClassName="aspect-[4/3]"
                     label={t(
-                      'Bamboo Split · Commercial & Wholesale Supply (20"–48")',
-                      'ဝါးခြမ်းပြား · လက်ကားနှင့် ပြည်ပပို့ကုန် ထုပ်ပိုးမှု (၂၀"–၄၈")'
+                      'Bamboo Split · 50 pcs & 100 pcs Bundle Packaging',
+                      'ဝါးခြမ်းပြား · တစ်စည်း 50 pcs နှင့် 100 pcs ထုပ်ပိုးမှု'
                     )}
                   />
                   <div className="p-4 flex-1">
                     <p className="text-[11px] font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                      {t('COMMERCIAL & WHOLESALE SUPPLY', 'လက်ကားနှင့် ပြည်ပပို့ကုန်')}
+                      {t('BUNDLE PACKAGING SPECIFICATIONS', 'အစည်းအလိုက် ထုပ်ပိုးမှုစံနှုန်း')}
                     </p>
                     <h3 className="text-sm font-bold text-[#173D2A] mb-1">
                       {t(
-                        'Bundled Bamboo Split (20–48 inches)',
-                        'စနစ်တကျ စည်းနှောင်ထားသော ဝါးခြမ်းပြား (၂၀–၄၈ လက်မ)'
+                        '50 pcs & 100 pcs per Bundle Packaging',
+                        'တစ်စည်း ၅၀ ချောင်း (50 pcs) နှင့် ၁၀၀ ချောင်း (100 pcs) ထုပ်ပိုးမှု'
                       )}
                     </h3>
                     <p className="text-xs text-[#26332B]/80 leading-relaxed">
                       {t(
-                        'Uniformly graded bamboo splits in lengths from 20 to 48 inches prepared for domestic distribution and export.',
-                        'အရှည် ၂၀ လက်မမှ ၄၈ လက်မအထိ အရွယ်အစားတူ စနစ်တကျ စည်းနှောင်ထားသော ပြည်တွင်း/ပြည်ပပို့ကုန် ဝါးခြမ်းပြားများ။'
+                        'With Nodes Bamboo Split is packed at 50 pieces per bundle, and Without Nodes Bamboo Split is packed at 100 pieces per bundle.',
+                        'အဆစ်ပါ ဝါးခြမ်းပြား (With Nodes) ကို တစ်စည်းလျှင် ၅၀ ချောင်းနှုန်းနှင့် အဆစ်မပါ ဝါးခြမ်းပြား (Without Nodes) ကို တစ်စည်းလျှင် ၁၀၀ ချောင်းနှုန်းဖြင့် စနစ်တကျ စည်းနှောင်ထုပ်ပိုးပါသည်။'
                       )}
                     </p>
                   </div>
@@ -723,107 +736,6 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCT C: OTHER BAMBOO PRODUCTS */}
-      <section
-        id="product-other-bamboo"
-        className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
-      >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs">
-            <div className="p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DDE5D9]">
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0">
-                  <BambooProductIcon type="bamboo-custom" className="w-7 h-7" />
-                </div>
-                <div>
-                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-0.5">
-                    {t('PRODUCT 03 · DOMESTIC & EXPORT SUPPLY', 'ထုတ်ကုန် ၀၃ · ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်')}
-                  </p>
-                  <h2 className="text-2xl font-bold text-[#173D2A]">
-                    {isMm ? otherBamboo.nameMm : otherBamboo.name}
-                  </h2>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setOtherExpanded(!otherExpanded)}
-                aria-expanded={otherExpanded}
-                className="px-4 py-2 bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-lg text-xs font-semibold text-[#173D2A] inline-flex items-center gap-2 self-start sm:self-auto cursor-pointer"
-              >
-                {otherExpanded ? (
-                  <>
-                    {t('Hide Details', 'အချက်အလက် ပိတ်ရန်')} <ChevronUp className="w-4 h-4" />
-                  </>
-                ) : (
-                  <>
-                    {t('Show Details', 'အသေးစိတ် ဖွင့်ကြည့်ရန်')} <ChevronDown className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </div>
-
-            {otherExpanded && (
-              <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-5 rounded-xl overflow-hidden border border-[#DDE5D9]">
-                  <VisualAssetFrame
-                    type="bamboo-custom"
-                    imagePath={otherBamboo.imagePath}
-                    altText={otherBamboo.imageAlt}
-                    aspectClassName="aspect-[16/10]"
-                    label={isMm && otherBamboo.placeholderNoteMm ? otherBamboo.placeholderNoteMm : otherBamboo.placeholderNote}
-                  />
-                </div>
-
-                <div className="lg:col-span-7">
-                  <p className="text-base font-semibold text-[#173D2A] mb-3">
-                    {t(
-                      'Contact us to learn more about our other bamboo products.',
-                      'အခြားသော ဝါးထုတ်ကုန်များအကြောင်း ပိုမိုသိရှိလိုပါက ကျွန်ုပ်တို့ထံ ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
-                    )}
-                  </p>
-                  <p className="text-sm text-[#26332B]/85 leading-relaxed mb-6">
-                    {isMm ? otherBamboo.detailedDescriptionMm : otherBamboo.detailedDescription}
-                  </p>
-
-                  <div className="p-4 bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg text-xs text-[#26332B]/80 mb-6">
-                    {isMm ? (
-                      <p>
-                        <strong>ဆက်သွယ်မေးမြန်းရန် လမ်းညွှန်ချက် -</strong> လူကြီးမင်းတို့ လိုအပ်သော ဝါးထုတ်ကုန်အမျိုးအစား၊ အရွယ်အစား၊ ထုပ်ပိုးမှုပုံစံနှင့် ပြည်တွင်းဖြန့်ဖြူးရန် သို့မဟုတ် ပြည်ပတင်ပို့ရန် လိုအပ်ချက်များကို ထည့်သွင်းမေးမြန်းနိုင်ပါသည်။
-                      </p>
-                    ) : (
-                      <p>
-                        <strong>Direct Inquiry Guidance:</strong> Please let our team know your required bamboo product type, dimensions, packaging format, and whether your order is for domestic Myanmar distribution or international export.
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Button
-                      type="button"
-                      variant="primary-dark"
-                      onClick={() =>
-                        onInquireWithCategory('Other Bamboo Products', true)
-                      }
-                    >
-                      {t('Inquire About Other Bamboo Products', 'အခြား ဝါးထုတ်ကုန်များ မေးမြန်းရန်')}
-                      <ArrowRight className="w-4 h-4 text-[#A8D977]" />
-                    </Button>
-                    <a
-                      href={COMPANY_INFO.telephoneHref}
-                      className="px-4 py-2.5 bg-[#A8D977] hover:bg-[#97cc64] text-[#173D2A] text-xs font-bold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
-                    >
-                      <Phone className="w-4 h-4" />
-                      {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>

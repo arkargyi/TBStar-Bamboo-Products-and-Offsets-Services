@@ -4,6 +4,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import nodemailer from 'nodemailer';
 import {
+  BALL_PEN_PRODUCT,
   BAMBOO_PRODUCTS,
   CHARCOAL_PRODUCT_INFO,
   COMPANY_INFO,
@@ -50,6 +51,7 @@ function buildServerStructuredData(route: PageRoute) {
     '@id': `${baseUrl}/#organization`,
     name: COMPANY_INFO.name,
     alternateName: COMPANY_INFO.nameMm,
+    foundingDate: COMPANY_INFO.establishedYear,
     url: `${baseUrl}/`,
     logo: {
       '@type': 'ImageObject',
@@ -60,7 +62,7 @@ function buildServerStructuredData(route: PageRoute) {
     },
     image: `${baseUrl}/images/products/bamboo-split-main.webp`,
     description:
-      'TB Star Company Limited supplies 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Charcoal, and one-stop offset printing services in Yangon, Myanmar.',
+      'Established in 2013, TB Star Company Limited has been operating in Myanmar, supplying 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon, and one-stop offset printing services and stationery (including Klick and Plano Ball Pens) in Yangon, Myanmar.',
     telephone: COMPANY_INFO.telephone,
     email: COMPANY_INFO.email,
     address: {
@@ -144,7 +146,6 @@ function buildServerStructuredData(route: PageRoute) {
     const sectionAnchorById: Record<string, string> = {
       'bamboo-split': 'product-bamboo-split',
       'bamboo-sticks': 'product-bamboo-sticks',
-      'other-bamboo-products': 'product-other-bamboo',
     };
 
     graph.push({
@@ -164,8 +165,8 @@ function buildServerStructuredData(route: PageRoute) {
   if (route === '/charcoal') {
     graph.push({
       '@type': 'ItemList',
-      '@id': `${seo.canonicalUrl}#charcoal-list`,
-      name: 'TB Star Company Limited Charcoal Product Line',
+      '@id': `${seo.canonicalUrl}#activated-carbon-list`,
+      name: 'TB Star Company Limited Activated Carbon Product Line',
       itemListElement: [
         {
           '@type': 'ListItem',
@@ -179,17 +180,28 @@ function buildServerStructuredData(route: PageRoute) {
   }
 
   if (route === '/printing-services') {
-    graph.push({
-      '@type': 'ItemList',
-      '@id': `${seo.canonicalUrl}#service-list`,
-      name: 'TB Star Company Limited One-Stop Offset Printing Services',
-      itemListElement: PRINTING_SERVICES.map((svc, idx) => ({
+    const items = [
+      ...PRINTING_SERVICES.map((svc, idx) => ({
         '@type': 'ListItem',
         position: idx + 1,
         name: svc.name,
         description: svc.detailedDescription,
         url: `${seo.canonicalUrl}#service-${svc.id}`,
       })),
+      {
+        '@type': 'ListItem',
+        position: PRINTING_SERVICES.length + 1,
+        name: BALL_PEN_PRODUCT.name,
+        description: BALL_PEN_PRODUCT.detailedDescription,
+        url: `${seo.canonicalUrl}#product-ball-pen`,
+      },
+    ];
+
+    graph.push({
+      '@type': 'ItemList',
+      '@id': `${seo.canonicalUrl}#service-list`,
+      name: 'TB Star Company Limited One-Stop Offset Printing Services & Stationery',
+      itemListElement: items,
     });
   }
 
@@ -213,7 +225,7 @@ function injectRouteSeoIntoHtml(html: string, pathname: string): {
     : `Page Not Found (404) – ${COMPANY_INFO.name}`;
   const description = isKnownRoute
     ? seo.description
-    : `The requested page was not found on ${COMPANY_INFO.name}. Explore 100% natural Myanmar Bamboo Split, Bamboo Sticks, Charcoal, and One-Stop Offset Printing Services.`;
+    : `The requested page was not found on ${COMPANY_INFO.name}. Explore 100% natural Myanmar Bamboo Split, Bamboo Sticks, Activated Carbon, and One-Stop Offset Printing Services.`;
   const robots = isKnownRoute
     ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
     : 'noindex, nofollow';
@@ -504,6 +516,11 @@ async function startServer() {
   // Strict JSON body limit to prevent payload abuse
   app.use(express.json({ limit: '16kb' }));
 
+  // Redirect /activated-carbon alias to canonical /charcoal route
+  app.get(['/activated-carbon', '/activated-carbon/'], (_req: Request, res: Response) => {
+    res.redirect(301, '/charcoal');
+  });
+
   // Health check endpoint
   app.get('/api/health', (_req: Request, res: Response) => {
     const emailConfigured = Boolean(
@@ -580,7 +597,9 @@ async function startServer() {
     const companyName = sanitizeText(body.companyName, 160);
     const phone = sanitizeText(body.phone, 60);
     const email = sanitizeText(body.email, 160);
-    const inquiryTypeRaw = sanitizeText(body.inquiryType, 80);
+    const rawCategory = sanitizeText(body.inquiryType, 80);
+    const inquiryTypeRaw =
+      rawCategory === 'Charcoal' ? 'Activated Carbon' : rawCategory;
     const message = sanitizeText(body.message, 4000);
 
     const fieldErrors: Record<string, string> = {};

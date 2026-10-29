@@ -7,13 +7,18 @@ import {
   GALLERY_PREVIEW_ITEMS,
   INDUSTRIES_SERVED,
   InquiryTypeOption,
+  PAGE_BACKGROUNDS,
   PageRoute,
   PRINTING_SERVICES,
   QUALITY_AND_STANDARDS,
   WHY_CHOOSE_US_ITEMS,
 } from '../data/companyData';
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
-import { Button, SectionHeading } from '../components/SharedUI';
+import {
+  AdaptiveBackgroundMedia,
+  Button,
+  SectionHeading,
+} from '../components/SharedUI';
 import {
   ContactCTA,
   GalleryGrid,
@@ -33,37 +38,26 @@ export const HomePage: React.FC<HomePageProps> = ({
   onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
+  const homeBg = PAGE_BACKGROUNDS['/'];
 
   return (
     <div>
-      {/* HERO SECTION WITH OPTIMIZED BACKGROUND IMAGE & READABILITY OVERLAY */}
+      {/* HERO SECTION WITH TOPIC-MATCHED NATURAL BAMBOO FOREST BACKGROUND & READABILITY OVERLAY */}
       <section
         aria-label="Hero Banner"
-        className="relative bg-[#173D2A] text-white overflow-hidden border-b border-[#245C3A]"
+        className="relative bg-[#071A10] text-white overflow-hidden border-b border-[#245C3A]"
       >
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 z-0 pointer-events-none select-none"
-        >
-          <img
-            src="/assets/hero-bamboo-background.svg"
-            alt=""
-            width={1920}
-            height={1080}
-            referrerPolicy="no-referrer"
-            fetchPriority="high"
-            decoding="async"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E2619]/95 via-[#173D2A]/88 to-[#173D2A]/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0E2619]/90 via-[#173D2A]/25 to-[#0E2619]/50" />
-        </div>
+        <AdaptiveBackgroundMedia
+          bgConfig={homeBg}
+          loading="eager"
+          fetchPriority="high"
+        />
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-22 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Proposition & CTAs */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[#A8D977] font-medium tracking-wide mb-4">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-[#A8D977] font-semibold tracking-wide mb-4 drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]">
                 <span>{t(COMPANY_INFO.name, 'TBStar Company Limited')}</span>
                 <span aria-hidden="true">·</span>
                 <span>
@@ -75,7 +69,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <h1
-                className={`text-3xl sm:text-5xl lg:text-[46px] font-extrabold text-white tracking-tight mb-5 ${
+                className={`text-3xl sm:text-5xl lg:text-[46px] font-extrabold text-white tracking-tight mb-5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] ${
                   isMm ? 'font-myanmar leading-[1.38]' : 'leading-[1.12]'
                 }`}
                 style={{ textWrap: 'balance' }}
@@ -86,10 +80,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                 )}
               </h1>
 
-              <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl mb-8">
+              <p className="text-base sm:text-lg text-white/95 leading-relaxed max-w-2xl mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.55)]">
                 {t(
-                  'TB Star Company Limited manufactures bamboo products for local distribution and international markets while providing one-stop offset printing services.',
-                  'TBStar Company Limited သည် သဘာဝဝါးထုတ်ကုန်များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာပို့ကုန်စျေးကွက်များအတွက် ထုတ်လုပ်တင်ပို့လျက်ရှိပြီး၊ တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု (One-Stop Offset Printing Services) ကိုလည်း ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                  'Established in 2013, TB Star Company Limited has been operating in Myanmar, serving domestic and international customers through its natural bamboo products and one-stop offset printing services businesses.',
+                  '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်များ ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပတင်ပို့ရေးလုပ်ငန်းအပြင် တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။'
                 )}
               </p>
 
@@ -121,33 +115,33 @@ export const HomePage: React.FC<HomePageProps> = ({
                     e.preventDefault();
                     onNavigate('/contact');
                   }}
-                  className="px-3 py-3 text-sm font-medium text-[#A8D977] hover:text-white underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                  className="px-3 py-3 text-sm font-semibold text-[#A8D977] hover:text-white underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]"
                 >
                   {t('Contact Us', 'ဆက်သွယ်ရန်')}
                 </a>
               </div>
 
               {/* Quick Summary Row */}
-              <div className="pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-white/85">
+              <div className="pt-6 border-t border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-white/95 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
                 <div>
                   <p className="text-[#A8D977] font-semibold mb-0.5">
                     {t('Division A · Bamboo & Export', 'လုပ်ငန်းကဏ္ဍ (က) · ဝါးထုတ်ကုန်')}
                   </p>
                   <p>
                     {t(
-                      'Bamboo Split (3 mm) & Bamboo Sticks (30 kg/bag)',
-                      'ဝါးခြမ်းပြား (3 mm) နှင့် ဝါးတံ (တစ်အိတ် 30 kg)'
+                      'Bamboo Split (50/100 pcs/bundle) & Sticks (30 kg/bag)',
+                      'ဝါးခြမ်းပြား (50/100 pcs/bundle) နှင့် ဝါးတံ (30 kg/bag)'
                     )}
                   </p>
                 </div>
                 <div>
                   <p className="text-[#A8D977] font-semibold mb-0.5">
-                    {t('Division B · Offset Printing', 'လုပ်ငန်းကဏ္ဍ (ခ) · ပုံနှိပ်လုပ်ငန်း')}
+                    {t('Division B · Printing & Stationery', 'လုပ်ငန်းကဏ္ဍ (ခ) · ပုံနှိပ်နှင့် စာရေးကိရိယာ')}
                   </p>
                   <p>
                     {t(
-                      'Books Printing, Voucher Books & One-Stop Press',
-                      'စာအုပ်၊ ဘောင်ချာစာအုပ်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
+                      'Books, Voucher Books & Ball Pen (Klick / Plano)',
+                      'စာအုပ်၊ ဘောင်ချာစာအုပ်နှင့် Ball Pen (Klick / Plano)'
                     )}
                   </p>
                 </div>
@@ -166,7 +160,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Right Column: Dual-Division Product & Service Showcase */}
-            <div className="lg:col-span-5 flex flex-col justify-between bg-[#173D2A]/85 backdrop-blur-xs border border-[#A8D977]/35 rounded-2xl p-5 shadow-xl">
+            <div className="lg:col-span-5 flex flex-col justify-between bg-[#0B2316]/90 backdrop-blur-md border border-[#A8D977]/35 rounded-2xl p-5 shadow-2xl">
               <div className="flex items-center justify-between gap-3 pb-3.5 mb-3.5 border-b border-white/15">
                 <div className="flex items-center gap-3">
                   <img
@@ -283,10 +277,10 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
                     {[
-                      { en: 'Bamboo Split (3 mm · 20"–48")', mm: 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")' },
-                      { en: 'Bamboo Sticks (1.2–2.5 mm)', mm: 'ဝါးတံ (အထူ 1.2–2.5 mm)' },
+                      { en: 'Bamboo Split (With Nodes: 50 pcs/bundle)', mm: 'ဝါးခြမ်းပြား (အဆစ်ပါ - တစ်စည်း 50 pcs)' },
+                      { en: 'Bamboo Split (Without Nodes: 100 pcs/bundle)', mm: 'ဝါးခြမ်းပြား (အဆစ်မပါ - တစ်စည်း 100 pcs)' },
+                      { en: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10")', mm: 'ဝါးတံ (အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀")' },
                       { en: 'Standard 30 kg/bag packaging', mm: 'တစ်အိတ် 30 kg စံနှုန်းထုပ်ပိုးမှု' },
-                      { en: 'Other Bamboo Products', mm: 'အခြား ဝါးထုတ်ကုန်များ' },
                       { en: 'Domestic Myanmar distribution', mm: 'ပြည်တွင်းဖြန့်ဖြူးရေး' },
                       { en: 'International export supply', mm: 'နိုင်ငံတကာ ပြည်ပပို့ကုန်' },
                     ].map((item) => (
@@ -349,15 +343,15 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                   <h3 className="text-2xl font-bold text-white mb-3">
                     {t(
-                      '02. Offset Printing Services',
-                      '၀၂။ အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း'
+                      '02. Printing Services & Stationery',
+                      '၀၂။ အော့ဖ်ဆက် ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်း'
                     )}
                   </h3>
 
                   <p className="text-sm text-white/85 leading-relaxed mb-6">
                     {t(
-                      'Providing one-stop offset printing services for books, commercial voucher books, and custom business printing requirements.',
-                      'စာအုပ်အမျိုးမျိုး၊ လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း လိုအပ်ချက်များအတွက် တစ်နေရာတည်းတွင် အပြီးအစီး (One-Stop Offset Printing) ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။'
+                      'Providing one-stop offset printing services for books, commercial voucher books, and custom business printing alongside Ball Pen stationery supply (Klick & Plano).',
+                      'စာအုပ်အမျိုးမျိုး၊ လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများအပြင် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာ ဖြန့်ဖြူးရေးကိုပါ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
                     )}
                   </p>
 
@@ -365,9 +359,9 @@ export const HomePage: React.FC<HomePageProps> = ({
                     {[
                       { en: 'Books Printing', mm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း' },
                       { en: 'Voucher Books Printing', mm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်း' },
-                      { en: 'Brochures & Pamphlets', mm: 'လက်ကမ်းစာစောင်နှင့် ကတ်တလောက်' },
-                      { en: 'Business Cards & Stationery', mm: 'လိပ်စာကတ်နှင့် ရုံးသုံးပုံနှိပ်' },
-                      { en: 'Other Offset Printing Services', mm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများ' },
+                      { en: 'Ball Pen — Klick (30 pcs per box)', mm: 'ဘောပင် · Klick (တစ်ဘူး 30 pcs)' },
+                      { en: 'Ball Pen — Plano (50 pcs per box)', mm: 'ဘောပင် · Plano (တစ်ဘူး 50 pcs)' },
+                      { en: 'Brochures, Cards & Commercial Print', mm: 'လက်ကမ်းစာစောင်နှင့် ရုံးသုံးပုံနှိပ်' },
                       { en: 'One-stop printing workflow', mm: 'တစ်နေရာတည်း အပြီးအစီး ဝန်ဆောင်မှု' },
                     ].map((item) => (
                       <div
@@ -424,7 +418,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             }
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {BAMBOO_PRODUCTS.map((product) => (
               <ProductCard
                 key={product.id}
@@ -436,7 +430,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             ))}
           </div>
 
-          {/* Dedicated Charcoal Product Page Cross-Link Banner */}
+          {/* Dedicated Activated Carbon Product Page Cross-Link Banner */}
           <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex items-start gap-4 max-w-3xl">
               <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
@@ -445,20 +439,20 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div>
                 <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                   {t(
-                    'ADDITIONAL PRODUCT LINE · CHARCOAL SUPPLY',
-                    'ထပ်တိုး ထုတ်ကုန်ကဏ္ဍ · မီးသွေးထုတ်ကုန် (CHARCOAL)'
+                    'ADDITIONAL PRODUCT CATEGORY · ACTIVATED CARBON',
+                    'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (ACTIVATED CARBON)'
                   )}
                 </p>
                 <h3 className="text-xl font-bold text-[#173D2A] mb-1.5">
                   {t(
-                    'Looking for Charcoal Products?',
-                    'မီးသွေးထုတ်ကုန် (Charcoal) အတွက် ဆက်သွယ်စုံစမ်းလိုပါသလား?'
+                    'Looking for Activated Carbon?',
+                    'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) အတွက် ဆက်သွယ်စုံစမ်းလိုပါသလား?'
                   )}
                 </h3>
                 <p className="text-sm text-[#26332B]/85 leading-relaxed">
                   {t(
-                    'Visit our dedicated Charcoal page or contact our Yangon headquarters directly to discuss your specific charcoal requirements and order inquiries.',
-                    'မီးသွေးထုတ်ကုန် စာမျက်နှာသို့ ဝင်ရောက်ကြည့်ရှုနိုင်သလို လုပ်ငန်းလိုအပ်ချက်အလိုက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
+                    'Visit our Activated Carbon page or contact our Yangon headquarters directly for commercial inquiries.',
+                    'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) စာမျက်နှာသို့ ဝင်ရောက်ကြည့်ရှုနိုင်သလို ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
                   )}
                 </p>
               </div>
@@ -472,17 +466,17 @@ export const HomePage: React.FC<HomePageProps> = ({
                 href="/charcoal"
                 onClick={() => onNavigate('/charcoal')}
               >
-                {t('Explore Charcoal Page', 'မီးသွေးထုတ်ကုန် စာမျက်နှာသို့')}
+                {t('Explore Activated Carbon', 'Activated Carbon စာမျက်နှာသို့')}
                 <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
               </Button>
               <Button
                 type="button"
                 variant="outline-dark"
                 size="sm"
-                href="/contact?inquiry=Charcoal"
-                onClick={() => onInquireWithCategory('Charcoal', true)}
+                href="/contact?inquiry=Activated%20Carbon"
+                onClick={() => onInquireWithCategory('Activated Carbon', true)}
               >
-                {t('Inquire About Charcoal', 'မီးသွေး မေးမြန်းရန်')}
+                {t('Inquire About Activated Carbon', 'Activated Carbon မေးမြန်းရန်')}
               </Button>
             </div>
           </div>
@@ -522,16 +516,91 @@ export const HomePage: React.FC<HomePageProps> = ({
               />
             ))}
           </div>
+
+          {/* Stationery Product Showcase: Ball Pen (Klick & Plano) */}
+          <div className="mt-10 bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xs">
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-lg overflow-hidden border border-[#DDE5D9] bg-[#F7F3E8]">
+                <img
+                  src="/assets/aistudio/Branding_Image_V2_cc9a2035.webp"
+                  alt="TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) packaging"
+                  width={640}
+                  height={360}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="w-full aspect-[16/9] object-cover"
+                />
+              </div>
+              <div className="rounded-lg overflow-hidden border border-[#DDE5D9] bg-[#F7F3E8]">
+                <img
+                  src="/assets/aistudio/Branding_Image_V1_c6c098a8.webp"
+                  alt="TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) pen showcase"
+                  width={640}
+                  height={360}
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  className="w-full aspect-[16/9] object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                {t(
+                  'PRINTING SERVICES & STATIONERY · BALL PEN',
+                  'ပုံနှိပ်နှင့် စာရေးကိရိယာ ကဏ္ဍ · ဘောပင် (BALL PEN)'
+                )}
+              </p>
+              <h3 className="text-xl font-bold text-[#173D2A] mb-2">
+                {t(
+                  'Ball Pen Stationery — Klick (30 pcs per box) & Plano (50 pcs per box)',
+                  'ဘောပင် (Ball Pen) — Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)'
+                )}
+              </h3>
+              <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
+                {t(
+                  'Under our Printing Services & Stationery division, we supply Ball Pen products in two standardized box packaging configurations: Klick (30 pcs per box) and Plano (50 pcs per box).',
+                  'ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်းကဏ္ဍအောက်တွင် Klick (တစ်ဘူးလျှင် 30 pcs) နှင့် Plano (တစ်ဘူးလျှင် 50 pcs) ဟူ၍ အမျိုးအစား (၂) မျိုးဖြင့် Ball Pen စာရေးကိရိယာများကို ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။'
+                )}
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Button
+                  type="button"
+                  variant="primary-dark"
+                  size="sm"
+                  href="/printing-services"
+                  onClick={() => onNavigate('/printing-services')}
+                >
+                  {t('View Ball Pen Specifications', 'Ball Pen စံချိန်စံညွှန်း ကြည့်ရန်')}
+                  <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline-dark"
+                  size="sm"
+                  href="/contact?inquiry=Ball%20Pen"
+                  onClick={() => onInquireWithCategory('Ball Pen', true)}
+                >
+                  {t('Inquire About Ball Pen', 'Ball Pen မေးမြန်းရန်')}
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* COMPANY INTRODUCTION */}
-      <section className="py-20 bg-white border-b border-[#DDE5D9]">
+      <section id="company-introduction" className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <p className="text-xs font-medium text-[#245C3A] mb-2">
-                {t('Company Introduction · Corporate Overview', 'ကုမ္ပဏီမိတ်ဆက် · လုပ်ငန်းအကျဉ်းချုပ်')}
+                {t(
+                  'Company Introduction · Established in 2013',
+                  'ကုမ္ပဏီမိတ်ဆက် · ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်သည်'
+                )}
               </p>
               <h2
                 className="text-2xl sm:text-4xl font-bold text-[#173D2A] tracking-tight mb-5"
@@ -543,19 +612,19 @@ export const HomePage: React.FC<HomePageProps> = ({
               <p className="text-base text-[#26332B]/90 leading-relaxed mb-4">
                 {isMm ? (
                   <>
-                    <strong>TBStar Company Limited</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower တွင် ရုံးချုပ်တည်ရှိပြီး <strong>ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း</strong> နှင့် <strong>အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း</strong> ဟူသော အဓိက စီးပွားရေးလုပ်ငန်းကြီး (၂) ခုကို ဆောင်ရွက်လျက်ရှိပါသည်။
+                    ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော <strong>TBStar Company Limited</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower တွင် ရုံးချုပ်တည်ရှိပြီး မြန်မာနိုင်ငံတွင် <strong>သဘာဝဝါးထုတ်ကုန်လုပ်ငန်း</strong> နှင့် <strong>အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း</strong> တို့ဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ ဝယ်ယူသူများအား စဉ်ဆက်မပြတ် ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။
                   </>
                 ) : (
                   <>
-                    <strong>{COMPANY_INFO.name}</strong> is headquartered at Central Tower in Kyauktada Township, Yangon, Myanmar, operating across two core business divisions: <strong>Bamboo Production and Export</strong> and <strong>Offset Printing Services</strong>.
+                    Established in 2013, <strong>{COMPANY_INFO.name}</strong> has been operating in Myanmar, serving domestic and international customers through its bamboo products and printing services businesses from its headquarters at Central Tower in Kyauktada Township, Yangon.
                   </>
                 )}
               </p>
 
               <p className="text-base text-[#26332B]/85 leading-relaxed mb-6">
                 {t(
-                  'Our Bamboo Production and Export division manufactures 100% natural Myanmar bamboo products—including Bamboo Split and Bamboo Sticks—for distribution within Myanmar and export to international markets. Our Offset Printing Services division provides one-stop offset printing solutions for Books Printing, Voucher Books Printing, and other commercial printing needs.',
-                  'ကျွန်ုပ်တို့၏ ဝါးထုတ်ကုန်ဌာနမှ ၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (Bamboo Split) နှင့် ဝါးတံ (Bamboo Sticks) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ပေးလျက်ရှိပြီး၊ အော့ဖ်ဆက်ပုံနှိပ်ဌာနမှ စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် အခြားလုပ်ငန်းသုံးပုံနှိပ်ခြင်းများကို တစ်နေရာတည်းတွင် အပြီးအစီး ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                  'With long-term operational experience since 2013, our Bamboo Production and Export division manufactures 100% natural Myanmar bamboo products—including Bamboo Split (With Nodes: 50 pieces per bundle; Without Nodes: 100 pieces per bundle) and Bamboo Sticks (30 kg per bag)—for domestic distribution and international export. Our Printing Services & Stationery division provides one-stop offset printing solutions for Books Printing, Voucher Books Printing, and commercial printing alongside Ball Pen stationery supply (Klick & Plano).',
+                  '၂၀၁၃ ခုနှစ်မှစတင်၍ ရေရှည်လုပ်ငန်းအတွေ့အကြုံများဖြင့် ကျွန်ုပ်တို့၏ ဝါးထုတ်ကုန်ဌာနမှ ၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs / အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ပေးလျက်ရှိပြီး၊ ပုံနှိပ်နှင့် စာရေးကိရိယာဌာနမှ စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
                 )}
               </p>
 
@@ -594,7 +663,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 />
                 <div>
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
-                    {t('CORPORATE HEADQUARTERS', 'တရားဝင် ကုမ္ပဏီအချက်အလက်')}
+                    {t('CORPORATE HEADQUARTERS · EST. 2013', 'တရားဝင် ကုမ္ပဏီအချက်အလက် · ၂၀၁၃')}
                   </p>
                   <h3 className="text-lg font-bold text-[#173D2A]">
                     {t(COMPANY_INFO.name, 'TBStar Company Limited')}
@@ -603,7 +672,15 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <dl className="space-y-4 text-sm">
-                <div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Established', 'စတင်တည်ထောင်သည့်နှစ်')}
+                  </dt>
+                  <dd className="font-mono-tabular font-bold text-[#173D2A]">
+                    {t('2013 (Operating in Myanmar Since 2013)', '၂၀၁၃ ခုနှစ်')}
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9]">
                   <dt className="text-xs text-[#26332B]/70 font-medium">
                     {t('Registered Office Address', 'ရုံးချုပ်လိပ်စာ')}
                   </dt>
@@ -625,8 +702,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </dt>
                   <dd className="font-semibold text-[#173D2A] text-right">
                     {t(
-                      'Bamboo Export & Offset Printing',
-                      'ဝါးပို့ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
+                      'Bamboo Export, Printing & Stationery',
+                      'ဝါးပို့ကုန်၊ ပုံနှိပ်နှင့် စာရေးကိရိယာ'
                     )}
                   </dd>
                 </div>

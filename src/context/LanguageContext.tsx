@@ -98,13 +98,9 @@ export const INQUIRY_TYPE_LABELS: Record<
     en: 'Bamboo Sticks',
     mm: 'ဝါးတံ (Bamboo Sticks)',
   },
-  Charcoal: {
-    en: 'Charcoal',
-    mm: 'မီးသွေးထုတ်ကုန် (Charcoal)',
-  },
-  'Other Bamboo Products': {
-    en: 'Other Bamboo Products',
-    mm: 'အခြား ဝါးထုတ်ကုန်များ',
+  'Activated Carbon': {
+    en: 'Activated Carbon',
+    mm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
   },
   'Books Printing': {
     en: 'Books Printing',
@@ -117,6 +113,10 @@ export const INQUIRY_TYPE_LABELS: Record<
   'Other Offset Printing Services': {
     en: 'Other Offset Printing Services',
     mm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ',
+  },
+  'Ball Pen': {
+    en: 'Ball Pen (Klick / Plano)',
+    mm: 'ဘောပင် (Ball Pen · Klick / Plano)',
   },
   'General Inquiry': {
     en: 'General Inquiry',

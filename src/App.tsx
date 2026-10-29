@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import {
+  BALL_PEN_PRODUCT,
   BAMBOO_PRODUCTS,
   CHARCOAL_PRODUCT_INFO,
   COMPANY_INFO,
@@ -41,6 +42,9 @@ function resolveRouteState(pathname: string): {
   isNotFound: boolean;
 } {
   const normalized = pathname.replace(/\/+$/, '') || '/';
+  if (normalized === '/activated-carbon') {
+    return { route: '/charcoal', isNotFound: false };
+  }
   if (VALID_ROUTES.includes(normalized as PageRoute)) {
     return { route: normalized as PageRoute, isNotFound: false };
   }
@@ -50,6 +54,9 @@ function resolveRouteState(pathname: string): {
 function resolveInquiryFromSearch(search: string): InquiryTypeOption | null {
   const params = new URLSearchParams(search);
   const inq = params.get('inquiry');
+  if (inq === 'Charcoal') {
+    return 'Activated Carbon';
+  }
   if (inq && INQUIRY_TYPE_OPTIONS.includes(inq as InquiryTypeOption)) {
     return inq as InquiryTypeOption;
   }
@@ -65,6 +72,7 @@ export function buildStructuredData(route: PageRoute) {
     '@id': `${baseUrl}/#organization`,
     name: COMPANY_INFO.name,
     alternateName: COMPANY_INFO.nameMm,
+    foundingDate: COMPANY_INFO.establishedYear,
     url: `${baseUrl}/`,
     logo: {
       '@type': 'ImageObject',
@@ -75,7 +83,7 @@ export function buildStructuredData(route: PageRoute) {
     },
     image: `${baseUrl}/images/products/bamboo-split-main.webp`,
     description:
-      'TB Star Company Limited supplies 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Charcoal, and one-stop offset printing services in Yangon, Myanmar.',
+      'Established in 2013, TB Star Company Limited has been operating in Myanmar, supplying 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon, and one-stop offset printing services and stationery (including Klick and Plano Ball Pens) in Yangon, Myanmar.',
     telephone: COMPANY_INFO.telephone,
     email: COMPANY_INFO.email,
     address: {
@@ -159,7 +167,6 @@ export function buildStructuredData(route: PageRoute) {
     const sectionAnchorById: Record<string, string> = {
       'bamboo-split': 'product-bamboo-split',
       'bamboo-sticks': 'product-bamboo-sticks',
-      'other-bamboo-products': 'product-other-bamboo',
     };
 
     graph.push({
@@ -179,8 +186,8 @@ export function buildStructuredData(route: PageRoute) {
   if (route === '/charcoal') {
     graph.push({
       '@type': 'ItemList',
-      '@id': `${seo.canonicalUrl}#charcoal-list`,
-      name: 'TB Star Company Limited Charcoal Product Line',
+      '@id': `${seo.canonicalUrl}#activated-carbon-list`,
+      name: 'TB Star Company Limited Activated Carbon Product Line',
       itemListElement: [
         {
           '@type': 'ListItem',
@@ -194,17 +201,28 @@ export function buildStructuredData(route: PageRoute) {
   }
 
   if (route === '/printing-services') {
-    graph.push({
-      '@type': 'ItemList',
-      '@id': `${seo.canonicalUrl}#service-list`,
-      name: 'TB Star Company Limited One-Stop Offset Printing Services',
-      itemListElement: PRINTING_SERVICES.map((svc, idx) => ({
+    const items = [
+      ...PRINTING_SERVICES.map((svc, idx) => ({
         '@type': 'ListItem',
         position: idx + 1,
         name: svc.name,
         description: svc.detailedDescription,
         url: `${seo.canonicalUrl}#service-${svc.id}`,
       })),
+      {
+        '@type': 'ListItem',
+        position: PRINTING_SERVICES.length + 1,
+        name: BALL_PEN_PRODUCT.name,
+        description: BALL_PEN_PRODUCT.detailedDescription,
+        url: `${seo.canonicalUrl}#product-ball-pen`,
+      },
+    ];
+
+    graph.push({
+      '@type': 'ItemList',
+      '@id': `${seo.canonicalUrl}#service-list`,
+      name: 'TB Star Company Limited One-Stop Offset Printing Services & Stationery',
+      itemListElement: items,
     });
   }
 
@@ -322,11 +340,12 @@ export default function App() {
       ? `The requested page was not found on ${COMPANY_INFO.name}. Explore 100% natural Myanmar Bamboo Split, Bamboo Sticks, and One-Stop Offset Printing Services.`
       : seo.description;
 
-    // Normalize trailing slashes in browser URL for valid subpages so URL matches canonical
+    // Normalize trailing slashes or /activated-carbon alias in browser URL so URL matches canonical
     if (
       !isNotFound &&
-      window.location.pathname !== '/' &&
-      window.location.pathname.endsWith('/')
+      window.location.pathname !== currentRoute &&
+      (window.location.pathname.endsWith('/') ||
+        window.location.pathname.replace(/\/+$/, '') === '/activated-carbon')
     ) {
       try {
         window.history.replaceState(

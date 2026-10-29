@@ -46,12 +46,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           { label: 'About Us', route: '/about' },
         ]}
         onNavigate={onNavigate}
-        kicker="Corporate Profile · Kyauktada Township, Yangon, Myanmar"
-        kickerMm="ကုမ္ပဏီအချက်အလက် · ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ"
+        kicker="Corporate Profile · Established in 2013 · Yangon, Myanmar"
+        kickerMm="ကုမ္ပဏီအချက်အလက် · ၂၀၁၃ ခုနှစ်တွင် တည်ထောင်သည် · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ"
         title={`About ${COMPANY_INFO.name}`}
         titleMm="TBStar Company Limited အကြောင်း"
-        description="TB Star Company Limited operates across two core business divisions—Bamboo Production & Export and One-Stop Offset Printing Services—serving domestic customers in Myanmar and international buyers."
-        descriptionMm="TBStar Company Limited သည် သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်တင်ပို့ခြင်းလုပ်ငန်းနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း ဟူသော အဓိကကဏ္ဍကြီး (၂) ခုဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာဝယ်ယူသူများအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။"
+        description="Established in 2013, TB Star Company Limited has been operating in Myanmar, serving domestic customers and international buyers through its bamboo products and printing services businesses."
+        descriptionMm="၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်တင်ပို့ခြင်းလုပ်ငန်းနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းတို့ဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာဝယ်ယူသူများအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။"
         actions={
           <>
             <Button
@@ -82,8 +82,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="lg:col-span-7">
               <p className="text-xs font-medium text-[#245C3A] mb-2">
                 {t(
-                  '01. Company Introduction & Business Overview',
-                  '၀၁။ ကုမ္ပဏီမိတ်ဆက်နှင့် လုပ်ငန်းအကျဉ်းချုပ်'
+                  '01. Company Introduction & Business Overview · Est. 2013',
+                  '၀၁။ ကုမ္ပဏီမိတ်ဆက်နှင့် လုပ်ငန်းအကျဉ်းချုပ် · ၂၀၁၃ ခုနှစ်တွင် တည်ထောင်သည်'
                 )}
               </p>
               <h2
@@ -91,8 +91,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 style={{ textWrap: 'balance' }}
               >
                 {t(
-                  'A Dual-Division Enterprise Focused on Natural Bamboo & Commercial Printing',
-                  'သဘာဝဝါးထုတ်ကုန်လုပ်ငန်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု လုပ်ငန်းကြီး (၂) ခု ပေါင်းစပ်ဆောင်ရွက်နေသော ကုမ္ပဏီ'
+                  'Serving Myanmar & International Buyers Since 2013',
+                  '၂၀၁၃ ခုနှစ်မှစတင်၍ သဘာဝဝါးထုတ်ကုန်နှင့် ပုံနှိပ်ဝန်ဆောင်မှုများ ဆောင်ရွက်နေသော ကုမ္ပဏီ'
                 )}
               </h2>
 
@@ -100,18 +100,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <p>
                   {isMm ? (
                     <>
-                      <strong>TBStar Company Limited</strong> သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower၊ (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် ရုံးချုပ်ဖွင့်လှစ်ထားသော ကုမ္ပဏီတစ်ခု ဖြစ်ပါသည်။
+                      ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော <strong>TBStar Company Limited</strong> သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်လုပ်ငန်းနှင့် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ဝယ်ယူသူများအား စဉ်ဆက်မပြတ် ဝန်ဆောင်မှုပေးလျက်ရှိပြီး ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower၊ (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် ရုံးချုပ်ဖွင့်လှစ်ထားပါသည်။
                     </>
                   ) : (
                     <>
-                      <strong>{COMPANY_INFO.name}</strong> is a corporate enterprise headquartered at Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar.
+                      Established in 2013, <strong>{COMPANY_INFO.name}</strong> has been operating in Myanmar, serving customers through its bamboo products and printing services businesses from its corporate headquarters at Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar.
                     </>
                   )}
                 </p>
                 <p>
                   {t(
-                    'Our company is structured into two specialized business divisions so that both international commodity buyers and local commercial clients receive dedicated support:',
-                    'ပြည်တွင်းနှင့် နိုင်ငံတကာမှ ဝယ်ယူသူများအား စနစ်တကျ ဝန်ဆောင်မှုပေးနိုင်ရန် အောက်ပါ အဓိက စီးပွားရေးလုပ်ငန်းကဏ္ဍကြီး (၂) ခုဖြင့် ဖွဲ့စည်းဆောင်ရွက်လျက်ရှိပါသည် -'
+                    'With long-term operational continuity since 2013, our company is structured into two specialized business divisions so that international buyers, wholesalers, and commercial partners receive dedicated support:',
+                    '၂၀၁၃ ခုနှစ်မှစတင်၍ ရေရှည်လုပ်ငန်းအတွေ့အကြုံများဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာမှ ဝယ်ယူသူများ၊ လက်ကားဖြန့်ချိသူများနှင့် စီးပွားရေးမိတ်ဖက်များအား စနစ်တကျ ဝန်ဆောင်မှုပေးနိုင်ရန် အောက်ပါ အဓိက စီးပွားရေးလုပ်ငန်းကဏ္ဍကြီး (၂) ခုဖြင့် ဖွဲ့စည်းဆောင်ရွက်လျက်ရှိပါသည် -'
                   )}
                 </p>
                 <ul className="space-y-4 pt-2">
@@ -120,11 +120,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <div>
                       {isMm ? (
                         <p>
-                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (က) — ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း -</strong> မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks) နှင့် အခြားဝါးထုတ်ကုန်များကို ထုတ်လုပ်ပြီး ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာစျေးကွက်သို့ တင်ပို့ရောင်းချခြင်း။
+                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (က) — ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း -</strong> မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြား (Bamboo Split · အဆစ်ပါ တစ်စည်း ၅၀ ချောင်း / အဆစ်မပါ တစ်စည်း ၁၀၀ ချောင်း) နှင့် ဝါးတံ (Bamboo Sticks · တစ်အိတ် 30 kg) များကို ထုတ်လုပ်ပြီး ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာစျေးကွက်သို့ တင်ပို့ရောင်းချခြင်း။
                         </p>
                       ) : (
                         <p>
-                          <strong>Business Division A — Bamboo Production and Export:</strong> Manufacturing 100% natural Myanmar bamboo products (including Bamboo Split, Bamboo Sticks, and other bamboo products), exporting to international markets, and distributing products locally within Myanmar.
+                          <strong>Business Division A — Bamboo Production and Export:</strong> Manufacturing 100% natural Myanmar bamboo products—specifically Bamboo Split (With Nodes: 50 pieces per bundle; Without Nodes: 100 pieces per bundle) and Bamboo Sticks (30 kg per bag)—for international export and domestic distribution within Myanmar.
                         </p>
                       )}
                     </div>
@@ -134,11 +134,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <div>
                       {isMm ? (
                         <p>
-                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (ခ) — အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်း -</strong> စာအုပ်ပုံနှိပ်ခြင်း (Books Printing)၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်း (Voucher Books Printing) နှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများကို တစ်နေရာတည်းတွင် အပြီးအစီး (One-Stop Service) ဆောင်ရွက်ပေးခြင်း။
+                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (ခ) — အော့ဖ်ဆက် ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုလုပ်ငန်း -</strong> စာအုပ်ပုံနှိပ်ခြင်း (Books Printing)၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်း (Voucher Books Printing) နှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများအပြင် Ball Pen (Klick: တစ်ဘူး 30 pcs · Plano: တစ်ဘူး 50 pcs) စာရေးကိရိယာ ဖြန့်ဖြူးရေးကို ဆောင်ရွက်ပေးခြင်း။
                         </p>
                       ) : (
                         <p>
-                          <strong>Business Division B — Offset Printing Services:</strong> Providing one-stop offset printing services covering Books Printing, Voucher Books Printing, and other commercial offset printing needs.
+                          <strong>Business Division B — Printing Services & Stationery:</strong> Providing one-stop offset printing services covering Books Printing, Voucher Books Printing, and commercial offset printing alongside wholesale Ball Pen stationery supply (Klick: 30 pcs per box; Plano: 50 pcs per box).
                         </p>
                       )}
                     </div>
@@ -177,6 +177,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   </dt>
                   <dd className="text-[#173D2A] font-bold mt-0.5">
                     {t(COMPANY_INFO.name, COMPANY_INFO.nameMm)}
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Established Year', 'စတင်တည်ထောင်သည့်နှစ်')}
+                  </dt>
+                  <dd className="font-mono-tabular font-bold text-[#173D2A]">
+                    {t('2013', '၂၀၁၃ ခုနှစ်')}
                   </dd>
                 </div>
                 <div className="pt-3 border-t border-[#DDE5D9]">
@@ -373,8 +381,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   </h3>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {t(
-                      'We manufacture 100% natural bamboo products originating in Myanmar—featuring 3 mm Bamboo Split (20" to 48", With Nodes or Without Nodes) and Bamboo Sticks (1.2 mm to 2.5 mm, 8"/9"/10", packed at 30 kg per bag)—prepared for international export markets.',
-                      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 3 mm ဝါးခြမ်းပြားများ (၂၀"–၄၈"၊ အဆစ်ပါ/အဆစ်မပါ) နှင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော ဝါးတံများ (၈"၊ ၉"၊ ၁၀") ကို နိုင်ငံတကာ ပို့ကုန်စျေးကွက်သို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။'
+                      'We manufacture 100% natural bamboo products originating in Myanmar—featuring Bamboo Split (With Nodes: 50 pieces per bundle; Without Nodes: 100 pieces per bundle) and Bamboo Sticks (1.2 mm to 2.5 mm, 8"/9"/10", packed at 30 kg per bag)—prepared for international export markets.',
+                      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြားများ (အဆစ်ပါ တစ်စည်း 50 pcs · အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော ဝါးတံများ (၈"၊ ၉"၊ ၁၀") ကို နိုင်ငံတကာ ပို့ကုန်စျေးကွက်သို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။'
                     )}
                   </p>
                 </div>
@@ -425,8 +433,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   </h3>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {t(
-                      `Alongside international export, ${COMPANY_INFO.name} distributes bamboo products locally within Myanmar, providing reliable supply to domestic commercial buyers, agricultural users, and industrial customers from our Yangon office.`,
-                      'နိုင်ငံတကာသို့ တင်ပို့ရုံသာမက မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက်ရှိ လုပ်ငန်းရှင်များနှင့် ဝယ်ယူသူများအတွက်လည်း အရည်အသွေးမီ ဝါးထုတ်ကုန်ပစ္စည်းများကို ရန်ကုန်ရုံးချုပ်မှတစ်ဆင့် ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။'
+                      `Alongside international export, ${COMPANY_INFO.name} distributes Bamboo Split and Bamboo Sticks locally within Myanmar, providing reliable supply to domestic commercial buyers, agricultural users, and industrial customers from our Yangon office.`,
+                      'နိုင်ငံတကာသို့ တင်ပို့ရုံသာမက မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက်ရှိ လုပ်ငန်းရှင်များနှင့် ဝယ်ယူသူများအတွက်လည်း အရည်အသွေးမီ ဝါးခြမ်းပြားနှင့် ဝါးတံပစ္စည်းများကို ရန်ကုန်ရုံးချုပ်မှတစ်ဆင့် ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။'
                     )}
                   </p>
                 </div>
@@ -436,9 +444,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   type="button"
                   variant="outline-dark"
                   size="sm"
-                  href="/contact?inquiry=Other%20Bamboo%20Products"
+                  href="/contact?inquiry=Bamboo%20Split"
                   className="w-full"
-                  onClick={() => onInquireWithCategory('Other Bamboo Products', true)}
+                  onClick={() => onInquireWithCategory('Bamboo Split', true)}
                 >
                   {t('Inquire About Domestic Supply', 'ပြည်တွင်းဖြန့်ဖြူးရေး မေးမြန်းရန်')}
                   <ArrowRight className="w-3.5 h-3.5" />

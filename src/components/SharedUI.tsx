@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { AlertCircle, ArrowUp, ChevronRight, Loader2 } from 'lucide-react';
-import { PageRoute } from '../data/companyData';
+import {
+  computeLegibilityFilter,
+  CssFilterMetrics,
+  PAGE_BACKGROUNDS,
+  PageBackgroundConfig,
+  PageRoute,
+} from '../data/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -26,10 +32,10 @@ export const Button: React.FC<ButtonProps> = ({
     'inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#245C3A] disabled:opacity-60 disabled:cursor-not-allowed';
 
   const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
-    'primary-light': 'bg-[#A8D977] hover:bg-[#97cc64] text-[#173D2A]',
-    'primary-dark': 'bg-[#173D2A] hover:bg-[#245C3A] text-white',
+    'primary-light': 'bg-[#A8D977] hover:bg-[#97cc64] text-[#173D2A] shadow-xs',
+    'primary-dark': 'bg-[#173D2A] hover:bg-[#245C3A] text-white shadow-xs',
     'outline-light':
-      'bg-white/10 hover:bg-white/20 border border-white/25 text-white',
+      'bg-[#071A10]/70 hover:bg-white/20 backdrop-blur-xs border border-white/35 hover:border-[#A8D977] text-white shadow-xs',
     'outline-dark':
       'bg-white hover:bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] text-[#173D2A]',
     subtle:
@@ -168,7 +174,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
     <nav aria-label="Breadcrumb" className="mb-4">
       <ol
         className={`flex flex-wrap items-center gap-1.5 text-xs ${
-          light ? 'text-white/75' : 'text-[#26332B]/75'
+          light ? 'text-white/90 drop-shadow-xs' : 'text-[#26332B]/75'
         }`}
       >
         {items.map((item, idx) => {
@@ -204,7 +210,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
               )}
               {!isLast && (
                 <ChevronRight
-                  className="w-3.5 h-3.5 opacity-60 shrink-0"
+                  className="w-3.5 h-3.5 opacity-75 shrink-0"
                   aria-hidden="true"
                 />
               )}
@@ -216,8 +222,133 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   );
 };
 
+export interface AdaptiveBackgroundMediaProps {
+  bgConfig: PageBackgroundConfig;
+  loading?: 'eager' | 'lazy';
+  fetchPriority?: 'high' | 'low' | 'auto';
+}
+
+/**
+ * Renders a hero or section background image without changing the underlying asset,
+ * programmatically computing and applying CSS `brightness()`, `contrast()`, and `saturate()`
+ * filters from image luminance and highlight intensity metrics so overlaying text is crisp.
+ */
+export const AdaptiveBackgroundMedia: React.FC<AdaptiveBackgroundMediaProps> = ({
+  bgConfig,
+  loading = 'eager',
+  fetchPriority = 'high',
+}) => {
+  const [filterMetrics, setFilterMetrics] = useState<CssFilterMetrics>(() =>
+    bgConfig.filterMetrics ||
+    computeLegibilityFilter(bgConfig.estimatedLuminance, bgConfig.highlightIntensity)
+  );
+
+  useEffect(() => {
+    setFilterMetrics(
+      bgConfig.filterMetrics ||
+        computeLegibilityFilter(bgConfig.estimatedLuminance, bgConfig.highlightIntensity)
+    );
+  }, [bgConfig]);
+
+  const handleImageLoad = useCallback(
+    (e: React.SyntheticEvent<HTMLImageElement>) => {
+      const img = e.currentTarget;
+      try {
+        const sampleSize = 16;
+        const canvas = document.createElement('canvas');
+        canvas.width = sampleSize;
+        canvas.height = sampleSize;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        ctx.drawImage(img, 0, 0, sampleSize, sampleSize);
+        const { data } = ctx.getImageData(0, 0, sampleSize, sampleSize);
+        const luminances: number[] = [];
+
+        for (let i = 0; i < data.length; i += 4) {
+          const r = data[i] / 255;
+          const g = data[i + 1] / 255;
+          const b = data[i + 2] / 255;
+          // Perceived relative luminance (ITU-R BT.709)
+          const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          luminances.push(lum);
+        }
+
+        if (luminances.length > 0) {
+          const avgLum =
+            luminances.reduce((acc, val) => acc + val, 0) / luminances.length;
+          const sorted = [...luminances].sort((a, b) => a - b);
+          const p90Index = Math.min(
+            sorted.length - 1,
+            Math.floor(sorted.length * 0.9)
+          );
+          const highlightLum = sorted[p90Index];
+
+          // Blend measured canvas metrics with baseline profile for stability
+          const blendedLum = avgLum * 0.7 + bgConfig.estimatedLuminance * 0.3;
+          const blendedHigh =
+            highlightLum * 0.7 + bgConfig.highlightIntensity * 0.3;
+
+          setFilterMetrics(computeLegibilityFilter(blendedLum, blendedHigh));
+        }
+      } catch {
+        // Cross-origin image without CORS headers: use pre-calibrated programmatic metrics
+        setFilterMetrics(
+          computeLegibilityFilter(
+            bgConfig.estimatedLuminance,
+            bgConfig.highlightIntensity
+          )
+        );
+      }
+    },
+    [bgConfig]
+  );
+
+  return (
+    <div
+      className="absolute inset-0 z-0 pointer-events-none select-none"
+      aria-hidden="true"
+    >
+      <img
+        src={bgConfig.imagePath}
+        onLoad={handleImageLoad}
+        onError={(e) => {
+          const target = e.currentTarget;
+          if (target.src !== bgConfig.publicSourceUrl) {
+            target.src = bgConfig.publicSourceUrl;
+          }
+        }}
+        alt=""
+        width={1920}
+        height={1080}
+        loading={loading}
+        referrerPolicy="no-referrer"
+        fetchPriority={fetchPriority}
+        decoding="async"
+        data-filter-brightness={filterMetrics.brightness}
+        data-filter-contrast={filterMetrics.contrast}
+        data-filter-saturate={filterMetrics.saturate}
+        style={{
+          filter: filterMetrics.cssFilter,
+          WebkitFilter: filterMetrics.cssFilter,
+        }}
+        className={`w-full h-full object-cover transition-[filter,opacity] duration-300 ${bgConfig.objectPosition} ${bgConfig.imageOpacityClass}`}
+      />
+      <div
+        className={`absolute inset-0 ${bgConfig.overlayGradient}`}
+        style={{ background: bgConfig.overlayCss }}
+      />
+      <div
+        className={`absolute inset-0 ${bgConfig.vignetteGradient}`}
+        style={{ background: bgConfig.vignetteCss }}
+      />
+    </div>
+  );
+};
+
 interface HeroSectionProps {
   breadcrumbs?: BreadcrumbItem[];
+  backgroundRoute?: PageRoute;
   onNavigate: (route: PageRoute) => void;
   kicker?: string;
   kickerMm?: string;
@@ -231,6 +362,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   breadcrumbs,
+  backgroundRoute,
   onNavigate,
   kicker,
   kickerMm,
@@ -246,20 +378,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const displayTitle = isMm && titleMm ? titleMm : title;
   const displayDescription = isMm && descriptionMm ? descriptionMm : description;
 
+  const lastBreadcrumbRoute =
+    breadcrumbs && breadcrumbs.length > 0
+      ? breadcrumbs[breadcrumbs.length - 1].route
+      : undefined;
+  const resolvedRoute: PageRoute = backgroundRoute || lastBreadcrumbRoute || '/';
+  const bgConfig = PAGE_BACKGROUNDS[resolvedRoute] || PAGE_BACKGROUNDS['/'];
+
   return (
-    <section className="relative bg-[#173D2A] text-white overflow-hidden border-b border-[#245C3A]">
-      <div className="absolute inset-0 z-0 pointer-events-none select-none" aria-hidden="true">
-        <img
-          src="/assets/hero-bamboo-background.svg"
-          alt=""
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-          decoding="async"
-          className="w-full h-full object-cover object-center opacity-75"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#173D2A]/95 via-[#173D2A]/88 to-[#173D2A]/65" />
-      </div>
+    <section className="relative bg-[#071A10] text-white overflow-hidden border-b border-[#245C3A]">
+      <AdaptiveBackgroundMedia
+        bgConfig={bgConfig}
+        loading="eager"
+        fetchPriority="high"
+      />
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 relative z-10">
         <div
           className={`grid grid-cols-1 ${
@@ -272,7 +404,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             )}
             {displayKicker && (
               <p
-                className={`text-xs text-[#A8D977] font-medium tracking-wide mb-3 ${
+                className={`text-xs text-[#A8D977] font-semibold tracking-wide mb-3 drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)] ${
                   isMm ? 'font-myanmar' : ''
                 }`}
               >
@@ -280,7 +412,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </p>
             )}
             <h1
-              className={`w-[900px] max-w-full rounded-none text-left text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-white tracking-tight mb-4 ${
+              className={`w-[900px] max-w-full rounded-none text-left text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-white tracking-tight mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] ${
                 isMm
                   ? 'font-myanmar leading-[1.45] lg:leading-[77.24px]'
                   : 'leading-[1.18] lg:leading-[1.22]'
@@ -289,7 +421,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {displayTitle}
             </h1>
             <p
-              className={`text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl ${
+              className={`text-base sm:text-lg text-white/95 leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.55)] ${
                 isMm ? 'font-myanmar' : ''
               }`}
             >

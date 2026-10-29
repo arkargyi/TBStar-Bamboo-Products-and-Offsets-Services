@@ -25,7 +25,7 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
   'bamboo-split': 'Natural Myanmar bamboo splits with nodes',
   'bamboo-sticks': 'Natural bamboo sticks from Myanmar',
   'bamboo-custom': 'Natural bamboo splits with authentic bamboo texture',
-  charcoal: 'TB Star Company Limited Charcoal Products Inquiry Showcase',
+  charcoal: 'TB Star Company Limited Activated Carbon Category Visual',
   'books-printing': 'TB Star Company Limited One-Stop Offset Books Printing Services',
   'voucher-printing': 'TB Star Company Limited Commercial Voucher Books Printing Services',
   'commercial-printing': 'TB Star Company Limited Commercial Offset Printing Services',
@@ -59,6 +59,12 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0VDRjJFNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRDBDN0FCIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQjRBMjc4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/images/products/bamboo-sticks-texture.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0U2REMwNCIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRTVEREM2Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNDQUI5OTkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4Nzk2NjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTIiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=',
+
+  // Ball Pen Stationery Assets
+  '/assets/aistudio/Branding_Image_V1_c6c098a8.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjdGM0U4Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGMkVDRDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFNURGQzMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
+  '/assets/aistudio/Branding_Image_V2_cc9a2035.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjdGM0U4Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGMkVDRDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFNURGQzMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
 };
 
 const DEFAULT_BASE64_PLACEHOLDER =
@@ -120,11 +126,58 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
 }) => {
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [computedFilter, setComputedFilter] = useState<string>(
+    'brightness(0.95) contrast(1.04) saturate(0.98)'
+  );
+
+  const evaluateProductImageFilter = (imgEl: HTMLImageElement) => {
+    try {
+      const sampleSize = 12;
+      const canvas = document.createElement('canvas');
+      canvas.width = sampleSize;
+      canvas.height = sampleSize;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      ctx.drawImage(imgEl, 0, 0, sampleSize, sampleSize);
+      const { data } = ctx.getImageData(0, 0, sampleSize, sampleSize);
+      let totalLum = 0;
+      const count = data.length / 4;
+
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i] / 255;
+        const g = data[i + 1] / 255;
+        const b = data[i + 2] / 255;
+        totalLum += 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      }
+
+      const avgLum = count > 0 ? totalLum / count : 0.65;
+      if (avgLum > 0.68) {
+        const brightness = Number(
+          Math.max(0.88, 1 - (avgLum - 0.62) * 0.28).toFixed(2)
+        );
+        const contrast = Number(
+          Math.min(1.1, 1 + (1 - brightness) * 0.55).toFixed(2)
+        );
+        const saturate = Number(
+          Math.max(0.93, 1 - (avgLum - 0.65) * 0.16).toFixed(2)
+        );
+        setComputedFilter(
+          `brightness(${brightness}) contrast(${contrast}) saturate(${saturate})`
+        );
+      } else {
+        setComputedFilter('brightness(0.96) contrast(1.04) saturate(0.98)');
+      }
+    } catch {
+      setComputedFilter('brightness(0.94) contrast(1.05) saturate(0.97)');
+    }
+  };
 
   useEffect(() => {
     const imgEl = imgRef.current;
     if (imgEl && imgEl.complete && imgEl.naturalWidth > 0) {
       setIsLoaded(true);
+      evaluateProductImageFilter(imgEl);
     } else {
       setIsLoaded(false);
     }
@@ -149,8 +202,15 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
         loading={loading}
         fetchPriority={fetchPriority}
         decoding="async"
-        onLoad={() => setIsLoaded(true)}
+        onLoad={(e) => {
+          setIsLoaded(true);
+          evaluateProductImageFilter(e.currentTarget);
+        }}
         onError={() => setIsLoaded(true)}
+        style={{
+          filter: isLoaded ? computedFilter : undefined,
+          WebkitFilter: isLoaded ? computedFilter : undefined,
+        }}
         className={`${imgClassName} transition-all duration-500 ease-out ${
           isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-xs scale-[1.01]'
         }`}
@@ -198,7 +258,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
             fetchPriority="high"
             imgClassName="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-[#0E2619]/90 via-[#0E2619]/50 to-transparent px-2.5 py-1.5 flex items-center justify-between text-[10px] text-white">
+          <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-2.5 py-1.5 flex items-center justify-between text-[10px] text-white">
             <span className="font-semibold truncate">
               {t('Bamboo Split (3mm)', 'ဝါးခြမ်းပြား (3mm)')}
             </span>
@@ -216,7 +276,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
             loading="eager"
             imgClassName="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-[#0E2619]/90 via-[#0E2619]/50 to-transparent px-2.5 py-1.5 flex items-center justify-between text-[10px] text-white">
+          <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-2.5 py-1.5 flex items-center justify-between text-[10px] text-white">
             <span className="font-semibold truncate">
               {t('Bamboo Sticks', 'ဝါးတံ (Bamboo Sticks)')}
             </span>
@@ -233,7 +293,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
             height={300}
             imgClassName="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-[#0E2619]/90 via-[#0E2619]/50 to-transparent px-3 py-1.5 flex items-center justify-between text-[11px] text-white">
+          <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-3 py-1.5 flex items-center justify-between text-[11px] text-white">
             <span className="font-semibold truncate">
               {t(
                 'One-Stop Offset Printing · Books & Voucher Books',
@@ -276,8 +336,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         )
       : type === 'charcoal'
       ? t(
-          'TB Star Company · Charcoal Products (Myanmar)',
-          'TBStar Company Limited · မီးသွေးထုတ်ကုန် (မြန်မာနိုင်ငံ)'
+          'TB Star Company · Activated Carbon (Myanmar)',
+          'TBStar Company Limited · အက်တီဗိတ်တက် ကာဗွန် (မြန်မာနိုင်ငံ)'
         )
       : t(
           'TB Star Company · One-Stop Offset Printing Services',
@@ -303,8 +363,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         loading={loading}
         fetchPriority={fetchPriority}
       />
-      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-[#0E2619]/85 via-[#0E2619]/35 to-transparent px-4 py-2.5 flex items-center justify-between gap-2 text-[11px] text-white/95">
-        <span className="truncate font-medium">{label || defaultLabel}</span>
+      <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-4 py-2.5 flex items-center justify-between gap-2 text-[11px] text-white">
+        <span className="truncate font-semibold">{label || defaultLabel}</span>
         <span className="shrink-0 font-mono-tabular text-[#A8D977] font-semibold">
           {badgeText}
         </span>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, MapPin, Menu, Phone, X } from 'lucide-react';
+import { Globe, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import {
   COMPANY_INFO,
   InquiryTypeOption,
@@ -11,8 +11,8 @@ export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] =
   { label: 'Home', labelMm: 'ပင်မစာမျက်နှာ', route: '/' },
   { label: 'About Us', labelMm: 'ကုမ္ပဏီအကြောင်း', route: '/about' },
   { label: 'Bamboo Products', labelMm: 'ဝါးထုတ်ကုန်များ', route: '/bamboo-products' },
-  { label: 'Charcoal', labelMm: 'မီးသွေးထုတ်ကုန်', route: '/charcoal' },
-  { label: 'Printing Services', labelMm: 'ပုံနှိပ်ဝန်ဆောင်မှုများ', route: '/printing-services' },
+  { label: 'Activated Carbon', labelMm: 'အက်တီဗိတ်တက် ကာဗွန်', route: '/charcoal' },
+  { label: 'Printing Services', labelMm: 'ပုံနှိပ်နှင့် စာရေးကိရိယာ', route: '/printing-services' },
   { label: 'Gallery', labelMm: 'ဓာတ်ပုံပြခန်း', route: '/gallery' },
   { label: 'Contact Us', labelMm: 'ဆက်သွယ်ရန်', route: '/contact' },
 ];
@@ -20,11 +20,13 @@ export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] =
 export interface LanguageToggleSwitchProps {
   className?: string;
   compact?: boolean;
+  variant?: 'light' | 'dark';
 }
 
 export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
   className = '',
   compact = false,
+  variant = 'light',
 }) => {
   const { lang, isMm, setLang, toggleLang, t } = useLanguage();
 
@@ -36,6 +38,8 @@ export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
       setLang(targetLang);
     }
   };
+
+  const isDark = variant === 'dark';
 
   return (
     <div
@@ -63,43 +67,51 @@ export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
           setLang('mm');
         }
       }}
-      className={`group relative inline-flex items-center bg-[#F6F8F3] hover:bg-[#EDF3E8] border border-[#DDE5D9] hover:border-[#245C3A]/60 rounded-full p-1 shrink-0 cursor-pointer select-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173D2A] ${className}`}
+      className={`group relative inline-flex items-center rounded-full p-0.5 shrink-0 cursor-pointer select-none transition-all duration-200 ${
+        isDark
+          ? 'bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 hover:border-[#A8D977]/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A8D977]'
+          : 'bg-[#F6F8F3] hover:bg-[#EDF3E8] border border-[#DDE5D9] hover:border-[#245C3A]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173D2A]'
+      } ${className}`}
     >
       <span
-        className={`inline-flex items-center justify-center text-[#245C3A] shrink-0 ${
-          compact ? 'pl-1.5 pr-1' : 'pl-2 pr-1.5'
-        }`}
+        className={`inline-flex items-center justify-center shrink-0 ${
+          isDark ? 'text-[#A8D977]' : 'text-[#245C3A]'
+        } ${compact ? 'pl-2 pr-1' : 'pl-2.5 pr-1.5'}`}
         aria-hidden="true"
       >
         <Globe className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-12" />
       </span>
 
       {/* Interactive Sliding Toggle Track */}
-      <div className="relative grid grid-cols-2 items-center rounded-full bg-white/80 border border-[#DDE5D9]/80 p-0.5 min-w-[116px] sm:min-w-[128px]">
+      <div
+        className={`relative grid grid-cols-2 items-center rounded-full p-0.5 ${
+          isDark
+            ? 'bg-black/25 min-w-[108px] sm:min-w-[116px]'
+            : 'bg-white/90 border border-[#DDE5D9]/80 min-w-[116px] sm:min-w-[124px]'
+        }`}
+      >
         {/* Sliding Thumb Indicator */}
         <span
           aria-hidden="true"
-          className={`pointer-events-none absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] rounded-full bg-[#173D2A] shadow-xs transition-transform duration-200 ease-out ${
-            isMm ? 'translate-x-full' : 'translate-x-0'
-          }`}
+          className={`pointer-events-none absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] rounded-full shadow-xs transition-transform duration-200 ease-out ${
+            isDark ? 'bg-[#A8D977]' : 'bg-[#173D2A]'
+          } ${isMm ? 'translate-x-full' : 'translate-x-0'}`}
         />
 
         <button
           type="button"
           tabIndex={-1}
           onClick={(e) => handleSegmentClick('en', e)}
-          className={`relative z-10 px-2.5 py-1 text-[11px] sm:text-xs font-bold rounded-full transition-colors duration-200 cursor-pointer text-center whitespace-nowrap flex items-center justify-center gap-1 ${
+          className={`relative z-10 px-2.5 py-0.5 text-[11px] font-bold rounded-full transition-colors duration-200 cursor-pointer text-center whitespace-nowrap flex items-center justify-center ${
             !isMm
-              ? 'text-white'
+              ? isDark
+                ? 'text-[#112E1F]'
+                : 'text-white'
+              : isDark
+              ? 'text-white/75 hover:text-white'
               : 'text-[#26332B]/75 hover:text-[#173D2A]'
           }`}
         >
-          {!isMm && (
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-[#A8D977] shrink-0"
-              aria-hidden="true"
-            />
-          )}
           <span>EN</span>
         </button>
 
@@ -107,18 +119,16 @@ export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
           type="button"
           tabIndex={-1}
           onClick={(e) => handleSegmentClick('mm', e)}
-          className={`relative z-10 px-2.5 py-1 text-[11px] sm:text-xs font-bold font-myanmar rounded-full transition-colors duration-200 cursor-pointer text-center whitespace-nowrap flex items-center justify-center gap-1 ${
+          className={`relative z-10 px-2.5 py-0.5 text-[11px] font-bold font-myanmar leading-tight rounded-full transition-colors duration-200 cursor-pointer text-center whitespace-nowrap flex items-center justify-center ${
             isMm
-              ? 'text-white'
+              ? isDark
+                ? 'text-[#112E1F]'
+                : 'text-white'
+              : isDark
+              ? 'text-white/75 hover:text-white'
               : 'text-[#26332B]/75 hover:text-[#173D2A]'
           }`}
         >
-          {isMm && (
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-[#A8D977] shrink-0"
-              aria-hidden="true"
-            />
-          )}
           <span>မြန်မာ</span>
         </button>
       </div>
@@ -144,7 +154,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   return (
     <nav
       aria-label="Primary Navigation"
-      className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#26332B]"
+      className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-sm font-medium text-[#26332B]"
     >
       {NAV_ITEMS.map((item) => {
         const isActive = !isNotFound && currentRoute === item.route;
@@ -272,70 +282,83 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
   onOpenInquiry,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isMm, toggleLang, t } = useLanguage();
+  const { isMm, t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#DDE5D9]">
       {/* Executive Corporate Top Utility Bar */}
-      <div className="hidden md:block bg-[#112E1F] text-white/85 border-b border-white/10">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-3 min-w-0">
+      <div className="hidden md:block bg-[#112E1F] text-white/90 border-b border-white/10">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[42px] py-1.5 flex items-center justify-between gap-4 text-xs">
+          {/* Left Zone: Verified Office Location & Official Email */}
+          <div className="flex items-center gap-3.5 min-w-0">
             <a
               href="/contact"
               onClick={(e) => {
                 e.preventDefault();
                 onNavigate('/contact');
               }}
-              className="relative inline-flex items-center gap-1.5 text-white/90 hover:text-[#A8D977] transition-colors overflow-hidden max-w-[260px] sm:max-w-[360px] lg:max-w-[440px] cursor-pointer text-left"
-              title="Central Tower, 11th Floor (Room 1103), Kyauktada Township, Yangon"
+              className="group inline-flex items-center gap-2 text-white/85 hover:text-white transition-colors min-w-0 cursor-pointer"
+              title={t(COMPANY_INFO.address.full, COMPANY_INFO.address.fullMm)}
             >
-              <MapPin className="relative z-10 w-3.5 h-3.5 text-[#A8D977] bg-[#112E1F] shrink-0" />
-              <span className="animate-slide-ltr hover:drop-shadow-sm underline-offset-4 hover:underline">
+              <span className="w-5 h-5 rounded-full bg-[#A8D977]/15 border border-[#A8D977]/30 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
+                <MapPin className="w-3 h-3" />
+              </span>
+              <span
+                className={`truncate max-w-[280px] lg:max-w-[380px] xl:max-w-[460px] ${
+                  isMm ? 'font-myanmar text-[11.5px] leading-relaxed' : 'text-xs font-medium'
+                }`}
+              >
                 {t(
                   COMPANY_INFO.address.shortAddress,
                   COMPANY_INFO.address.shortAddressMm
                 )}
               </span>
             </a>
+
+            <span
+              className="hidden xl:block h-3.5 w-px bg-white/15 shrink-0"
+              aria-hidden="true"
+            />
+
+            <a
+              href={COMPANY_INFO.emailHref}
+              className="hidden xl:inline-flex items-center gap-1.5 text-white/80 hover:text-[#A8D977] transition-colors shrink-0"
+              title={t('Send us an email', 'အီးမေးလ်ပေးပို့ရန်')}
+            >
+              <Mail className="w-3.5 h-3.5 text-[#A8D977] shrink-0" />
+              <span className="font-mono-tabular text-[11.5px] font-medium">
+                {COMPANY_INFO.email}
+              </span>
+            </a>
           </div>
 
+          {/* Right Zone: Direct Hotline & Sleek Language Switcher */}
           <div className="flex items-center gap-3.5 shrink-0">
-            <span className="hidden xl:inline text-white/70">
-              {t(
-                '100% Natural Myanmar Bamboo · One-Stop Offset Printing',
-                '၁၀၀% သဘာဝမြန်မာ့ဝါးထုတ်ကုန် · အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
-              )}
-            </span>
-            <span className="hidden xl:inline text-white/25" aria-hidden="true">
-              |
-            </span>
-            <button
-              type="button"
-              onClick={toggleLang}
-              className="inline-flex items-center gap-1.5 text-[11px] text-white/80 hover:text-[#A8D977] transition-colors cursor-pointer"
-              title={t('Switch to Burmese (မြန်မာ)', 'Switch to English')}
-            >
-              <Globe className="w-3 h-3 text-[#A8D977]" />
-              <span>
-                {t('Language: English (Switch to မြန်မာ)', 'ဘာသာစကား - မြန်မာ (Switch to EN)')}
-              </span>
-            </button>
-            <span className="text-white/25" aria-hidden="true">
-              |
-            </span>
             <a
               href={COMPANY_INFO.telephoneHref}
-              className="inline-flex items-center gap-1.5 font-mono-tabular font-bold text-[#A8D977] hover:text-white transition-colors"
+              className="group inline-flex items-center gap-2 text-white/90 hover:text-[#A8D977] transition-colors"
+              title={t('Call our Yangon Head Office', 'ရန်ကုန်ရုံးချုပ်သို့ ဖုန်းခေါ်ဆိုရန်')}
             >
-              <Phone className="w-3.5 h-3.5" />
-              <span>{COMPANY_INFO.telephone}</span>
+              <span className="w-5 h-5 rounded-full bg-[#A8D977]/15 border border-[#A8D977]/30 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
+                <Phone className="w-3 h-3" />
+              </span>
+              <span className="font-mono-tabular font-bold tracking-tight text-white group-hover:text-[#A8D977] transition-colors">
+                {COMPANY_INFO.telephone}
+              </span>
             </a>
+
+            <span
+              className="h-4 w-px bg-white/15 shrink-0"
+              aria-hidden="true"
+            />
+
+            <LanguageToggleSwitch variant="dark" compact />
           </div>
         </div>
       </div>
 
       {/* Main Navigation Row */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Zone 1: Official TB Star Company Limited Logo + Brand Title */}
         <a
           href="/"
@@ -376,17 +399,15 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
           onNavigate={onNavigate}
         />
 
-        {/* Zone 3: Language Toggle Switch + Primary Action Button + Mobile Menu Button */}
+        {/* Zone 3: Primary Action Button + Mobile Menu Button */}
         <div className="flex items-center gap-2.5 shrink-0">
-          <LanguageToggleSwitch />
-
           <a
             href="/contact"
             onClick={(e) => {
               e.preventDefault();
               onOpenInquiry();
             }}
-            className="hidden sm:inline-flex items-center justify-center px-3.5 xl:px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
           </a>
@@ -468,14 +489,14 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                   {t(COMPANY_INFO.name, 'TBStar Company Limited')}
                 </span>
                 <span className="text-xs text-[#A8D977] block">
-                  {t('Yangon, Myanmar', 'ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ')}
+                  {t('Established in 2013 · Yangon, Myanmar', '၂၀၁၃ ခုနှစ်တွင် တည်ထောင်သည် · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ')}
                 </span>
               </div>
             </a>
             <p className="text-sm text-white/80 leading-relaxed mb-4">
               {t(
-                `${COMPANY_INFO.name} manufactures natural bamboo products for domestic distribution in Myanmar and international export markets, and provides one-stop offset printing services.`,
-                'TBStar Company Limited သည် သဘာဝဝါးထုတ်ကုန်များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များအတွက် ထုတ်လုပ်တင်ပို့ပြီး တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုကိုလည်း ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                `Established in 2013, ${COMPANY_INFO.name} has been operating in Myanmar, serving domestic and international customers through its bamboo products and printing services businesses.`,
+                '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်လုပ်ငန်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ မိတ်ဖက်များအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။'
               )}
             </p>
             <p className="text-xs font-mono-tabular text-[#A8D977]">
@@ -534,7 +555,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
-                      {t('Bamboo Split (3 mm · 20"–48")', 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")')}
+                      {t('Bamboo Split (50 / 100 pcs per bundle)', 'ဝါးခြမ်းပြား (တစ်စည်း 50 / 100 pcs)')}
                     </a>
                   </li>
                   <li>
@@ -551,18 +572,6 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                   </li>
                   <li>
                     <a
-                      href="/bamboo-products#product-other-bamboo"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateAndScroll('/bamboo-products', 'product-other-bamboo');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Other Bamboo Products', 'အခြား ဝါးထုတ်ကုန်များ')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
                       href="/charcoal"
                       onClick={(e) => {
                         e.preventDefault();
@@ -570,7 +579,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                       }}
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
-                      {t('Charcoal Products', 'မီးသွေးထုတ်ကုန် (Charcoal)')}
+                      {t('Activated Carbon', 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)')}
                     </a>
                   </li>
                 </ul>
@@ -578,7 +587,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 
               <div>
                 <p className="text-xs font-semibold text-[#A8D977] mb-1.5">
-                  {t('Offset Printing Services', 'အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများ')}
+                  {t('Printing Services & Stationery', 'ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုများ')}
                 </p>
                 <ul className="space-y-1.5 text-white/80">
                   <li>
@@ -615,6 +624,18 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                       className="hover:text-white transition-colors text-left cursor-pointer block"
                     >
                       {t('Other Offset Printing Services', 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ')}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/printing-services#product-ball-pen"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigateAndScroll('/printing-services', 'product-ball-pen');
+                      }}
+                      className="hover:text-white transition-colors text-left cursor-pointer block"
+                    >
+                      {t('Ball Pen (Klick: 30 pcs/box · Plano: 50 pcs/box)', 'ဘောပင် · Ball Pen (Klick / Plano)')}
                     </a>
                   </li>
                 </ul>

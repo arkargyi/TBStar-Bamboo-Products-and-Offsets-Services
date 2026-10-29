@@ -30,30 +30,30 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
       <HeroSection
         breadcrumbs={[
           { label: 'Home', route: '/' },
-          { label: 'Charcoal', route: '/charcoal' },
+          { label: 'Activated Carbon', route: '/charcoal' },
         ]}
         onNavigate={onNavigate}
-        kicker="TB Star Company Limited · Charcoal Supply & Trade Inquiries"
-        kickerMm="TBStar Company Limited · မီးသွေးထုတ်ကုန် ဖြန့်ဖြူးရေးနှင့် ဆက်သွယ်စုံစမ်းရန်"
-        title="Charcoal Products & Commercial Inquiries"
-        titleMm="မီးသွေးထုတ်ကုန်များနှင့် လုပ်ငန်းသုံး ဆက်သွယ်စုံစမ်းရန်"
-        description="Contact TB Star Company Limited in Yangon, Myanmar for Charcoal product inquiries. Our team coordinates directly with buyers regarding current availability and commercial requirements."
-        descriptionMm="မီးသွေးထုတ်ကုန် (Charcoal) နှင့် ပတ်သက်၍ ပြည်တွင်းနှင့် စီးပွားရေးလုပ်ငန်းသုံး လိုအပ်ချက်များအတွက် TBStar Company Limited ၏ ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
+        kicker="TB Star Company Limited · Activated Carbon · Commercial Inquiries"
+        kickerMm="TBStar Company Limited · အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) · ဆက်သွယ်စုံစမ်းရန်"
+        title="Activated Carbon & Commercial Inquiries"
+        titleMm="အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) နှင့် လုပ်ငန်းသုံး ဆက်သွယ်စုံစမ်းရန်"
+        description="Contact TB Star Company Limited in Yangon, Myanmar for Activated Carbon inquiries. Detailed Activated Carbon product information will be published as specifications are finalized."
+        descriptionMm="အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) နှင့် ပတ်သက်၍ စီးပွားရေးလုပ်ငန်းသုံး စုံစမ်းမေးမြန်းမှုများအတွက် TBStar Company Limited ၏ ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
         actions={
           <>
             <Button
               type="button"
               variant="primary-light"
-              href="/contact?inquiry=Charcoal"
-              onClick={() => onInquireWithCategory('Charcoal', true)}
+              href="/contact?inquiry=Activated%20Carbon"
+              onClick={() => onInquireWithCategory('Activated Carbon', true)}
             >
-              {t('Inquire About Charcoal', 'မီးသွေးထုတ်ကုန် မေးမြန်းရန်')}
+              {t('Inquire About Activated Carbon', 'Activated Carbon မေးမြန်းရန်')}
               <ArrowRight className="w-4 h-4" />
             </Button>
             <Button
               type="button"
               variant="outline-light"
-              onClick={() => onInquireWithCategory('Charcoal', false)}
+              onClick={() => onInquireWithCategory('Activated Carbon', false)}
             >
               {t('Quick Inquiry Modal', 'အမြန် မေးမြန်းရန်')}
             </Button>
@@ -85,7 +85,7 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
               className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors inline-flex items-center gap-2"
             >
               <BambooProductIcon type="bamboo-split" className="w-4 h-4 shrink-0" />
-              <span>{t('Bamboo Split (3 mm)', 'ဝါးခြမ်းပြား (3 mm)')}</span>
+              <span>{t('Bamboo Split (50 / 100 pcs/bundle)', 'ဝါးခြမ်းပြား (50 / 100 pcs/bundle)')}</span>
             </a>
             <a
               href="/bamboo-products#product-bamboo-sticks"
@@ -107,7 +107,7 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
               className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors inline-flex items-center gap-2"
             >
               <PrintingServiceIcon type="books-printing" className="w-4 h-4 shrink-0" />
-              <span>{t('Offset Printing Services', 'အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှု')}</span>
+              <span>{t('Printing Services & Stationery', 'ပုံနှိပ်နှင့် စာရေးကိရိယာ')}</span>
             </a>
           </div>
 
@@ -121,10 +121,10 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
         </div>
       </div>
 
-      {/* Main Charcoal Product Information & Verified Details Section */}
+      {/* Main Activated Carbon Category Information Section */}
       <section
-        id="charcoal-overview"
-        aria-labelledby="charcoal-heading"
+        id="activated-carbon-overview"
+        aria-labelledby="activated-carbon-heading"
         className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]"
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -153,9 +153,9 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
                   </div>
                   <div>
                     <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
-                      {t('VERIFIED PRODUCT LINE · ORIGIN: MYANMAR', 'တရားဝင် ထုတ်ကုန်ကဏ္ဍ · မြန်မာနိုင်ငံ')}
+                      {t('PRODUCT CATEGORY · TB STAR COMPANY LIMITED', 'ကုန်ပစ္စည်းကဏ္ဍ · TBStar Company Limited')}
                     </p>
-                    <h2 id="charcoal-heading" className="text-2xl font-bold text-[#173D2A]">
+                    <h2 id="activated-carbon-heading" className="text-2xl font-bold text-[#173D2A]">
                       {isMm ? CHARCOAL_PRODUCT_INFO.nameMm : CHARCOAL_PRODUCT_INFO.name}
                     </h2>
                   </div>
@@ -171,16 +171,16 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
                   <Button
                     type="button"
                     variant="primary-dark"
-                    href="/contact?inquiry=Charcoal"
-                    onClick={() => onInquireWithCategory('Charcoal', true)}
+                    href="/contact?inquiry=Activated%20Carbon"
+                    onClick={() => onInquireWithCategory('Activated Carbon', true)}
                   >
-                    {t('Send Charcoal Inquiry', 'မီးသွေးထုတ်ကုန် မေးမြန်းရန်')}
+                    {t('Send Activated Carbon Inquiry', 'Activated Carbon မေးမြန်းရန်')}
                     <ArrowRight className="w-4 h-4 text-[#A8D977]" />
                   </Button>
                   <Button
                     type="button"
                     variant="outline-dark"
-                    onClick={() => onInquireWithCategory('Charcoal', false)}
+                    onClick={() => onInquireWithCategory('Activated Carbon', false)}
                   >
                     {t('Open Quick Inquiry', 'အမြန် မေးမြန်းရန်')}
                   </Button>
@@ -188,17 +188,17 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Verified Product Information Table & How to Inquire */}
+            {/* Right Column: Category Information Table & Direct Inquiry Guidance */}
             <div className="lg:col-span-7 space-y-6">
               <ProductSpecificationTable
-                title="Charcoal — Verified Product Information"
-                titleMm="မီးသွေးထုတ်ကုန် (Charcoal) — တရားဝင် အချက်အလက်ဇယား"
-                subtitle="VERIFIED CORPORATE PRODUCT INFORMATION · MYANMAR"
-                subtitleMm="တရားဝင် ကုန်ပစ္စည်းအချက်အလက် · TBStar Company Limited"
+                title="Activated Carbon — Category Overview"
+                titleMm="အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) — ကုန်ပစ္စည်းကဏ္ဍ အချက်အလက်"
+                subtitle="CORPORATE PRODUCT CATEGORY · TB STAR COMPANY LIMITED"
+                subtitleMm="တရားဝင် ကုန်ပစ္စည်းကဏ္ဍ အချက်အလက် · TBStar Company Limited"
                 specifications={CHARCOAL_PRODUCT_INFO.specifications}
-                onInquire={() => onInquireWithCategory('Charcoal', true)}
-                inquireLabel="Inquire: Charcoal"
-                inquireLabelMm="မီးသွေးထုတ်ကုန် မေးမြန်းရန်"
+                onInquire={() => onInquireWithCategory('Activated Carbon', true)}
+                inquireLabel="Inquire: Activated Carbon"
+                inquireLabelMm="Activated Carbon မေးမြန်းရန်"
               />
 
               {/* Direct Consultation Guidelines */}
@@ -211,30 +211,30 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
                 </p>
                 <h3 className="text-xl font-bold text-[#173D2A] mb-3">
                   {t(
-                    'How to Inquire About Charcoal Supply',
-                    'မီးသွေးထုတ်ကုန် မှာယူရန်နှင့် အသေးစိတ် ဆက်သွယ်မေးမြန်းရန် လမ်းညွှန်'
+                    'Activated Carbon Product Inquiries',
+                    'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ဆက်သွယ်မေးမြန်းရန် လမ်းညွှန်'
                   )}
                 </h3>
                 <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                   {t(
-                    'To ensure accurate commercial coordination, TB Star Company Limited provides specific charcoal supply details directly in response to buyer inquiries. Please share your intended application and order requirements with our Yangon office:',
-                    'ဝယ်ယူသူများ၏ လုပ်ငန်းလိုအပ်ချက်နှင့် တိကျစွာ ကိုက်ညီစေရန် မီးသွေးထုတ်ကုန်ဆိုင်ရာ အသေးစိတ်အချက်အလက်များကို ရန်ကုန်ရုံးချုပ်မှ တိုက်ရိုက် ဖြေကြားဆောင်ရွက်ပေးပါသည်။ ဆက်သွယ်မေးမြန်းရာတွင် အောက်ပါအချက်များကို ထည့်သွင်းပေးပို့နိုင်ပါသည် -'
+                    'Detailed Activated Carbon product specifications will be added in an upcoming catalog update. In the meantime, prospective buyers and business partners may contact our Yangon headquarters directly with their inquiry details:',
+                    'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ၏ အသေးစိတ် ကုန်ပစ္စည်းစံချိန်စံညွှန်းများကို ဆက်လက်ဖော်ပြပေးသွားမည်ဖြစ်ပြီး လုပ်ငန်းရှင်များနှင့် မိတ်ဖက်များအနေဖြင့် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည် -'
                   )}
                 </p>
 
                 <ul className="space-y-3 text-sm text-[#173D2A] font-medium mb-6">
                   {[
                     {
-                      en: 'Specify your required application (commercial, domestic distribution, or trade inquiry)',
-                      mm: 'အသုံးပြုမည့် လုပ်ငန်းကဏ္ဍ (ပြည်တွင်းဖြန့်ဖြူးရေး သို့မဟုတ် လုပ်ငန်းသုံး လိုအပ်ချက်)',
+                      en: 'Select "Activated Carbon" in our online inquiry form and describe your inquiry requirements',
+                      mm: 'Online Inquiry Form တွင် "Activated Carbon" ကဏ္ဍကို ရွေးချယ်၍ မေးမြန်းလိုသည့် အချက်အလက်များ ပေးပို့နိုင်ခြင်း',
                     },
                     {
-                      en: 'Indicate your preferred order quantity, delivery destination, and schedule',
-                      mm: 'မှာယူလိုသည့် ပမာဏ၊ ပို့ဆောင်ရမည့် ဒေသနှင့် အချိန်ကာလ',
+                      en: 'Include your company name, contact details, and inquiry message for direct follow-up',
+                      mm: 'ကုမ္ပဏီအမည်၊ ဆက်သွယ်ရန် ဖုန်းနံပါတ်နှင့် အီးမေးလ်လိပ်စာတို့ကို ထည့်သွင်းပေးပို့နိုင်ခြင်း',
                     },
                     {
-                      en: 'Reach our Kyauktada Township, Yangon office via the online inquiry form, telephone, WhatsApp, or email',
-                      mm: 'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်သို့ Online Inquiry Form၊ ဖုန်း၊ WhatsApp သို့မဟုတ် အီးမေးလ်ဖြင့် တိုက်ရိုက်ဆက်သွယ်နိုင်ခြင်း',
+                      en: 'Reach our Kyauktada Township, Yangon office directly via telephone, WhatsApp, or email',
+                      mm: 'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်သို့ ဖုန်း၊ WhatsApp သို့မဟုတ် အီးမေးလ်ဖြင့် တိုက်ရိုက်ဆက်သွယ်နိုင်ခြင်း',
                     },
                   ].map((item) => (
                     <li key={item.en} className="flex items-start gap-2.5">
@@ -249,10 +249,10 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
                     type="button"
                     variant="primary-dark"
                     size="sm"
-                    href="/contact?inquiry=Charcoal"
-                    onClick={() => onInquireWithCategory('Charcoal', true)}
+                    href="/contact?inquiry=Activated%20Carbon"
+                    onClick={() => onInquireWithCategory('Activated Carbon', true)}
                   >
-                    {t('Submit Charcoal Inquiry Form', 'မေးမြန်းလွှာ ဖောင်ဖြည့်ရန်')}
+                    {t('Submit Activated Carbon Inquiry', 'မေးမြန်းလွှာ ဖောင်ဖြည့်ရန်')}
                     <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
                   </Button>
                   <a
@@ -293,8 +293,8 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
             kickerMm="ဆက်စပ် ထုတ်ကုန်များ · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ"
             title="Explore Our Natural Bamboo Split & Bamboo Sticks"
             titleMm="ကျွန်ုပ်တို့၏ သဘာဝ ဝါးခြမ်းပြား (Bamboo Split) နှင့် ဝါးတံ (Bamboo Sticks) များ"
-            description="In addition to Charcoal inquiries, review our verified dimensional specifications for 100% natural Myanmar Bamboo Split and Bamboo Sticks."
-            descriptionMm="မီးသွေးထုတ်ကုန်များအပြင် ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြားနှင့် ဝါးတံ စံချိန်စံညွှန်းများကိုလည်း လေ့လာနိုင်ပါသည်။"
+            description="Review our verified specifications for 100% natural Myanmar Bamboo Split (With Nodes: 50 pcs/bundle; Without Nodes: 100 pcs/bundle) and Bamboo Sticks (30 kg/bag)."
+            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs · အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) စံချိန်စံညွှန်းများကိုလည်း လေ့လာနိုင်ပါသည်။"
             action={
               <Button
                 type="button"
@@ -309,7 +309,7 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {BAMBOO_PRODUCTS.slice(0, 2).map((prod) => (
+            {BAMBOO_PRODUCTS.map((prod) => (
               <div
                 key={prod.id}
                 className="bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 flex flex-col justify-between transition-colors shadow-2xs"

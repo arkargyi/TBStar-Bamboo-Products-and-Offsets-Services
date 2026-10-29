@@ -82,8 +82,8 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             <div className="lg:col-span-8">
               <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1.5">
                 {t(
-                  'TB STAR COMPANY LIMITED · YANGON, MYANMAR',
-                  'TBStar Company Limited · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
+                  'TB STAR COMPANY LIMITED · ESTABLISHED 2013 · YANGON, MYANMAR',
+                  'TBStar Company Limited · ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်သည် · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
                 )}
               </p>
               <h2 className="text-2xl font-bold text-[#173D2A] mb-3">
@@ -95,18 +95,18 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                 {isMm ? (
                   <>
-                    <strong>{COMPANY_INFO.nameMm}</strong> သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (Bamboo Split) နှင့် တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ရောင်းချလျက်ရှိပါသည်။
+                    ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော <strong>{COMPANY_INFO.nameMm}</strong> သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (Bamboo Split — အဆစ်ပါ တစ်စည်း ၅၀ ချောင်း / အဆစ်မပါ တစ်စည်း ၁၀၀ ချောင်း) နှင့် တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ရောင်းချလျက်ရှိပါသည်။
                   </>
                 ) : (
                   <>
-                    <strong>{COMPANY_INFO.name}</strong> manufactures 100% natural Myanmar Bamboo Split (3 mm thickness, 20&quot;–48&quot;) and Bamboo Sticks (1.2–2.5 mm, 8&quot;/9&quot;/10&quot;, packed at 30 kg per bag) for domestic distribution and international export.
+                    Established in 2013, <strong>{COMPANY_INFO.name}</strong> manufactures 100% natural Myanmar Bamboo Split (With Nodes: 50 pcs per bundle; Without Nodes: 100 pcs per bundle) and Bamboo Sticks (1.2–2.5 mm, 8&quot;/9&quot;/10&quot;, packed at 30 kg per bag) for domestic distribution and international export.
                   </>
                 )}
               </p>
               <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                 {t(
-                  'Alongside bamboo production and export, our commercial press division delivers one-stop offset printing services for books, commercial voucher books, corporate brochures, and office stationery.',
-                  'ထို့အပြင် စာအုပ်များ၊ လုပ်ငန်းသုံးဘောင်ချာစာအုပ်များ၊ လက်ကမ်းစာစောင်များနှင့် ရုံးသုံးပုံနှိပ်ပစ္စည်းအမျိုးမျိုးကိုလည်း တစ်နေရာတည်းတွင် အပြီးအစီး (One-Stop Offset Printing Service) တာဝန်ယူ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                  'Alongside bamboo production and Activated Carbon inquiries, our commercial press division delivers one-stop offset printing services for books, commercial voucher books, corporate brochures, and office stationery including Ball Pens (Klick: 30 pcs per box; Plano: 50 pcs per box).',
+                  'ထို့အပြင် Activated Carbon ကဏ္ဍ၊ စာအုပ်များ၊ လုပ်ငန်းသုံးဘောင်ချာစာအုပ်များ၊ လက်ကမ်းစာစောင်များနှင့် ဘောပင် (Ball Pen — Klick တစ်ဘူး ၃၀ ချောင်း / Plano တစ်ဘူး ၅၀ ချောင်း) အပါအဝင် ရုံးသုံးပုံနှိပ်နှင့် စာရေးကိရိယာအမျိုးမျိုးကိုလည်း တစ်နေရာတည်းတွင် အပြီးအစီး ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
                 )}
               </p>
 
