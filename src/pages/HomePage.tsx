@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { ArrowRight, Check, Globe2, Phone, ShieldCheck } from 'lucide-react';
 import {
-  BAMBOO_PRODUCTS,
   COMPANY_INFO,
   EXPORT_AND_DOMESTIC_MARKETS,
+  filterProductsBySearchQuery,
   GALLERY_PREVIEW_ITEMS,
+  getFeaturedProducts,
+  getProductByIdOrSlug,
+  getPublishedPrintingServices,
+  getPublishedProducts,
   INDUSTRIES_SERVED,
   InquiryTypeOption,
   PAGE_BACKGROUNDS,
   PageRoute,
-  PRINTING_SERVICES,
+  ProductCategoryId,
   QUALITY_AND_STANDARDS,
   WHY_CHOOSE_US_ITEMS,
 } from '../constants/companyData';
@@ -23,6 +27,8 @@ import {
   ContactCTA,
   GalleryGrid,
   ProductCard,
+  ProductSearchBar,
+  ProductSearchEmptyState,
   ServiceCard,
 } from '../components/CatalogComponents';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
@@ -38,7 +44,44 @@ export const HomePage: React.FC<HomePageProps> = ({
   onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
+  const [productSearchQuery, setProductSearchQuery] = useState('');
+  const [selectedProductCategory, setSelectedProductCategory] = useState<
+    'all' | ProductCategoryId
+  >('bamboo');
+
   const homeBg = PAGE_BACKGROUNDS['/'];
+  const featuredBambooProducts = getFeaturedProducts('bamboo');
+  const allPublishedProducts = useMemo(() => getPublishedProducts(), []);
+  const activatedCarbonProduct = getProductByIdOrSlug('activated-carbon');
+  const publishedPrintingServices = getPublishedPrintingServices();
+  const ballPenProduct = getProductByIdOrSlug('ball-pen');
+
+  const baseProductsForCategory = useMemo(
+    () =>
+      selectedProductCategory === 'all'
+        ? allPublishedProducts
+        : selectedProductCategory === 'bamboo' && !productSearchQuery.trim()
+        ? featuredBambooProducts
+        : allPublishedProducts.filter(
+            (p) => p.categoryKey === selectedProductCategory
+          ),
+    [
+      allPublishedProducts,
+      featuredBambooProducts,
+      productSearchQuery,
+      selectedProductCategory,
+    ]
+  );
+
+  const displayedProducts = useMemo(
+    () =>
+      filterProductsBySearchQuery(
+        allPublishedProducts,
+        productSearchQuery,
+        selectedProductCategory
+      ),
+    [allPublishedProducts, productSearchQuery, selectedProductCategory]
+  );
 
   return (
     <div>
@@ -129,8 +172,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </p>
                   <p>
                     {t(
-                      'Bamboo Split (50/100 pcs/bundle) & Sticks (30 kg/bag)',
-                      'ဝါးခြမ်းပြား (50/100 pcs/bundle) နှင့် ဝါးတံ (30 kg/bag)'
+                      'Bamboo Split (3 mm · 20"–48") & Sticks (30 kg/bag)',
+                      'ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (30 kg/bag)'
                     )}
                   </p>
                 </div>
@@ -277,8 +320,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
                     {[
-                      { en: 'Bamboo Split (With Nodes: 50 pcs/bundle)', mm: 'ဝါးခြမ်းပြား (အဆစ်ပါ - တစ်စည်း 50 pcs)' },
-                      { en: 'Bamboo Split (Without Nodes: 100 pcs/bundle)', mm: 'ဝါးခြမ်းပြား (အဆစ်မပါ - တစ်စည်း 100 pcs)' },
+                      { en: 'Bamboo Split (3 mm · 20"–48")', mm: 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")' },
+                      { en: 'With Nodes or Without Nodes options', mm: 'အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ရွေးချယ်နိုင်ခြင်း' },
                       { en: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10")', mm: 'ဝါးတံ (အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀")' },
                       { en: 'Standard 30 kg/bag packaging', mm: 'တစ်အိတ် 30 kg စံနှုန်းထုပ်ပိုးမှု' },
                       { en: 'Domestic Myanmar distribution', mm: 'ပြည်တွင်းဖြန့်ဖြူးရေး' },
@@ -418,68 +461,110 @@ export const HomePage: React.FC<HomePageProps> = ({
             }
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            {BAMBOO_PRODUCTS.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                useFeaturedImage={true}
-                onInquireProduct={(type) => onInquireWithCategory(type, true)}
-                onViewDetails={() => onNavigate('/bamboo-products')}
-              />
-            ))}
-          </div>
+          <ProductSearchBar
+            query={productSearchQuery}
+            onQueryChange={(nextQuery) => {
+              setProductSearchQuery(nextQuery);
+              if (nextQuery.trim() && selectedProductCategory === 'bamboo') {
+                // When searching from the home page, check if query matches outside bamboo and expand to 'all' if bamboo has 0 matches
+                const bambooMatches = filterProductsBySearchQuery(
+                  allPublishedProducts,
+                  nextQuery,
+                  'bamboo'
+                );
+                if (bambooMatches.length === 0) {
+                  const allMatches = filterProductsBySearchQuery(
+                    allPublishedProducts,
+                    nextQuery,
+                    'all'
+                  );
+                  if (allMatches.length > 0) {
+                    setSelectedProductCategory('all');
+                  }
+                }
+              }
+            }}
+            totalCount={baseProductsForCategory.length}
+            resultCount={displayedProducts.length}
+            selectedCategory={selectedProductCategory}
+            onCategoryChange={setSelectedProductCategory}
+            showCategoryTabs={true}
+            inputId="home-page-product-search"
+          />
+
+          {displayedProducts.length > 0 ? (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+              {displayedProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  useFeaturedImage={true}
+                  onInquireProduct={(type) => onInquireWithCategory(type, true)}
+                  onViewDetails={() => onNavigate(product.route)}
+                />
+              ))}
+            </div>
+          ) : (
+            <ProductSearchEmptyState
+              query={productSearchQuery}
+              onReset={() => {
+                setProductSearchQuery('');
+                setSelectedProductCategory('bamboo');
+              }}
+            />
+          )}
 
           {/* Dedicated Activated Carbon Product Page Cross-Link Banner */}
-          <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="flex items-start gap-4 max-w-3xl">
-              <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
-                <BambooProductIcon type="charcoal" className="w-6 h-6" />
+          {activatedCarbonProduct && (
+            <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div className="flex items-start gap-4 max-w-3xl">
+                <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
+                  <BambooProductIcon type={activatedCarbonProduct.visualType} className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                    {t(
+                      'ADDITIONAL PRODUCT CATEGORY · ACTIVATED CARBON',
+                      'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (ACTIVATED CARBON)'
+                    )}
+                  </p>
+                  <h3 className="text-xl font-bold text-[#173D2A] mb-1.5">
+                    {t(
+                      'Looking for Activated Carbon?',
+                      'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) အတွက် ဆက်သွယ်စုံစမ်းလိုပါသလား?'
+                    )}
+                  </h3>
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed">
+                    {isMm
+                      ? activatedCarbonProduct.shortDescriptionMm
+                      : activatedCarbonProduct.shortDescription}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                  {t(
-                    'ADDITIONAL PRODUCT CATEGORY · ACTIVATED CARBON',
-                    'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (ACTIVATED CARBON)'
-                  )}
-                </p>
-                <h3 className="text-xl font-bold text-[#173D2A] mb-1.5">
-                  {t(
-                    'Looking for Activated Carbon?',
-                    'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) အတွက် ဆက်သွယ်စုံစမ်းလိုပါသလား?'
-                  )}
-                </h3>
-                <p className="text-sm text-[#26332B]/85 leading-relaxed">
-                  {t(
-                    'Visit our Activated Carbon page or contact our Yangon headquarters directly for commercial inquiries.',
-                    'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) စာမျက်နှာသို့ ဝင်ရောက်ကြည့်ရှုနိုင်သလို ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
-                  )}
-                </p>
-              </div>
-            </div>
 
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
-              <Button
-                type="button"
-                variant="primary-dark"
-                size="sm"
-                href="/charcoal"
-                onClick={() => onNavigate('/charcoal')}
-              >
-                {t('Explore Activated Carbon', 'Activated Carbon စာမျက်နှာသို့')}
-                <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
-              </Button>
-              <Button
-                type="button"
-                variant="outline-dark"
-                size="sm"
-                href="/contact?inquiry=Activated%20Carbon"
-                onClick={() => onInquireWithCategory('Activated Carbon', true)}
-              >
-                {t('Inquire About Activated Carbon', 'Activated Carbon မေးမြန်းရန်')}
-              </Button>
+              <div className="flex flex-wrap items-center gap-3 shrink-0">
+                <Button
+                  type="button"
+                  variant="primary-dark"
+                  size="sm"
+                  href={activatedCarbonProduct.route}
+                  onClick={() => onNavigate(activatedCarbonProduct.route)}
+                >
+                  {t('Explore Activated Carbon', 'Activated Carbon စာမျက်နှာသို့')}
+                  <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline-dark"
+                  size="sm"
+                  href={`/contact?inquiry=${encodeURIComponent(activatedCarbonProduct.inquiryType)}`}
+                  onClick={() => onInquireWithCategory(activatedCarbonProduct.inquiryType, true)}
+                >
+                  {t('Inquire About Activated Carbon', 'Activated Carbon မေးမြန်းရန်')}
+                </Button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -507,7 +592,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            {PRINTING_SERVICES.map((service) => (
+            {publishedPrintingServices.map((service) => (
               <ServiceCard
                 key={service.id}
                 service={service}
@@ -518,76 +603,79 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Stationery Product Showcase: Ball Pen (Klick & Plano) */}
-          <div className="mt-10 bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xs">
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-lg overflow-hidden border border-[#DDE5D9] bg-[#F7F3E8]">
-                <img
-                  src="/assets/aistudio/Branding_Image_V2_cc9a2035.webp"
-                  alt="TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) packaging"
-                  width={640}
-                  height={360}
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                  className="w-full aspect-[16/9] object-cover"
-                />
+          {ballPenProduct && (
+            <div className="mt-10 bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xs">
+              <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="rounded-lg overflow-hidden border border-[#DDE5D9] bg-[#F7F3E8]">
+                  <img
+                    src={ballPenProduct.imagePath}
+                    alt={ballPenProduct.imageAlt}
+                    width={640}
+                    height={360}
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                    className="w-full aspect-[16/9] object-cover"
+                  />
+                </div>
+                {ballPenProduct.secondaryImagePath && (
+                  <div className="rounded-lg overflow-hidden border border-[#DDE5D9] bg-[#F7F3E8]">
+                    <img
+                      src={ballPenProduct.secondaryImagePath}
+                      alt={ballPenProduct.secondaryImageAlt || ballPenProduct.imageAlt}
+                      width={640}
+                      height={360}
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      className="w-full aspect-[16/9] object-cover"
+                    />
+                  </div>
+                )}
               </div>
-              <div className="rounded-lg overflow-hidden border border-[#DDE5D9] bg-[#F7F3E8]">
-                <img
-                  src="/assets/aistudio/Branding_Image_V1_c6c098a8.webp"
-                  alt="TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) pen showcase"
-                  width={640}
-                  height={360}
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                  className="w-full aspect-[16/9] object-cover"
-                />
-              </div>
-            </div>
 
-            <div className="lg:col-span-6">
-              <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                {t(
-                  'PRINTING SERVICES & STATIONERY · BALL PEN',
-                  'ပုံနှိပ်နှင့် စာရေးကိရိယာ ကဏ္ဍ · ဘောပင် (BALL PEN)'
-                )}
-              </p>
-              <h3 className="text-xl font-bold text-[#173D2A] mb-2">
-                {t(
-                  'Ball Pen Stationery — Klick (30 pcs per box) & Plano (50 pcs per box)',
-                  'ဘောပင် (Ball Pen) — Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)'
-                )}
-              </h3>
-              <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
-                {t(
-                  'Under our Printing Services & Stationery division, we supply Ball Pen products in two standardized box packaging configurations: Klick (30 pcs per box) and Plano (50 pcs per box).',
-                  'ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်းကဏ္ဍအောက်တွင် Klick (တစ်ဘူးလျှင် 30 pcs) နှင့် Plano (တစ်ဘူးလျှင် 50 pcs) ဟူ၍ အမျိုးအစား (၂) မျိုးဖြင့် Ball Pen စာရေးကိရိယာများကို ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။'
-                )}
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <Button
-                  type="button"
-                  variant="primary-dark"
-                  size="sm"
-                  href="/printing-services"
-                  onClick={() => onNavigate('/printing-services')}
-                >
-                  {t('View Ball Pen Specifications', 'Ball Pen စံချိန်စံညွှန်း ကြည့်ရန်')}
-                  <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline-dark"
-                  size="sm"
-                  href="/contact?inquiry=Ball%20Pen"
-                  onClick={() => onInquireWithCategory('Ball Pen', true)}
-                >
-                  {t('Inquire About Ball Pen', 'Ball Pen မေးမြန်းရန်')}
-                </Button>
+              <div className="lg:col-span-6">
+                <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
+                  {t(
+                    'PRINTING SERVICES & STATIONERY · BALL PEN',
+                    'ပုံနှိပ်နှင့် စာရေးကိရိယာ ကဏ္ဍ · ဘောပင် (BALL PEN)'
+                  )}
+                </p>
+                <h3 className="text-xl font-bold text-[#173D2A] mb-2">
+                  {t(
+                    'Ball Pen Stationery — Klick (30 pcs per box) & Plano (50 pcs per box)',
+                    'ဘောပင် (Ball Pen) — Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)'
+                  )}
+                </h3>
+                <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
+                  {isMm
+                    ? ballPenProduct.shortDescriptionMm
+                    : ballPenProduct.shortDescription}
+                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Button
+                    type="button"
+                    variant="primary-dark"
+                    size="sm"
+                    href={ballPenProduct.route}
+                    onClick={() => onNavigate(ballPenProduct.route)}
+                  >
+                    {t('View Ball Pen Specifications', 'Ball Pen စံချိန်စံညွှန်း ကြည့်ရန်')}
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline-dark"
+                    size="sm"
+                    href={`/contact?inquiry=${encodeURIComponent(ballPenProduct.inquiryType)}`}
+                    onClick={() => onInquireWithCategory(ballPenProduct.inquiryType, true)}
+                  >
+                    {t('Inquire About Ball Pen', 'Ball Pen မေးမြန်းရန်')}
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -623,8 +711,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
               <p className="text-base text-[#26332B]/85 leading-relaxed mb-6">
                 {t(
-                  'With long-term operational experience since 2013, our Bamboo Production and Export division manufactures 100% natural Myanmar bamboo products—including Bamboo Split (With Nodes: 50 pieces per bundle; Without Nodes: 100 pieces per bundle) and Bamboo Sticks (30 kg per bag)—for domestic distribution and international export. Our Printing Services & Stationery division provides one-stop offset printing solutions for Books Printing, Voucher Books Printing, and commercial printing alongside Ball Pen stationery supply (Klick & Plano).',
-                  '၂၀၁၃ ခုနှစ်မှစတင်၍ ရေရှည်လုပ်ငန်းအတွေ့အကြုံများဖြင့် ကျွန်ုပ်တို့၏ ဝါးထုတ်ကုန်ဌာနမှ ၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs / အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ပေးလျက်ရှိပြီး၊ ပုံနှိပ်နှင့် စာရေးကိရိယာဌာနမှ စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                  'With long-term operational experience since 2013, our Bamboo Production and Export division manufactures 100% natural Myanmar bamboo products—including Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (30 kg per bag)—for domestic distribution and international export. Our Printing Services & Stationery division provides one-stop offset printing solutions for Books Printing, Voucher Books Printing, and commercial printing alongside Ball Pen stationery supply (Klick & Plano).',
+                  '၂၀၁၃ ခုနှစ်မှစတင်၍ ရေရှည်လုပ်ငန်းအတွေ့အကြုံများဖြင့် ကျွန်ုပ်တို့၏ ဝါးထုတ်ကုန်ဌာနမှ ၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အထူ 3 mm၊ အရှည် ၂၀" မှ ၄၈"၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) တို့ကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ပေးလျက်ရှိပြီး၊ ပုံနှိပ်နှင့် စာရေးကိရိယာဌာနမှ စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
                 )}
               </p>
 
@@ -884,7 +972,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl overflow-hidden shadow-2xs flex flex-col">
               <VisualAssetFrame
                 type="bamboo-sticks"
-                imagePath="/images/products/bamboo-sticks-wholesale.webp"
+                imagePath="/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp"
                 altText="Bamboo sticks prepared for commercial supply"
                 aspectClassName="aspect-[16/9]"
                 label={t(

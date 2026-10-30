@@ -32,20 +32,32 @@ export const COMPANY_INFO = {
   name: 'TB Star Company Limited',
   nameMm: 'TBStar Company Limited',
   establishedYear: '2013',
-  domain: 'www.tbstar.com.mm',
-  canonicalBase: 'https://www.tbstar.com.mm',
-  telephone: '09 422 479994',
-  telephoneHref: 'tel:+959422479994',
-  whatsappHref: 'https://wa.me/959422479994',
-  email: 'info@tbstar.com.mm',
-  emailHref: 'mailto:info@tbstar.com.mm',
+  domain: 'tbstarcompany.com',
+  canonicalBase: 'https://tbstarcompany.com',
+  telephone: '+95 9 450048547',
+  telephoneInternational: '+95 9 450048547',
+  telephoneHref: 'tel:+959450048547',
+  whatsappHref: 'https://wa.me/959450048547',
   logoPath: '/assets/aistudio/TBStar_073dded3.jpeg',
+  tagline: 'Bamboo Export & Offset Printing',
+  taglineMm: 'ဝါးပို့ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
+  overview:
+    'Established in 2013, TB Star Company Limited has been operating in Myanmar, serving domestic and international customers through its bamboo products and printing services businesses.',
+  overviewMm:
+    '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်လုပ်ငန်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ မိတ်ဖက်များအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။',
+  seoDescription:
+    'Established in 2013, TB Star Company Limited operates in Yangon, Myanmar, supplying 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon inquiries, and one-stop offset printing services and stationery (Klick and Plano Ball Pens).',
   address: {
     line1: 'Room No. 1103, 11th Floor, Central Tower',
     line2: 'Corner of 39th Street and Anawrahta Road',
+    streetAddress:
+      'Room No. 1103, 11th Floor, Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township',
     township: 'Kyauktada Township',
     city: 'Yangon',
+    region: 'Yangon Region',
+    postalCode: '11182',
     country: 'Myanmar',
+    countryCode: 'MM',
     full: 'Room No. 1103, 11th Floor, Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar',
     fullMm:
       'အခန်းအမှတ် (၁၁၀၃)၊ (၁၁) လွှာ၊ Central Tower၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ။',
@@ -123,10 +135,9 @@ export interface PageBackgroundConfig {
 
 export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
   '/': {
-    imagePath:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/A_true_bamboo_forest_%2836443777482%29.jpg/1280px-A_true_bamboo_forest_%2836443777482%29.jpg',
-    publicSourceUrl: '/images/products/bamboo-split-natural.webp',
-    alt: 'Natural green bamboo forest canopy representing TB Star Company Limited natural bamboo and printing businesses',
+    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
     objectPosition: 'object-center',
     estimatedLuminance: 0.78,
     highlightIntensity: 0.86,
@@ -142,10 +153,9 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-70',
   },
   '/about': {
-    imagePath:
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1280&q=80',
-    publicSourceUrl: '/images/products/bamboo-split-natural.webp',
-    alt: 'Modern corporate headquarters architecture representing TB Star Company Limited established in 2013 in Yangon',
+    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
     objectPosition: 'object-center',
     estimatedLuminance: 0.82,
     highlightIntensity: 0.9,
@@ -161,10 +171,9 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-65',
   },
   '/bamboo-products': {
-    imagePath:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sagano_Bamboo_Forest_at_Arashimaya.jpg/1280px-Sagano_Bamboo_Forest_at_Arashimaya.jpg',
-    publicSourceUrl: '/images/products/bamboo-split-main.webp',
-    alt: 'Tall natural green bamboo stalks representing 100% natural Myanmar Bamboo Split and Bamboo Sticks',
+    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
     objectPosition: 'object-center',
     estimatedLuminance: 0.76,
     highlightIntensity: 0.84,
@@ -180,10 +189,9 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-70',
   },
   '/charcoal': {
-    imagePath:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Bamboo_charcoal.jpg/1280px-Bamboo_charcoal.jpg',
-    publicSourceUrl: '/images/products/bamboo-split-texture.webp',
-    alt: 'Carbonized natural bamboo charcoal and activated carbon material texture',
+    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
     objectPosition: 'object-center',
     estimatedLuminance: 0.54,
     highlightIntensity: 0.6,
@@ -199,10 +207,9 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-65',
   },
   '/printing-services': {
-    imagePath:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Offset_printing_press_2.jpg/1280px-Offset_printing_press_2.jpg',
-    publicSourceUrl: '/assets/aistudio/Branding_Image_V2_cc9a2035.webp',
-    alt: 'Commercial multi-unit offset printing press representing TB Star one-stop offset printing services',
+    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
     objectPosition: 'object-center',
     estimatedLuminance: 0.79,
     highlightIntensity: 0.85,
@@ -218,10 +225,9 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-65',
   },
   '/gallery': {
-    imagePath:
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1280&q=80',
-    publicSourceUrl: '/images/products/bamboo-split-featured.webp',
-    alt: 'Organized commercial warehouse and export packaging showcase for TB Star Company Limited',
+    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
     objectPosition: 'object-center',
     estimatedLuminance: 0.8,
     highlightIntensity: 0.88,
@@ -237,10 +243,9 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-65',
   },
   '/contact': {
-    imagePath:
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1280&q=80',
-    publicSourceUrl: '/images/products/bamboo-split-wholesale.webp',
-    alt: 'Modern executive corporate office corridor representing TB Star Company Limited Yangon headquarters',
+    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
+    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
     objectPosition: 'object-center',
     estimatedLuminance: 0.84,
     highlightIntensity: 0.92,
@@ -257,124 +262,155 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
   },
 };
 
-export interface PageSeoMetadata {
-  title: string;
-  description: string;
-  canonicalUrl: string;
-  ogImage: string;
-  ogImageAlt: string;
-  breadcrumbs: { name: string; url: string }[];
-}
-
-export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
-  '/': {
-    title:
-      'TB Star Company Limited – Natural Myanmar Bamboo Products, Activated Carbon & Offset Printing Services',
-    description:
-      'Established in 2013, TB Star Company Limited operates in Yangon, Myanmar, supplying 100% natural Myanmar Bamboo Split, Bamboo Sticks, Activated Carbon, and one-stop Offset Printing Services & Ball Pen stationery.',
-    canonicalUrl: 'https://www.tbstar.com.mm/',
-    ogImage: 'https://www.tbstar.com.mm/images/products/bamboo-split-main.webp',
-    ogImageAlt: 'Natural Myanmar bamboo splits with nodes by TB Star Company Limited',
-    breadcrumbs: [{ name: 'Home', url: 'https://www.tbstar.com.mm/' }],
-  },
-  '/about': {
-    title: 'About TB Star Company Limited – Established in 2013 in Yangon, Myanmar',
-    description:
-      'Established in 2013, TB Star Company Limited has been operating in Myanmar, serving domestic and international customers through its bamboo products and printing services businesses.',
-    canonicalUrl: 'https://www.tbstar.com.mm/about',
-    ogImage: 'https://www.tbstar.com.mm/images/products/bamboo-split-natural.webp',
-    ogImageAlt: 'About TB Star Company Limited in Yangon, Myanmar',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://www.tbstar.com.mm/' },
-      { name: 'About Us', url: 'https://www.tbstar.com.mm/about' },
-    ],
-  },
-  '/bamboo-products': {
-    title:
-      'Bamboo Split & Bamboo Sticks Specifications – 100% Natural Myanmar Bamboo | TB Star',
-    description:
-      'Explore 100% natural Myanmar Bamboo Split (With Nodes: 50 pcs/bundle; Without Nodes: 100 pcs/bundle) and Bamboo Sticks (8", 9", 10" in 30 kg bags) from TB Star Company Limited.',
-    canonicalUrl: 'https://www.tbstar.com.mm/bamboo-products',
-    ogImage: 'https://www.tbstar.com.mm/images/products/bamboo-split-main.webp',
-    ogImageAlt: '100% Natural Myanmar Bamboo Split and Bamboo Sticks by TB Star Company Limited',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://www.tbstar.com.mm/' },
-      { name: 'Bamboo Products', url: 'https://www.tbstar.com.mm/bamboo-products' },
-    ],
-  },
-  '/charcoal': {
-    title: 'Activated Carbon Inquiries – TB Star Company Limited Yangon, Myanmar',
-    description:
-      'Contact TB Star Company Limited in Yangon, Myanmar for Activated Carbon commercial inquiries alongside our natural Myanmar bamboo products.',
-    canonicalUrl: 'https://www.tbstar.com.mm/charcoal',
-    ogImage: 'https://www.tbstar.com.mm/assets/aistudio/Charcoal-Product.svg',
-    ogImageAlt: 'TB Star Company Limited Activated Carbon Product Category',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://www.tbstar.com.mm/' },
-      { name: 'Activated Carbon', url: 'https://www.tbstar.com.mm/charcoal' },
-    ],
-  },
-  '/printing-services': {
-    title:
-      'One-Stop Offset Printing Services & Ball Pen Stationery (Klick & Plano) | TB Star',
-    description:
-      'One-stop offset printing services in Yangon for Books Printing, Voucher Books Printing, and commercial print, plus Ball Pen stationery (Klick: 30 pcs/box; Plano: 50 pcs/box).',
-    canonicalUrl: 'https://www.tbstar.com.mm/printing-services',
-    ogImage: 'https://www.tbstar.com.mm/assets/aistudio/Branding_Image_V2_cc9a2035.webp',
-    ogImageAlt:
-      'TB Star Company Limited Offset Printing Services and Klick & Plano Ball Pen Stationery',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://www.tbstar.com.mm/' },
-      { name: 'Printing Services', url: 'https://www.tbstar.com.mm/printing-services' },
-    ],
-  },
-  '/gallery': {
-    title: 'Product & Packaging Gallery – Bamboo, Offset Printing & Ball Pen | TB Star',
-    description:
-      'Inspect product photos of 100% natural Myanmar Bamboo Split, Bamboo Sticks, 30 kg export packaging, Offset Printing deliverables, and Klick & Plano Ball Pens.',
-    canonicalUrl: 'https://www.tbstar.com.mm/gallery',
-    ogImage: 'https://www.tbstar.com.mm/images/products/bamboo-split-featured.webp',
-    ogImageAlt: 'TB Star Company Limited Product and Packaging Gallery',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://www.tbstar.com.mm/' },
-      { name: 'Gallery', url: 'https://www.tbstar.com.mm/gallery' },
-    ],
-  },
-  '/contact': {
-    title: 'Contact TB Star Company Limited – Central Tower, Kyauktada Township, Yangon',
-    description:
-      'Contact TB Star Company Limited at Room 1103, 11th Floor, Central Tower, Kyauktada Township, Yangon (Tel: 09 422 479994) for Bamboo, Activated Carbon, Printing, and Ball Pen inquiries.',
-    canonicalUrl: 'https://www.tbstar.com.mm/contact',
-    ogImage: 'https://www.tbstar.com.mm/images/products/bamboo-split-main.webp',
-    ogImageAlt: 'Contact TB Star Company Limited in Yangon, Myanmar',
-    breadcrumbs: [
-      { name: 'Home', url: 'https://www.tbstar.com.mm/' },
-      { name: 'Contact Us', url: 'https://www.tbstar.com.mm/contact' },
-    ],
-  },
-};
-
 export interface SpecificationRow {
   parameter: string;
-  parameterMm: string;
+  parameterMm?: string;
   value: string;
-  valueMm: string;
+  valueMm?: string;
   notes?: string;
   notesMm?: string;
 }
 
+export interface ProductDescriptions {
+  short: string;
+  shortMm?: string;
+  detailed: string;
+  detailedMm?: string;
+}
+
+export interface ProductImages {
+  main: string;
+  mainAlt: string;
+  featured?: string;
+  featuredAlt?: string;
+  natural?: string;
+  naturalAlt?: string;
+  wholesale?: string;
+  wholesaleAlt?: string;
+  texture?: string;
+  textureAlt?: string;
+  secondary?: string;
+  secondaryAlt?: string;
+}
+
+export interface ProductFeatureItem {
+  label?: string;
+  labelMm?: string;
+  en: string;
+  mm?: string;
+}
+
+export interface ProductSeoMetadata {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  canonicalAnchor?: string;
+}
+
+export interface ProductDetailSubCard {
+  kicker: string;
+  kickerMm?: string;
+  title: string;
+  titleMm?: string;
+  description: string;
+  descriptionMm?: string;
+  imagePath: string;
+  imageAlt: string;
+  frameLabel: string;
+  frameLabelMm?: string;
+}
+
+export interface BallPenVariant {
+  type: string;
+  typeMm: string;
+  packaging: string;
+  packagingMm: string;
+}
+
+export type ProductCategoryId =
+  | 'bamboo'
+  | 'activated-carbon'
+  | 'stationery';
+
+export type ProductVisualType =
+  | 'bamboo-split'
+  | 'bamboo-sticks'
+  | 'bamboo-custom'
+  | 'charcoal'
+  | 'commercial-printing';
+
+/**
+ * Flexible input schema for adding or updating a product in the centralized catalog.
+ * Optional fields are safely normalized with verified defaults.
+ */
+export interface CentralizedProductInput {
+  id: string;
+  slug?: string;
+  index?: string;
+  name: string;
+  nameMm?: string;
+  footerLabel?: string;
+  footerLabelMm?: string;
+  category: ProductCategoryId | string;
+  categoryLabel?: string;
+  categoryMm?: string;
+  descriptions?: ProductDescriptions;
+  shortDescription?: string;
+  shortDescriptionMm?: string;
+  detailedDescription?: string;
+  detailedDescriptionMm?: string;
+  visualType?: ProductVisualType;
+  images?: ProductImages;
+  imagePath?: string;
+  imageAlt?: string;
+  featuredImagePath?: string;
+  featuredImageAlt?: string;
+  naturalImagePath?: string;
+  naturalImageAlt?: string;
+  wholesaleImagePath?: string;
+  wholesaleImageAlt?: string;
+  textureImagePath?: string;
+  textureImageAlt?: string;
+  secondaryImagePath?: string;
+  secondaryImageAlt?: string;
+  placeholderNote?: string;
+  placeholderNoteMm?: string;
+  inquiryType?: InquiryTypeOption;
+  specifications?: SpecificationRow[];
+  features?: (string | ProductFeatureItem)[];
+  variants?: BallPenVariant[];
+  detailSubCards?: ProductDetailSubCard[];
+  published?: boolean;
+  featured?: boolean;
+  route?: PageRoute;
+  sectionId?: string;
+  relatedProductIds?: string[];
+  seo?: ProductSeoMetadata;
+}
+
+/**
+ * Normalized product item guaranteed to have safe defaults for all UI components,
+ * listings, cards, links, related products, and SEO structured data.
+ */
 export interface BambooProductItem {
-  id: 'bamboo-split' | 'bamboo-sticks' | 'charcoal' | 'activated-carbon';
+  id: string;
+  slug: string;
   index: string;
   name: string;
   nameMm: string;
+  footerLabel: string;
+  footerLabelMm: string;
   category: string;
+  categoryKey: ProductCategoryId | string;
   categoryMm: string;
+  descriptions: Required<ProductDescriptions>;
   shortDescription: string;
   shortDescriptionMm: string;
   detailedDescription: string;
   detailedDescriptionMm: string;
   visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom' | 'charcoal';
+  images: ProductImages;
   imagePath: string;
   imageAlt: string;
   featuredImagePath?: string;
@@ -385,98 +421,157 @@ export interface BambooProductItem {
   wholesaleImageAlt?: string;
   textureImagePath?: string;
   textureImageAlt?: string;
+  secondaryImagePath?: string;
+  secondaryImageAlt?: string;
   placeholderNote: string;
-  placeholderNoteMm?: string;
+  placeholderNoteMm: string;
   inquiryType: InquiryTypeOption;
   specifications: SpecificationRow[];
+  features: ProductFeatureItem[];
+  variants: BallPenVariant[];
+  detailSubCards: ProductDetailSubCard[];
+  published: boolean;
+  featured: boolean;
+  route: PageRoute;
+  sectionId: string;
+  href: string;
+  relatedProductIds: string[];
+  seo: Required<ProductSeoMetadata>;
 }
 
-export const BAMBOO_PRODUCTS: BambooProductItem[] = [
+/**
+ * Single centralized product catalog source of truth.
+ * To add, update, unpublish, or remove a product across the entire website,
+ * edit this array — listings, cards, navigation links, related products,
+ * and JSON-LD structured data update automatically.
+ */
+export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
   {
     id: 'bamboo-split',
+    slug: 'bamboo-split',
     index: '01',
     name: 'Bamboo Split',
     nameMm: 'ဝါးခြမ်းပြား (Bamboo Split)',
-    category: '100% Natural Bamboo · Domestic & Export Supply',
+    footerLabel: 'Bamboo Split (3 mm · 20–48 inches)',
+    footerLabelMm: 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀–၄၈ လက်မ)',
+    category: 'bamboo',
+    categoryLabel: '100% Natural Bamboo · Domestic & Export Supply',
     categoryMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါး · ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်',
-    shortDescription:
-      '100% natural Myanmar bamboo splits in 3 mm thickness and 20 to 48 inch lengths. Available With Nodes (50 pieces per bundle) and Without Nodes (100 pieces per bundle).',
-    shortDescriptionMm:
-      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 3 mm၊ အရှည် ၂၀ လက်မမှ ၄၈ လက်မ ဝါးခြမ်းပြားများ။ အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs) ရရှိနိုင်ပါသည်။',
-    detailedDescription:
-      'Manufactured from 100% natural bamboo originating in Myanmar, our Bamboo Split is processed to a uniform 3 mm thickness across lengths from 20 to 48 inches. Available in two types with standardized bundle packaging: With Nodes (50 pieces per bundle) and Without Nodes (100 pieces per bundle) for domestic distribution and international export.',
-    detailedDescriptionMm:
-      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 3 mm နှင့် အရှည် ၂၀ လက်မမှ ၄၈ လက်မအထိ စနစ်တကျ စိတ်ဖြာထုတ်လုပ်ထားပါသည်။ အဆစ်ပါ (With Nodes — တစ်စည်းလျှင် ၅၀ ချောင်း) နှင့် အဆစ်မပါ (Without Nodes — တစ်စည်းလျှင် ၁၀၀ ချောင်း) ဟူ၍ အမျိုးအစား (၂) မျိုး ထုပ်ပိုးထားပြီး ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် အသင့်တော်ဆုံးဖြစ်ပါသည်။',
+    descriptions: {
+      short:
+        '100% natural Myanmar bamboo splits in 3 mm thickness and 20 to 48 inch lengths, available with nodes or without nodes.',
+      shortMm:
+        '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 3 mm၊ အရှည် ၂၀ လက်မမှ ၄၈ လက်မ ဝါးခြမ်းပြားများ။ အဆစ်ပါ (With Nodes) သို့မဟုတ် အဆစ်မပါ (Without Nodes) ရရှိနိုင်ပါသည်။',
+      detailed:
+        'Manufactured from 100% natural bamboo originating in Myanmar, our Bamboo Split is processed to a 3 mm thickness across lengths from 20 to 48 inches. Available with nodes or without nodes for domestic distribution in Myanmar and international export.',
+      detailedMm:
+        'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 3 mm နှင့် အရှည် ၂၀ လက်မမှ ၄၈ လက်မအထိ ထုတ်လုပ်ထားပါသည်။ အဆစ်ပါ (With Nodes) သို့မဟုတ် အဆစ်မပါ (Without Nodes) ရရှိနိုင်ပြီး ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ပေးပါသည်။',
+    },
     visualType: 'bamboo-split',
-    imagePath: '/images/products/bamboo-split-main.webp',
-    imageAlt: 'Natural Myanmar bamboo splits with nodes',
-    featuredImagePath: '/images/products/bamboo-split-featured.webp',
-    featuredImageAlt: 'Featured natural Myanmar bamboo splits for export and domestic supply',
-    naturalImagePath: '/images/products/bamboo-split-natural.webp',
-    naturalImageAlt: 'Natural bamboo splits with authentic bamboo texture',
-    wholesaleImagePath: '/images/products/bamboo-split-wholesale.webp',
-    wholesaleImageAlt: 'Bamboo splits arranged in 50 pcs and 100 pcs bundles for commercial supply',
-    textureImagePath: '/images/products/bamboo-split-texture.webp',
-    textureImageAlt: 'Close-up texture of 3 mm natural Myanmar bamboo splits',
-    placeholderNote: 'Bamboo Split · With Nodes (50 pcs/bundle) & Without Nodes (100 pcs/bundle)',
-    placeholderNoteMm: 'ဝါးခြမ်းပြား · အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs)',
+    images: {
+      main: '/images/products/bamboo-split-main.webp',
+      mainAlt: 'Natural Myanmar bamboo splits with nodes',
+      featured: '/images/products/bamboo-split-featured.webp',
+      featuredAlt: 'Featured natural Myanmar bamboo splits for export and domestic supply',
+      natural: '/images/products/bamboo-split-natural.webp',
+      naturalAlt: 'Natural bamboo splits with authentic bamboo texture',
+      wholesale: '/images/products/bamboo-split-wholesale.webp',
+      wholesaleAlt: 'Bamboo splits bundled for commercial supply',
+      texture: '/images/products/bamboo-split-texture.webp',
+      textureAlt: 'Close-up texture of 3 mm natural Myanmar bamboo splits',
+    },
+    placeholderNote: 'Bamboo Split · 3 mm · 20–48 inches · With Nodes or Without Nodes',
+    placeholderNoteMm: 'ဝါးခြမ်းပြား · အထူ 3 mm · ၂၀–၄၈ လက်မ · အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ',
     inquiryType: 'Bamboo Split',
+    published: true,
+    featured: true,
+    route: '/bamboo-products',
+    sectionId: 'product-bamboo-split',
+    relatedProductIds: ['bamboo-sticks'],
+    features: [
+      {
+        label: 'Type: With Nodes',
+        labelMm: 'အမျိုးအစား - အဆစ်ပါ (With Nodes)',
+        en: '3 mm thickness · 20 to 48 inches · With nodes',
+        mm: 'အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ · အဆစ်ပါ',
+      },
+      {
+        label: 'Type: Without Nodes',
+        labelMm: 'အမျိုးအစား - အဆစ်မပါ (Without Nodes)',
+        en: '3 mm thickness · 20 to 48 inches · Without nodes',
+        mm: 'အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ · အဆစ်မပါ',
+      },
+    ],
+    detailSubCards: [
+      {
+        kicker: 'PRODUCT TYPES · WITH NODES & WITHOUT NODES',
+        kickerMm: 'အမျိုးအစား · အဆစ်ပါ နှင့် အဆစ်မပါ',
+        title: 'With Nodes & Without Nodes Bamboo Split',
+        titleMm: 'အဆစ်ပါ (With Nodes) နှင့် အဆစ်မပါ (Without Nodes) ဝါးခြမ်းပြား',
+        description:
+          '100% natural Myanmar bamboo splits in 3 mm thickness and 20 to 48 inch lengths, available with nodes or without nodes.',
+        descriptionMm:
+          '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများကို အထူ 3 mm၊ အရှည် ၂၀ မှ ၄၈ လက်မဖြင့် အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ရရှိနိုင်ပါသည်။',
+        imagePath: '/images/products/bamboo-split-texture.webp',
+        imageAlt: 'Close-up texture of 3 mm natural Myanmar bamboo splits',
+        frameLabel: 'Bamboo Split · With Nodes & Without Nodes Texture',
+        frameLabelMm: 'ဝါးခြမ်းပြား · အဆစ်ပါ နှင့် အဆစ်မပါ သဘာဝဝါးအသားဖွဲ့စည်းပုံ',
+      },
+      {
+        kicker: 'DOMESTIC & EXPORT SUPPLY',
+        kickerMm: 'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်',
+        title: 'Bundled Natural Myanmar Bamboo Split',
+        titleMm: 'ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်အတွက် သဘာဝဝါးခြမ်းပြား',
+        description:
+          'Prepared from 100% natural bamboo originating in Myanmar for domestic distribution and international export.',
+        descriptionMm:
+          'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ထားပါသည်။',
+        imagePath: '/images/products/bamboo-split-wholesale.webp',
+        imageAlt: 'Bamboo splits bundled for commercial supply',
+        frameLabel: 'Bamboo Split · Domestic & Export Supply',
+        frameLabelMm: 'ဝါးခြမ်းပြား · ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်',
+      },
+    ],
     specifications: [
       {
         parameter: 'Product Name',
         parameterMm: 'ကုန်ပစ္စည်းအမည်',
         value: 'Bamboo Split',
         valueMm: 'ဝါးခြမ်းပြား (Bamboo Split)',
-        notes: 'Core natural bamboo product line',
-        notesMm: 'အဓိက သဘာဝဝါးထုတ်ကုန်',
+        notes: 'Natural bamboo product line',
+        notesMm: 'သဘာဝဝါးထုတ်ကုန်',
       },
       {
         parameter: 'Material',
         parameterMm: 'ကုန်ကြမ်းအမျိုးအစား',
         value: '100% Natural Bamboo',
         valueMm: '၁၀၀% သဘာဝ ဝါးစစ်စစ်',
-        notes: 'Mechanically split without synthetic binders',
-        notesMm: 'ဓာတုဆေးဝါးမပါသော သဘာဝဝါးစစ်စစ်',
+        notes: 'Natural bamboo from Myanmar',
+        notesMm: 'သဘာဝ မြန်မာ့ဝါးစစ်စစ်',
       },
       {
         parameter: 'Thickness',
         parameterMm: 'အထူ (Thickness)',
         value: '3 mm',
         valueMm: '3 mm (၃ မီလီမီတာ)',
-        notes: 'Uniformly sized thickness',
-        notesMm: 'တစ်ပြေးညီ အထူစံနှုန်း',
+        notes: 'Standard thickness',
+        notesMm: 'အထူစံနှုန်း',
       },
       {
         parameter: 'Length',
         parameterMm: 'အရှည် (Length)',
-        value: '20 – 48 inches',
-        valueMm: '၂၀ လက်မ မှ ၄၈ လက်မ (20 – 48 inches)',
-        notes: 'Supplied according to buyer length requirements',
-        notesMm: 'ဝယ်ယူသူလိုအပ်ချက်အလိုက် ထုတ်လုပ်ပေးပါသည်',
+        value: '20 to 48 inches',
+        valueMm: '၂၀ လက်မ မှ ၄၈ လက်မ (20 to 48 inches)',
+        notes: 'Available length range',
+        notesMm: 'ရရှိနိုင်သော အရှည်အတိုင်းအတာ',
       },
       {
         parameter: 'Available Types',
         parameterMm: 'ရရှိနိုင်သော အမျိုးအစားများ',
         value: 'With Nodes / Without Nodes',
         valueMm: 'အဆစ်ပါ (With Nodes) / အဆစ်မပါ (Without Nodes)',
-        notes: 'Two distinct bamboo split configurations',
-        notesMm: 'အဆစ်ပါ နှင့် အဆစ်မပါ နှစ်မျိုးရရှိနိုင်သည်',
-      },
-      {
-        parameter: 'Packaging (With Nodes)',
-        parameterMm: 'ထုပ်ပိုးမှု (အဆစ်ပါ · With Nodes)',
-        value: '50 pieces per bundle (50 pcs/bundle)',
-        valueMm: 'တစ်စည်းလျှင် ၅၀ ချောင်း (50 pcs/bundle)',
-        notes: 'Standardized bundle packaging for With Nodes type',
-        notesMm: 'အဆစ်ပါ အမျိုးအစားအတွက် တစ်စည်း 50 pcs စံနှုန်း',
-      },
-      {
-        parameter: 'Packaging (Without Nodes)',
-        parameterMm: 'ထုပ်ပိုးမှု (အဆစ်မပါ · Without Nodes)',
-        value: '100 pieces per bundle (100 pcs/bundle)',
-        valueMm: 'တစ်စည်းလျှင် ၁၀၀ ချောင်း (100 pcs/bundle)',
-        notes: 'Standardized bundle packaging for Without Nodes type',
-        notesMm: 'အဆစ်မပါ အမျိုးအစားအတွက် တစ်စည်း 100 pcs စံနှုန်း',
+        notes: 'With nodes or without nodes',
+        notesMm: 'အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ',
       },
       {
         parameter: 'Origin',
@@ -487,76 +582,127 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
         notesMm: 'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်',
       },
     ],
+    seo: {
+      title: 'Bamboo Split (3 mm · 20–48 inches) – 100% Natural Myanmar Bamboo | TB Star',
+      description:
+        '100% natural Myanmar Bamboo Split in 3 mm thickness and 20 to 48 inch lengths, available with nodes or without nodes.',
+      ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
+      ogImageAlt: 'Natural Myanmar bamboo splits with nodes',
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/bamboo-products#product-bamboo-split`,
+    },
   },
   {
     id: 'bamboo-sticks',
+    slug: 'bamboo-sticks',
     index: '02',
     name: 'Bamboo Sticks',
     nameMm: 'ဝါးတံ (Bamboo Sticks)',
-    category: '100% Natural Bamboo · Domestic & Export Supply',
+    footerLabel: 'Bamboo Sticks (8", 9", 10" · 30 kg/bag)',
+    footerLabelMm: 'ဝါးတံ (၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg)',
+    category: 'bamboo',
+    categoryLabel: '100% Natural Bamboo · Domestic & Export Supply',
     categoryMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါး · ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်',
-    shortDescription:
-      '100% natural Myanmar bamboo sticks in 1.2 mm to 2.5 mm thickness across 8, 9, and 10 inch lengths, packed at 30 kg per bag.',
-    shortDescriptionMm:
-      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 1.2 mm မှ 2.5 mm၊ အရှည် ၈ လက်မ၊ ၉ လက်မ နှင့် ၁၀ လက်မ ဝါးတံများကို တစ်အိတ်လျှင် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားပါသည်။',
-    detailedDescription:
-      'Precision-sized from 100% natural Myanmar bamboo, our Bamboo Sticks are manufactured in thicknesses from 1.2 mm to 2.5 mm and standard lengths of 8, 9, and 10 inches. Packed in standardized 30 kg bags for reliable domestic distribution in Myanmar and international export.',
-    detailedDescriptionMm:
-      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 1.2 mm မှ 2.5 mm နှင့် အရှည် ၈ လက်မ၊ ၉ လက်မ၊ ၁၀ လက်မ အရွယ်အစားများအတိုင်း တိကျသပ်ရပ်စွာ ထုတ်လုပ်ထားပါသည်။ ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်တင်ပို့မှုအတွက် တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg per bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးထားပါသည်။',
+    descriptions: {
+      short:
+        '100% natural Myanmar bamboo sticks in 1.2 to 2.5 mm thickness across 8, 9, and 10 inch sizes, packed 30 kg per bag.',
+      shortMm:
+        '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈ လက်မ၊ ၉ လက်မ နှင့် ၁၀ လက်မ ဝါးတံများကို တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားပါသည်။',
+      detailed:
+        'Manufactured from 100% natural bamboo originating in Myanmar, our Bamboo Sticks are supplied in thicknesses from 1.2 to 2.5 mm and sizes of 8, 9, and 10 inches, packed 30 kg per bag for domestic distribution in Myanmar and international export.',
+      detailedMm:
+        'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 1.2 မှ 2.5 mm နှင့် အရွယ်အစား ၈ လက်မ၊ ၉ လက်မ၊ ၁၀ လက်မ ဝါးတံများကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်အတွက် တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg per bag) ထုပ်ပိုးထားပါသည်။',
+    },
     visualType: 'bamboo-sticks',
-    imagePath: '/images/products/bamboo-sticks-main.webp',
-    imageAlt: 'Natural bamboo sticks from Myanmar',
-    featuredImagePath: '/images/products/bamboo-sticks-featured.webp',
-    featuredImageAlt: 'Featured natural Myanmar bamboo sticks packed at 30 kg per bag',
-    naturalImagePath: '/images/products/bamboo-sticks-natural.webp',
-    naturalImageAlt: 'Natural bamboo sticks in 8, 9, and 10 inch lengths',
-    wholesaleImagePath: '/images/products/bamboo-sticks-wholesale.webp',
-    wholesaleImageAlt: 'Bamboo sticks prepared in 30 kg bags for commercial supply',
-    textureImagePath: '/images/products/bamboo-sticks-texture.webp',
-    textureImageAlt: 'Close-up texture of 1.2 mm to 2.5 mm natural Myanmar bamboo sticks',
+    images: {
+      main: '/images/products/bamboo-sticks-main.webp',
+      mainAlt: 'Natural bamboo sticks from Myanmar',
+      featured: '/images/products/bamboo-sticks-featured.webp',
+      featuredAlt: 'Featured natural Myanmar bamboo sticks packed at 30 kg per bag',
+      natural: '/images/products/bamboo-sticks-natural.webp',
+      naturalAlt: 'Natural bamboo sticks in 8, 9, and 10 inch lengths',
+      wholesale: '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp',
+      wholesaleAlt: 'Bamboo sticks prepared in 30 kg bags for commercial supply',
+      texture: '/images/products/bamboo-sticks-texture.webp',
+      textureAlt: 'Close-up texture of 1.2 mm to 2.5 mm natural Myanmar bamboo sticks',
+    },
     placeholderNote: 'Bamboo Sticks · 1.2–2.5 mm · 8", 9", 10" · 30 kg per bag',
     placeholderNoteMm: 'ဝါးတံ · အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg',
     inquiryType: 'Bamboo Sticks',
+    published: true,
+    featured: true,
+    route: '/bamboo-products',
+    sectionId: 'product-bamboo-sticks',
+    relatedProductIds: ['bamboo-split'],
+    detailSubCards: [
+      {
+        kicker: 'MATERIAL TEXTURE & APPEARANCE',
+        kickerMm: 'သဘာဝဝါးအသားနှင့် အသွင်အပြင်',
+        title: '1.2–2.5 mm Natural Bamboo Stick Texture',
+        titleMm: 'အထူ 1.2–2.5 mm သဘာဝဝါးတံ အသေးစိတ်ပုံစံ',
+        description:
+          'Close-up physical appearance of 100% natural Myanmar bamboo sticks in 1.2 to 2.5 mm thickness.',
+        descriptionMm:
+          'အထူ 1.2 မှ 2.5 mm ရှိသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးတံများ၏ အသားဖွဲ့စည်းပုံ။',
+        imagePath: '/images/products/bamboo-sticks-texture.webp',
+        imageAlt: 'Close-up texture of 1.2 mm to 2.5 mm natural Myanmar bamboo sticks',
+        frameLabel: 'Bamboo Sticks · 1.2–2.5 mm Cross-Section & Texture',
+        frameLabelMm: 'ဝါးတံ · အထူ 1.2–2.5 mm နှင့် သဘာဝဝါးအသားဖွဲ့စည်းပုံ',
+      },
+      {
+        kicker: 'COMMERCIAL & WHOLESALE SUPPLY',
+        kickerMm: 'လက်ကားနှင့် ပြည်ပပို့ကုန်',
+        title: '30 kg per Bag Commercial Packaging',
+        titleMm: 'တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားရှိမှု',
+        description:
+          'Available in 8, 9, and 10 inch sizes and packed 30 kg per bag for domestic and export supply.',
+        descriptionMm:
+          'အရွယ်အစား ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော ဝါးတံများ။',
+        imagePath: '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp',
+        imageAlt: 'Bamboo sticks prepared in 30 kg bags for commercial supply',
+        frameLabel: 'Bamboo Sticks · 30 kg per Bag Wholesale & Export Packaging',
+        frameLabelMm: 'ဝါးတံ · တစ်အိတ် 30 kg လက်ကားနှင့် ပြည်ပပို့ကုန် ထုပ်ပိုးမှု',
+      },
+    ],
     specifications: [
       {
         parameter: 'Product Name',
         parameterMm: 'ကုန်ပစ္စည်းအမည်',
         value: 'Bamboo Sticks',
         valueMm: 'ဝါးတံ (Bamboo Sticks)',
-        notes: 'Core natural bamboo stick product line',
-        notesMm: 'အဓိက သဘာဝဝါးတံ ထုတ်ကုန်',
+        notes: 'Natural bamboo stick product line',
+        notesMm: 'သဘာဝဝါးတံ ထုတ်ကုန်',
       },
       {
         parameter: 'Material',
         parameterMm: 'ကုန်ကြမ်းအမျိုးအစား',
         value: '100% Natural Bamboo',
         valueMm: '၁၀၀% သဘာဝ ဝါးစစ်စစ်',
-        notes: 'Cleanly sized natural bamboo fibers',
+        notes: 'Natural bamboo from Myanmar',
         notesMm: 'သဘာဝ မြန်မာ့ဝါးစစ်စစ်',
       },
       {
         parameter: 'Thickness',
         parameterMm: 'အထူ (Thickness)',
-        value: '1.2 mm – 2.5 mm',
-        valueMm: '1.2 mm မှ 2.5 mm',
-        notes: 'Precision-calibrated diameter/thickness',
-        notesMm: 'တိကျသော အထူအရွယ်အစား',
+        value: '1.2 to 2.5 mm',
+        valueMm: '1.2 မှ 2.5 mm',
+        notes: 'Thickness range',
+        notesMm: 'အထူအတိုင်းအတာ',
       },
       {
-        parameter: 'Length',
-        parameterMm: 'အရှည် (Length)',
-        value: '8, 9, and 10 inches',
-        valueMm: '၈ လက်မ၊ ၉ လက်မ နှင့် ၁၀ လက်မ',
-        notes: 'Three standard commercial length options',
-        notesMm: 'စံသတ်မှတ် အရှည် (၃) မျိုး',
+        parameter: 'Sizes',
+        parameterMm: 'အရွယ်အစား (Sizes)',
+        value: '8, 9, 10 inches',
+        valueMm: '၈ လက်မ၊ ၉ လက်မ၊ ၁၀ လက်မ',
+        notes: 'Available lengths',
+        notesMm: 'ရရှိနိုင်သော အရွယ်အစားများ',
       },
       {
         parameter: 'Packaging',
         parameterMm: 'ထုပ်ပိုးမှုပုံစံ (Packaging)',
         value: '30 kg per bag',
         valueMm: 'တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg per bag)',
-        notes: 'Standardized wholesale & export bag weight',
-        notesMm: 'ပြည်တွင်းနှင့် ပြည်ပပို့ကုန် စံချိန်မီ ထုပ်ပိုးမှု',
+        notes: 'Packed 30 kg per bag',
+        notesMm: 'တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးမှု',
       },
       {
         parameter: 'Origin',
@@ -567,184 +713,656 @@ export const BAMBOO_PRODUCTS: BambooProductItem[] = [
         notesMm: 'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်',
       },
     ],
-  },
-];
-
-export const CHARCOAL_PRODUCT_INFO = {
-  id: 'activated-carbon',
-  name: 'Activated Carbon',
-  nameMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
-  category: 'Activated Carbon · Commercial Inquiries',
-  categoryMm: 'အက်တီဗိတ်တက် ကာဗွန် · စီးပွားရေးလုပ်ငန်းသုံး ဆက်သွယ်စုံစမ်းရန်',
-  shortDescription:
-    'Activated Carbon product category by TB Star Company Limited. Contact our Yangon office directly for commercial inquiries.',
-  shortDescriptionMm:
-    'TBStar Company Limited ၏ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ကုန်ပစ္စည်းကဏ္ဍ။ လုပ်ငန်းသုံး စုံစမ်းမေးမြန်းမှုများအတွက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်နိုင်ပါသည်။',
-  detailedDescription:
-    'TB Star Company Limited handles commercial inquiries for Activated Carbon from our headquarters in Kyauktada Township, Yangon. Detailed product specifications will be added later; please contact our team directly with your inquiry requirements.',
-  detailedDescriptionMm:
-    'TBStar Company Limited သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်မှတစ်ဆင့် အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) နှင့် ပတ်သက်သော စီးပွားရေးလုပ်ငန်းသုံး စုံစမ်းမေးမြန်းမှုများကို လက်ခံဆောင်ရွက်ပေးလျက်ရှိပါသည်။ အသေးစိတ်အချက်အလက်များကို သိရှိလိုပါက တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။',
-  imagePath: '/assets/aistudio/Charcoal-Product.svg',
-  imageAlt: 'TB Star Company Limited Activated Carbon Product Category',
-  placeholderNote: 'Activated Carbon · Direct B2B Inquiry Category',
-  placeholderNoteMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) · တိုက်ရိုက်ဆက်သွယ်မေးမြန်းရန်',
-  inquiryType: 'Activated Carbon' as InquiryTypeOption,
-  specifications: [
-    {
-      parameter: 'Product Category',
-      parameterMm: 'ကုန်ပစ္စည်းကဏ္ဍ',
-      value: 'Activated Carbon',
-      valueMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
-      notes: 'Replaced former Charcoal category',
-      notesMm: 'တရားဝင် ကုန်ပစ္စည်းကဏ္ဍ',
+    seo: {
+      title: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30 kg/bag) | TB Star',
+      description:
+        '100% natural Myanmar Bamboo Sticks in 1.2 to 2.5 mm thickness and 8, 9, and 10 inch sizes, packed 30 kg per bag.',
+      ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-sticks-main.webp`,
+      ogImageAlt: 'Natural bamboo sticks from Myanmar',
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/bamboo-products#product-bamboo-sticks`,
     },
-    {
-      parameter: 'Specification Status',
-      parameterMm: 'အသေးစိတ် စံချိန်စံညွှန်းများ',
-      value: 'Detailed product information will be added later',
-      valueMm: 'အသေးစိတ်အချက်အလက်များကို ဆက်လက်ဖော်ပြပေးသွားပါမည်',
-      notes: 'Contact our Yangon office directly for current availability',
-      notesMm: 'ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက်ဆက်သွယ်မေးမြန်းနိုင်ပါသည်',
-    },
-    {
-      parameter: 'Supplier',
-      parameterMm: 'ဖြန့်ဖြူးသည့် ကုမ္ပဏီ',
-      value: 'TB Star Company Limited (Established 2013)',
-      valueMm: 'TBStar Company Limited (၂၀၁၃ ခုနှစ်တွင် တည်ထောင်သည်)',
-      notes: 'Central Tower, Kyauktada Township, Yangon, Myanmar',
-      notesMm: 'Central Tower၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့',
-    },
-  ] as SpecificationRow[],
-};
-
-export interface PrintingServiceItem {
-  id: 'books-printing' | 'voucher-books-printing' | 'other-offset-printing';
-  index: string;
-  name: string;
-  nameMm: string;
-  category: string;
-  categoryMm: string;
-  shortDescription: string;
-  shortDescriptionMm: string;
-  detailedDescription: string;
-  detailedDescriptionMm: string;
-  visualType: 'books-printing' | 'voucher-printing' | 'commercial-printing';
-  imagePath?: string;
-  placeholderNote: string;
-  placeholderNoteMm?: string;
-  inquiryType: InquiryTypeOption;
-  scopePoints: string[];
-  scopePointsMm: string[];
-}
-
-export const PRINTING_SERVICES: PrintingServiceItem[] = [
-  {
-    id: 'books-printing',
-    index: '01',
-    name: 'Books Printing',
-    nameMm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း (Books Printing)',
-    category: 'One-Stop Offset Printing Services',
-    categoryMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
-    shortDescription:
-      'One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding.',
-    shortDescriptionMm:
-      'စာအုပ်အမျိုးမျိုး၊ ပညာရေးဆိုင်ရာ စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များကို စာသားကြည်လင်ပြတ်သားပြီး ခိုင်ခံ့သပ်ရပ်စွာ တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ပေးပါသည်။',
-    detailedDescription:
-      'TB Star Company Limited provides one-stop offset printing services for books, publications, and institutional manuals in Yangon. We coordinate prepress layout verification, offset press production, cover printing, and binding under one roof.',
-    detailedDescriptionMm:
-      'TBStar Company Limited သည် စာအုပ်များ၊ စာပေထုတ်ဝေမှုများနှင့် လမ်းညွှန်စာအုပ်အမျိုးမျိုးအတွက် ကနဦးစာမျက်နှာစစ်ဆေးခြင်းမှစ၍ အော့ဖ်ဆက်စက်ဖြင့် ပုံနှိပ်ခြင်း၊ မျက်နှာဖုံးပုံနှိပ်ခြင်းနှင့် စာအုပ်ချုပ်လုပ်ခြင်းအထိ တစ်နေရာတည်းတွင် အပြီးအစီး တာဝန်ယူ ဆောင်ရွက်ပေးပါသည်။',
-    visualType: 'books-printing',
-    imagePath: '/assets/aistudio/Offset-Printing.svg',
-    placeholderNote: 'Books Printing · One-Stop Offset Press Production',
-    placeholderNoteMm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း · တစ်နေရာတည်း အပြီးအစီး ဝန်ဆောင်မှု',
-    inquiryType: 'Books Printing',
-    scopePoints: [
-      'Multi-page books, textbooks, and corporate publications',
-      'Sharp offset interior text reproduction and full-color covers',
-      'End-to-end coordination from prepress to binding and trimming',
-    ],
-    scopePointsMm: [
-      'စာမျက်နှာစုံ စာအုပ်များ၊ ကျောင်းသုံးနှင့် ရုံးသုံးစာအုပ်အမျိုးမျိုး',
-      'ကြည်လင်ပြတ်သားသော အတွင်းစာသားနှင့် ရောင်စုံမျက်နှာဖုံး ပုံနှိပ်မှု',
-      'ပုံနှိပ်ခြင်းမှ စာအုပ်ချုပ်လုပ်ပြီးစီးသည်အထိ တစ်နေရာတည်း အပြီးအစီး ဝန်ဆောင်မှု',
-    ],
   },
   {
-    id: 'voucher-books-printing',
-    index: '02',
-    name: 'Voucher Books Printing',
-    nameMm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း (Voucher Books Printing)',
-    category: 'One-Stop Offset Printing Services',
-    categoryMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
-    shortDescription:
-      'Commercial voucher books, invoice pads, receipt books, and numbered business forms customized for daily retail and B2B operations.',
-    shortDescriptionMm:
-      'နေ့စဉ်လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များ၊ ငွေတောင်းခံလွှာနှင့် ပြေစာစာအုပ်များကို လုပ်ငန်းအမှတ်တံဆိပ်နှင့်အညီ သပ်ရပ်တိကျစွာ ပုံနှိပ်ပေးပါသည်။',
-    detailedDescription:
-      'Our Voucher Books Printing service supplies businesses, wholesalers, and commercial offices with custom-formatted voucher books, receipt pads, delivery notes, and invoice books featuring sequential numbering and clean tear-off perforation.',
-    detailedDescriptionMm:
-      'ကုမ္ပဏီများ၊ လက်ကားဆိုင်များနှင့် စီးပွားရေးလုပ်ငန်းများအတွက် လိုအပ်သော ဘောင်ချာစာအုပ်များ၊ ပြေစာစာအုပ်များနှင့် စာရင်းပုံစံစာအုပ်များကို နံပါတ်စဉ်ရိုက်နှိပ်ခြင်း၊ ဆုတ်ဖြဲရလွယ်ကူသော အပေါက်ဖောက်ခြင်းတို့ဖြင့် စနစ်တကျ ပုံနှိပ်ပေးပါသည်။',
-    visualType: 'voucher-printing',
-    imagePath: '/assets/aistudio/Offset-Printing.svg',
-    placeholderNote: 'Voucher Books Printing · Commercial Forms & Receipt Pads',
-    placeholderNoteMm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်း · လုပ်ငန်းသုံး ပြေစာနှင့် ဘောင်ချာများ',
-    inquiryType: 'Voucher Books Printing',
-    scopePoints: [
-      'Custom sales voucher books, receipt pads, and invoice books',
-      'Sequential numbering, perforation, and multi-copy pad binding',
-      'Tailored layouts featuring your company logo and contact details',
-    ],
-    scopePointsMm: [
-      'အရောင်းဘောင်ချာစာအုပ်များ၊ ပြေစာနှင့် ငွေတောင်းခံလွှာစာအုပ်များ',
-      'နံပါတ်စဉ်ရိုက်နှိပ်ခြင်းနှင့် အလွှာစုံ (Multi-copy) စာအုပ်ချုပ်လုပ်ခြင်း',
-      'မိမိလုပ်ငန်းလိုဂိုနှင့် အချက်အလက်များအတိုင်း စိတ်ကြိုက်ဒီဇိုင်း ပုံနှိပ်နိုင်ခြင်း',
-    ],
-  },
-  {
-    id: 'other-offset-printing',
+    id: 'activated-carbon',
+    slug: 'activated-carbon',
     index: '03',
-    name: 'Other Offset Printing Services',
-    nameMm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ',
-    category: 'One-Stop Offset Printing Services',
-    categoryMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
-    shortDescription:
-      'Comprehensive commercial offset printing for brochures, pamphlets, catalogs, business cards, letterheads, and office forms.',
-    shortDescriptionMm:
-      'လက်ကမ်းစာစောင်များ၊ ကတ်တလောက်များ၊ လိပ်စာကတ်များနှင့် ရုံးသုံးပုံစံစာရွက်အမျိုးမျိုးအတွက် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု။',
-    detailedDescription:
-      'Beyond books and voucher pads, TB Star Company Limited delivers one-stop offset printing for corporate brochures, flyers, product catalogs, business cards, envelopes, letterheads, and administrative forms.',
-    detailedDescriptionMm:
-      'စာအုပ်နှင့် ဘောင်ချာစာအုပ်များအပြင် ကုမ္ပဏီသုံး လက်ကမ်းစာစောင်များ (Brochures & Pamphlets)၊ ကုန်ပစ္စည်းကတ်တလောက်များ၊ လိပ်စာကတ်များ၊ စာအိတ်များနှင့် ရုံးသုံးပုံစံစာရွက်အမျိုးမျိုးကိုပါ တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ပေးပါသည်။',
+    name: 'Activated Carbon',
+    nameMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
+    footerLabel: 'Activated Carbon',
+    footerLabelMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
+    category: 'activated-carbon',
+    categoryLabel: 'Activated Carbon · Inquiry Only',
+    categoryMm: 'အက်တီဗိတ်တက် ကာဗွန် · ဆက်သွယ်စုံစမ်းရန်',
+    descriptions: {
+      short:
+        'Activated Carbon product category by TB Star Company Limited. Contact our Yangon office directly for inquiries.',
+      shortMm:
+        'TBStar Company Limited ၏ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ကုန်ပစ္စည်းကဏ္ဍ။ စုံစမ်းမေးမြန်းမှုများအတွက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်နိုင်ပါသည်။',
+      detailed:
+        'TB Star Company Limited handles inquiries for Activated Carbon from our office in Kyauktada Township, Yangon. Please contact our team directly with your inquiry.',
+      detailedMm:
+        'TBStar Company Limited သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်မှတစ်ဆင့် အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) နှင့် ပတ်သက်သော စုံစမ်းမေးမြန်းမှုများကို လက်ခံဆောင်ရွက်ပေးလျက်ရှိပါသည်။ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။',
+    },
+    visualType: 'charcoal',
+    images: {
+      main: '/assets/aistudio/Charcoal-Product.svg',
+      mainAlt: "Placeholder image for Activated Carbon — to be replaced with TB Star's own photos",
+    },
+    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
+    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    inquiryType: 'Activated Carbon',
+    published: true,
+    featured: false,
+    route: '/charcoal',
+    sectionId: 'activated-carbon-overview',
+    relatedProductIds: ['bamboo-split', 'bamboo-sticks'],
+    specifications: [
+      {
+        parameter: 'Product Category',
+        parameterMm: 'ကုန်ပစ္စည်းကဏ္ဍ',
+        value: 'Activated Carbon',
+        valueMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
+        notes: 'Inquiry only',
+        notesMm: 'ဆက်သွယ်စုံစမ်းရန်',
+      },
+    ],
+    seo: {
+      title: 'Activated Carbon Inquiries – TB Star Company Limited Yangon, Myanmar',
+      description:
+        'Contact TB Star Company Limited in Yangon, Myanmar for Activated Carbon inquiries.',
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Charcoal-Product.svg`,
+      ogImageAlt: "Placeholder image for Activated Carbon — to be replaced with TB Star's own photos",
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/charcoal#activated-carbon-overview`,
+    },
+  },
+  {
+    id: 'ball-pen',
+    slug: 'ball-pen',
+    index: '04',
+    name: 'Ball Pen',
+    nameMm: 'ဘောပင် (Ball Pen)',
+    footerLabel: 'Ball Pen (Klick: 30 pcs/box · Plano: 50 pcs/box)',
+    footerLabelMm: 'ဘောပင် · Ball Pen (Klick / Plano)',
+    category: 'stationery',
+    categoryLabel: 'Offset Printing & Stationery',
+    categoryMm: 'အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ',
+    descriptions: {
+      short:
+        'Ball Pen stationery available in two types: Klick (30 pcs per box) and Plano (50 pcs per box).',
+      shortMm:
+        'Klick (တစ်ဘူးလျှင် 30 pcs) နှင့် Plano (တစ်ဘူးလျှင် 50 pcs) ဟူ၍ အမျိုးအစား (၂) မျိုး ရရှိနိုင်သော ဘောပင် (Ball Pen) စာရေးကိရိယာ။',
+      detailed:
+        'Under our Offset Printing & Stationery division, TB Star Company Limited supplies Ball Pen products in two box packaging configurations: Klick (30 pcs per box) and Plano (50 pcs per box). Contact our Yangon office for inquiries.',
+      detailedMm:
+        'TBStar Company Limited ၏ အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်းကဏ္ဍအောက်တွင် ဘောပင် (Ball Pen) ထုတ်ကုန်များကို Klick (တစ်ဘူးလျှင် ၃၀ ချောင်း · 30 pcs per box) နှင့် Plano (တစ်ဘူးလျှင် ၅၀ ချောင်း · 50 pcs per box) ဟူ၍ အမျိုးအစား (၂) မျိုးဖြင့် ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
+    },
     visualType: 'commercial-printing',
-    imagePath: '/assets/aistudio/Offset-Printing.svg',
-    placeholderNote: 'Commercial Offset Printing · Brochures, Catalogs & Stationery',
-    placeholderNoteMm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း · လက်ကမ်းစာစောင်နှင့် ရုံးသုံးပုံနှိပ်',
-    inquiryType: 'Other Offset Printing Services',
-    scopePoints: [
-      'Corporate brochures, pamphlets, flyers, and product catalogs',
-      'Business cards, letterheads, envelopes, and office forms',
-      'Consistent offset color reproduction for commercial orders',
+    images: {
+      main: '/assets/aistudio/Branding_Image_V2_cc9a2035.webp',
+      mainAlt:
+        'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) box packaging',
+      secondary: '/assets/aistudio/Branding_Image_V1_c6c098a8.webp',
+      secondaryAlt:
+        'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) pen showcase',
+    },
+    placeholderNote: 'Ball Pen · Klick (30 pcs per box) & Plano (50 pcs per box)',
+    placeholderNoteMm: 'ဘောပင် (Ball Pen) · Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)',
+    inquiryType: 'Ball Pen',
+    published: true,
+    featured: true,
+    route: '/printing-services',
+    sectionId: 'product-ball-pen',
+    relatedProductIds: ['bamboo-split', 'bamboo-sticks'],
+    variants: [
+      {
+        type: 'Klick',
+        typeMm: 'Klick',
+        packaging: '30 pcs per box',
+        packagingMm: 'တစ်ဘူးလျှင် ၃၀ ချောင်း (30 pcs per box)',
+      },
+      {
+        type: 'Plano',
+        typeMm: 'Plano',
+        packaging: '50 pcs per box',
+        packagingMm: 'တစ်ဘူးလျှင် ၅၀ ချောင်း (50 pcs per box)',
+      },
     ],
-    scopePointsMm: [
-      'လက်ကမ်းစာစောင်များ၊ ကြော်ငြာစာရွက်များနှင့် ကုန်ပစ္စည်းကတ်တလောက်များ',
-      'လိပ်စာကတ်များ၊ ရုံးသုံးစာရွက်များ၊ စာအိတ်နှင့် ဖိုင်တွဲများ',
-      'အရောင်အသွေး တိကျမှန်ကန်သော အော့ဖ်ဆက်ပုံနှိပ် အရည်အသွေး',
+    specifications: [
+      {
+        parameter: 'Product',
+        parameterMm: 'ကုန်ပစ္စည်းအမည်',
+        value: 'Ball Pen',
+        valueMm: 'ဘောပင် (Ball Pen)',
+        notes: 'Offset Printing & Stationery division',
+        notesMm: 'အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဌာန',
+      },
+      {
+        parameter: 'Available Types',
+        parameterMm: 'အမျိုးအစားများ (Types)',
+        value: 'Klick / Plano',
+        valueMm: 'Klick နှင့် Plano',
+        notes: 'Two Ball Pen models available',
+        notesMm: 'အမျိုးအစား (၂) မျိုး ရွေးချယ်နိုင်သည်',
+      },
+      {
+        parameter: 'Packaging — Klick',
+        parameterMm: 'ထုပ်ပိုးမှု — Klick အမျိုးအစား',
+        value: '30 pcs per box',
+        valueMm: 'တစ်ဘူးလျှင် ၃၀ ချောင်း (30 pcs per box)',
+        notes: 'Box packaging for Klick',
+        notesMm: 'Klick ဘောပင် တစ်ဘူးချင်း ထုပ်ပိုးမှု',
+      },
+      {
+        parameter: 'Packaging — Plano',
+        parameterMm: 'ထုပ်ပိုးမှု — Plano အမျိုးအစား',
+        value: '50 pcs per box',
+        valueMm: 'တစ်ဘူးလျှင် ၅၀ ချောင်း (50 pcs per box)',
+        notes: 'Box packaging for Plano',
+        notesMm: 'Plano ဘောပင် တစ်ဘူးချင်း ထုပ်ပိုးမှု',
+      },
     ],
+    seo: {
+      title: 'Ball Pen Stationery (Klick: 30 pcs/box & Plano: 50 pcs/box) | TB Star',
+      description:
+        'Ball Pen stationery supplied by TB Star Company Limited in Yangon: Klick (30 pcs per box) and Plano (50 pcs per box).',
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Branding_Image_V2_cc9a2035.webp`,
+      ogImageAlt:
+        'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) packaging',
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/printing-services#product-ball-pen`,
+    },
   },
 ];
 
-export interface BallPenVariant {
-  type: string;
-  typeMm: string;
-  packaging: string;
-  packagingMm: string;
+function slugifyProductId(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
+
+/**
+ * Normalizes and validates raw product entries:
+ * - Prevents duplicate IDs or slugs
+ * - Safely fills missing optional fields without inventing fake claims
+ * - Resolves internal links, routes, anchors, and SEO metadata
+ * - Validates relatedProductIds against published products
+ */
+export function normalizeCatalogProducts(
+  rawItems: CentralizedProductInput[]
+): BambooProductItem[] {
+  const seenIds = new Set<string>();
+  const seenSlugs = new Set<string>();
+  const preliminary: BambooProductItem[] = [];
+
+  rawItems.forEach((raw, idx) => {
+    const cleanId = slugifyProductId(raw.id || raw.slug || `product-${idx + 1}`);
+    const cleanSlug = slugifyProductId(raw.slug || cleanId);
+
+    if (!cleanId || seenIds.has(cleanId) || seenSlugs.has(cleanSlug)) {
+      console.warn(
+        `[Catalog Validation]: Skipping duplicate or invalid product ID/slug "${raw.id}"`
+      );
+      return;
+    }
+
+    seenIds.add(cleanId);
+    seenSlugs.add(cleanSlug);
+
+    const published = raw.published !== false;
+    const featured = Boolean(raw.featured);
+
+    const categoryKey = (raw.category || 'bamboo').toLowerCase();
+    const defaultCategoryLabel =
+      categoryKey === 'bamboo'
+        ? '100% Natural Bamboo · Domestic & Export Supply'
+        : categoryKey === 'activated-carbon'
+        ? 'Activated Carbon · Commercial Inquiries'
+        : categoryKey === 'stationery'
+        ? 'Printing Services & Stationery'
+        : raw.category;
+    const defaultCategoryMm =
+      categoryKey === 'bamboo'
+        ? '၁၀၀% သဘာဝ မြန်မာ့ဝါး · ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်'
+        : categoryKey === 'activated-carbon'
+        ? 'အက်တီဗိတ်တက် ကာဗွန် · စီးပွားရေးလုပ်ငန်းသုံး ဆက်သွယ်စုံစမ်းရန်'
+        : categoryKey === 'stationery'
+        ? 'ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုလုပ်ငန်း'
+        : raw.categoryMm || raw.category;
+
+    const shortDesc =
+      raw.descriptions?.short ||
+      raw.shortDescription ||
+      `${raw.name} supplied by ${COMPANY_INFO.name} in Yangon, Myanmar.`;
+    const shortDescMm =
+      raw.descriptions?.shortMm ||
+      raw.shortDescriptionMm ||
+      shortDesc;
+    const detailedDesc =
+      raw.descriptions?.detailed ||
+      raw.detailedDescription ||
+      shortDesc;
+    const detailedDescMm =
+      raw.descriptions?.detailedMm ||
+      raw.detailedDescriptionMm ||
+      shortDescMm;
+
+    const mainImg =
+      raw.images?.main ||
+      raw.imagePath ||
+      '/images/products/bamboo-split-main.webp';
+    const mainAlt =
+      raw.images?.mainAlt ||
+      raw.imageAlt ||
+      `${raw.name} – ${COMPANY_INFO.name}`;
+
+    const resolvedImages: ProductImages = {
+      main: mainImg,
+      mainAlt,
+      featured: raw.images?.featured || raw.featuredImagePath,
+      featuredAlt:
+        raw.images?.featuredAlt ||
+        raw.featuredImageAlt ||
+        mainAlt,
+      natural: raw.images?.natural || raw.naturalImagePath,
+      naturalAlt:
+        raw.images?.naturalAlt ||
+        raw.naturalImageAlt ||
+        mainAlt,
+      wholesale: raw.images?.wholesale || raw.wholesaleImagePath,
+      wholesaleAlt:
+        raw.images?.wholesaleAlt ||
+        raw.wholesaleImageAlt ||
+        mainAlt,
+      texture: raw.images?.texture || raw.textureImagePath,
+      textureAlt:
+        raw.images?.textureAlt ||
+        raw.textureImageAlt ||
+        mainAlt,
+      secondary: raw.images?.secondary || raw.secondaryImagePath,
+      secondaryAlt:
+        raw.images?.secondaryAlt ||
+        raw.secondaryImageAlt ||
+        mainAlt,
+    };
+
+    const route: PageRoute =
+      raw.route ||
+      (categoryKey === 'activated-carbon'
+        ? '/charcoal'
+        : categoryKey === 'stationery'
+        ? '/printing-services'
+        : '/bamboo-products');
+
+    const sectionId = raw.sectionId || `product-${cleanSlug}`;
+    const href =
+      route === '/charcoal'
+        ? '/charcoal'
+        : `${route}#${sectionId}`;
+
+    const normalizedFeatures: ProductFeatureItem[] = (raw.features || []).map(
+      (feat) =>
+        typeof feat === 'string'
+          ? { en: feat, mm: feat }
+          : {
+              label: feat.label,
+              labelMm: feat.labelMm || feat.label,
+              en: feat.en,
+              mm: feat.mm || feat.en,
+            }
+    );
+
+    const normalizedSpecs: SpecificationRow[] = (raw.specifications || []).map(
+      (spec) => ({
+        parameter: spec.parameter,
+        parameterMm: spec.parameterMm || spec.parameter,
+        value: spec.value,
+        valueMm: spec.valueMm || spec.value,
+        notes: spec.notes,
+        notesMm: spec.notesMm || spec.notes,
+      })
+    );
+
+    // Build detailSubCards if not explicitly provided but texture/wholesale images exist
+    const resolvedSubCards: ProductDetailSubCard[] =
+      raw.detailSubCards && raw.detailSubCards.length > 0
+        ? raw.detailSubCards
+        : [
+            ...(resolvedImages.texture
+              ? [
+                  {
+                    kicker: 'MATERIAL TEXTURE & APPEARANCE',
+                    kickerMm: 'သဘာဝဝါးအသားနှင့် အသွင်အပြင်',
+                    title: `${raw.name} Texture & Detail`,
+                    titleMm: `${raw.nameMm || raw.name} အသေးစိတ်ပုံစံ`,
+                    description: shortDesc,
+                    descriptionMm: shortDescMm,
+                    imagePath: resolvedImages.texture,
+                    imageAlt: resolvedImages.textureAlt || mainAlt,
+                    frameLabel: `${raw.name} · Material Texture`,
+                    frameLabelMm: `${raw.nameMm || raw.name} · သဘာဝအသားဖွဲ့စည်းပုံ`,
+                  },
+                ]
+              : []),
+            ...(resolvedImages.wholesale
+              ? [
+                  {
+                    kicker: 'COMMERCIAL & WHOLESALE PACKAGING',
+                    kickerMm: 'လက်ကားနှင့် ပြည်ပပို့ကုန် ထုပ်ပိုးမှု',
+                    title: `${raw.name} Commercial Supply`,
+                    titleMm: `${raw.nameMm || raw.name} ထုပ်ပိုးမှုပုံစံ`,
+                    description: shortDesc,
+                    descriptionMm: shortDescMm,
+                    imagePath: resolvedImages.wholesale,
+                    imageAlt: resolvedImages.wholesaleAlt || mainAlt,
+                    frameLabel: `${raw.name} · Commercial Packaging`,
+                    frameLabelMm: `${raw.nameMm || raw.name} · စံချိန်မီ ထုပ်ပိုးမှု`,
+                  },
+                ]
+              : []),
+          ];
+
+    const resolvedInquiryType: InquiryTypeOption =
+      raw.inquiryType && INQUIRY_TYPE_OPTIONS.includes(raw.inquiryType)
+        ? raw.inquiryType
+        : INQUIRY_TYPE_OPTIONS.includes(raw.name as InquiryTypeOption)
+        ? (raw.name as InquiryTypeOption)
+        : categoryKey === 'bamboo'
+        ? 'Bamboo Split'
+        : categoryKey === 'activated-carbon'
+        ? 'Activated Carbon'
+        : categoryKey === 'stationery'
+        ? 'Ball Pen'
+        : 'General Inquiry';
+
+    const visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom' | 'charcoal' =
+      raw.visualType === 'bamboo-split' ||
+      raw.visualType === 'bamboo-sticks' ||
+      raw.visualType === 'bamboo-custom' ||
+      raw.visualType === 'charcoal'
+        ? raw.visualType
+        : cleanSlug.includes('stick')
+        ? 'bamboo-sticks'
+        : categoryKey === 'activated-carbon'
+        ? 'charcoal'
+        : 'bamboo-split';
+
+    const ogImageUrl = raw.seo?.ogImage
+      ? raw.seo.ogImage
+      : mainImg.startsWith('http')
+      ? mainImg
+      : `${COMPANY_INFO.canonicalBase}${mainImg}`;
+
+    preliminary.push({
+      id: cleanId,
+      slug: cleanSlug,
+      index: raw.index || String(idx + 1).padStart(2, '0'),
+      name: raw.name,
+      nameMm: raw.nameMm || raw.name,
+      footerLabel: raw.footerLabel || raw.name,
+      footerLabelMm: raw.footerLabelMm || raw.nameMm || raw.name,
+      category: raw.categoryLabel || defaultCategoryLabel,
+      categoryKey,
+      categoryMm: defaultCategoryMm,
+      descriptions: {
+        short: shortDesc,
+        shortMm: shortDescMm,
+        detailed: detailedDesc,
+        detailedMm: detailedDescMm,
+      },
+      shortDescription: shortDesc,
+      shortDescriptionMm: shortDescMm,
+      detailedDescription: detailedDesc,
+      detailedDescriptionMm: detailedDescMm,
+      visualType,
+      images: resolvedImages,
+      imagePath: resolvedImages.main,
+      imageAlt: resolvedImages.mainAlt,
+      featuredImagePath: resolvedImages.featured,
+      featuredImageAlt: resolvedImages.featuredAlt,
+      naturalImagePath: resolvedImages.natural,
+      naturalImageAlt: resolvedImages.naturalAlt,
+      wholesaleImagePath: resolvedImages.wholesale,
+      wholesaleImageAlt: resolvedImages.wholesaleAlt,
+      textureImagePath: resolvedImages.texture,
+      textureImageAlt: resolvedImages.textureAlt,
+      secondaryImagePath: resolvedImages.secondary,
+      secondaryImageAlt: resolvedImages.secondaryAlt,
+      placeholderNote: raw.placeholderNote || `${raw.name} · ${COMPANY_INFO.name}`,
+      placeholderNoteMm:
+        raw.placeholderNoteMm || raw.placeholderNote || `${raw.nameMm || raw.name}`,
+      inquiryType: resolvedInquiryType,
+      specifications: normalizedSpecs,
+      features: normalizedFeatures,
+      variants: raw.variants || [],
+      detailSubCards: resolvedSubCards,
+      published,
+      featured,
+      route,
+      sectionId,
+      href,
+      relatedProductIds: raw.relatedProductIds || [],
+      seo: {
+        title: raw.seo?.title || `${raw.name} – ${COMPANY_INFO.name}`,
+        description: raw.seo?.description || shortDesc,
+        ogImage: ogImageUrl,
+        ogImageAlt: raw.seo?.ogImageAlt || mainAlt,
+        canonicalAnchor:
+          raw.seo?.canonicalAnchor || `${COMPANY_INFO.canonicalBase}${href}`,
+      },
+    });
+  });
+
+  const publishedIds = new Set(
+    preliminary.filter((p) => p.published).map((p) => p.id)
+  );
+
+  // Validate relatedProductIds so broken or unpublished product references never appear
+  return preliminary.map((item) => {
+    const validRelated = item.relatedProductIds.filter(
+      (relId) => relId !== item.id && publishedIds.has(relId)
+    );
+    const fallbackRelated = preliminary
+      .filter((other) => other.published && other.id !== item.id)
+      .map((other) => other.id);
+
+    return {
+      ...item,
+      relatedProductIds:
+        validRelated.length > 0 ? validRelated : fallbackRelated.slice(0, 2),
+    };
+  });
+}
+
+export const ALL_NORMALIZED_PRODUCTS: BambooProductItem[] =
+  normalizeCatalogProducts(RAW_CENTRALIZED_PRODUCTS);
+
+/**
+ * Returns all published products across all categories.
+ * Unpublished products (published: false) are automatically hidden.
+ */
+export function getPublishedProducts(): BambooProductItem[] {
+  return ALL_NORMALIZED_PRODUCTS.filter((p) => p.published);
+}
+
+/**
+ * Returns published products filtered by category key ('bamboo', 'activated-carbon', 'stationery').
+ * Re-indexes display numbers (01, 02, ...) sequentially within the category.
+ */
+export function getProductsByCategory(
+  categoryKey: ProductCategoryId | string
+): BambooProductItem[] {
+  const normalizedKey = categoryKey.toLowerCase();
+  return getPublishedProducts()
+    .filter((p) => p.categoryKey.toLowerCase() === normalizedKey)
+    .map((p, idx) => ({
+      ...p,
+      index: String(idx + 1).padStart(2, '0'),
+    }));
+}
+
+/**
+ * Returns published products marked as `featured: true` (optionally filtered by category).
+ */
+export function getFeaturedProducts(
+  categoryKey?: ProductCategoryId | string
+): BambooProductItem[] {
+  const base = categoryKey
+    ? getProductsByCategory(categoryKey)
+    : getPublishedProducts();
+  const featuredList = base.filter((p) => p.featured);
+  return featuredList.length > 0 ? featuredList : base;
+}
+
+/**
+ * Finds a single published product by its `id` or `slug`.
+ */
+export function getProductByIdOrSlug(
+  idOrSlug: string
+): BambooProductItem | undefined {
+  const clean = slugifyProductId(idOrSlug);
+  return getPublishedProducts().find(
+    (p) => p.id === clean || p.slug === clean
+  );
+}
+
+/**
+ * Returns published related products for a given product ID or slug.
+ */
+export function getRelatedProducts(
+  productIdOrSlug: string,
+  limit = 2
+): BambooProductItem[] {
+  const current = getProductByIdOrSlug(productIdOrSlug);
+  const published = getPublishedProducts();
+  if (!current) {
+    return published.slice(0, limit);
+  }
+  const byExplicitIds = current.relatedProductIds
+    .map((id) => published.find((p) => p.id === id))
+    .filter((p): p is BambooProductItem => Boolean(p));
+
+  if (byExplicitIds.length >= limit) {
+    return byExplicitIds.slice(0, limit);
+  }
+
+  const remaining = published.filter(
+    (p) => p.id !== current.id && !byExplicitIds.some((r) => r.id === p.id)
+  );
+  return [...byExplicitIds, ...remaining].slice(0, limit);
+}
+
+/**
+ * Returns active product categories that currently have at least one published product.
+ */
+export function getActiveProductCategories(): string[] {
+  return Array.from(new Set(getPublishedProducts().map((p) => p.categoryKey)));
+}
+
+/**
+ * Filters a list of centralized products in real-time by matching the user query
+ * against product names (English & Myanmar), short and detailed descriptions
+ * (English & Myanmar), category labels, variants, and specification values.
+ */
+export function filterProductsBySearchQuery(
+  products: BambooProductItem[],
+  query: string,
+  categoryFilter: ProductCategoryId | 'all' = 'all'
+): BambooProductItem[] {
+  const normalizedCategory = categoryFilter.toLowerCase();
+  const categoryFiltered =
+    normalizedCategory === 'all'
+      ? products
+      : products.filter(
+          (product) => product.categoryKey.toLowerCase() === normalizedCategory
+        );
+
+  const trimmedQuery = query.trim().toLowerCase();
+  if (!trimmedQuery) {
+    return categoryFiltered;
+  }
+
+  const tokens = trimmedQuery.split(/\s+/).filter(Boolean);
+
+  return categoryFiltered.filter((product) => {
+    const searchableFields: string[] = [
+      product.name,
+      product.nameMm,
+      product.slug,
+      product.footerLabel,
+      product.footerLabelMm,
+      product.category,
+      product.categoryMm,
+      product.categoryKey,
+      product.shortDescription,
+      product.shortDescriptionMm,
+      product.detailedDescription,
+      product.detailedDescriptionMm,
+      product.descriptions.short,
+      product.descriptions.shortMm,
+      product.descriptions.detailed,
+      product.descriptions.detailedMm,
+      ...(product.variants || []).flatMap((v) => [
+        v.type,
+        v.typeMm,
+        v.packaging,
+        v.packagingMm,
+      ]),
+      ...(product.specifications || []).flatMap((s) => [
+        s.parameter,
+        s.parameterMm || '',
+        s.value,
+        s.valueMm || '',
+        s.notes || '',
+        s.notesMm || '',
+      ]),
+      ...(product.features || []).flatMap((f) => [
+        f.en,
+        f.mm || '',
+        f.label || '',
+        f.labelMm || '',
+      ]),
+    ];
+
+    const haystack = searchableFields.join(' ').toLowerCase();
+    return tokens.every((token) => haystack.includes(token));
+  });
+}
+
+/**
+ * Searches all published centralized products by name, description, and optional category.
+ */
+export function searchPublishedProducts(
+  query: string,
+  categoryFilter: ProductCategoryId | 'all' = 'all'
+): BambooProductItem[] {
+  return filterProductsBySearchQuery(
+    getPublishedProducts(),
+    query,
+    categoryFilter
+  );
+}
+
+
+// Derived exports for seamless compatibility across all existing components & server routes
+export const BAMBOO_PRODUCTS: BambooProductItem[] =
+  getProductsByCategory('bamboo');
+
+const fallbackActivatedCarbon = ALL_NORMALIZED_PRODUCTS.find(
+  (p) => p.id === 'activated-carbon'
+)!;
+
+export const CHARCOAL_PRODUCT_INFO =
+  getProductByIdOrSlug('activated-carbon') || fallbackActivatedCarbon;
 
 export interface BallPenProductInfo {
-  id: 'ball-pen';
+  id: string;
+  slug: string;
   index: string;
   name: string;
   nameMm: string;
+  footerLabel: string;
+  footerLabelMm: string;
   category: string;
   categoryMm: string;
   shortDescription: string;
@@ -759,84 +1377,549 @@ export interface BallPenProductInfo {
   placeholderNote: string;
   placeholderNoteMm: string;
   inquiryType: InquiryTypeOption;
+  published: boolean;
+  featured: boolean;
+  href: string;
+  sectionId: string;
   variants: BallPenVariant[];
   specifications: SpecificationRow[];
 }
 
+const resolvedBallPen =
+  getProductByIdOrSlug('ball-pen') ||
+  ALL_NORMALIZED_PRODUCTS.find((p) => p.id === 'ball-pen')!;
+
 export const BALL_PEN_PRODUCT: BallPenProductInfo = {
-  id: 'ball-pen',
+  id: resolvedBallPen.id,
+  slug: resolvedBallPen.slug,
   index: '04',
-  name: 'Ball Pen',
-  nameMm: 'ဘောပင် (Ball Pen)',
-  category: 'Printing Services & Stationery',
-  categoryMm: 'ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုလုပ်ငန်း',
-  shortDescription:
-    'Ball Pen stationery supplied under our Printing Services & Stationery division in two types: Klick (30 pcs per box) and Plano (50 pcs per box).',
-  shortDescriptionMm:
-    'ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်းကဏ္ဍအောက်မှ Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘောပင် (Ball Pen) အမျိုးအစား (၂) မျိုးကို ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
-  detailedDescription:
-    'Under our Printing Services & Stationery division, TB Star Company Limited supplies Ball Pen products in two standardized box packaging configurations: Klick (30 pcs per box) and Plano (50 pcs per box). Contact our Yangon office for wholesale and commercial stationery inquiries.',
-  detailedDescriptionMm:
-    'TBStar Company Limited ၏ ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်းကဏ္ဍအောက်တွင် ဘောပင် (Ball Pen) ထုတ်ကုန်များကို Klick (တစ်ဘူးလျှင် ၃၀ ချောင်း · 30 pcs per box) နှင့် Plano (တစ်ဘူးလျှင် ၅၀ ချောင်း · 50 pcs per box) ဟူ၍ အမျိုးအစား (၂) မျိုးဖြင့် ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
+  name: resolvedBallPen.name,
+  nameMm: resolvedBallPen.nameMm,
+  footerLabel: resolvedBallPen.footerLabel,
+  footerLabelMm: resolvedBallPen.footerLabelMm,
+  category: resolvedBallPen.category,
+  categoryMm: resolvedBallPen.categoryMm,
+  shortDescription: resolvedBallPen.shortDescription,
+  shortDescriptionMm: resolvedBallPen.shortDescriptionMm,
+  detailedDescription: resolvedBallPen.detailedDescription,
+  detailedDescriptionMm: resolvedBallPen.detailedDescriptionMm,
   visualType: 'commercial-printing',
-  imagePath: '/assets/aistudio/Branding_Image_V2_cc9a2035.webp',
-  imageAlt:
-    'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) box packaging',
-  secondaryImagePath: '/assets/aistudio/Branding_Image_V1_c6c098a8.webp',
-  secondaryImageAlt:
-    'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) pen showcase',
-  placeholderNote: 'Ball Pen · Klick (30 pcs per box) & Plano (50 pcs per box)',
-  placeholderNoteMm: 'ဘောပင် (Ball Pen) · Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)',
-  inquiryType: 'Ball Pen',
-  variants: [
-    {
-      type: 'Klick',
-      typeMm: 'Klick',
-      packaging: '30 pcs per box',
-      packagingMm: 'တစ်ဘူးလျှင် ၃၀ ချောင်း (30 pcs per box)',
-    },
-    {
-      type: 'Plano',
-      typeMm: 'Plano',
-      packaging: '50 pcs per box',
-      packagingMm: 'တစ်ဘူးလျှင် ၅၀ ချောင်း (50 pcs per box)',
-    },
-  ],
-  specifications: [
-    {
-      parameter: 'Product',
-      parameterMm: 'ကုန်ပစ္စည်းအမည်',
-      value: 'Ball Pen',
-      valueMm: 'ဘောပင် (Ball Pen)',
-      notes: 'Printing Services & Stationery division',
-      notesMm: 'ပုံနှိပ်နှင့် စာရေးကိရိယာ ဌာန',
-    },
-    {
-      parameter: 'Available Types',
-      parameterMm: 'အမျိုးအစားများ (Types)',
-      value: 'Klick / Plano',
-      valueMm: 'Klick နှင့် Plano',
-      notes: 'Two distinct Ball Pen models available',
-      notesMm: 'အမျိုးအစား (၂) မျိုး ရွေးချယ်နိုင်သည်',
-    },
-    {
-      parameter: 'Packaging — Type 1 (Klick)',
-      parameterMm: 'ထုပ်ပိုးမှု — Klick အမျိုးအစား',
-      value: '30 pcs per box',
-      valueMm: 'တစ်ဘူးလျှင် ၃၀ ချောင်း (30 pcs per box)',
-      notes: 'Standardized box packaging for Klick Ball Pen',
-      notesMm: 'Klick ဘောပင် တစ်ဘူးချင်း စံနှုန်း',
-    },
-    {
-      parameter: 'Packaging — Type 2 (Plano)',
-      parameterMm: 'ထုပ်ပိုးမှု — Plano အမျိုးအစား',
-      value: '50 pcs per box',
-      valueMm: 'တစ်ဘူးလျှင် ၅၀ ချောင်း (50 pcs per box)',
-      notes: 'Standardized box packaging for Plano Ball Pen',
-      notesMm: 'Plano ဘောပင် တစ်ဘူးချင်း စံနှုန်း',
-    },
-  ],
+  imagePath: resolvedBallPen.imagePath,
+  imageAlt: resolvedBallPen.imageAlt,
+  secondaryImagePath: resolvedBallPen.secondaryImagePath,
+  secondaryImageAlt: resolvedBallPen.secondaryImageAlt,
+  placeholderNote: resolvedBallPen.placeholderNote,
+  placeholderNoteMm: resolvedBallPen.placeholderNoteMm,
+  inquiryType: resolvedBallPen.inquiryType,
+  published: resolvedBallPen.published,
+  featured: resolvedBallPen.featured,
+  href: resolvedBallPen.href,
+  sectionId: resolvedBallPen.sectionId,
+  variants: resolvedBallPen.variants,
+  specifications: resolvedBallPen.specifications,
 };
+
+export interface PrintingServiceItem {
+  id: 'books-printing' | 'voucher-books-printing' | 'other-offset-printing' | string;
+  slug?: string;
+  index: string;
+  name: string;
+  nameMm: string;
+  category: string;
+  categoryMm: string;
+  shortDescription: string;
+  shortDescriptionMm: string;
+  detailedDescription: string;
+  detailedDescriptionMm: string;
+  visualType: 'books-printing' | 'voucher-printing' | 'commercial-printing';
+  imagePath?: string;
+  imageAlt?: string;
+  placeholderNote: string;
+  placeholderNoteMm?: string;
+  inquiryType: InquiryTypeOption;
+  scopePoints: string[];
+  scopePointsMm: string[];
+  published?: boolean;
+  featured?: boolean;
+  sectionId?: string;
+  href?: string;
+}
+
+const RAW_PRINTING_SERVICES: PrintingServiceItem[] = [
+  {
+    id: 'books-printing',
+    slug: 'books-printing',
+    index: '01',
+    name: 'Books Printing',
+    nameMm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း (Books Printing)',
+    category: 'One-Stop Offset Printing Services',
+    categoryMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
+    shortDescription:
+      'One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding.',
+    shortDescriptionMm:
+      'စာအုပ်အမျိုးမျိုး၊ ပညာရေးဆိုင်ရာ စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များကို စာသားကြည်လင်ပြတ်သားပြီး ခိုင်ခံ့သပ်ရပ်စွာ တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ပေးပါသည်။',
+    detailedDescription:
+      'TB Star Company Limited provides one-stop offset printing services for books, publications, and institutional manuals in Yangon. We coordinate layout verification, offset press production, cover printing, and binding under one roof.',
+    detailedDescriptionMm:
+      'TBStar Company Limited သည် စာအုပ်များ၊ စာပေထုတ်ဝေမှုများနှင့် လမ်းညွှန်စာအုပ်အမျိုးမျိုးအတွက် စာမျက်နှာစစ်ဆေးခြင်းမှစ၍ အော့ဖ်ဆက်စက်ဖြင့် ပုံနှိပ်ခြင်း၊ မျက်နှာဖုံးပုံနှိပ်ခြင်းနှင့် စာအုပ်ချုပ်လုပ်ခြင်းအထိ တစ်နေရာတည်းတွင် အပြီးအစီး တာဝန်ယူ ဆောင်ရွက်ပေးပါသည်။',
+    visualType: 'books-printing',
+    imagePath: '/assets/aistudio/Offset-Printing.svg',
+    imageAlt: "Placeholder illustration for Books Printing — to be replaced with TB Star's own photos",
+    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
+    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    inquiryType: 'Books Printing',
+    published: true,
+    featured: true,
+    sectionId: 'service-books-printing',
+    href: '/printing-services#service-books-printing',
+    scopePoints: [
+      'Multi-page books, textbooks, and corporate publications',
+      'Sharp offset interior text reproduction and full-color covers',
+      'End-to-end coordination from offset press production to binding and trimming',
+    ],
+    scopePointsMm: [
+      'စာမျက်နှာစုံ စာအုပ်များ၊ ကျောင်းသုံးနှင့် ရုံးသုံးစာအုပ်အမျိုးမျိုး',
+      'ကြည်လင်ပြတ်သားသော အတွင်းစာသားနှင့် ရောင်စုံမျက်နှာဖုံး ပုံနှိပ်မှု',
+      'ပုံနှိပ်ခြင်းမှ စာအုပ်ချုပ်လုပ်ပြီးစီးသည်အထိ တစ်နေရာတည်း အပြီးအစီး ဝန်ဆောင်မှု',
+    ],
+  },
+  {
+    id: 'voucher-books-printing',
+    slug: 'voucher-books-printing',
+    index: '02',
+    name: 'Voucher Books Printing',
+    nameMm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း (Voucher Books Printing)',
+    category: 'One-Stop Offset Printing Services',
+    categoryMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
+    shortDescription:
+      'Commercial voucher books, invoice pads, receipt books, and business forms customized for daily retail and B2B operations.',
+    shortDescriptionMm:
+      'နေ့စဉ်လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များ၊ ငွေတောင်းခံလွှာနှင့် ပြေစာစာအုပ်များကို လုပ်ငန်းအမှတ်တံဆိပ်နှင့်အညီ သပ်ရပ်တိကျစွာ ပုံနှိပ်ပေးပါသည်။',
+    detailedDescription:
+      'Our Voucher Books Printing service supplies businesses, wholesalers, and commercial offices with custom-formatted voucher books, receipt pads, delivery notes, and invoice books.',
+    detailedDescriptionMm:
+      'ကုမ္ပဏီများ၊ လက်ကားဆိုင်များနှင့် စီးပွားရေးလုပ်ငန်းများအတွက် လိုအပ်သော ဘောင်ချာစာအုပ်များ၊ ပြေစာစာအုပ်များနှင့် စာရင်းပုံစံစာအုပ်များကို စနစ်တကျ ပုံနှိပ်ပေးပါသည်။',
+    visualType: 'voucher-printing',
+    imagePath: '/assets/aistudio/Offset-Printing.svg',
+    imageAlt: "Placeholder illustration for Voucher Books Printing — to be replaced with TB Star's own photos",
+    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
+    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    inquiryType: 'Voucher Books Printing',
+    published: true,
+    featured: true,
+    sectionId: 'service-voucher-books-printing',
+    href: '/printing-services#service-voucher-books-printing',
+    scopePoints: [
+      'Custom sales voucher books, receipt pads, and invoice books',
+      'Perforation and multi-copy pad binding',
+      'Tailored layouts featuring your company logo and contact details',
+    ],
+    scopePointsMm: [
+      'အရောင်းဘောင်ချာစာအုပ်များ၊ ပြေစာနှင့် ငွေတောင်းခံလွှာစာအုပ်များ',
+      'ဆုတ်ဖြဲရလွယ်ကူသော အပေါက်ဖောက်ခြင်းနှင့် အလွှာစုံ (Multi-copy) စာအုပ်ချုပ်လုပ်ခြင်း',
+      'မိမိလုပ်ငန်းလိုဂိုနှင့် အချက်အလက်များအတိုင်း စိတ်ကြိုက်ဒီဇိုင်း ပုံနှိပ်နိုင်ခြင်း',
+    ],
+  },
+  {
+    id: 'other-offset-printing',
+    slug: 'other-offset-printing',
+    index: '03',
+    name: 'Other Offset Printing Services',
+    nameMm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ',
+    category: 'One-Stop Offset Printing Services',
+    categoryMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
+    shortDescription:
+      'Commercial offset printing for brochures, pamphlets, catalogs, business cards, letterheads, and office forms.',
+    shortDescriptionMm:
+      'လက်ကမ်းစာစောင်များ၊ ကတ်တလောက်များ၊ လိပ်စာကတ်များနှင့် ရုံးသုံးပုံစံစာရွက်အမျိုးမျိုးအတွက် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု။',
+    detailedDescription:
+      'Beyond books and voucher pads, TB Star Company Limited delivers one-stop offset printing for corporate brochures, flyers, product catalogs, business cards, envelopes, letterheads, and administrative forms.',
+    detailedDescriptionMm:
+      'စာအုပ်နှင့် ဘောင်ချာစာအုပ်များအပြင် ကုမ္ပဏီသုံး လက်ကမ်းစာစောင်များ (Brochures & Pamphlets)၊ ကုန်ပစ္စည်းကတ်တလောက်များ၊ လိပ်စာကတ်များ၊ စာအိတ်များနှင့် ရုံးသုံးပုံစံစာရွက်အမျိုးမျိုးကိုပါ တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ပေးပါသည်။',
+    visualType: 'commercial-printing',
+    imagePath: '/assets/aistudio/Offset-Printing.svg',
+    imageAlt: "Placeholder illustration for Other Offset Printing Services — to be replaced with TB Star's own photos",
+    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
+    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    inquiryType: 'Other Offset Printing Services',
+    published: true,
+    featured: true,
+    sectionId: 'service-other-offset-printing',
+    href: '/printing-services#service-other-offset-printing',
+    scopePoints: [
+      'Corporate brochures, pamphlets, flyers, and product catalogs',
+      'Business cards, letterheads, envelopes, and office forms',
+      'Consistent offset color reproduction for commercial orders',
+    ],
+    scopePointsMm: [
+      'လက်ကမ်းစာစောင်များ၊ ကြော်ငြာစာရွက်များနှင့် ကုန်ပစ္စည်းကတ်တလောက်များ',
+      'လိပ်စာကတ်များ၊ ရုံးသုံးစာရွက်များ၊ စာအိတ်နှင့် ဖိုင်တွဲများ',
+      'အရောင်အသွေး တိကျမှန်ကန်သော အော့ဖ်ဆက်ပုံနှိပ် အရည်အသွေး',
+    ],
+  },
+];
+
+export function getPublishedPrintingServices(): PrintingServiceItem[] {
+  return RAW_PRINTING_SERVICES.filter((svc) => svc.published !== false).map(
+    (svc, idx) => ({
+      ...svc,
+      index: String(idx + 1).padStart(2, '0'),
+      sectionId: svc.sectionId || `service-${svc.id}`,
+      href: svc.href || `/printing-services#service-${svc.id}`,
+    })
+  );
+}
+
+/**
+ * Filters printing services in real-time by matching the user query against
+ * service names, categories, descriptions, and scope points in English and Myanmar.
+ */
+export function filterPrintingServicesBySearchQuery(
+  services: PrintingServiceItem[],
+  query: string
+): PrintingServiceItem[] {
+  const trimmedQuery = query.trim().toLowerCase();
+  if (!trimmedQuery) {
+    return services;
+  }
+
+  const tokens = trimmedQuery.split(/\s+/).filter(Boolean);
+
+  return services.filter((service) => {
+    const searchableFields: string[] = [
+      service.name,
+      service.nameMm,
+      service.slug || '',
+      service.category,
+      service.categoryMm,
+      service.shortDescription,
+      service.shortDescriptionMm,
+      service.detailedDescription,
+      service.detailedDescriptionMm,
+      service.inquiryType,
+      ...(service.scopePoints || []),
+      ...(service.scopePointsMm || []),
+    ];
+
+    const haystack = searchableFields.join(' ').toLowerCase();
+    return tokens.every((token) => haystack.includes(token));
+  });
+}
+
+export const PRINTING_SERVICES: PrintingServiceItem[] =
+  getPublishedPrintingServices();
+
+export interface PageSeoMetadata {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  ogImage: string;
+  ogImageAlt: string;
+  breadcrumbs: { name: string; url: string }[];
+}
+
+const publishedBambooNames = BAMBOO_PRODUCTS.map((p) => p.name).join(', ');
+
+export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
+  '/': {
+    title: `${COMPANY_INFO.name} – Natural Myanmar Bamboo Products, Activated Carbon & Offset Printing Services`,
+    description: `Established in ${COMPANY_INFO.establishedYear}, ${COMPANY_INFO.name} operates in Yangon, Myanmar, supplying 100% natural Myanmar ${publishedBambooNames || 'Bamboo Products'}, Activated Carbon, and one-stop Offset Printing Services & Ball Pen stationery.`,
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
+    ogImageAlt: `Natural Myanmar bamboo splits with nodes by ${COMPANY_INFO.name}`,
+    breadcrumbs: [{ name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` }],
+  },
+  '/about': {
+    title: `About ${COMPANY_INFO.name} – Established in ${COMPANY_INFO.establishedYear} in Yangon, Myanmar`,
+    description: COMPANY_INFO.overview,
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/about`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-natural.webp`,
+    ogImageAlt: `About ${COMPANY_INFO.name} in Yangon, Myanmar`,
+    breadcrumbs: [
+      { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
+      { name: 'About Us', url: `${COMPANY_INFO.canonicalBase}/about` },
+    ],
+  },
+  '/bamboo-products': {
+    title: `${publishedBambooNames || 'Bamboo Products'} Specifications – 100% Natural Myanmar Bamboo | TB Star`,
+    description:
+      'Explore 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 to 2.5 mm, 8, 9, 10 inches, packed 30 kg per bag) from TB Star Company Limited.',
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/bamboo-products`,
+    ogImage:
+      BAMBOO_PRODUCTS[0]?.seo.ogImage ||
+      `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
+    ogImageAlt:
+      BAMBOO_PRODUCTS[0]?.seo.ogImageAlt ||
+      `100% Natural Myanmar Bamboo Split and Bamboo Sticks by ${COMPANY_INFO.name}`,
+    breadcrumbs: [
+      { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
+      { name: 'Bamboo Products', url: `${COMPANY_INFO.canonicalBase}/bamboo-products` },
+    ],
+  },
+  '/charcoal': {
+    title: CHARCOAL_PRODUCT_INFO.seo.title,
+    description: CHARCOAL_PRODUCT_INFO.seo.description,
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/charcoal`,
+    ogImage: CHARCOAL_PRODUCT_INFO.seo.ogImage,
+    ogImageAlt: CHARCOAL_PRODUCT_INFO.seo.ogImageAlt,
+    breadcrumbs: [
+      { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
+      { name: CHARCOAL_PRODUCT_INFO.name, url: `${COMPANY_INFO.canonicalBase}/charcoal` },
+    ],
+  },
+  '/printing-services': {
+    title:
+      'One-Stop Offset Printing Services & Ball Pen Stationery (Klick & Plano) | TB Star',
+    description:
+      'One-stop offset printing services in Yangon for Books Printing, Voucher Books Printing, and Other Offset Printing Services, plus Ball Pen stationery (Klick: 30 pcs per box; Plano: 50 pcs per box).',
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/printing-services`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Branding_Image_V2_cc9a2035.webp`,
+    ogImageAlt: `${COMPANY_INFO.name} Offset Printing Services and Klick & Plano Ball Pen Stationery`,
+    breadcrumbs: [
+      { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
+      {
+        name: 'Printing Services',
+        url: `${COMPANY_INFO.canonicalBase}/printing-services`,
+      },
+    ],
+  },
+  '/gallery': {
+    title: 'Product & Packaging Gallery – Bamboo, Offset Printing & Ball Pen | TB Star',
+    description:
+      'Inspect product photos of 100% natural Myanmar Bamboo Split, Bamboo Sticks, 30 kg export packaging, Offset Printing deliverables, and Klick & Plano Ball Pens.',
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/gallery`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-featured.webp`,
+    ogImageAlt: `${COMPANY_INFO.name} Product and Packaging Gallery`,
+    breadcrumbs: [
+      { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
+      { name: 'Gallery', url: `${COMPANY_INFO.canonicalBase}/gallery` },
+    ],
+  },
+  '/contact': {
+    title: `Contact ${COMPANY_INFO.name} – Central Tower, Kyauktada Township, Yangon`,
+    description: `Contact ${COMPANY_INFO.name} at ${COMPANY_INFO.address.line1}, ${COMPANY_INFO.address.township}, ${COMPANY_INFO.address.city} (Tel: ${COMPANY_INFO.telephone}) for Bamboo, Activated Carbon, Printing, and Ball Pen inquiries.`,
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/contact`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
+    ogImageAlt: `Contact ${COMPANY_INFO.name} in Yangon, Myanmar`,
+    breadcrumbs: [
+      { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
+      { name: 'Contact Us', url: `${COMPANY_INFO.canonicalBase}/contact` },
+    ],
+  },
+};
+
+/**
+ * Centralized Schema.org JSON-LD generator used by both client-side navigation (src/App.tsx)
+ * and server-side HTML injection (server.ts). Dynamically reflects published products,
+ * services, and verified company metadata.
+ */
+export function buildStructuredData(route: PageRoute) {
+  const seo = PAGE_SEO[route] || PAGE_SEO['/'];
+  const baseUrl = COMPANY_INFO.canonicalBase;
+
+  const organizationNode = {
+    '@type': 'Organization',
+    '@id': `${baseUrl}/#organization`,
+    name: COMPANY_INFO.name,
+    alternateName: COMPANY_INFO.nameMm,
+    foundingDate: COMPANY_INFO.establishedYear,
+    url: `${baseUrl}/`,
+    logo: {
+      '@type': 'ImageObject',
+      '@id': `${baseUrl}/#logo`,
+      url: `${baseUrl}${COMPANY_INFO.logoPath}`,
+      contentUrl: `${baseUrl}${COMPANY_INFO.logoPath}`,
+      caption: `${COMPANY_INFO.name} Official Logo`,
+    },
+    description: COMPANY_INFO.seoDescription,
+    telephone: COMPANY_INFO.telephone,
+    areaServed: ['MM'],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: COMPANY_INFO.address.streetAddress,
+      addressLocality: COMPANY_INFO.address.city,
+      addressRegion: COMPANY_INFO.address.region,
+      postalCode: COMPANY_INFO.address.postalCode,
+      addressCountry: COMPANY_INFO.address.countryCode,
+    },
+  };
+
+  const websiteNode = {
+    '@type': 'WebSite',
+    '@id': `${baseUrl}/#website`,
+    url: `${baseUrl}/`,
+    name: COMPANY_INFO.name,
+    publisher: {
+      '@id': `${baseUrl}/#organization`,
+    },
+    inLanguage: 'en',
+  };
+
+  const pageType =
+    route === '/about'
+      ? 'AboutPage'
+      : route === '/contact'
+      ? 'ContactPage'
+      : route === '/gallery' ||
+        route === '/bamboo-products' ||
+        route === '/charcoal'
+      ? 'CollectionPage'
+      : 'WebPage';
+
+  const breadcrumbNode = {
+    '@type': 'BreadcrumbList',
+    '@id': `${seo.canonicalUrl}#breadcrumb`,
+    itemListElement: seo.breadcrumbs.map((crumb, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
+  };
+
+  const webPageNode: Record<string, unknown> = {
+    '@type': pageType,
+    '@id': `${seo.canonicalUrl}#webpage`,
+    url: seo.canonicalUrl,
+    name: seo.title,
+    description: seo.description,
+    isPartOf: {
+      '@id': `${baseUrl}/#website`,
+    },
+    about: {
+      '@id': `${baseUrl}/#organization`,
+    },
+    breadcrumb: {
+      '@id': `${seo.canonicalUrl}#breadcrumb`,
+    },
+    inLanguage: 'en',
+  };
+
+  const graph: Record<string, unknown>[] = [
+    organizationNode,
+    websiteNode,
+    webPageNode,
+    breadcrumbNode,
+  ];
+
+  if (route === '/bamboo-products') {
+    const publishedBamboo = getProductsByCategory('bamboo');
+    graph.push({
+      '@type': 'ItemList',
+      '@id': `${seo.canonicalUrl}#product-list`,
+      name: `${COMPANY_INFO.name} Natural Myanmar Bamboo Products`,
+      itemListElement: publishedBamboo.map((prod, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: prod.name,
+        description: prod.detailedDescription,
+        url: `${seo.canonicalUrl}#${prod.sectionId}`,
+        item: {
+          '@type': 'Product',
+          '@id': `${seo.canonicalUrl}#${prod.sectionId}`,
+          name: prod.name,
+          description: prod.detailedDescription,
+          image: prod.seo.ogImage,
+          category: prod.category,
+          brand: {
+            '@type': 'Brand',
+            name: COMPANY_INFO.name,
+          },
+          manufacturer: {
+            '@id': `${baseUrl}/#organization`,
+          },
+          countryOfOrigin: {
+            '@type': 'Country',
+            name: COMPANY_INFO.address.country,
+          },
+          additionalProperty: prod.specifications.map((spec) => ({
+            '@type': 'PropertyValue',
+            name: spec.parameter,
+            value: spec.value,
+          })),
+        },
+      })),
+    });
+  }
+
+  if (route === '/charcoal') {
+    const publishedCarbon = getProductsByCategory('activated-carbon');
+    if (publishedCarbon.length > 0) {
+      graph.push({
+        '@type': 'ItemList',
+        '@id': `${seo.canonicalUrl}#activated-carbon-list`,
+        name: `${COMPANY_INFO.name} Activated Carbon Product Line`,
+        itemListElement: publishedCarbon.map((prod, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 1,
+          name: prod.name,
+          description: prod.detailedDescription,
+          url: `${seo.canonicalUrl}#${prod.sectionId}`,
+        })),
+      });
+    }
+  }
+
+  if (route === '/printing-services') {
+    const publishedServices = getPublishedPrintingServices();
+    const publishedStationery = getProductsByCategory('stationery');
+
+    const serviceItems = publishedServices.map((svc, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: svc.name,
+      description: svc.detailedDescription,
+      url: `${seo.canonicalUrl}#${svc.sectionId || `service-${svc.id}`}`,
+      item: {
+        '@type': 'Service',
+        name: svc.name,
+        description: svc.detailedDescription,
+        provider: {
+          '@id': `${baseUrl}/#organization`,
+        },
+        areaServed: {
+          '@type': 'Country',
+          name: COMPANY_INFO.address.country,
+        },
+      },
+    }));
+
+    const stationeryItems = publishedStationery.map((prod, idx) => ({
+      '@type': 'ListItem',
+      position: serviceItems.length + idx + 1,
+      name: prod.name,
+      description: prod.detailedDescription,
+      url: `${seo.canonicalUrl}#${prod.sectionId}`,
+      item: {
+        '@type': 'Product',
+        name: prod.name,
+        description: prod.detailedDescription,
+        image: prod.seo.ogImage,
+        brand: {
+          '@type': 'Brand',
+          name: COMPANY_INFO.name,
+        },
+        additionalProperty: prod.specifications.map((spec) => ({
+          '@type': 'PropertyValue',
+          name: spec.parameter,
+          value: spec.value,
+        })),
+      },
+    }));
+
+    graph.push({
+      '@type': 'ItemList',
+      '@id': `${seo.canonicalUrl}#service-list`,
+      name: `${COMPANY_INFO.name} One-Stop Offset Printing Services & Stationery`,
+      itemListElement: [...serviceItems, ...stationeryItems],
+    });
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph,
+  };
+}
 
 export type GalleryCategoryName =
   | 'Bamboo Products'
@@ -870,9 +1953,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     titleMm: 'သဘာဝ မြန်မာ့ဝါးခြမ်းပြား (အထူ 3 mm · အရှည် ၂၀"–၄၈")',
     category: 'Bamboo Products',
     caption:
-      '100% natural Myanmar Bamboo Split available With Nodes (50 pcs/bundle) and Without Nodes (100 pcs/bundle).',
+      '100% natural Myanmar Bamboo Split in 3 mm thickness and 20 to 48 inch lengths, available with nodes or without nodes.',
     captionMm:
-      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs · အဆစ်မပါ တစ်စည်း 100 pcs)။',
+      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 3 mm၊ အရှည် ၂၀ မှ ၄၈ လက်မ ဝါးခြမ်းပြား (အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ)။',
     visualType: 'bamboo-split',
     imagePath: '/images/products/bamboo-split-main.webp',
     altText: 'Natural Myanmar bamboo splits with nodes',
@@ -883,9 +1966,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     titleMm: 'သဘာဝ မြန်မာ့ဝါးတံ (၈ လက်မ၊ ၉ လက်မ နှင့် ၁၀ လက်မ)',
     category: 'Bamboo Products',
     caption:
-      'Precision-sized 1.2 mm to 2.5 mm natural bamboo sticks manufactured in Myanmar for domestic and export markets.',
+      '1.2 to 2.5 mm natural bamboo sticks manufactured in Myanmar for domestic and export markets.',
     captionMm:
-      'ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်အတွက် တိကျသပ်ရပ်စွာ ထုတ်လုပ်ထားသော အထူ 1.2–2.5 mm သဘာဝဝါးတံများ။',
+      'ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်အတွက် မြန်မာနိုင်ငံတွင် ထုတ်လုပ်ထားသော အထူ 1.2–2.5 mm သဘာဝဝါးတံများ။',
     visualType: 'bamboo-sticks',
     imagePath: '/images/products/bamboo-sticks-main.webp',
     altText: 'Natural bamboo sticks from Myanmar',
@@ -896,9 +1979,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     titleMm: 'ဝါးခြမ်းပြား သဘာဝအသားနှင့် အဆစ် စိတ်ဖြာထုတ်လုပ်မှု',
     category: 'Bamboo Production',
     caption:
-      'Mechanical splitting and sizing of 3 mm Myanmar bamboo splits in With Nodes and Without Nodes formats.',
+      '3 mm Myanmar bamboo splits available with nodes or without nodes.',
     captionMm:
-      'အထူ 3 mm တစ်ပြေးညီ ရှိစေရန် အဆစ်ပါနှင့် အဆစ်မပါ ပုံစံနှစ်မျိုးဖြင့် စနစ်တကျ စိတ်ဖြာထုတ်လုပ်ထားပုံ။',
+      'အထူ 3 mm မြန်မာ့ဝါးခြမ်းပြားများကို အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ပုံစံနှစ်မျိုးဖြင့် ရရှိနိုင်ပုံ။',
     visualType: 'bamboo-split',
     imagePath: '/images/products/bamboo-split-texture.webp',
     altText: 'Close-up texture of 3 mm natural Myanmar bamboo splits',
@@ -909,25 +1992,25 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     titleMm: 'ဝါးတံ — တစ်အိတ်လျှင် 30 kg ပြည်ပပို့ကုန် ထုပ်ပိုးမှု',
     category: 'Packaging',
     caption:
-      'Standardized 30 kg per bag packaging for 8, 9, and 10 inch Myanmar Bamboo Sticks.',
+      '30 kg per bag packaging for 8, 9, and 10 inch Myanmar Bamboo Sticks.',
     captionMm:
-      '၈ လက်မ၊ ၉ လက်မနှင့် ၁၀ လက်မ ဝါးတံများကို တစ်အိတ်လျှင် 30 kg စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးထားပုံ။',
+      '၈ လက်မ၊ ၉ လက်မနှင့် ၁၀ လက်မ မြန်မာ့ဝါးတံများကို တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားပုံ။',
     visualType: 'bamboo-sticks',
-    imagePath: '/images/products/bamboo-sticks-wholesale.webp',
+    imagePath: '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp',
     altText: 'Bamboo sticks prepared in 30 kg bags for commercial supply',
   },
   {
     id: 'gal-bamboo-split-bundles',
-    title: 'Bamboo Split — 50 pcs & 100 pcs Bundle Packaging',
-    titleMm: 'ဝါးခြမ်းပြား — တစ်စည်း 50 pcs နှင့် 100 pcs ထုပ်ပိုးမှု',
+    title: 'Bamboo Split — Bundled Supply (20"–48")',
+    titleMm: 'ဝါးခြမ်းပြား — အစည်းလိုက် ထုပ်ပိုးမှု (၂၀"–၄၈")',
     category: 'Packaging',
     caption:
-      'With Nodes packed at 50 pieces per bundle and Without Nodes packed at 100 pieces per bundle.',
+      '100% natural Myanmar Bamboo Split bundled for domestic distribution and international export.',
     captionMm:
-      'အဆစ်ပါ (With Nodes) တစ်စည်း ၅၀ ချောင်းနှင့် အဆစ်မပါ (Without Nodes) တစ်စည်း ၁၀၀ ချောင်း စည်းနှောင်ထုပ်ပိုးမှု။',
+      'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် စည်းနှောင်ထုပ်ပိုးထားသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများ။',
     visualType: 'bamboo-split',
     imagePath: '/images/products/bamboo-split-wholesale.webp',
-    altText: 'Bamboo splits arranged in 50 pcs and 100 pcs bundles for commercial supply',
+    altText: 'Bamboo splits bundled for commercial supply',
   },
   {
     id: 'gal-ball-pen-packaging',
@@ -935,9 +2018,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     titleMm: 'ဘောပင် (Ball Pen) — Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)',
     category: 'Printing Products',
     caption:
-      'Klick (30 pcs per box) and Plano (50 pcs per box) Ball Pen container packaging under our Printing Services & Stationery division.',
+      'Klick (30 pcs per box) and Plano (50 pcs per box) Ball Pen packaging under our Offset Printing & Stationery division.',
     captionMm:
-      'ပုံနှိပ်နှင့် စာရေးကိရိယာဌာနမှ ဖြန့်ဖြူးသော Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘူးထုပ်ပိုးမှုပုံစံ။',
+      'အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာဌာနမှ ဖြန့်ဖြူးသော Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘူးထုပ်ပိုးမှုပုံစံ။',
     visualType: 'commercial-printing',
     imagePath: '/assets/aistudio/Branding_Image_V2_cc9a2035.webp',
     altText:
@@ -949,9 +2032,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     titleMm: 'Klick နှင့် Plano ဘောပင် ဒီဇိုင်းနှင့် ထုပ်ပိုးမှုပြခန်း',
     category: 'Printing Products',
     caption:
-      'Detailed view of Klick (30 pcs per box) and colorful patterned Plano (50 pcs per box) ball pens.',
+      'View of Klick (30 pcs per box) and Plano (50 pcs per box) ball pens.',
     captionMm:
-      'Klick (တစ်ဘူး 30 pcs) နှင့် ရောင်စုံဒီဇိုင်း Plano (တစ်ဘူး 50 pcs) ဘောပင်များ ပြကွက်။',
+      'Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘောပင်များ ပြကွက်။',
     visualType: 'commercial-printing',
     imagePath: '/assets/aistudio/Branding_Image_V1_c6c098a8.webp',
     altText:
@@ -959,16 +2042,16 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   },
   {
     id: 'gal-offset-printing',
-    title: 'One-Stop Offset Printing — Books & Voucher Books',
-    titleMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း',
+    title: 'One-Stop Offset Printing — Placeholder Illustration',
+    titleMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း (ယာယီပုံစံ)',
     category: 'Printing Products',
     caption:
-      'Books Printing, Voucher Books Printing, and commercial offset printing services in Yangon.',
+      "Placeholder illustration for Books Printing, Voucher Books Printing, and Other Offset Printing Services — to be replaced with TB Star's own photos.",
     captionMm:
-      'စာအုပ်ပုံနှိပ်ခြင်း၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်းနှင့် စီးပွားရေးလုပ်ငန်းသုံး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ။',
+      'စာအုပ်ပုံနှိပ်ခြင်း၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်းနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများအတွက် TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ။',
     visualType: 'books-printing',
     imagePath: '/assets/aistudio/Offset-Printing.svg',
-    altText: 'TB Star Company Limited One-Stop Offset Printing Services',
+    altText: "Placeholder illustration for Offset Printing — to be replaced with TB Star's own photos",
   },
   {
     id: 'gal-company-activities',
@@ -1000,12 +2083,12 @@ export const WHY_CHOOSE_US_ITEMS: WhyChooseUsItem[] = [
     index: '01',
     divisionTag: 'Established in 2013',
     divisionTagMm: '၂၀၁၃ ခုနှစ်မှစတင်သော အတွေ့အကြုံ',
-    title: 'Long-Term Operations in Myanmar Since 2013',
-    titleMm: '၂၀၁၃ ခုနှစ်မှစတင်၍ ရေရှည်ရပ်တည်ဆောင်ရွက်နေသော ကုမ္ပဏီ',
+    title: 'Operating in Myanmar Since 2013',
+    titleMm: '၂၀၁၃ ခုနှစ်မှစတင်၍ မြန်မာနိုင်ငံတွင် လုပ်ငန်းဆောင်ရွက်နေသော ကုမ္ပဏီ',
     description:
-      'Established in 2013, TB Star Company Limited brings over a decade of continuous operational experience serving domestic and international business partners.',
+      'Established in 2013, TB Star Company Limited serves domestic and international customers through its bamboo products and printing services businesses.',
     descriptionMm:
-      '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့ပြီး မြန်မာနိုင်ငံတွင်းနှင့် နိုင်ငံတကာမှ စီးပွားရေးမိတ်ဖက်များအား ရေရှည်ယုံကြည်စိတ်ချစွာ ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။',
+      '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် သဘာဝဝါးထုတ်ကုန်နှင့် ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ မိတ်ဖက်များအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။',
   },
   {
     index: '02',
@@ -1014,9 +2097,9 @@ export const WHY_CHOOSE_US_ITEMS: WhyChooseUsItem[] = [
     title: 'Verified Myanmar Bamboo Specifications',
     titleMm: 'တိကျမှန်ကန်သော မြန်မာ့သဘာဝဝါး စံချိန်စံညွှန်းများ',
     description:
-      'We supply 3 mm Bamboo Split (With Nodes: 50 pcs/bundle; Without Nodes: 100 pcs/bundle) and 1.2–2.5 mm Bamboo Sticks (8", 9", 10" in 30 kg bags).',
+      'We supply 3 mm Bamboo Split (20 to 48 inches, with nodes or without nodes) and 1.2–2.5 mm Bamboo Sticks (8", 9", 10", packed 30 kg per bag).',
     descriptionMm:
-      'အထူ 3 mm ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs / အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် 1.2–2.5 mm ဝါးတံ (တစ်အိတ် 30 kg) တို့ကို စံချိန်စံညွှန်းအတိုင်း တိကျစွာ ထုတ်လုပ်ပေးပါသည်။',
+      'အထူ 3 mm ဝါးခြမ်းပြား (၂၀ မှ ၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ) နှင့် 1.2–2.5 mm ဝါးတံ (၈"၊ ၉"၊ ၁၀"၊ တစ်အိတ် 30 kg) တို့ကို ထုတ်လုပ်ပေးပါသည်။',
   },
   {
     index: '03',
@@ -1025,9 +2108,9 @@ export const WHY_CHOOSE_US_ITEMS: WhyChooseUsItem[] = [
     title: 'Domestic Distribution & International Export',
     titleMm: 'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်',
     description:
-      'Structured bundle and 30 kg bag packaging supports both domestic wholesale distribution across Myanmar and international export shipments.',
+      'Supporting both domestic distribution within Myanmar and international export shipments from Yangon.',
     descriptionMm:
-      'ပြည်တွင်းစျေးကွက်သို့ လက်ကားဖြန့်ဖြူးပေးရုံသာမက နိုင်ငံတကာ ပို့ကုန်စျေးကွက်များသို့ပါ စနစ်တကျ ထုပ်ပိုးတင်ပို့ပေးလျက်ရှိပါသည်။',
+      'မြန်မာနိုင်ငံ ပြည်တွင်းဖြန့်ဖြူးရေးသာမက နိုင်ငံတကာ ပြည်ပပို့ကုန်တင်ပို့မှုများကိုပါ ရန်ကုန်မြို့မှ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။',
   },
   {
     index: '04',
@@ -1036,9 +2119,9 @@ export const WHY_CHOOSE_US_ITEMS: WhyChooseUsItem[] = [
     title: 'One-Stop Offset Printing & Ball Pen Supply',
     titleMm: 'တစ်နေရာတည်း အပြီးအစီး ပုံနှိပ်လုပ်ငန်းနှင့် Ball Pen ဖြန့်ဖြူးရေး',
     description:
-      'Complete offset printing for books, voucher books, and commercial print alongside Klick (30 pcs/box) and Plano (50 pcs/box) Ball Pen supply.',
+      'Books Printing, Voucher Books Printing, and Other Offset Printing Services alongside Klick (30 pcs/box) and Plano (50 pcs/box) Ball Pen supply.',
     descriptionMm:
-      'စာအုပ်များ၊ ဘောင်ချာစာအုပ်များ ပုံနှိပ်ခြင်းအပြင် Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘောပင်များကိုပါ တစ်နေရာတည်းတွင် ရရှိနိုင်ပါသည်။',
+      'စာအုပ်ပုံနှိပ်ခြင်း၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်းနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများအပြင် Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘောပင်များကိုပါ ရရှိနိုင်ပါသည်။',
   },
 ];
 
@@ -1063,13 +2146,13 @@ export const INDUSTRIES_SERVED: IndustryServedItem[] = [
     sector: 'Agriculture & Horticulture',
     sectorMm: 'စိုက်ပျိုးရေးနှင့် ဥယျာဉ်ခြံလုပ်ငန်း',
     title: 'Crop Support, Nursery Stakes & Weaving',
-    titleMm: 'စိုက်ပျိုးရေးသုံး ဝါးခြမ်းပြားနှင့် ဝါးတံ လုပ်ငန်းများ',
+    titleMm: 'စိုက်ပျိုးရေးသုံး ဝါးခြမ်းပြားနှင့် ဝါးထုတ်ကုန်များ',
     description:
-      'Supplying durable 3 mm natural Myanmar Bamboo Split (20–48 inches) for plant support, nursery structures, and agricultural bundling.',
+      'Supplying 3 mm natural Myanmar Bamboo Split (20 to 48 inches, with nodes or without nodes) for plant support, nursery structures, and weaving.',
     descriptionMm:
-      'စိုက်ပျိုးရေးခြံများနှင့် ပျိုးဥယျာဉ်များတွင် အသုံးပြုရန် ခိုင်ခံ့သော အထူ 3 mm သဘာဝဝါးခြမ်းပြားများ (၂၀–၄၈ လက်မ) ကို ဖြန့်ဖြူးပေးပါသည်။',
-    productsUsed: 'Bamboo Split (With Nodes: 50 pcs/bundle · Without Nodes: 100 pcs/bundle)',
-    productsUsedMm: 'ဝါးခြမ်းပြား (အဆစ်ပါ 50 pcs/bundle · အဆစ်မပါ 100 pcs/bundle)',
+      'စိုက်ပျိုးရေးခြံများ၊ ပျိုးဥယျာဉ်များနှင့် ဝါးရက်လုပ်ငန်းများအတွက် အထူ 3 mm သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများ (၂၀–၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ) ကို ဖြန့်ဖြူးပေးပါသည်။',
+    productsUsed: 'Bamboo Split (3 mm · 20–48 inches · With Nodes / Without Nodes)',
+    productsUsedMm: 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀–၄၈ လက်မ · အဆစ်ပါ / အဆစ်မပါ)',
     inquiryType: 'Bamboo Split',
   },
   {
@@ -1080,9 +2163,9 @@ export const INDUSTRIES_SERVED: IndustryServedItem[] = [
     title: 'Raw Bamboo Sticks for Incense & Crafts',
     titleMm: 'အမွှေးတိုင်နှင့် လက်မှုလုပ်ငန်းသုံး သဘာဝဝါးတံများ',
     description:
-      'Uniform 1.2 mm to 2.5 mm natural bamboo sticks in 8, 9, and 10 inch lengths, packed at 30 kg per bag for high-volume production lines.',
+      '1.2 to 2.5 mm natural bamboo sticks in 8, 9, and 10 inch sizes, packed 30 kg per bag.',
     descriptionMm:
-      'အမွှေးတိုင်လုပ်ငန်းနှင့် လက်မှုကုန်ထုတ်လုပ်ငန်းများအတွက် အထူ 1.2–2.5 mm၊ အရှည် ၈"၊ ၉"၊ ၁၀" ဝါးတံများကို တစ်အိတ် 30 kg စံနှုန်းဖြင့် ပံ့ပိုးပေးပါသည်။',
+      'အမွှေးတိုင်လုပ်ငန်းနှင့် လက်မှုကုန်ထုတ်လုပ်ငန်းများအတွက် အထူ 1.2–2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" ဝါးတံများကို တစ်အိတ် 30 kg ထုပ်ပိုးပံ့ပိုးပေးပါသည်။',
     productsUsed: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30 kg/bag)',
     productsUsedMm: 'ဝါးတံ (အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg)',
     inquiryType: 'Bamboo Sticks',
@@ -1090,16 +2173,16 @@ export const INDUSTRIES_SERVED: IndustryServedItem[] = [
   {
     id: 'ind-filtration',
     index: '03',
-    sector: 'Industrial & Filtration Inquiries',
-    sectorMm: 'စက်မှုနှင့် သန့်စင်ရေးလုပ်ငန်း ကဏ္ဍ',
+    sector: 'Activated Carbon Inquiries',
+    sectorMm: 'အက်တီဗိတ်တက် ကာဗွန် ကဏ္ဍ',
     title: 'Activated Carbon Commercial Inquiries',
     titleMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) စုံစမ်းမေးမြန်းမှုများ',
     description:
-      'Direct B2B consultation with our Yangon headquarters for buyers inquiring about Activated Carbon supply.',
+      'Direct inquiry coordination with our Yangon office for buyers inquiring about Activated Carbon.',
     descriptionMm:
-      'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) လိုအပ်ချက်ရှိသော စီးပွားရေးလုပ်ငန်းများအတွက် ရန်ကုန်ရုံးချုပ်မှ တိုက်ရိုက်လက်ခံဆွေးနွေးပေးပါသည်။',
-    productsUsed: 'Activated Carbon (Direct B2B Inquiry)',
-    productsUsedMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
+      'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) အတွက် စုံစမ်းမေးမြန်းလိုသူများအား ရန်ကုန်ရုံးချုပ်မှ တိုက်ရိုက်လက်ခံဆွေးနွေးပေးပါသည်။',
+    productsUsed: 'Activated Carbon (Inquiry Only)',
+    productsUsedMm: 'အက်တီဗိတ်တက် ကာဗွန် (ဆက်သွယ်စုံစမ်းရန်)',
     inquiryType: 'Activated Carbon',
   },
   {
@@ -1125,9 +2208,9 @@ export const INDUSTRIES_SERVED: IndustryServedItem[] = [
     title: 'Commercial Voucher Books & Receipt Pads',
     titleMm: 'လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်နှင့် ပြေစာစာအုပ်များ',
     description:
-      'Custom-numbered voucher books, invoice pads, and delivery forms for daily commercial transactions.',
+      'Voucher books, invoice pads, and delivery forms for daily commercial transactions.',
     descriptionMm:
-      'နေ့စဉ် အရောင်းအဝယ်နှင့် စာရင်းမှတ်တမ်းများအတွက် နံပါတ်စဉ်ပါ ဘောင်ချာစာအုပ်များနှင့် ပြေစာစာအုပ်များကို စိတ်ကြိုက်ပုံနှိပ်ပေးပါသည်။',
+      'နေ့စဉ် အရောင်းအဝယ်နှင့် စာရင်းမှတ်တမ်းများအတွက် ဘောင်ချာစာအုပ်များနှင့် ပြေစာစာအုပ်များကို စိတ်ကြိုက်ပုံနှိပ်ပေးပါသည်။',
     productsUsed: 'Voucher Books Printing & Commercial Forms',
     productsUsedMm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း',
     inquiryType: 'Voucher Books Printing',
@@ -1155,9 +2238,9 @@ export const EXPORT_AND_DOMESTIC_MARKETS = {
     title: 'Domestic Myanmar Distribution Network',
     titleMm: 'မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက် ဖြန့်ဖြူးရေး',
     description:
-      'From our headquarters in Kyauktada Township, Yangon, TB Star Company Limited distributes natural bamboo products, offset printed materials, and Ball Pen stationery to commercial buyers across Myanmar.',
+      'From our office in Kyauktada Township, Yangon, TB Star Company Limited distributes natural bamboo products, offset printed materials, and Ball Pen stationery to buyers across Myanmar.',
     descriptionMm:
-      'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်မှတစ်ဆင့် မြန်မာနိုင်ငံတစ်ဝန်းရှိ လုပ်ငန်းရှင်များနှင့် လက်ကားဝယ်ယူသူများထံသို့ သဘာဝဝါးထုတ်ကုန်များ၊ ပုံနှိပ်ပစ္စည်းများနှင့် Ball Pen စာရေးကိရိယာများကို ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
+      'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်မှတစ်ဆင့် မြန်မာနိုင်ငံတစ်ဝန်းရှိ ဝယ်ယူသူများထံသို့ သဘာဝဝါးထုတ်ကုန်များ၊ အော့ဖ်ဆက်ပုံနှိပ်ပစ္စည်းများနှင့် Ball Pen စာရေးကိရိယာများကို ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။',
     regions: [
       {
         name: 'Yangon commercial, wholesale, and industrial buyers',
@@ -1178,21 +2261,21 @@ export const EXPORT_AND_DOMESTIC_MARKETS = {
     title: 'International Export Supply',
     titleMm: 'နိုင်ငံတကာ ပြည်ပပို့ကုန် တင်ပို့ရောင်းချခြင်း',
     description:
-      'We prepare and export 100% natural Myanmar Bamboo Split (50 pcs / 100 pcs bundles) and Bamboo Sticks (30 kg per bag) for international B2B importers and regional buyers.',
+      'We supply 100% natural Myanmar Bamboo Split and Bamboo Sticks (packed 30 kg per bag) for international export.',
     descriptionMm:
-      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝ ဝါးခြမ်းပြား (တစ်စည်း 50 pcs / 100 pcs) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) များကို နိုင်ငံတကာမှ ဝယ်ယူသူများထံသို့ ပြည်ပပို့ကုန်အဖြစ် တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။',
+      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံ (တစ်အိတ် 30 kg) တို့ကို နိုင်ငံတကာ ပြည်ပပို့ကုန်အဖြစ် တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။',
     regions: [
       {
-        name: 'Export-ready Bamboo Split (With Nodes: 50 pcs/bundle; Without Nodes: 100 pcs/bundle)',
-        nameMm: 'ပြည်ပပို့ကုန်အဆင့် ဝါးခြမ်းပြား (အဆစ်ပါ 50 pcs/bundle · အဆစ်မပါ 100 pcs/bundle)',
+        name: 'Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes)',
+        nameMm: 'ဝါးခြမ်းပြား (အထူ 3 mm၊ ၂၀ မှ ၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ)',
       },
       {
-        name: 'Standardized 30 kg per bag Bamboo Sticks (8", 9", and 10")',
-        nameMm: 'တစ်အိတ်လျှင် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (၈"၊ ၉"၊ ၁၀")',
+        name: 'Bamboo Sticks (1.2 to 2.5 mm, sizes 8, 9, 10 inches, packed 30 kg per bag)',
+        nameMm: 'ဝါးတံ (အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈၊ ၉၊ ၁၀ လက်မ၊ တစ်အိတ် 30 kg)',
       },
       {
-        name: 'Direct B2B export inquiry coordination from Yangon, Myanmar',
-        nameMm: 'ရန်ကုန်ရုံးချုပ်မှ နိုင်ငံတကာဝယ်ယူသူများနှင့် တိုက်ရိုက်ချိတ်ဆက် ဆောင်ရွက်ပေးခြင်း',
+        name: 'Direct export inquiry coordination from Yangon, Myanmar',
+        nameMm: 'ရန်ကုန်ရုံးချုပ်မှ ပြည်ပပို့ကုန် စုံစမ်းမေးမြန်းမှုများကို တိုက်ရိုက်ဆောင်ရွက်ပေးခြင်း',
       },
     ],
   },
@@ -1220,37 +2303,37 @@ export const QUALITY_AND_STANDARDS: QualityStandardItem[] = [
     title: '100% Natural Myanmar Bamboo',
     titleMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်',
     description:
-      'All Bamboo Split and Bamboo Sticks are mechanically processed from 100% natural bamboo harvested in Myanmar.',
+      'Bamboo Split and Bamboo Sticks are processed from 100% natural bamboo originating in Myanmar.',
     descriptionMm:
-      'ဝါးခြမ်းပြားနှင့် ဝါးတံအားလုံးကို မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့်သာ ထုတ်လုပ်ထားပါသည်။',
+      'ဝါးခြမ်းပြားနှင့် ဝါးတံများကို မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားပါသည်။',
     standardSpec: 'Origin: Myanmar · 100% Natural Bamboo',
     standardSpecMm: 'မူရင်းဒေသ - မြန်မာ · ၁၀၀% သဘာဝဝါး',
   },
   {
     id: 'qual-split',
     index: '02',
-    category: 'Bamboo Split Calibration',
+    category: 'Bamboo Split Specifications',
     categoryMm: 'ဝါးခြမ်းပြား စံချိန်စံညွှန်း',
-    title: 'Uniform Thickness & Bundle Counts',
-    titleMm: 'တူညီသော အထူနှင့် အစည်းအရေအတွက်',
+    title: '3 mm Thickness & 20–48 Inch Lengths',
+    titleMm: 'အထူ 3 mm နှင့် အရှည် ၂၀–၄၈ လက်မ',
     description:
-      'Sized to 3 mm thickness across 20–48 inch lengths, bundled at 50 pcs (With Nodes) or 100 pcs (Without Nodes).',
+      'Sized to 3 mm thickness across 20 to 48 inch lengths, available with nodes or without nodes.',
     descriptionMm:
-      'အထူ 3 mm၊ အရှည် ၂၀"–၄၈" ရှိပြီး အဆစ်ပါ တစ်စည်း 50 pcs နှင့် အဆစ်မပါ တစ်စည်း 100 pcs စည်းနှောင်ထားပါသည်။',
-    standardSpec: '3 mm · 20"–48" · 50 / 100 pcs per bundle',
-    standardSpecMm: '3 mm · ၂၀"–၄၈" · တစ်စည်း 50 / 100 pcs',
+      'အထူ 3 mm၊ အရှည် ၂၀ မှ ၄၈ လက်မ ရှိပြီး အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ရရှိနိုင်ပါသည်။',
+    standardSpec: '3 mm · 20"–48" · With Nodes / Without Nodes',
+    standardSpecMm: '3 mm · ၂၀"–၄၈" · အဆစ်ပါ / အဆစ်မပါ',
   },
   {
     id: 'qual-sticks',
     index: '03',
     category: 'Bamboo Sticks Packaging',
     categoryMm: 'ဝါးတံ ထုပ်ပိုးမှုစံနှုန်း',
-    title: 'Precision Sizing & 30 kg Bags',
-    titleMm: 'တိကျသော အရွယ်အစားနှင့် 30 kg ထုပ်ပိုးမှု',
+    title: '1.2–2.5 mm Thickness & 30 kg Bags',
+    titleMm: 'အထူ 1.2–2.5 mm နှင့် 30 kg ထုပ်ပိုးမှု',
     description:
-      'Calibrated to 1.2–2.5 mm thickness in 8, 9, and 10 inch lengths and packed in 30 kg bags.',
+      'Sized to 1.2 to 2.5 mm thickness in 8, 9, and 10 inch sizes and packed 30 kg per bag.',
     descriptionMm:
-      'အထူ 1.2–2.5 mm၊ အရှည် ၈"၊ ၉"၊ ၁၀" အရွယ်အစားများကို တစ်အိတ် 30 kg စံနှုန်းဖြင့် ထုပ်ပိုးထားပါသည်။',
+      'အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" ဝါးတံများကို တစ်အိတ် 30 kg ထုပ်ပိုးထားပါသည်။',
     standardSpec: '1.2–2.5 mm · 8", 9", 10" · 30 kg/bag',
     standardSpecMm: '1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg',
   },
@@ -1260,11 +2343,11 @@ export const QUALITY_AND_STANDARDS: QualityStandardItem[] = [
     category: 'Printing & Stationery',
     categoryMm: 'ပုံနှိပ်နှင့် စာရေးကိရိယာ',
     title: 'One-Stop Press & Boxed Stationery',
-    titleMm: 'အပြီးအစီး ပုံနှိပ်မှုနှင့် စံချိန်မီ ဘောပင်ဘူးများ',
+    titleMm: 'အပြီးအစီး ပုံနှိပ်မှုနှင့် ဘောပင်ဘူးများ',
     description:
-      'Complete offset printing workflow plus Klick (30 pcs/box) and Plano (50 pcs/box) Ball Pen packaging.',
+      'Offset printing for books, voucher books, and other offset printing services plus Klick (30 pcs/box) and Plano (50 pcs/box) Ball Pen packaging.',
     descriptionMm:
-      'တစ်နေရာတည်း အပြီးအစီး ပုံနှိပ်လုပ်ငန်းနှင့် Klick (30 pcs/box)၊ Plano (50 pcs/box) ဘောပင်များ။',
+      'စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများအပြင် Klick (30 pcs/box) နှင့် Plano (50 pcs/box) ဘောပင်များ။',
     standardSpec: 'One-Stop Offset · Klick (30) & Plano (50)',
     standardSpecMm: 'အော့ဖ်ဆက်ပုံနှိပ် · Klick (30) & Plano (50)',
   },
@@ -1276,18 +2359,18 @@ export const COMPANY_VISION_MISSION = {
     title: 'Dependable Myanmar Bamboo & Offset Printing Partner',
     titleMm: 'ယုံကြည်စိတ်ချရသော မြန်မာ့သဘာဝဝါးနှင့် အော့ဖ်ဆက်ပုံနှိပ် လုပ်ငန်းမိတ်ဖက်',
     statement:
-      'To be a trusted long-term partner for domestic and international buyers seeking 100% natural Myanmar bamboo products and one-stop offset printing and stationery solutions.',
+      'To be a trusted partner for domestic and international customers seeking 100% natural Myanmar bamboo products and one-stop offset printing and stationery solutions.',
     statementMm:
-      'ပြည်တွင်းနှင့် နိုင်ငံတကာမှ ဝယ်ယူသူများအတွက် ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုများကို ပံ့ပိုးပေးနိုင်သော ရေရှည်ယုံကြည်စိတ်ချရသည့် ကုမ္ပဏီဖြစ်လာစေရန်။',
+      'ပြည်တွင်းနှင့် နိုင်ငံတကာမှ ဝယ်ယူသူများအတွက် ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များနှင့် တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုများကို ပံ့ပိုးပေးနိုင်သော ယုံကြည်စိတ်ချရသည့် ကုမ္ပဏီဖြစ်လာစေရန်။',
     highlights: [
-      'Continuous operations in Myanmar since our establishment in 2013',
-      'Consistent specifications for Bamboo Split and Bamboo Sticks',
-      'Reliable one-stop offset printing and stationery supply in Yangon',
+      'Operating in Myanmar since our establishment in 2013',
+      'Supplying Bamboo Split and Bamboo Sticks',
+      'Providing one-stop offset printing and stationery supply in Yangon',
     ],
     highlightsMm: [
-      '၂၀၁၃ ခုနှစ်မှစတင်၍ မြန်မာနိုင်ငံတွင် စဉ်ဆက်မပြတ် လုပ်ငန်းဆောင်ရွက်မှု',
-      'တိကျသော ဝါးခြမ်းပြားနှင့် ဝါးတံ စံချိန်စံညွှန်းများ',
-      'ယုံကြည်စိတ်ချရသော အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှု',
+      '၂၀၁၃ ခုနှစ်မှစတင်၍ မြန်မာနိုင်ငံတွင် လုပ်ငန်းဆောင်ရွက်မှု',
+      'ဝါးခြမ်းပြားနှင့် ဝါးတံများ ထုတ်လုပ်ဖြန့်ဖြူးမှု',
+      'ရန်ကုန်မြို့တွင် တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှု',
     ],
   },
   mission: {
@@ -1295,16 +2378,16 @@ export const COMPANY_VISION_MISSION = {
     title: 'Delivering Verified Specifications & Responsive Service',
     titleMm: 'တိကျသော စံချိန်စံညွှန်းနှင့် မြန်ဆန်သွက်လက်သော ဝန်ဆောင်မှု ပေးအပ်ရန်',
     statement:
-      'To manufacture and supply natural Myanmar bamboo products to exact bundle and bag specifications while providing businesses with efficient one-stop offset printing and stationery products.',
+      'To supply natural Myanmar bamboo products to clear specifications while providing businesses with one-stop offset printing and stationery products.',
     statementMm:
-      'မြန်မာ့သဘာဝဝါးထုတ်ကုန်များကို သတ်မှတ်အရွယ်အစားနှင့် ထုပ်ပိုးမှုစံနှုန်းများအတိုင်း တိကျစွာ ထုတ်လုပ်ဖြန့်ဖြူးရန်နှင့် စီးပွားရေးလုပ်ငန်းများအတွက် အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာများကို တစ်နေရာတည်းတွင် အဆင်ပြေချောမွေ့စွာ ပံ့ပိုးပေးရန်။',
+      'မြန်မာ့သဘာဝဝါးထုတ်ကုန်များကို တိကျသော စံချိန်စံညွှန်းများအတိုင်း ထုတ်လုပ်ဖြန့်ဖြူးရန်နှင့် စီးပွားရေးလုပ်ငန်းများအတွက် အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာများကို တစ်နေရာတည်းတွင် ပံ့ပိုးပေးရန်။',
     highlights: [
-      'Supplying Bamboo Split (50 pcs / 100 pcs per bundle) and Bamboo Sticks (30 kg/bag)',
-      'Serving both domestic Myanmar buyers and international export markets',
+      'Supplying Bamboo Split (3 mm, 20–48 inches) and Bamboo Sticks (30 kg/bag)',
+      'Serving both domestic Myanmar distribution and international export markets',
       'Delivering Books Printing, Voucher Books Printing, and Klick / Plano Ball Pens',
     ],
     highlightsMm: [
-      'ဝါးခြမ်းပြား (50 / 100 pcs/bundle) နှင့် ဝါးတံ (30 kg/bag) တို့ကို စနစ်တကျ ထုတ်လုပ်တင်ပို့ခြင်း',
+      'ဝါးခြမ်းပြား (3 mm, ၂၀–၄၈ လက်မ) နှင့် ဝါးတံ (30 kg/bag) တို့ကို ထုတ်လုပ်တင်ပို့ခြင်း',
       'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်စျေးကွက် နှစ်ခုလုံးကို ဝန်ဆောင်မှုပေးခြင်း',
       'စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် Klick / Plano ဘောပင်များကို ဖြန့်ဖြူးပေးခြင်း',
     ],
@@ -1325,27 +2408,27 @@ export const PROPOSED_CORPORATE_VALUES: CorporateValueItem[] = [
     title: 'Clear & Verified Product Specifications',
     titleMm: 'တိကျရှင်းလင်းသော ကုန်ပစ္စည်း စံချိန်စံညွှန်းများ',
     description:
-      'Every bamboo and stationery product is presented with clear measurements and packaging counts—from 3 mm Bamboo Split bundles to 30 kg Bamboo Stick bags and boxed Ball Pens.',
+      'Every bamboo and stationery product is presented with clear specifications—from 3 mm Bamboo Split (20 to 48 inches) to 30 kg Bamboo Stick bags and boxed Ball Pens.',
     descriptionMm:
-      'အထူ 3 mm ဝါးခြမ်းပြား အစည်းများ၊ တစ်အိတ် 30 kg ဝါးတံများနှင့် Klick / Plano ဘောပင်ဘူးများအထိ အရွယ်အစားနှင့် အရေအတွက် စံနှုန်းများကို တိကျရှင်းလင်းစွာ သတ်မှတ်ထားပါသည်။',
+      'အထူ 3 mm ဝါးခြမ်းပြားများ (၂၀ မှ ၄၈ လက်မ)၊ တစ်အိတ် 30 kg ဝါးတံများနှင့် Klick / Plano ဘောပင်ဘူးများအထိ စံချိန်စံညွှန်းများကို ရှင်းလင်းစွာ ဖော်ပြထားပါသည်။',
   },
   {
     index: '02',
     title: 'Long-Term B2B Reliability Since 2013',
     titleMm: '၂၀၁၃ ခုနှစ်မှစတင်သော ရေရှည်လုပ်ငန်း ယုံကြည်စိတ်ချရမှု',
     description:
-      'Operating in Myanmar since 2013, we focus on practical, long-term supply relationships with domestic wholesalers, exporters, and corporate clients.',
+      'Operating in Myanmar since 2013, we focus on practical, long-term supply relationships with domestic buyers, exporters, and corporate clients.',
     descriptionMm:
-      '၂၀၁၃ ခုနှစ်မှစတင်၍ ပြည်တွင်းလက်ကားဖြန့်ချိသူများ၊ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် ကုမ္ပဏီများအတွက် ရေရှည်လက်တွဲနိုင်သော လုပ်ငန်းမိတ်ဖက်အဖြစ် ဆောင်ရွက်လျက်ရှိပါသည်။',
+      '၂၀၁၃ ခုနှစ်မှစတင်၍ မြန်မာနိုင်ငံတွင် လုပ်ငန်းဆောင်ရွက်လျက်ရှိပြီး ပြည်တွင်းဝယ်ယူသူများ၊ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် ကုမ္ပဏီများအတွက် ရေရှည်လက်တွဲဆောင်ရွက်လျက်ရှိပါသည်။',
   },
   {
     index: '03',
     title: 'Direct Communication from Our Yangon Office',
     titleMm: 'ရန်ကုန်ရုံးချုပ်မှ တိုက်ရိုက် ချိတ်ဆက်ဆောင်ရွက်ပေးမှု',
     description:
-      'Our team at Central Tower in Kyauktada Township, Yangon coordinates all product, export, and printing inquiries directly via phone, WhatsApp, and email.',
+      'Our team at Central Tower in Kyauktada Township, Yangon coordinates all product, export, and printing inquiries directly via phone and WhatsApp.',
     descriptionMm:
-      'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ Central Tower ရုံးချုပ်မှတစ်ဆင့် ဝယ်ယူသူများ၏ မေးမြန်းချက်များကို ဖုန်း၊ WhatsApp နှင့် အီးမေးလ်တို့ဖြင့် တိုက်ရိုက် ပြန်လည်ဖြေကြား ဆောင်ရွက်ပေးပါသည်။',
+      'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ Central Tower ရုံးချုပ်မှတစ်ဆင့် ဝယ်ယူသူများ၏ မေးမြန်းချက်များကို ဖုန်းနှင့် WhatsApp တို့ဖြင့် တိုက်ရိုက် ပြန်လည်ဖြေကြား ဆောင်ရွက်ပေးပါသည်။',
   },
 ];
 
@@ -1372,17 +2455,17 @@ export const BUSINESS_PARTNERS_COLLABORATION: BusinessPartnerCollaborationItem[]
     title: 'Bamboo Export Supply Partners',
     titleMm: 'သဘာဝဝါး ပြည်ပပို့ကုန် မိတ်ဖက်များ',
     description:
-      'We work with international buyers sourcing 100% natural Myanmar Bamboo Split and Bamboo Sticks in standardized export bundles and 30 kg bags.',
+      'We work with international buyers sourcing 100% natural Myanmar Bamboo Split and Bamboo Sticks.',
     descriptionMm:
-      'မြန်မာ့သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံများကို ပြည်ပသို့ တင်သွင်းဖြန့်ဖြူးလိုသော နိုင်ငံတကာ ဝယ်ယူသူများနှင့် လက်တွဲဆောင်ရွက်ပါသည်။',
+      'မြန်မာ့သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံများကို ပြည်ပသို့ တင်သွင်းလိုသော နိုင်ငံတကာ ဝယ်ယူသူများနှင့် လက်တွဲဆောင်ရွက်ပါသည်။',
     collaborationPoints: [
-      'Bamboo Split: With Nodes (50 pcs/bundle) & Without Nodes (100 pcs/bundle)',
-      'Bamboo Sticks: 1.2–2.5 mm, 8"/9"/10", packed at 30 kg per bag',
-      'Direct export inquiry coordination with our Yangon headquarters',
+      'Bamboo Split: 3 mm thickness, 20 to 48 inches, with nodes or without nodes',
+      'Bamboo Sticks: 1.2 to 2.5 mm, 8"/9"/10", packed 30 kg per bag',
+      'Direct export inquiry coordination with our Yangon office',
     ],
     collaborationPointsMm: [
-      'ဝါးခြမ်းပြား - အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs)',
-      'ဝါးတံ - အထူ 1.2–2.5 mm၊ အရှည် ၈"၊ ၉"၊ ၁၀" (တစ်အိတ် 30 kg)',
+      'ဝါးခြမ်းပြား - အထူ 3 mm၊ ၂၀ မှ ၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ',
+      'ဝါးတံ - အထူ 1.2–2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" (တစ်အိတ် 30 kg)',
       'ရန်ကုန်ရုံးချုပ်နှင့် တိုက်ရိုက်ချိတ်ဆက်၍ ပို့ကုန်ဆောင်ရွက်နိုင်ခြင်း',
     ],
     inquiryType: 'Bamboo Split',
@@ -1397,16 +2480,16 @@ export const BUSINESS_PARTNERS_COLLABORATION: BusinessPartnerCollaborationItem[]
     description:
       'We supply agricultural businesses, incense manufacturers, and local distributors across Myanmar with natural bamboo products and Activated Carbon inquiries.',
     descriptionMm:
-      'ပြည်တွင်းရှိ စိုက်ပျိုးရေးလုပ်ငန်းများ၊ အမွှေးတိုင်စက်ရုံများနှင့် လက်ကားဒိုင်များသို့ သဘာဝဝါးထုတ်ကုန်များနှင့် Activated Carbon ကဏ္ဍအတွက် ပူးပေါင်းဆောင်ရွက်ပါသည်။',
+      'ပြည်တွင်းရှိ စိုက်ပျိုးရေးလုပ်ငန်းများ၊ အမွှေးတိုင်လုပ်ငန်းများနှင့် ဖြန့်ချိသူများသို့ သဘာဝဝါးထုတ်ကုန်များနှင့် Activated Carbon ကဏ္ဍအတွက် ပူးပေါင်းဆောင်ရွက်ပါသည်။',
     collaborationPoints: [
-      'Consistent local supply of Bamboo Split and Bamboo Sticks',
-      'Direct consultation for Activated Carbon commercial inquiries',
-      'Convenient coordination from Kyauktada Township, Yangon',
+      'Domestic supply of Bamboo Split and Bamboo Sticks',
+      'Direct consultation for Activated Carbon inquiries',
+      'Coordination from Kyauktada Township, Yangon',
     ],
     collaborationPointsMm: [
-      'ပြည်တွင်းစျေးကွက်အတွက် ဝါးခြမ်းပြားနှင့် ဝါးတံ စဉ်ဆက်မပြတ် ဖြန့်ဖြူးပေးခြင်း',
-      'Activated Carbon အတွက် တိုက်ရိုက်ဆက်သွယ် ဆွေးနွေးနိုင်ခြင်း',
-      'ရန်ကုန်မြို့လယ် ရုံးချုပ်မှ အလွယ်တကူ ဆက်သွယ်မှာယူနိုင်ခြင်း',
+      'ပြည်တွင်းစျေးကွက်အတွက် ဝါးခြမ်းပြားနှင့် ဝါးတံများ ဖြန့်ဖြူးပေးခြင်း',
+      'Activated Carbon အတွက် တိုက်ရိုက်ဆက်သွယ် မေးမြန်းနိုင်ခြင်း',
+      'ရန်ကုန်မြို့ ကျောက်တံတားမြို့နယ် ရုံးချုပ်မှ ဆက်သွယ်မှာယူနိုင်ခြင်း',
     ],
     inquiryType: 'Bamboo Sticks',
   },
@@ -1420,16 +2503,16 @@ export const BUSINESS_PARTNERS_COLLABORATION: BusinessPartnerCollaborationItem[]
     description:
       'Supporting publishers, businesses, and stationery wholesalers with one-stop offset printing services and Klick & Plano Ball Pen supply.',
     descriptionMm:
-      'စာအုပ်ထုတ်ဝေသူများ၊ ကုမ္ပဏီရုံးများနှင့် စာရေးကိရိယာ လက်ကားဆိုင်များအတွက် ပုံနှိပ်လုပ်ငန်းနှင့် Ball Pen (Klick / Plano) ဖြန့်ဖြူးရေး ဆောင်ရွက်ပေးပါသည်။',
+      'စာအုပ်ထုတ်ဝေသူများ၊ ကုမ္ပဏီရုံးများနှင့် စာရေးကိရိယာဆိုင်များအတွက် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းနှင့် Ball Pen (Klick / Plano) ဖြန့်ဖြူးရေး ဆောင်ရွက်ပေးပါသည်။',
     collaborationPoints: [
-      'Books Printing, Voucher Books Printing, and commercial offset print',
+      'Books Printing, Voucher Books Printing, and Other Offset Printing Services',
       'Ball Pen Klick (30 pcs per box) and Plano (50 pcs per box)',
-      'Reliable production for recurring business print and stationery orders',
+      'Direct coordination for business print and stationery orders',
     ],
     collaborationPointsMm: [
-      'စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် ရုံးသုံးပုံနှိပ်လုပ်ငန်းများ',
+      'စာအုပ်ပုံနှိပ်ခြင်း၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်းနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ',
       'Ball Pen — Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)',
-      'လုပ်ငန်းသုံး ပုံနှိပ်နှင့် စာရေးကိရိယာများကို ပုံမှန်လက်တွဲ မှာယူနိုင်ခြင်း',
+      'လုပ်ငန်းသုံး ပုံနှိပ်နှင့် စာရေးကိရိယာများကို တိုက်ရိုက်ဆက်သွယ် မှာယူနိုင်ခြင်း',
     ],
     inquiryType: 'Books Printing',
   },

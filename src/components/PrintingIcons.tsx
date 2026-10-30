@@ -6,7 +6,7 @@ export type PrintingIconType =
   | 'commercial-printing'
   | 'business-cards'
   | 'brochures-pamphlets'
-  | 'prepress-finishing';
+  | 'press-finishing';
 
 export type BambooIconType =
   | 'bamboo-split'
@@ -17,8 +17,8 @@ export type BambooIconType =
 export type EcoAdvantageType =
   | 'rapid-regeneration'
   | 'zero-chemical'
-  | 'biodegradable'
-  | 'tensile-durability'
+  | 'eco-cycle'
+  | 'natural-strength'
   | 'low-waste'
   | 'sustainable-packaging';
 
@@ -136,7 +136,7 @@ export const EcoAdvantageIcon: React.FC<EcoAdvantageIconProps> = ({
         </svg>
       );
 
-    case 'biodegradable':
+    case 'eco-cycle':
       return (
         <svg
           viewBox="0 0 40 40"
@@ -190,7 +190,7 @@ export const EcoAdvantageIcon: React.FC<EcoAdvantageIconProps> = ({
         </svg>
       );
 
-    case 'tensile-durability':
+    case 'natural-strength':
       return (
         <svg
           viewBox="0 0 40 40"
@@ -647,7 +647,7 @@ export const PrintingServiceIcon: React.FC<PrintingServiceIconProps> = ({
             stroke="#173D2A"
             strokeWidth="1.4"
           />
-          {/* Serial Number Dots in Header */}
+          {/* Header Dots */}
           <circle cx="11" cy="11.8" r="1" fill="#A8D977" />
           <circle cx="14" cy="11.8" r="1" fill="#A8D977" />
         </svg>
@@ -820,7 +820,7 @@ export const PrintingServiceIcon: React.FC<PrintingServiceIconProps> = ({
         </svg>
       );
 
-    case 'prepress-finishing':
+    case 'press-finishing':
       return (
         <svg
           viewBox="0 0 40 40"

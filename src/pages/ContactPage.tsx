@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Building2, Mail, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Building2, MessageCircle } from 'lucide-react';
 import {
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
@@ -55,13 +55,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             >
               <MessageCircle className="w-4 h-4" />
               {t('Chat on WhatsApp', 'WhatsApp ဖြင့် ဆက်သွယ်ရန်')}
-            </a>
-            <a
-              href={COMPANY_INFO.emailHref}
-              className="px-5 py-3 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-sm font-semibold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
-            >
-              <Mail className="w-4 h-4 text-[#A8D977]" />
-              {COMPANY_INFO.email}
             </a>
           </div>
         }
@@ -149,28 +142,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           {t('WhatsApp Chat', 'WhatsApp ပို့ရန်')}
                         </a>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Official Email */}
-                  <div className="pt-5 border-t border-[#DDE5D9] flex items-start gap-3.5">
-                    <Mail className="w-5 h-5 text-[#245C3A] shrink-0 mt-1" />
-                    <div>
-                      <h3 className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1">
-                        {t('Official Email Address', 'တရားဝင် အီးမေးလ်လိပ်စာ')}
-                      </h3>
-                      <a
-                        href={COMPANY_INFO.emailHref}
-                        className="text-base font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] transition-colors block mb-1"
-                      >
-                        {COMPANY_INFO.email}
-                      </a>
-                      <p className="text-xs text-[#26332B]/75">
-                        {t(
-                          'For export quotations, specifications, and offset printing files',
-                          'ပြည်ပပို့ကုန် စျေးနှုန်းမေးမြန်းရန်နှင့် ပုံနှိပ်ဖိုင်များ ပေးပို့ရန်'
-                        )}
-                      </p>
                     </div>
                   </div>
 

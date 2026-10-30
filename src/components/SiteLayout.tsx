@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Globe, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
+import { Globe, MapPin, Menu, Phone, X } from 'lucide-react';
 import {
   COMPANY_INFO,
+  getProductsByCategory,
+  getPublishedPrintingServices,
   InquiryTypeOption,
   PageRoute,
 } from '../constants/companyData';
@@ -289,7 +291,7 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
       {/* Executive Corporate Top Utility Bar */}
       <div className="hidden md:block bg-[#112E1F] text-white/90 border-b border-white/10">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[42px] py-1.5 flex items-center justify-between gap-4 text-xs">
-          {/* Left Zone: Verified Office Location & Official Email */}
+          {/* Left Zone: Verified Office Location */}
           <div className="flex items-center gap-3.5 min-w-0">
             <a
               href="/contact"
@@ -312,22 +314,6 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
                   COMPANY_INFO.address.shortAddress,
                   COMPANY_INFO.address.shortAddressMm
                 )}
-              </span>
-            </a>
-
-            <span
-              className="hidden xl:block h-3.5 w-px bg-white/15 shrink-0"
-              aria-hidden="true"
-            />
-
-            <a
-              href={COMPANY_INFO.emailHref}
-              className="hidden xl:inline-flex items-center gap-1.5 text-white/80 hover:text-[#A8D977] transition-colors shrink-0"
-              title={t('Send us an email', 'အီးမေးလ်ပေးပို့ရန်')}
-            >
-              <Mail className="w-3.5 h-3.5 text-[#A8D977] shrink-0" />
-              <span className="font-mono-tabular text-[11.5px] font-medium">
-                {COMPANY_INFO.email}
               </span>
             </a>
           </div>
@@ -450,6 +436,13 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 }) => {
   const { isMm, t } = useLanguage();
 
+  const bambooExportProducts = [
+    ...getProductsByCategory('bamboo'),
+    ...getProductsByCategory('activated-carbon'),
+  ];
+  const printingServices = getPublishedPrintingServices();
+  const stationeryProducts = getProductsByCategory('stationery');
+
   const navigateAndScroll = (route: PageRoute, sectionId: string) => {
     onNavigate(route);
     setTimeout(() => {
@@ -494,10 +487,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
               </div>
             </a>
             <p className="text-sm text-white/80 leading-relaxed mb-4">
-              {t(
-                `Established in 2013, ${COMPANY_INFO.name} has been operating in Myanmar, serving domestic and international customers through its bamboo products and printing services businesses.`,
-                '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်လုပ်ငန်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ မိတ်ဖက်များအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။'
-              )}
+              {t(COMPANY_INFO.overview, COMPANY_INFO.overviewMm)}
             </p>
             <p className="text-xs font-mono-tabular text-[#A8D977]">
               {t('Official Domain:', 'ကုမ္ပဏီ ဝဘ်ဆိုက်ဒိုမိန်း -')} {COMPANY_INFO.domain}
@@ -541,105 +531,74 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
               {t('Products & Services', 'ထုတ်ကုန်နှင့် ဝန်ဆောင်မှုများ')}
             </h2>
             <div className="space-y-4 text-sm">
-              <div>
-                <p className="text-xs font-semibold text-[#A8D977] mb-1.5">
-                  {t('Bamboo Production & Export', 'ဝါးထုတ်ကုန်နှင့် ပြည်ပပို့ကုန်လုပ်ငန်း')}
-                </p>
-                <ul className="space-y-1.5 text-white/80">
-                  <li>
-                    <a
-                      href="/bamboo-products#product-bamboo-split"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateAndScroll('/bamboo-products', 'product-bamboo-split');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Bamboo Split (50 / 100 pcs per bundle)', 'ဝါးခြမ်းပြား (တစ်စည်း 50 / 100 pcs)')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/bamboo-products#product-bamboo-sticks"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateAndScroll('/bamboo-products', 'product-bamboo-sticks');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Bamboo Sticks (8", 9", 10" · 30 kg/bag)', 'ဝါးတံ (၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg)')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/charcoal"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        onNavigate('/charcoal');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Activated Carbon', 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              {bambooExportProducts.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold text-[#A8D977] mb-1.5">
+                    {t('Bamboo Production & Export', 'ဝါးထုတ်ကုန်နှင့် ပြည်ပပို့ကုန်လုပ်ငန်း')}
+                  </p>
+                  <ul className="space-y-1.5 text-white/80">
+                    {bambooExportProducts.map((prod) => (
+                      <li key={prod.id}>
+                        <a
+                          href={prod.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (prod.categoryKey === 'activated-carbon') {
+                              onNavigate(prod.route);
+                            } else {
+                              navigateAndScroll(prod.route, prod.sectionId);
+                            }
+                          }}
+                          className="hover:text-white transition-colors text-left cursor-pointer block"
+                        >
+                          {isMm ? prod.footerLabelMm : prod.footerLabel}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-              <div>
-                <p className="text-xs font-semibold text-[#A8D977] mb-1.5">
-                  {t('Printing Services & Stationery', 'ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုများ')}
-                </p>
-                <ul className="space-y-1.5 text-white/80">
-                  <li>
-                    <a
-                      href="/printing-services#service-books-printing"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateAndScroll('/printing-services', 'service-books-printing');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Books Printing', 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/printing-services#service-voucher-books-printing"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateAndScroll('/printing-services', 'service-voucher-books-printing');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Voucher Books Printing', 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/printing-services#service-other-offset-printing"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateAndScroll('/printing-services', 'service-other-offset-printing');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Other Offset Printing Services', 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/printing-services#product-ball-pen"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigateAndScroll('/printing-services', 'product-ball-pen');
-                      }}
-                      className="hover:text-white transition-colors text-left cursor-pointer block"
-                    >
-                      {t('Ball Pen (Klick: 30 pcs/box · Plano: 50 pcs/box)', 'ဘောပင် · Ball Pen (Klick / Plano)')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              {(printingServices.length > 0 || stationeryProducts.length > 0) && (
+                <div>
+                  <p className="text-xs font-semibold text-[#A8D977] mb-1.5">
+                    {t('Printing Services & Stationery', 'ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုများ')}
+                  </p>
+                  <ul className="space-y-1.5 text-white/80">
+                    {printingServices.map((svc) => (
+                      <li key={svc.id}>
+                        <a
+                          href={svc.href || `/printing-services#service-${svc.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigateAndScroll(
+                              '/printing-services',
+                              svc.sectionId || `service-${svc.id}`
+                            );
+                          }}
+                          className="hover:text-white transition-colors text-left cursor-pointer block"
+                        >
+                          {isMm ? svc.nameMm : svc.name}
+                        </a>
+                      </li>
+                    ))}
+                    {stationeryProducts.map((prod) => (
+                      <li key={prod.id}>
+                        <a
+                          href={prod.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigateAndScroll(prod.route, prod.sectionId);
+                          }}
+                          className="hover:text-white transition-colors text-left cursor-pointer block"
+                        >
+                          {isMm ? prod.footerLabelMm : prod.footerLabel}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
 
@@ -663,7 +622,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 </>
               )}
             </address>
-            <p className="text-sm mb-2.5">
+            <p className="text-sm">
               <span className="text-white/60 block text-xs mb-0.5">
                 {t('Phone & WhatsApp:', 'ဖုန်း နှင့် WhatsApp -')}
               </span>
@@ -680,17 +639,6 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                 className="inline-flex items-center px-2 py-0.5 rounded bg-[#25D366]/20 border border-[#25D366]/40 text-[#A8D977] hover:bg-[#25D366] hover:text-white text-[11px] font-semibold transition-colors"
               >
                 WhatsApp ↗
-              </a>
-            </p>
-            <p className="text-sm">
-              <span className="text-white/60 block text-xs mb-0.5">
-                {t('Email:', 'အီးမေးလ် -')}
-              </span>
-              <a
-                href={COMPANY_INFO.emailHref}
-                className="font-mono-tabular font-semibold text-white hover:text-[#A8D977] hover:underline transition-colors"
-              >
-                {COMPANY_INFO.email}
               </a>
             </p>
           </div>

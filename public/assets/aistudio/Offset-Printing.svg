@@ -200,4 +200,11 @@
       Other offset printing များ
     </text>
   </g>
+  <!-- Placeholder Notice Banner -->
+  <g transform="translate(40, 725)">
+    <rect x="0" y="0" width="620" height="44" rx="8" fill="#0E2619" fill-opacity="0.9" stroke="#A8D977" stroke-width="1.5" />
+    <text x="310" y="27" text-anchor="middle" fill="#A8D977" font-family="sans-serif" font-size="15" font-weight="700">
+      PLACEHOLDER ILLUSTRATION — To be replaced with TB Star&apos;s own photos
+    </text>
+  </g>
 </svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E2619" />
+      <stop offset="50%" stop-color="#173D2A" />
+      <stop offset="100%" stop-color="#245C3A" />
+    </linearGradient>
+    <pattern id="heroGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#A8D977" stroke-width="0.75" stroke-opacity="0.12" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#heroBg)" />
+  <rect width="1600" height="900" fill="url(#heroGrid)" />
+  <g transform="translate(980, 260)" opacity="0.85">
+    <rect x="0" y="0" width="520" height="150" rx="16" fill="#0B1F14" fill-opacity="0.82" stroke="#A8D977" stroke-opacity="0.45" stroke-width="2" />
+    <text x="260" y="54" text-anchor="middle" fill="#A8D977" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700" letter-spacing="1.5">
+      PLACEHOLDER BACKGROUND IMAGE
+    </text>
+    <text x="260" y="88" text-anchor="middle" fill="#FFFFFF" font-family="DM Sans, sans-serif" font-size="15" font-weight="600">
+      Placeholder to be replaced with TB Star's own photos
+    </text>
+    <text x="260" y="118" text-anchor="middle" fill="#DDE5D9" font-family="Noto Sans Myanmar, sans-serif" font-size="13" font-weight="500">
+      TB Star Company Limited ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ
+    </text>
+  </g>
+</svg>

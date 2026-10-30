@@ -251,7 +251,7 @@ export const AdaptiveBackgroundMedia: React.FC<AdaptiveBackgroundMediaProps> = (
   }, [bgConfig]);
 
   const handleImageLoad = useCallback(
-    (e: React.SyntheticEvent<HTMLImageElement>) => {
+    (e: { currentTarget: HTMLImageElement }) => {
       const img = e.currentTarget;
       try {
         const sampleSize = 16;

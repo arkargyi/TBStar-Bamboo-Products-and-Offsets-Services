@@ -1,9 +1,8 @@
-import React from 'react';
-import { ArrowRight, Check, Mail, MessageCircle, Phone } from 'lucide-react';
+import { ArrowRight, Check, MessageCircle, Phone } from 'lucide-react';
 import {
-  BAMBOO_PRODUCTS,
   CHARCOAL_PRODUCT_INFO,
   COMPANY_INFO,
+  getRelatedProducts,
   InquiryTypeOption,
   PageRoute,
 } from '../constants/companyData';
@@ -23,6 +22,7 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
   onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
+  const relatedProducts = getRelatedProducts('activated-carbon');
 
   return (
     <div>
@@ -76,28 +76,20 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
             <span className="text-xs font-semibold text-[#245C3A] mr-2">
               {t('Related Product & Service Catalog:', 'ဆက်စပ် ထုတ်ကုန်နှင့် ဝန်ဆောင်မှုများ -')}
             </span>
-            <a
-              href="/bamboo-products#product-bamboo-split"
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate('/bamboo-products');
-              }}
-              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors inline-flex items-center gap-2"
-            >
-              <BambooProductIcon type="bamboo-split" className="w-4 h-4 shrink-0" />
-              <span>{t('Bamboo Split (50 / 100 pcs/bundle)', 'ဝါးခြမ်းပြား (50 / 100 pcs/bundle)')}</span>
-            </a>
-            <a
-              href="/bamboo-products#product-bamboo-sticks"
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate('/bamboo-products');
-              }}
-              className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors inline-flex items-center gap-2"
-            >
-              <BambooProductIcon type="bamboo-sticks" className="w-4 h-4 shrink-0" />
-              <span>{t('Bamboo Sticks (30 kg/bag)', 'ဝါးတံ (တစ်အိတ် 30 kg)')}</span>
-            </a>
+            {relatedProducts.map((prod) => (
+              <a
+                key={prod.id}
+                href={prod.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(prod.route);
+                }}
+                className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors inline-flex items-center gap-2"
+              >
+                <BambooProductIcon type={prod.visualType} className="w-4 h-4 shrink-0" />
+                <span>{isMm ? prod.footerLabelMm : prod.footerLabel}</span>
+              </a>
+            ))}
             <a
               href="/printing-services"
               onClick={(e) => {
@@ -229,12 +221,12 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
                       mm: 'Online Inquiry Form တွင် "Activated Carbon" ကဏ္ဍကို ရွေးချယ်၍ မေးမြန်းလိုသည့် အချက်အလက်များ ပေးပို့နိုင်ခြင်း',
                     },
                     {
-                      en: 'Include your company name, contact details, and inquiry message for direct follow-up',
-                      mm: 'ကုမ္ပဏီအမည်၊ ဆက်သွယ်ရန် ဖုန်းနံပါတ်နှင့် အီးမေးလ်လိပ်စာတို့ကို ထည့်သွင်းပေးပို့နိုင်ခြင်း',
+                      en: 'Include your company name, phone number, and inquiry message for direct follow-up',
+                      mm: 'ကုမ္ပဏီအမည်၊ ဆက်သွယ်ရန် ဖုန်းနံပါတ်နှင့် မေးမြန်းလိုသည့် အချက်အလက်တို့ကို ထည့်သွင်းပေးပို့နိုင်ခြင်း',
                     },
                     {
-                      en: 'Reach our Kyauktada Township, Yangon office directly via telephone, WhatsApp, or email',
-                      mm: 'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်သို့ ဖုန်း၊ WhatsApp သို့မဟုတ် အီးမေးလ်ဖြင့် တိုက်ရိုက်ဆက်သွယ်နိုင်ခြင်း',
+                      en: 'Reach our Kyauktada Township, Yangon office directly via telephone or WhatsApp',
+                      mm: 'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်သို့ ဖုန်း သို့မဟုတ် WhatsApp ဖြင့် တိုက်ရိုက်ဆက်သွယ်နိုင်ခြင်း',
                     },
                   ].map((item) => (
                     <li key={item.en} className="flex items-start gap-2.5">
@@ -271,13 +263,6 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
                     <MessageCircle className="w-3.5 h-3.5" />
                     <span>WhatsApp</span>
                   </a>
-                  <a
-                    href={COMPANY_INFO.emailHref}
-                    className="px-4 py-2 bg-[#F6F8F3] hover:bg-[#EAF5E4] border border-[#DDE5D9] text-[#173D2A] text-xs font-semibold rounded-lg inline-flex items-center gap-2 transition-colors"
-                  >
-                    <Mail className="w-3.5 h-3.5 text-[#245C3A]" />
-                    <span>{COMPANY_INFO.email}</span>
-                  </a>
                 </div>
               </div>
             </div>
@@ -286,81 +271,79 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
       </section>
 
       {/* Related Natural Bamboo Products Cross-Links Section */}
-      <section className="py-20 bg-white border-b border-[#DDE5D9]">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            kicker="Related Product Lines · 100% Natural Myanmar Bamboo"
-            kickerMm="ဆက်စပ် ထုတ်ကုန်များ · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ"
-            title="Explore Our Natural Bamboo Split & Bamboo Sticks"
-            titleMm="ကျွန်ုပ်တို့၏ သဘာဝ ဝါးခြမ်းပြား (Bamboo Split) နှင့် ဝါးတံ (Bamboo Sticks) များ"
-            description="Review our verified specifications for 100% natural Myanmar Bamboo Split (With Nodes: 50 pcs/bundle; Without Nodes: 100 pcs/bundle) and Bamboo Sticks (30 kg/bag)."
-            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs · အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) စံချိန်စံညွှန်းများကိုလည်း လေ့လာနိုင်ပါသည်။"
-            action={
-              <Button
-                type="button"
-                variant="outline-dark"
-                href="/bamboo-products"
-                onClick={() => onNavigate('/bamboo-products')}
-              >
-                {t('View All Bamboo Products', 'ဝါးထုတ်ကုန်အားလုံး ကြည့်ရှုရန်')}
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            }
-          />
+      {relatedProducts.length > 0 && (
+        <section className="py-20 bg-white border-b border-[#DDE5D9]">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              kicker="Related Product Lines · 100% Natural Myanmar Bamboo"
+              kickerMm="ဆက်စပ် ထုတ်ကုန်များ · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ"
+              title="Explore Our Natural Bamboo Split & Bamboo Sticks"
+              titleMm="ကျွန်ုပ်တို့၏ သဘာဝ ဝါးခြမ်းပြား (Bamboo Split) နှင့် ဝါးတံ (Bamboo Sticks) များ"
+              description="Review our verified specifications for 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (30 kg/bag)."
+              descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) စံချိန်စံညွှန်းများကိုလည်း လေ့လာနိုင်ပါသည်။"
+              action={
+                <Button
+                  type="button"
+                  variant="outline-dark"
+                  href="/bamboo-products"
+                  onClick={() => onNavigate('/bamboo-products')}
+                >
+                  {t('View All Bamboo Products', 'ဝါးထုတ်ကုန်အားလုံး ကြည့်ရှုရန်')}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              }
+            />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {BAMBOO_PRODUCTS.map((prod) => (
-              <div
-                key={prod.id}
-                className="bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 flex flex-col justify-between transition-colors shadow-2xs"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-3 mb-3">
-                    <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
-                      {prod.index} · {t('100% Natural Bamboo', '၁၀၀% သဘာဝဝါး')}
-                    </span>
-                    <span className="text-xs font-mono-tabular text-[#173D2A] font-semibold">
-                      {t('Origin: Myanmar', 'မြန်မာနိုင်ငံထုတ်')}
-                    </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {relatedProducts.map((prod) => (
+                <div
+                  key={prod.id}
+                  className="bg-[#F6F8F3] border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl p-6 flex flex-col justify-between transition-colors shadow-2xs"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <span className="text-xs font-mono-tabular font-bold text-[#245C3A]">
+                        {prod.index} · {t('100% Natural Bamboo', '၁၀၀% သဘာဝဝါး')}
+                      </span>
+                      <span className="text-xs font-mono-tabular text-[#173D2A] font-semibold">
+                        {t('Origin: Myanmar', 'မြန်မာနိုင်ငံထုတ်')}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-[#173D2A] mb-2">
+                      {isMm ? prod.nameMm : prod.name}
+                    </h3>
+                    <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
+                      {isMm ? prod.shortDescriptionMm : prod.shortDescription}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-[#173D2A] mb-2">
-                    {isMm ? prod.nameMm : prod.name}
-                  </h3>
-                  <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
-                    {isMm ? prod.shortDescriptionMm : prod.shortDescription}
-                  </p>
-                </div>
 
-                <div className="pt-4 border-t border-[#DDE5D9] flex flex-wrap items-center gap-3">
-                  <Button
-                    type="button"
-                    variant="primary-dark"
-                    size="sm"
-                    href={`/bamboo-products#${
-                      prod.id === 'bamboo-split'
-                        ? 'product-bamboo-split'
-                        : 'product-bamboo-sticks'
-                    }`}
-                    onClick={() => onNavigate('/bamboo-products')}
-                  >
-                    {t(`View ${prod.name} Specs`, `${prod.nameMm} စံချိန်စံညွှန်း ကြည့်ရန်`)}
-                    <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline-dark"
-                    size="sm"
-                    href={`/contact?inquiry=${encodeURIComponent(prod.inquiryType)}`}
-                    onClick={() => onInquireWithCategory(prod.inquiryType, true)}
-                  >
-                    {t(`Inquire: ${prod.name}`, 'ဆက်သွယ်မေးမြန်းရန်')}
-                  </Button>
+                  <div className="pt-4 border-t border-[#DDE5D9] flex flex-wrap items-center gap-3">
+                    <Button
+                      type="button"
+                      variant="primary-dark"
+                      size="sm"
+                      href={prod.href}
+                      onClick={() => onNavigate(prod.route)}
+                    >
+                      {t(`View ${prod.name} Specs`, `${prod.nameMm} စံချိန်စံညွှန်း ကြည့်ရန်`)}
+                      <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline-dark"
+                      size="sm"
+                      href={`/contact?inquiry=${encodeURIComponent(prod.inquiryType)}`}
+                      onClick={() => onInquireWithCategory(prod.inquiryType, true)}
+                    >
+                      {t(`Inquire: ${prod.name}`, 'ဆက်သွယ်မေးမြန်းရန်')}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <ContactCTA
         onNavigate={onNavigate}
@@ -369,3 +352,4 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
     </div>
   );
 };
+

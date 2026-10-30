@@ -55,6 +55,8 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0YzRUZFNCIvPjxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjRDVDN0E5Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjODhBMTY4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/images/products/bamboo-sticks-wholesale.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJDNDUzNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOTRBMjgyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjREJDRkJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+  '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJDNDUzNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOTRBMjgyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjREJDRkJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/images/products/bamboo-sticks-featured.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0VDRjJFNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRDBDN0FCIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQjRBMjc4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/images/products/bamboo-sticks-texture.webp':
@@ -288,7 +290,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         <div className="col-span-2 relative overflow-hidden rounded-md border border-white/15 group bg-[#173D2A]">
           <ProgressiveProductImage
             src="/assets/aistudio/Offset-Printing.svg"
-            alt="TB Star Company Limited One-Stop Offset Printing Services — Books, Voucher Books & Brochures"
+            alt="Placeholder illustration for Offset Printing Services — to be replaced with TB Star's own photos"
             width={800}
             height={300}
             imgClassName="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
@@ -296,12 +298,12 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
           <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-3 py-1.5 flex items-center justify-between text-[11px] text-white">
             <span className="font-semibold truncate">
               {t(
-                'One-Stop Offset Printing · Books & Voucher Books',
-                'အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း · စာအုပ်နှင့် ဘောင်ချာစာအုပ်များ'
+                "One-Stop Offset Printing (Placeholder — To be replaced with TB Star's own photos)",
+                'အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း (TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ)'
               )}
             </span>
             <span className="text-[#A8D977] font-mono-tabular shrink-0">
-              {t('One-Stop Service', 'အပြီးအစီး ဝန်ဆောင်မှု')}
+              {t('Placeholder', 'ယာယီပုံစံ')}
             </span>
           </div>
         </div>
@@ -314,42 +316,49 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
     DEFAULT_IMAGE_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ||
     '/images/products/bamboo-split-main.webp';
 
+  const isSvgPlaceholder = resolvedImage.endsWith('.svg');
+
   const defaultAlt =
     DEFAULT_ALT_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ||
     'Natural Myanmar bamboo splits with nodes';
 
-  const defaultLabel =
-    type === 'bamboo-split'
-      ? t(
-          'TB Star Company · Bamboo Split (3 mm · 20"–48")',
-          'TBStar Company Limited · ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")'
-        )
-      : type === 'bamboo-sticks'
-      ? t(
-          'TB Star Company · Bamboo Sticks (1.2–2.5 mm · 30KG/bag)',
-          'TBStar Company Limited · ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30KG)'
-        )
-      : type === 'bamboo-custom'
-      ? t(
-          'TB Star Company · 100% Natural Myanmar Bamboo Products',
-          'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
-        )
-      : type === 'charcoal'
-      ? t(
-          'TB Star Company · Activated Carbon (Myanmar)',
-          'TBStar Company Limited · အက်တီဗိတ်တက် ကာဗွန် (မြန်မာနိုင်ငံ)'
-        )
-      : t(
-          'TB Star Company · One-Stop Offset Printing Services',
-          'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
-        );
+  const defaultLabel = isSvgPlaceholder
+    ? t(
+        "Placeholder — To be replaced with TB Star's own photos",
+        'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)'
+      )
+    : type === 'bamboo-split'
+    ? t(
+        'TB Star Company · Bamboo Split (3 mm · 20"–48")',
+        'TBStar Company Limited · ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")'
+      )
+    : type === 'bamboo-sticks'
+    ? t(
+        'TB Star Company · Bamboo Sticks (1.2–2.5 mm · 30 kg/bag)',
+        'TBStar Company Limited · ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30 kg)'
+      )
+    : type === 'bamboo-custom'
+    ? t(
+        'TB Star Company · 100% Natural Myanmar Bamboo Products',
+        'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
+      )
+    : type === 'charcoal'
+    ? t(
+        "Placeholder — To be replaced with TB Star's own photos",
+        'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)'
+      )
+    : t(
+        'TB Star Company · One-Stop Offset Printing Services',
+        'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
+      );
 
-  const badgeText =
-    type === 'books-printing' ||
-    type === 'voucher-printing' ||
-    type === 'commercial-printing'
-      ? t('One-Stop Press', 'အော့ဖ်ဆက် ပုံနှိပ်')
-      : t('Myanmar Origin', 'မြန်မာနိုင်ငံထုတ်');
+  const badgeText = isSvgPlaceholder
+    ? t('Placeholder', 'ယာယီပုံစံ')
+    : type === 'books-printing' ||
+      type === 'voucher-printing' ||
+      type === 'commercial-printing'
+    ? t('One-Stop Press', 'အော့ဖ်ဆက် ပုံနှိပ်')
+    : t('Myanmar Origin', 'မြန်မာနိုင်ငံထုတ်');
 
   return (
     <div

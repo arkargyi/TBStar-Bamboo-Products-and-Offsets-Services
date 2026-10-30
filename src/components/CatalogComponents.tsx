@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Check, Maximize2, Phone, X } from 'lucide-react';
+import { ArrowRight, Check, Maximize2, Phone, Search, X } from 'lucide-react';
 import {
   BambooProductItem,
   COMPANY_INFO,
@@ -9,6 +9,7 @@ import {
   PAGE_BACKGROUNDS,
   PageRoute,
   PrintingServiceItem,
+  ProductCategoryId,
   SpecificationRow,
 } from '../constants/companyData';
 import { VisualAssetFrame } from './VisualAssetFrame';
@@ -38,6 +39,7 @@ export const ProductSpecificationTable: React.FC<ProductSpecificationTableProps>
   inquireLabelMm = 'စုံစမ်းမေးမြန်းရန်',
 }) => {
   const { isMm, t } = useLanguage();
+  const safeSpecifications = Array.isArray(specifications) ? specifications : [];
 
   return (
     <div className="bg-white border border-[#DDE5D9] rounded-xl p-6 md:p-8 shadow-2xs">
@@ -58,43 +60,55 @@ export const ProductSpecificationTable: React.FC<ProductSpecificationTableProps>
         )}
       </div>
 
-      <div className="overflow-x-auto -mx-2 px-2">
-        <table className="w-full min-w-[540px] text-left border-collapse text-sm">
-          <thead>
-            <tr className="border-b border-[#DDE5D9] text-xs text-[#245C3A]">
-              <th scope="col" className="py-3 pr-4 font-semibold w-1/3">
-                {t('Specification Parameter', 'အချက်အလက် အမျိုးအစား')}
-              </th>
-              <th scope="col" className="py-3 px-4 font-semibold w-1/3">
-                {t('Verified Value', 'သတ်မှတ် စံချိန်စံညွှန်း')}
-              </th>
-              <th scope="col" className="py-3 pl-4 font-semibold w-1/3">
-                {t('Supply & Origin Notes', 'ထုတ်လုပ်မှုနှင့် ပို့ကုန်မှတ်ချက်')}
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-[#DDE5D9] text-xs">
-            {specifications.map((row) => (
-              <tr key={row.parameter} className="hover:bg-[#F6F8F3]/60 transition-colors">
-                <th
-                  scope="row"
-                  className="py-3.5 pr-4 font-semibold text-[#173D2A] align-top"
-                >
-                  {isMm ? row.parameterMm : row.parameter}
+      {safeSpecifications.length > 0 ? (
+        <div className="overflow-x-auto -mx-2 px-2">
+          <table className="w-full min-w-[540px] text-left border-collapse text-sm">
+            <thead>
+              <tr className="border-b border-[#DDE5D9] text-xs text-[#245C3A]">
+                <th scope="col" className="py-3 pr-4 font-semibold w-1/3">
+                  {t('Specification Parameter', 'အချက်အလက် အမျိုးအစား')}
                 </th>
-                <td className="py-3.5 px-4 align-top font-bold text-[#173D2A]">
-                  {isMm ? row.valueMm : row.value}
-                </td>
-                <td className="py-3.5 pl-4 text-[#26332B]/80 align-top">
-                  {isMm
-                    ? row.notesMm || 'ပြည်တွင်းနှင့် ပြည်ပပို့ကုန် စံချိန်စံညွှန်း'
-                    : row.notes || 'Standard export & domestic specification'}
-                </td>
+                <th scope="col" className="py-3 px-4 font-semibold w-1/3">
+                  {t('Verified Value', 'သတ်မှတ် စံချိန်စံညွှန်း')}
+                </th>
+                <th scope="col" className="py-3 pl-4 font-semibold w-1/3">
+                  {t('Supply & Origin Notes', 'ထုတ်လုပ်မှုနှင့် ပို့ကုန်မှတ်ချက်')}
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody className="divide-y divide-[#DDE5D9] text-xs">
+              {safeSpecifications.map((row, idx) => (
+                <tr
+                  key={`${row.parameter}-${idx}`}
+                  className="hover:bg-[#F6F8F3]/60 transition-colors"
+                >
+                  <th
+                    scope="row"
+                    className="py-3.5 pr-4 font-semibold text-[#173D2A] align-top"
+                  >
+                    {isMm && row.parameterMm ? row.parameterMm : row.parameter}
+                  </th>
+                  <td className="py-3.5 px-4 align-top font-bold text-[#173D2A]">
+                    {isMm && row.valueMm ? row.valueMm : row.value}
+                  </td>
+                  <td className="py-3.5 pl-4 text-[#26332B]/80 align-top">
+                    {isMm
+                      ? row.notesMm || row.notes || 'ပြည်တွင်းနှင့် ပြည်ပပို့ကုန် စံချိန်စံညွှန်း'
+                      : row.notes || 'Standard export & domestic specification'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="text-xs text-[#26332B]/80">
+          {t(
+            'Contact TB Star Company Limited for detailed product specifications.',
+            'အသေးစိတ် ကုန်ပစ္စည်း စံချိန်စံညွှန်းများအတွက် TBStar Company Limited သို့ ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
+          )}
+        </p>
+      )}
     </div>
   );
 };
@@ -125,6 +139,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     useFeaturedImage && product.featuredImageAlt
       ? product.featuredImageAlt
       : product.imageAlt;
+
+  const keySpecs = (product.specifications || []).filter(
+    (s) =>
+      s.parameter !== 'Product Name' &&
+      s.parameter !== 'Product Category'
+  );
+
+  const featureList: string[] = (product.features || [])
+    .map((f) => (isMm ? f.mm || f.labelMm || f.en : f.en || f.label || ''))
+    .filter(Boolean);
+
+  const detailsHref =
+    product.href ||
+    (product.sectionId ? `${product.route}#${product.sectionId}` : product.route);
 
   return (
     <article className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200">
@@ -158,35 +186,40 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             {isMm ? product.shortDescriptionMm : product.shortDescription}
           </p>
 
-          <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg overflow-hidden">
-            <div className="px-3.5 py-2 bg-[#173D2A] text-white text-xs font-semibold flex items-center justify-between">
-              <span>{t('Key Specifications', 'အဓိက စံချိန်စံညွှန်းများ')}</span>
-              <span className="font-mono-tabular text-[#A8D977]">
-                {t('Myanmar Origin', 'မြန်မာနိုင်ငံထုတ်')}
-              </span>
-            </div>
-            <dl className="divide-y divide-[#DDE5D9] text-xs">
-              {product.specifications
-                .filter(
-                  (s) =>
-                    s.parameter !== 'Product Name' &&
-                    s.parameter !== 'Product Category'
-                )
-                .map((spec) => (
+          {keySpecs.length > 0 ? (
+            <div className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg overflow-hidden">
+              <div className="px-3.5 py-2 bg-[#173D2A] text-white text-xs font-semibold flex items-center justify-between">
+                <span>{t('Key Specifications', 'အဓိက စံချိန်စံညွှန်းများ')}</span>
+                <span className="font-mono-tabular text-[#A8D977]">
+                  {t('Myanmar Origin', 'မြန်မာနိုင်ငံထုတ်')}
+                </span>
+              </div>
+              <dl className="divide-y divide-[#DDE5D9] text-xs">
+                {keySpecs.map((spec, idx) => (
                   <div
-                    key={spec.parameter}
+                    key={`${spec.parameter}-${idx}`}
                     className="px-3.5 py-2.5 flex items-start justify-between gap-4"
                   >
                     <dt className="text-[#26332B]/80 font-medium">
-                      {isMm ? spec.parameterMm : spec.parameter}
+                      {isMm && spec.parameterMm ? spec.parameterMm : spec.parameter}
                     </dt>
                     <dd className="text-right text-[#173D2A] font-bold">
-                      {isMm ? spec.valueMm : spec.value}
+                      {isMm && spec.valueMm ? spec.valueMm : spec.value}
                     </dd>
                   </div>
                 ))}
-            </dl>
-          </div>
+              </dl>
+            </div>
+          ) : featureList.length > 0 ? (
+            <ul className="space-y-2 pt-4 border-t border-[#DDE5D9] text-xs text-[#26332B]/90">
+              {featureList.map((feat) => (
+                <li key={feat} className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-[#245C3A] shrink-0 mt-0.5" />
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </div>
 
@@ -208,15 +241,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             type="button"
             variant="outline-dark"
             size="sm"
-            href={
-              product.id === 'charcoal' || product.id === 'activated-carbon'
-                ? '/charcoal'
-                : `/bamboo-products#${
-                    product.id === 'bamboo-split'
-                      ? 'product-bamboo-split'
-                      : 'product-bamboo-sticks'
-                  }`
-            }
+            href={detailsHref}
             onClick={onViewDetails}
           >
             {t('Full Specs', 'အသေးစိတ်ကြည့်ရန်')}
@@ -650,3 +675,234 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
     </section>
   );
 };
+
+export interface ProductSearchCategoryTab {
+  id: 'all' | ProductCategoryId;
+  label: string;
+  labelMm: string;
+}
+
+const DEFAULT_PRODUCT_SEARCH_TABS: ProductSearchCategoryTab[] = [
+  { id: 'all', label: 'All Products', labelMm: 'ထုတ်ကုန်အားလုံး' },
+  { id: 'bamboo', label: 'Natural Bamboo', labelMm: 'သဘာဝဝါးထုတ်ကုန်' },
+  {
+    id: 'activated-carbon',
+    label: 'Activated Carbon',
+    labelMm: 'အက်တီဗိတ်တက် ကာဗွန်',
+  },
+  { id: 'stationery', label: 'Stationery (Ball Pen)', labelMm: 'ဘောပင် (Ball Pen)' },
+];
+
+export interface ProductSearchSuggestion {
+  label: string;
+  labelMm: string;
+  query: string;
+}
+
+const DEFAULT_QUICK_SUGGESTIONS: ProductSearchSuggestion[] = [
+  { label: 'Bamboo Split', labelMm: 'ဝါးခြမ်းပြား', query: 'Bamboo Split' },
+  { label: 'Bamboo Sticks', labelMm: 'ဝါးတံ', query: 'Bamboo Sticks' },
+  { label: 'With Nodes', labelMm: 'အဆစ်ပါ (With Nodes)', query: 'With Nodes' },
+  { label: '30 kg per bag', labelMm: 'တစ်အိတ် 30 kg', query: '30 kg' },
+  { label: 'Activated Carbon', labelMm: 'Activated Carbon', query: 'Activated Carbon' },
+  { label: 'Ball Pen (Klick / Plano)', labelMm: 'ဘောပင် (Klick / Plano)', query: 'Ball Pen' },
+];
+
+export interface ProductSearchBarProps {
+  query: string;
+  onQueryChange: (nextQuery: string) => void;
+  totalCount: number;
+  resultCount: number;
+  selectedCategory?: 'all' | ProductCategoryId;
+  onCategoryChange?: (category: 'all' | ProductCategoryId) => void;
+  showCategoryTabs?: boolean;
+  categoryTabs?: ProductSearchCategoryTab[];
+  suggestions?: ProductSearchSuggestion[];
+  placeholder?: string;
+  placeholderMm?: string;
+  inputId?: string;
+}
+
+export const ProductSearchBar: React.FC<ProductSearchBarProps> = ({
+  query,
+  onQueryChange,
+  totalCount,
+  resultCount,
+  selectedCategory = 'all',
+  onCategoryChange,
+  showCategoryTabs = false,
+  categoryTabs = DEFAULT_PRODUCT_SEARCH_TABS,
+  suggestions = DEFAULT_QUICK_SUGGESTIONS,
+  placeholder = 'Search products by name, description, dimension, or packaging (e.g. Bamboo Split, 30 kg, Without Nodes)...',
+  placeholderMm = 'ထုတ်ကုန်အမည်၊ အကြောင်းအရာ၊ အရွယ်အစား သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - ဝါးခြမ်းပြား၊ ဝါးတံ၊ 30 kg)...',
+  inputId = 'tbstar-product-search-input',
+}) => {
+  const { isMm, t } = useLanguage();
+  const hasActiveSearch = query.trim().length > 0;
+  const hasActiveCategory = showCategoryTabs && selectedCategory !== 'all';
+
+  return (
+    <div className="bg-white border border-[#DDE5D9] rounded-xl p-4 sm:p-5 mb-8 shadow-2xs">
+      <div className="flex flex-col lg:flex-row lg:items-center gap-3.5">
+        {/* Search Input Field */}
+        <div className="relative flex-1">
+          <label htmlFor={inputId} className="sr-only">
+            {t('Search products by name and description', 'ထုတ်ကုန်အမည်နှင့် အကြောင်းအရာအလိုက် ရှာဖွေရန်')}
+          </label>
+          <Search
+            className="w-4 h-4 text-[#245C3A] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
+            aria-hidden="true"
+          />
+          <input
+            id={inputId}
+            type="search"
+            value={query}
+            onChange={(e) => onQueryChange(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' && hasActiveSearch) {
+                e.preventDefault();
+                onQueryChange('');
+              }
+            }}
+            placeholder={isMm ? placeholderMm : placeholder}
+            autoComplete="off"
+            className="w-full min-h-[44px] pl-10 pr-10 py-2.5 text-sm text-[#173D2A] bg-[#F6F8F3] border border-[#DDE5D9] rounded-lg placeholder:text-[#26332B]/55 focus:bg-white focus:border-[#245C3A] focus:outline-none focus:ring-2 focus:ring-[#245C3A]/20 transition-colors"
+          />
+          {hasActiveSearch && (
+            <button
+              type="button"
+              onClick={() => onQueryChange('')}
+              aria-label={t('Clear search query', 'ရှာဖွေထားသည်ကို ပယ်ဖျက်ရန်')}
+              className="w-8 h-8 rounded-md text-[#26332B]/70 hover:text-[#173D2A] hover:bg-[#DDE5D9]/50 flex items-center justify-center absolute right-1.5 top-1/2 -translate-y-1/2 transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+
+        {/* Category Filter Tabs (when enabled) */}
+        {showCategoryTabs && onCategoryChange && (
+          <div
+            role="group"
+            aria-label={t('Filter products by category', 'ကဏ္ဍအလိုက် စစ်ထုတ်ရန်')}
+            className="flex flex-wrap items-center gap-1.5"
+          >
+            {categoryTabs.map((tab) => {
+              const isSelected = selectedCategory === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => onCategoryChange(tab.id)}
+                  aria-pressed={isSelected}
+                  className={`min-h-[40px] px-3.5 py-2 text-xs font-semibold rounded-lg border transition-colors cursor-pointer ${
+                    isSelected
+                      ? 'bg-[#173D2A] text-white border-[#173D2A]'
+                      : 'bg-[#F6F8F3] text-[#173D2A] border-[#DDE5D9] hover:border-[#245C3A]'
+                  }`}
+                >
+                  {isMm ? tab.labelMm : tab.label}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Quick Filter Suggestions & Unboxed Live Result Metadata */}
+      <div className="mt-3.5 pt-3 border-t border-[#DDE5D9]/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-[#26332B]/70 font-medium mr-1">
+            {t('Quick filter:', 'အမြန်ရှာဖွေရန် -')}
+          </span>
+          {suggestions.map((suggestion) => {
+            const isQueryActive =
+              query.trim().toLowerCase() === suggestion.query.toLowerCase();
+            return (
+              <button
+                key={suggestion.query}
+                type="button"
+                onClick={() =>
+                  onQueryChange(isQueryActive ? '' : suggestion.query)
+                }
+                aria-pressed={isQueryActive}
+                className={`px-2.5 py-1 rounded-md border text-xs font-medium transition-colors cursor-pointer ${
+                  isQueryActive
+                    ? 'bg-[#245C3A] text-white border-[#245C3A]'
+                    : 'bg-[#F6F8F3] text-[#173D2A] border-[#DDE5D9] hover:border-[#245C3A]'
+                }`}
+              >
+                {isMm ? suggestion.labelMm : suggestion.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div
+          aria-live="polite"
+          className="flex flex-wrap items-center gap-2 text-xs text-[#26332B]/80 font-mono-tabular shrink-0"
+        >
+          <span>
+            {isMm
+              ? `စုစုပေါင်း ${totalCount} ခုအနက် ${resultCount} ခု ပြသထားသည်`
+              : `Showing ${resultCount} of ${totalCount} ${
+                  totalCount === 1 ? 'product' : 'products'
+                }`}
+          </span>
+          {(hasActiveSearch || hasActiveCategory) && (
+            <>
+              <span aria-hidden="true">·</span>
+              <button
+                type="button"
+                onClick={() => {
+                  onQueryChange('');
+                  if (onCategoryChange) {
+                    onCategoryChange('all');
+                  }
+                }}
+                className="text-[#245C3A] hover:text-[#173D2A] font-semibold underline underline-offset-4 cursor-pointer"
+              >
+                {t('Reset filter', 'ပြန်လည်ရিসেတ်လုပ်ရန်')}
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export interface ProductSearchEmptyStateProps {
+  query: string;
+  onReset: () => void;
+}
+
+export const ProductSearchEmptyState: React.FC<ProductSearchEmptyStateProps> = ({
+  query,
+  onReset,
+}) => {
+  const { isMm, t } = useLanguage();
+
+  return (
+    <div className="bg-white border border-[#DDE5D9] rounded-xl p-8 sm:p-10 text-center my-4">
+      <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-2">
+        {t('NO MATCHING PRODUCTS FOUND', 'ရှာဖွေမှုနှင့် ကိုက်ညီသော ထုတ်ကုန် မတွေ့ရှိပါ')}
+      </p>
+      <h3 className="text-lg sm:text-xl font-bold text-[#173D2A] mb-2">
+        {isMm
+          ? `"${query}" နှင့် ကိုက်ညီသော ထုတ်ကုန် မရှိပါ`
+          : `No products matched "${query}"`}
+      </h3>
+      <p className="text-sm text-[#26332B]/80 max-w-xl mx-auto mb-5 leading-relaxed">
+        {t(
+          'Try searching by product name (Bamboo Split, Bamboo Sticks, Activated Carbon, Ball Pen) or specification keywords (3 mm, With Nodes, Without Nodes, 30 kg, Klick, Plano).',
+          'ထုတ်ကုန်အမည် (Bamboo Split၊ Bamboo Sticks၊ Activated Carbon၊ Ball Pen) သို့မဟုတ် အသေးစိတ်အချက်အလက်များ (3 mm၊ အဆစ်ပါ၊ အဆစ်မပါ၊ 30 kg၊ Klick၊ Plano) ဖြင့် ပြန်လည်ရှာဖွေကြည့်ပါ။'
+        )}
+      </p>
+      <Button type="button" variant="primary-dark" size="sm" onClick={onReset}>
+        {t('Clear Search & Show All Products', 'ရှာဖွေမှု ပယ်ဖျက်ပြီး ထုတ်ကုန်အားလုံး ပြန်ကြည့်ရန်')}
+      </Button>
+    </div>
+  );
+};
+

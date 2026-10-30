@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+  <defs>
+    <linearGradient id="prodBg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#112E1F" />
+      <stop offset="55%" stop-color="#173D2A" />
+      <stop offset="100%" stop-color="#245C3A" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#prodBg)" />
+  <g stroke="#A8D977" stroke-opacity="0.1" stroke-width="1">
+    <line x1="0" y1="150" x2="800" y2="150" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="450" x2="800" y2="450" />
+    <line x1="200" y1="0" x2="200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="600" />
+    <line x1="600" y1="0" x2="600" y2="600" />
+  </g>
+  <rect x="80" y="90" width="640" height="420" rx="20" fill="#0E2619" fill-opacity="0.82" stroke="#A8D977" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="8 6" />
+  <rect x="230" y="150" width="340" height="36" rx="8" fill="#173D2A" stroke="#A8D977" stroke-opacity="0.5" />
+  <text x="400" y="173" text-anchor="middle" fill="#A8D977" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4">
+    TB STAR COMPANY LIMITED · PLACEHOLDER
+  </text>
+  <text x="400" y="265" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="24" font-weight="700">
+    Product Photo Placeholder
+  </text>
+  <text x="400" y="305" text-anchor="middle" fill="#A8D977" font-family="DM Sans, sans-serif" font-size="16" font-weight="600">
+    Placeholder — To be replaced with TB Star's own photos
+  </text>
+  <text x="400" y="345" text-anchor="middle" fill="#DDE5D9" font-family="Noto Sans Myanmar, sans-serif" font-size="15" font-weight="500">
+    TB Star Company Limited ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ
+  </text>
+  <text x="400" y="420" text-anchor="middle" fill="#A8D977" fill-opacity="0.8" font-family="DM Sans, sans-serif" font-size="13" font-weight="500">
+    Contact TB Star Company Limited (Yangon, Myanmar) for details
+  </text>
+</svg>

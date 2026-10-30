@@ -5,7 +5,6 @@ import {
   Compass,
   Globe2,
   Handshake,
-  Mail,
   MapPin,
   MessageCircle,
   Phone,
@@ -120,11 +119,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <div>
                       {isMm ? (
                         <p>
-                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (က) — ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း -</strong> မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြား (Bamboo Split · အဆစ်ပါ တစ်စည်း ၅၀ ချောင်း / အဆစ်မပါ တစ်စည်း ၁၀၀ ချောင်း) နှင့် ဝါးတံ (Bamboo Sticks · တစ်အိတ် 30 kg) များကို ထုတ်လုပ်ပြီး ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာစျေးကွက်သို့ တင်ပို့ရောင်းချခြင်း။
+                          <strong>စီးပွားရေးလုပ်ငန်းကဏ္ဍ (က) — ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း -</strong> မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြား (Bamboo Split · အထူ 3 mm၊ အရှည် ၂၀" မှ ၄၈"၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (Bamboo Sticks · တစ်အိတ် 30 kg) တို့ကို ထုတ်လုပ်ပြီး ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာစျေးကွက်သို့ တင်ပို့ရောင်းချခြင်း။
                         </p>
                       ) : (
                         <p>
-                          <strong>Business Division A — Bamboo Production and Export:</strong> Manufacturing 100% natural Myanmar bamboo products—specifically Bamboo Split (With Nodes: 50 pieces per bundle; Without Nodes: 100 pieces per bundle) and Bamboo Sticks (30 kg per bag)—for international export and domestic distribution within Myanmar.
+                          <strong>Business Division A — Bamboo Production and Export:</strong> Manufacturing 100% natural Myanmar bamboo products—specifically Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 to 2.5 mm thickness, 8, 9, 10 inches, packed 30 kg per bag)—for international export and domestic distribution within Myanmar.
                         </p>
                       )}
                     </div>
@@ -202,16 +201,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <dd className="font-mono-tabular font-bold text-[#173D2A]">
                     <a href={COMPANY_INFO.telephoneHref} className="hover:underline">
                       {COMPANY_INFO.telephone}
-                    </a>
-                  </dd>
-                </div>
-                <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
-                  <dt className="text-xs text-[#26332B]/70 font-medium">
-                    {t('Corporate Email', 'အီးမေးလ်လိပ်စာ')}
-                  </dt>
-                  <dd className="font-mono-tabular font-semibold text-[#245C3A]">
-                    <a href={COMPANY_INFO.emailHref} className="hover:underline">
-                      {COMPANY_INFO.email}
                     </a>
                   </dd>
                 </div>
@@ -381,8 +370,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   </h3>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {t(
-                      'We manufacture 100% natural bamboo products originating in Myanmar—featuring Bamboo Split (With Nodes: 50 pieces per bundle; Without Nodes: 100 pieces per bundle) and Bamboo Sticks (1.2 mm to 2.5 mm, 8"/9"/10", packed at 30 kg per bag)—prepared for international export markets.',
-                      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြားများ (အဆစ်ပါ တစ်စည်း 50 pcs · အဆစ်မပါ တစ်စည်း 100 pcs) နှင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော ဝါးတံများ (၈"၊ ၉"၊ ၁၀") ကို နိုင်ငံတကာ ပို့ကုန်စျေးကွက်သို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။'
+                      'We manufacture 100% natural bamboo products originating in Myanmar—featuring Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 mm to 2.5 mm, 8"/9"/10", packed at 30 kg per bag)—prepared for international export markets.',
+                      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ဝါးခြမ်းပြားများ (အထူ 3 mm၊ အရှည် ၂၀" မှ ၄၈"၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော ဝါးတံများ (၈"၊ ၉"၊ ၁၀") ကို နိုင်ငံတကာ ပို့ကုန်စျေးကွက်သို့ တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။'
                     )}
                   </p>
                 </div>
@@ -407,7 +396,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-sticks"
-                  imagePath="/images/products/bamboo-sticks-wholesale.webp"
+                  imagePath="/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp"
                   altText="Bamboo sticks prepared for commercial supply"
                   aspectClassName="aspect-[16/10]"
                   label={t(
@@ -533,7 +522,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       ) : idx === 1 ? (
                         <BambooProductIcon type="bamboo-custom" className="w-6 h-6" />
                       ) : (
-                        <PrintingServiceIcon type="prepress-finishing" className="w-6 h-6" />
+                        <PrintingServiceIcon type="press-finishing" className="w-6 h-6" />
                       )}
                     </div>
                     <span className="font-mono-tabular font-bold text-sm text-[#245C3A]">

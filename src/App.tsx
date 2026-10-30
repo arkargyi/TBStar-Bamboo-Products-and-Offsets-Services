@@ -5,15 +5,12 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import {
-  BALL_PEN_PRODUCT,
-  BAMBOO_PRODUCTS,
-  CHARCOAL_PRODUCT_INFO,
+  buildStructuredData,
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
   InquiryTypeOption,
   PAGE_SEO,
   PageRoute,
-  PRINTING_SERVICES,
 } from './constants/companyData';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { SiteHeader, SiteFooter, NAV_ITEMS } from './components/SiteLayout';
@@ -26,6 +23,8 @@ import { CharcoalPage } from './pages/CharcoalPage';
 import { PrintingServicesPage } from './pages/PrintingServicesPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
+
+export { buildStructuredData };
 
 export const VALID_ROUTES: PageRoute[] = [
   '/',
@@ -61,175 +60,6 @@ function resolveInquiryFromSearch(search: string): InquiryTypeOption | null {
     return inq as InquiryTypeOption;
   }
   return null;
-}
-
-export function buildStructuredData(route: PageRoute) {
-  const seo = PAGE_SEO[route] || PAGE_SEO['/'];
-  const baseUrl = COMPANY_INFO.canonicalBase;
-
-  const organizationNode = {
-    '@type': 'Organization',
-    '@id': `${baseUrl}/#organization`,
-    name: COMPANY_INFO.name,
-    alternateName: COMPANY_INFO.nameMm,
-    foundingDate: COMPANY_INFO.establishedYear,
-    url: `${baseUrl}/`,
-    logo: {
-      '@type': 'ImageObject',
-      '@id': `${baseUrl}/#logo`,
-      url: `${baseUrl}${COMPANY_INFO.logoPath}`,
-      contentUrl: `${baseUrl}${COMPANY_INFO.logoPath}`,
-      caption: 'TB Star Company Limited Official Logo',
-    },
-    image: `${baseUrl}/images/products/bamboo-split-main.webp`,
-    description:
-      'Established in 2013, TB Star Company Limited has been operating in Myanmar, supplying 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon, and one-stop offset printing services and stationery (including Klick and Plano Ball Pens) in Yangon, Myanmar.',
-    telephone: COMPANY_INFO.telephone,
-    email: COMPANY_INFO.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress:
-        'Room No. 1103, 11th Floor, Central Tower, Corner of 39th Street and Anawrahta Road, Kyauktada Township',
-      addressLocality: 'Yangon',
-      addressRegion: 'Yangon Region',
-      postalCode: '11182',
-      addressCountry: 'MM',
-    },
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: COMPANY_INFO.telephone,
-        email: COMPANY_INFO.email,
-        contactType: 'sales',
-        areaServed: 'MM',
-        availableLanguage: ['en', 'my'],
-      },
-    ],
-  };
-
-  const websiteNode = {
-    '@type': 'WebSite',
-    '@id': `${baseUrl}/#website`,
-    url: `${baseUrl}/`,
-    name: COMPANY_INFO.name,
-    publisher: {
-      '@id': `${baseUrl}/#organization`,
-    },
-    inLanguage: 'en',
-  };
-
-  const pageType =
-    route === '/about'
-      ? 'AboutPage'
-      : route === '/contact'
-      ? 'ContactPage'
-      : route === '/gallery' || route === '/bamboo-products' || route === '/charcoal'
-      ? 'CollectionPage'
-      : 'WebPage';
-
-  const breadcrumbNode = {
-    '@type': 'BreadcrumbList',
-    '@id': `${seo.canonicalUrl}#breadcrumb`,
-    itemListElement: seo.breadcrumbs.map((crumb, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      name: crumb.name,
-      item: crumb.url,
-    })),
-  };
-
-  const webPageNode: Record<string, unknown> = {
-    '@type': pageType,
-    '@id': `${seo.canonicalUrl}#webpage`,
-    url: seo.canonicalUrl,
-    name: seo.title,
-    description: seo.description,
-    isPartOf: {
-      '@id': `${baseUrl}/#website`,
-    },
-    about: {
-      '@id': `${baseUrl}/#organization`,
-    },
-    breadcrumb: {
-      '@id': `${seo.canonicalUrl}#breadcrumb`,
-    },
-    inLanguage: 'en',
-  };
-
-  const graph: Record<string, unknown>[] = [
-    organizationNode,
-    websiteNode,
-    webPageNode,
-    breadcrumbNode,
-  ];
-
-  if (route === '/bamboo-products') {
-    const sectionAnchorById: Record<string, string> = {
-      'bamboo-split': 'product-bamboo-split',
-      'bamboo-sticks': 'product-bamboo-sticks',
-    };
-
-    graph.push({
-      '@type': 'ItemList',
-      '@id': `${seo.canonicalUrl}#product-list`,
-      name: 'TB Star Company Limited Natural Myanmar Bamboo Products',
-      itemListElement: BAMBOO_PRODUCTS.map((prod, idx) => ({
-        '@type': 'ListItem',
-        position: idx + 1,
-        name: prod.name,
-        description: prod.detailedDescription,
-        url: `${seo.canonicalUrl}#${sectionAnchorById[prod.id] || prod.id}`,
-      })),
-    });
-  }
-
-  if (route === '/charcoal') {
-    graph.push({
-      '@type': 'ItemList',
-      '@id': `${seo.canonicalUrl}#activated-carbon-list`,
-      name: 'TB Star Company Limited Activated Carbon Product Line',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: CHARCOAL_PRODUCT_INFO.name,
-          description: CHARCOAL_PRODUCT_INFO.detailedDescription,
-          url: `${seo.canonicalUrl}#product-charcoal`,
-        },
-      ],
-    });
-  }
-
-  if (route === '/printing-services') {
-    const items = [
-      ...PRINTING_SERVICES.map((svc, idx) => ({
-        '@type': 'ListItem',
-        position: idx + 1,
-        name: svc.name,
-        description: svc.detailedDescription,
-        url: `${seo.canonicalUrl}#service-${svc.id}`,
-      })),
-      {
-        '@type': 'ListItem',
-        position: PRINTING_SERVICES.length + 1,
-        name: BALL_PEN_PRODUCT.name,
-        description: BALL_PEN_PRODUCT.detailedDescription,
-        url: `${seo.canonicalUrl}#product-ball-pen`,
-      },
-    ];
-
-    graph.push({
-      '@type': 'ItemList',
-      '@id': `${seo.canonicalUrl}#service-list`,
-      name: 'TB Star Company Limited One-Stop Offset Printing Services & Stationery',
-      itemListElement: items,
-    });
-  }
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': graph,
-  };
 }
 
 const NotFoundView: React.FC<{ onNavigate: (route: PageRoute) => void }> = ({
