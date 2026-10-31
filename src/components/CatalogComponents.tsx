@@ -267,24 +267,27 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   const points = isMm ? service.scopePointsMm : service.scopePoints;
 
   return (
-    <article className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between group shadow-2xs hover:shadow-md transition-all duration-200">
+    <article className="bg-white border border-[#DDE5D9] hover:border-[#245C3A] rounded-xl overflow-hidden flex flex-col justify-between group shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
       <div>
         <VisualAssetFrame
           type={service.visualType}
           imagePath={service.imagePath}
+          altText={service.imageAlt}
           label={isMm && service.placeholderNoteMm ? service.placeholderNoteMm : service.placeholderNote}
-          aspectClassName="aspect-[4/3]"
+          aspectClassName="aspect-[3/2]"
+          objectFit="contain"
+          enableLightbox={true}
         />
-        <div className="p-6">
+        <div className="p-6 border-t-2 border-[#F4B940]/80">
           <div className="flex items-start justify-between gap-4 mb-3">
             <div className="w-12 h-12 rounded-lg bg-[#F6F8F3] border border-[#DDE5D9] flex items-center justify-center shrink-0 group-hover:border-[#245C3A] transition-colors">
               <PrintingServiceIcon type={service.visualType} className="w-7 h-7" />
             </div>
-            <span className="text-xs font-mono-tabular font-bold text-[#245C3A] pt-1">
+            <span className="text-xs font-mono-tabular font-bold px-2.5 py-1 rounded bg-[#173D2A] text-[#F4B940]">
               {service.index}
             </span>
           </div>
-          <p className="text-xs text-[#245C3A] font-medium mb-1">
+          <p className="text-xs text-[#245C3A] font-semibold mb-1">
             {isMm ? service.categoryMm : service.category}
           </p>
           <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
@@ -308,14 +311,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className="px-6 pb-6 pt-2 flex flex-col sm:flex-row gap-2.5">
         <Button
           type="button"
-          variant="subtle"
+          variant="primary-dark"
           size="sm"
           href={`/contact?inquiry=${encodeURIComponent(service.inquiryType)}`}
           className="flex-1"
           onClick={() => onInquireService(service.inquiryType)}
         >
           {isMm ? 'ဝန်ဆောင်မှု မေးမြန်းရန်' : `Inquire: ${service.name}`}
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-3.5 h-3.5 text-[#F4B940]" />
         </Button>
 
         {onViewDetails && (

@@ -65,6 +65,17 @@ export const COMPANY_INFO = {
       'Room 1103, 11th Floor, Central Tower, 39th St & Anawrahta Rd, Kyauktada, Yangon',
     shortAddressMm:
       'အခန်း (၁၁၀၃)၊ (၁၁) လွှာ၊ Central Tower၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့',
+    primaryLocationText:
+      'Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar.',
+  },
+  coordinates: {
+    latitude: 16.776671,
+    longitude: 96.163664,
+    formatted: '16.776671, 96.163664',
+    directionsUrl:
+      'https://www.google.com/maps/dir/?api=1&destination=16.776671,96.163664',
+    googleMapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=16.776671,96.163664',
   },
 };
 
@@ -1455,30 +1466,31 @@ const RAW_PRINTING_SERVICES: PrintingServiceItem[] = [
     category: 'One-Stop Offset Printing Services',
     categoryMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
     shortDescription:
-      'One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding.',
+      'One-stop offset printing for commercial books, magazines, company profiles, manuals, and multi-page editions with clean typography and durable binding.',
     shortDescriptionMm:
-      'စာအုပ်အမျိုးမျိုး၊ ပညာရေးဆိုင်ရာ စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များကို စာသားကြည်လင်ပြတ်သားပြီး ခိုင်ခံ့သပ်ရပ်စွာ တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ပေးပါသည်။',
+      'စာပေထုတ်ဝေမှု စာအုပ်အမျိုးမျိုး၊ မဂ္ဂဇင်း၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များ (Company Profiles) နှင့် လမ်းညွှန်စာအုပ်များကို စာသားကြည်လင်ပြတ်သားပြီး ခိုင်ခံ့သပ်ရပ်စွာ တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ပေးပါသည်။',
     detailedDescription:
-      'TB Star Company Limited provides one-stop offset printing services for books, publications, and institutional manuals in Yangon. We coordinate layout verification, offset press production, cover printing, and binding under one roof.',
+      'One-stop offset printing for commercial books, magazines, company profiles, manuals, and multi-page editions with clean typography and durable binding. TB Star Company Limited coordinates layout verification, offset press production, full-color cover printing, binding, and trimming under one roof in Yangon.',
     detailedDescriptionMm:
-      'TBStar Company Limited သည် စာအုပ်များ၊ စာပေထုတ်ဝေမှုများနှင့် လမ်းညွှန်စာအုပ်အမျိုးမျိုးအတွက် စာမျက်နှာစစ်ဆေးခြင်းမှစ၍ အော့ဖ်ဆက်စက်ဖြင့် ပုံနှိပ်ခြင်း၊ မျက်နှာဖုံးပုံနှိပ်ခြင်းနှင့် စာအုပ်ချုပ်လုပ်ခြင်းအထိ တစ်နေရာတည်းတွင် အပြီးအစီး တာဝန်ယူ ဆောင်ရွက်ပေးပါသည်။',
+      'TBStar Company Limited သည် စာပေထုတ်ဝေမှု စာအုပ်များ၊ မဂ္ဂဇင်းများ၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်အမျိုးမျိုးအတွက် စာမျက်နှာစစ်ဆေးခြင်းမှစ၍ အော့ဖ်ဆက်စက်ဖြင့် ပုံနှိပ်ခြင်း၊ မျက်နှာဖုံးပုံနှိပ်ခြင်းနှင့် စာအုပ်ချုပ်လုပ်ခြင်းအထိ တစ်နေရာတည်းတွင် အပြီးအစီး တာဝန်ယူ ဆောင်ရွက်ပေးပါသည်။',
     visualType: 'books-printing',
-    imagePath: '/assets/aistudio/Offset-Printing.svg',
-    imageAlt: "Placeholder illustration for Books Printing — to be replaced with TB Star's own photos",
-    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
-    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    imagePath: '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+    imageAlt:
+      'TB Star Company Limited Books Printing — One-stop offset printing for commercial books, magazines, company profiles, manuals, and multi-page editions with clean typography and durable binding',
+    placeholderNote: 'Books Printing · Multi-Page Books, Magazines & Company Profiles',
+    placeholderNoteMm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း (Books Printing) · စာအုပ်အမျိုးမျိုး ပုံနှိပ်ဝန်ဆောင်မှု',
     inquiryType: 'Books Printing',
     published: true,
     featured: true,
     sectionId: 'service-books-printing',
     href: '/printing-services#service-books-printing',
     scopePoints: [
-      'Multi-page books, textbooks, and corporate publications',
-      'Sharp offset interior text reproduction and full-color covers',
-      'End-to-end coordination from offset press production to binding and trimming',
+      'Multi-page books, magazines, company profiles, and commercial publications.',
+      'Sharp offset interior text reproduction and full-color covers.',
+      'End-to-end coordination from offset press production to binding and trimming.',
     ],
     scopePointsMm: [
-      'စာမျက်နှာစုံ စာအုပ်များ၊ ကျောင်းသုံးနှင့် ရုံးသုံးစာအုပ်အမျိုးမျိုး',
+      'စာပေထုတ်ဝေမှု စာအုပ်များ၊ မဂ္ဂဇင်း၊ ကုမ္ပဏီပရိုဖိုင်နှင့် မှတ်တမ်းစာအုပ်အမျိုးမျိုး',
       'ကြည်လင်ပြတ်သားသော အတွင်းစာသားနှင့် ရောင်စုံမျက်နှာဖုံး ပုံနှိပ်မှု',
       'ပုံနှိပ်ခြင်းမှ စာအုပ်ချုပ်လုပ်ပြီးစီးသည်အထိ တစ်နေရာတည်း အပြီးအစီး ဝန်ဆောင်မှု',
     ],
@@ -1496,23 +1508,24 @@ const RAW_PRINTING_SERVICES: PrintingServiceItem[] = [
     shortDescriptionMm:
       'နေ့စဉ်လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များ၊ ငွေတောင်းခံလွှာနှင့် ပြေစာစာအုပ်များကို လုပ်ငန်းအမှတ်တံဆိပ်နှင့်အညီ သပ်ရပ်တိကျစွာ ပုံနှိပ်ပေးပါသည်။',
     detailedDescription:
-      'Our Voucher Books Printing service supplies businesses, wholesalers, and commercial offices with custom-formatted voucher books, receipt pads, delivery notes, and invoice books.',
+      'Commercial voucher books, invoice pads, receipt books, and business forms customized for daily retail and B2B operations. Our Voucher Books Printing service supplies businesses, wholesalers, and commercial offices with perforated, multi-copy pad binding and tailored layouts.',
     detailedDescriptionMm:
       'ကုမ္ပဏီများ၊ လက်ကားဆိုင်များနှင့် စီးပွားရေးလုပ်ငန်းများအတွက် လိုအပ်သော ဘောင်ချာစာအုပ်များ၊ ပြေစာစာအုပ်များနှင့် စာရင်းပုံစံစာအုပ်များကို စနစ်တကျ ပုံနှိပ်ပေးပါသည်။',
     visualType: 'voucher-printing',
-    imagePath: '/assets/aistudio/Offset-Printing.svg',
-    imageAlt: "Placeholder illustration for Voucher Books Printing — to be replaced with TB Star's own photos",
-    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
-    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    imagePath: '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
+    imageAlt:
+      'TB Star Company Limited Voucher Books Printing — Commercial voucher books, invoice pads, receipt books, and business forms customized for daily retail and B2B operations',
+    placeholderNote: 'Voucher Books Printing · Sales Vouchers, Receipt Pads & Invoice Books',
+    placeholderNoteMm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း · ဘောင်ချာ၊ ပြေစာနှင့် ငွေတောင်းခံလွှာစာအုပ်များ',
     inquiryType: 'Voucher Books Printing',
     published: true,
     featured: true,
     sectionId: 'service-voucher-books-printing',
     href: '/printing-services#service-voucher-books-printing',
     scopePoints: [
-      'Custom sales voucher books, receipt pads, and invoice books',
-      'Perforation and multi-copy pad binding',
-      'Tailored layouts featuring your company logo and contact details',
+      'Custom sales voucher books, receipt pads, and invoice books.',
+      'Perforation and multi-copy pad binding.',
+      'Tailored layouts featuring your company logo and contact details.',
     ],
     scopePointsMm: [
       'အရောင်းဘောင်ချာစာအုပ်များ၊ ပြေစာနှင့် ငွေတောင်းခံလွှာစာအုပ်များ',
@@ -1533,23 +1546,24 @@ const RAW_PRINTING_SERVICES: PrintingServiceItem[] = [
     shortDescriptionMm:
       'လက်ကမ်းစာစောင်များ၊ ကတ်တလောက်များ၊ လိပ်စာကတ်များနှင့် ရုံးသုံးပုံစံစာရွက်အမျိုးမျိုးအတွက် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု။',
     detailedDescription:
-      'Beyond books and voucher pads, TB Star Company Limited delivers one-stop offset printing for corporate brochures, flyers, product catalogs, business cards, envelopes, letterheads, and administrative forms.',
+      'Commercial offset printing for brochures, pamphlets, catalogs, business cards, letterheads, and office forms. Beyond books and voucher pads, TB Star Company Limited delivers consistent offset color reproduction for corporate and commercial orders.',
     detailedDescriptionMm:
       'စာအုပ်နှင့် ဘောင်ချာစာအုပ်များအပြင် ကုမ္ပဏီသုံး လက်ကမ်းစာစောင်များ (Brochures & Pamphlets)၊ ကုန်ပစ္စည်းကတ်တလောက်များ၊ လိပ်စာကတ်များ၊ စာအိတ်များနှင့် ရုံးသုံးပုံစံစာရွက်အမျိုးမျိုးကိုပါ တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ပေးပါသည်။',
     visualType: 'commercial-printing',
-    imagePath: '/assets/aistudio/Offset-Printing.svg',
-    imageAlt: "Placeholder illustration for Other Offset Printing Services — to be replaced with TB Star's own photos",
-    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
-    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    imagePath: '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
+    imageAlt:
+      'TB Star Company Limited Other Offset Printing Services — Commercial offset printing for brochures, pamphlets, catalogs, business cards, letterheads, and office forms',
+    placeholderNote: 'Other Offset Printing Services · Brochures, Catalogs, Business Cards & Forms',
+    placeholderNoteMm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ · လက်ကမ်းစာစောင်၊ ကတ်တလောက်နှင့် ရုံးသုံးပုံနှိပ်',
     inquiryType: 'Other Offset Printing Services',
     published: true,
     featured: true,
     sectionId: 'service-other-offset-printing',
     href: '/printing-services#service-other-offset-printing',
     scopePoints: [
-      'Corporate brochures, pamphlets, flyers, and product catalogs',
-      'Business cards, letterheads, envelopes, and office forms',
-      'Consistent offset color reproduction for commercial orders',
+      'Corporate brochures, pamphlets, flyers, and product catalogs.',
+      'Business cards, letterheads, envelopes, and office forms.',
+      'Consistent offset color reproduction for commercial orders.',
     ],
     scopePointsMm: [
       'လက်ကမ်းစာစောင်များ၊ ကြော်ငြာစာရွက်များနှင့် ကုန်ပစ္စည်းကတ်တလောက်များ',
@@ -1673,8 +1687,8 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     description:
       'One-stop offset printing services in Yangon for Books Printing, Voucher Books Printing, and Other Offset Printing Services, plus Ball Pen stationery (Klick: 30 pcs per box; Plano: 50 pcs per box).',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/printing-services`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Branding_Image_V2_cc9a2035.webp`,
-    ogImageAlt: `${COMPANY_INFO.name} Offset Printing Services and Klick & Plano Ball Pen Stationery`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp`,
+    ogImageAlt: `${COMPANY_INFO.name} Offset Printing Services — Books Printing, Voucher Books Printing, Other Offset Printing Services & Ball Pen Stationery`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
       {
@@ -1736,11 +1750,45 @@ export function buildStructuredData(route: PageRoute) {
     areaServed: ['MM'],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: COMPANY_INFO.address.streetAddress,
-      addressLocality: COMPANY_INFO.address.city,
+      streetAddress: 'Corner of 39th Street and Anawrahta Road',
+      addressLocality: 'Kyauktada Township, Yangon',
       addressRegion: COMPANY_INFO.address.region,
       postalCode: COMPANY_INFO.address.postalCode,
       addressCountry: COMPANY_INFO.address.countryCode,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: COMPANY_INFO.coordinates.latitude,
+      longitude: COMPANY_INFO.coordinates.longitude,
+    },
+    hasMap: COMPANY_INFO.coordinates.googleMapsUrl,
+  };
+
+  const localBusinessNode = {
+    '@type': 'LocalBusiness',
+    '@id': `${baseUrl}/#localbusiness`,
+    name: COMPANY_INFO.name,
+    alternateName: COMPANY_INFO.nameMm,
+    url: `${baseUrl}/`,
+    image: `${baseUrl}${COMPANY_INFO.logoPath}`,
+    telephone: COMPANY_INFO.telephone,
+    areaServed: ['MM'],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Corner of 39th Street and Anawrahta Road',
+      addressLocality: 'Kyauktada Township, Yangon',
+      addressRegion: COMPANY_INFO.address.region,
+      postalCode: COMPANY_INFO.address.postalCode,
+      addressCountry: COMPANY_INFO.address.countryCode,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: COMPANY_INFO.coordinates.latitude,
+      longitude: COMPANY_INFO.coordinates.longitude,
+    },
+    hasMap: COMPANY_INFO.coordinates.directionsUrl,
+    parentOrganization: {
+      '@id': `${baseUrl}/#organization`,
     },
   };
 
@@ -1797,6 +1845,7 @@ export function buildStructuredData(route: PageRoute) {
 
   const graph: Record<string, unknown>[] = [
     organizationNode,
+    localBusinessNode,
     websiteNode,
     webPageNode,
     breadcrumbNode,
@@ -1874,6 +1923,13 @@ export function buildStructuredData(route: PageRoute) {
         '@type': 'Service',
         name: svc.name,
         description: svc.detailedDescription,
+        ...(svc.imagePath
+          ? {
+              image: svc.imagePath.startsWith('http')
+                ? svc.imagePath
+                : `${baseUrl}${svc.imagePath}`,
+            }
+          : {}),
         provider: {
           '@id': `${baseUrl}/#organization`,
         },
@@ -2041,17 +2097,46 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
       'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) pen showcase',
   },
   {
-    id: 'gal-offset-printing',
-    title: 'One-Stop Offset Printing — Placeholder Illustration',
-    titleMm: 'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း (ယာယီပုံစံ)',
+    id: 'gal-books-printing',
+    title: 'Books Printing — Multi-Page Books & Publications',
+    titleMm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း (Books Printing)',
     category: 'Printing Products',
     caption:
-      "Placeholder illustration for Books Printing, Voucher Books Printing, and Other Offset Printing Services — to be replaced with TB Star's own photos.",
+      'One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding.',
     captionMm:
-      'စာအုပ်ပုံနှိပ်ခြင်း၊ ဘောင်ချာစာအုပ်ပုံနှိပ်ခြင်းနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများအတွက် TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ။',
+      'စာအုပ်အမျိုးမျိုး၊ ပညာရေးစာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များအတွက် တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှု။',
     visualType: 'books-printing',
-    imagePath: '/assets/aistudio/Offset-Printing.svg',
-    altText: "Placeholder illustration for Offset Printing — to be replaced with TB Star's own photos",
+    imagePath: '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+    altText:
+      'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
+  },
+  {
+    id: 'gal-voucher-books-printing',
+    title: 'Voucher Books Printing — Sales Vouchers, Invoices & Receipts',
+    titleMm: 'ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်းလုပ်ငန်း (Voucher Books Printing)',
+    category: 'Printing Products',
+    caption:
+      'Commercial voucher books, invoice pads, receipt books, and business forms customized for daily retail and B2B operations.',
+    captionMm:
+      'လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များ၊ ငွေတောင်းခံလွှာနှင့် ပြေစာစာအုပ်များ စိတ်ကြိုက်ပုံနှိပ်ဝန်ဆောင်မှု။',
+    visualType: 'voucher-printing',
+    imagePath: '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
+    altText:
+      'TB Star Company Limited Voucher Books Printing — Commercial voucher books, invoice pads, receipt books, and business forms customized for daily retail and B2B operations',
+  },
+  {
+    id: 'gal-other-offset-printing',
+    title: 'Other Offset Printing Services — Brochures, Catalogs & Cards',
+    titleMm: 'အခြား အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုများ (Other Offset Printing Services)',
+    category: 'Printing Products',
+    caption:
+      'Commercial offset printing for brochures, pamphlets, catalogs, business cards, letterheads, and office forms.',
+    captionMm:
+      'လက်ကမ်းစာစောင်များ၊ ကတ်တလောက်များ၊ လိပ်စာကတ်များနှင့် ရုံးသုံးပုံစံစာရွက်အမျိုးမျိုး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု။',
+    visualType: 'commercial-printing',
+    imagePath: '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
+    altText:
+      'TB Star Company Limited Other Offset Printing Services — Commercial offset printing for brochures, pamphlets, catalogs, business cards, letterheads, and office forms',
   },
   {
     id: 'gal-company-activities',

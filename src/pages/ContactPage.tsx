@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Building2, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Building2, MessageCircle, Navigation } from 'lucide-react';
 import {
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
@@ -8,6 +8,11 @@ import {
 } from '../constants/companyData';
 import { HeroSection } from '../components/SharedUI';
 import { ContactForm } from '../components/InquiryModal';
+import {
+  OfficeLocationMap,
+  GET_DIRECTIONS_URL,
+  PRIMARY_COORDINATES_TEXT,
+} from '../components/OfficeLocationMap';
 import { INQUIRY_TYPE_LABELS, useLanguage } from '../context/LanguageContext';
 
 interface ContactPageProps {
@@ -32,19 +37,29 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           { label: 'Contact Us', route: '/contact' },
         ]}
         onNavigate={onNavigate}
-        kicker="Corporate Office & Inquiry Desk · Kyauktada Township, Yangon"
-        kickerMm="ရုံးချုပ်နှင့် ဆက်သွယ်စုံစမ်းရေးဌာန · ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့"
+        kicker="Corporate Office & Official Location · Kyauktada Township, Yangon"
+        kickerMm="ရုံးချုပ်တည်နေရာနှင့် ဆက်သွယ်စုံစမ်းရေးဌာန · ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့"
         title={`Contact ${COMPANY_INFO.name}`}
         titleMm="TBStar Company Limited သို့ ဆက်သွယ်ရန်"
-        description="Get in touch with our Yangon office for Bamboo Split, Bamboo Sticks, Activated Carbon, one-stop Offset Printing services, and Ball Pen stationery inquiries."
-        descriptionMm="ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks)၊ Activated Carbon၊ အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် ဘောပင် (Ball Pen) စာရေးကိရိယာများအတွက် ကျွန်ုပ်တို့၏ ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
+        description="Visit or contact our official Yangon headquarters at the Corner of 39th Street and Anawrahta Road, Kyauktada Township for Bamboo Split, Bamboo Sticks, Activated Carbon, Offset Printing services, and Ball Pen stationery inquiries."
+        descriptionMm="ဝါးခြမ်းပြား (Bamboo Split)၊ ဝါးတံ (Bamboo Sticks)၊ Activated Carbon၊ အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် ဘောပင် (Ball Pen) စာရေးကိရိယာများအတွက် ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ ကျွန်ုပ်တို့၏ ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။"
         actions={
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href={COMPANY_INFO.telephoneHref}
+              href={GET_DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get Directions to TB Star Company Limited in Google Maps"
               className="px-5 py-3 bg-[#A8D977] hover:bg-[#97cc64] text-[#173D2A] text-sm font-bold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
             >
-              <Phone className="w-4 h-4" />
+              <Navigation className="w-4 h-4" />
+              {t('Get Directions', 'လမ်းညွှန် ရယူရန်')}
+            </a>
+            <a
+              href={COMPANY_INFO.telephoneHref}
+              className="px-5 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+            >
+              <Phone className="w-4 h-4 text-[#A8D977]" />
               {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
             </a>
             <a
@@ -60,8 +75,43 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         }
       />
 
-      {/* Main Contact Workspace */}
-      <section className="py-20 bg-[#F6F8F3]">
+      {/* Primary Focus Section: Official Company Location & Interactive Google Map */}
+      <section
+        id="company-location-map"
+        aria-labelledby="location-map-heading"
+        className="py-14 sm:py-16 bg-[#F6F8F3] border-b border-[#DDE5D9]"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-8">
+            <p className="text-xs font-mono-tabular uppercase tracking-wider text-[#245C3A] font-semibold mb-2">
+              {t(
+                `PRIMARY COMPANY LOCATION · GPS ${PRIMARY_COORDINATES_TEXT}`,
+                `ပင်မ ကုမ္ပဏီတည်နေရာ · GPS ${PRIMARY_COORDINATES_TEXT}`
+              )}
+            </p>
+            <h2
+              id="location-map-heading"
+              className="text-2xl sm:text-3xl font-bold text-[#173D2A] tracking-tight mb-3"
+            >
+              {t(
+                'Our Location at Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon',
+                'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ ကျွန်ုပ်တို့၏ ရုံးချုပ်တည်နေရာ'
+              )}
+            </h2>
+            <p className="text-sm sm:text-base text-[#26332B]/85 leading-relaxed">
+              {t(
+                'Use the interactive Google Map and Location Information Card below to view our exact office pin, copy our address or GPS coordinates, or launch turn-by-turn directions in Google Maps.',
+                'အောက်ပါ အပြန်အလှန်အသုံးပြုနိုင်သော Google မြေပုံနှင့် တည်နေရာအချက်အလက်ကတ်မှတစ်ဆင့် ရုံးချုပ်တည်နေရာအတိအကျကို ကြည့်ရှုခြင်း၊ လိပ်စာနှင့် ကိုသြဒိနိတ်များ ကူးယူခြင်း သို့မဟုတ် Google Maps လမ်းညွှန် ফွင့်ခြင်းများ ပြုလုပ်နိုင်ပါသည်။'
+              )}
+            </p>
+          </div>
+
+          <OfficeLocationMap />
+        </div>
+      </section>
+
+      {/* Secondary Section: Direct Contact Channels & Validated Inquiry Form */}
+      <section className="py-16 sm:py-20 bg-[#F6F8F3]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Official Company Information & Verified Location Details */}
@@ -101,10 +151,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           <span>{COMPANY_INFO.address.fullMm}</span>
                         ) : (
                           <>
-                            {COMPANY_INFO.address.line1},<br />
-                            {COMPANY_INFO.address.line2},<br />
-                            {COMPANY_INFO.address.township}, {COMPANY_INFO.address.city},{' '}
-                            {COMPANY_INFO.address.country}.
+                            Corner of 39th Street and Anawrahta Road,
+                            <br />
+                            Kyauktada Township, Yangon, Myanmar.
+                            <br />
+                            <span className="text-xs text-[#26332B]/80">
+                              ({COMPANY_INFO.address.line1})
+                            </span>
                           </>
                         )}
                       </address>
@@ -154,8 +207,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       </h3>
                       <p className="text-xs text-[#26332B]/85 leading-relaxed">
                         {t(
-                          'Located on the 11th Floor (Room No. 1103) of Central Tower at the intersection of 39th Street and Anawrahta Road in downtown Kyauktada Township, Yangon.',
-                          'ရန်ကုန်မြို့လယ်၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် တည်ရှိပါသည်။'
+                          'Located at the Corner of 39th Street and Anawrahta Road (Central Tower, 11th Floor, Room No. 1103) in downtown Kyauktada Township, Yangon (GPS: 16.776671, 96.163664).',
+                          'ရန်ကုန်မြို့လယ်၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ Central Tower (၁၁) လွှာ၊ အခန်းအမှတ် (၁၁၀၃) တွင် တည်ရှိပါသည် (GPS: 16.776671, 96.163664)။'
                         )}
                       </p>
                     </div>

@@ -193,8 +193,8 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
         onNavigate={onNavigate}
         kicker="Division B · Printing Services & Stationery · Yangon, Myanmar"
         kickerMm="လုပ်ငန်းကဏ္ဍ (ခ) · အော့ဖ်ဆက် ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်း · ရန်ကုန်မြို့"
-        title="One-Stop Offset Printing Services & Stationery"
-        titleMm="တစ်နေရာတည်းတွင် ပြီးပြည့်စုံသော အော့ဖ်ဆက် ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုများ"
+        title="Printing Services & Stationaries"
+        titleMm="ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် စာရေးကိရိယာများ"
         description="Established in 2013, TB Star Company Limited provides one-stop offset printing services for books, voucher books, and commercial printing needs alongside Ball Pen stationery supply (Klick: 30 pcs per box; Plano: 50 pcs per box)."
         descriptionMm="၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် အခြားအော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများအပြင် Ball Pen (Klick တစ်ဘူး 30 pcs · Plano တစ်ဘူး 50 pcs) စာရေးကိရိယာများကိုပါ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
         actions={
@@ -303,7 +303,7 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
           {matchingOverviewItems > 0 ? (
             <div className="space-y-8">
               {filteredServices.length > 0 && (
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                   {filteredServices.map((service) => (
                     <ServiceCard
                       key={service.id}
@@ -417,20 +417,23 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 <div
-                  className={`lg:col-span-5 ${
+                  className={`lg:col-span-6 group rounded-xl overflow-hidden border border-[#DDE5D9] hover:border-[#245C3A] bg-white shadow-sm hover:shadow-lg transition-all duration-300 ${
                     idx % 2 === 1 ? 'lg:order-2' : ''
                   }`}
                 >
                   <VisualAssetFrame
                     type={service.visualType}
                     imagePath={service.imagePath}
-                    aspectClassName="aspect-[4/3]"
+                    altText={service.imageAlt}
+                    aspectClassName="aspect-[3/2]"
+                    objectFit="contain"
+                    enableLightbox={true}
                     label={isMm && service.placeholderNoteMm ? service.placeholderNoteMm : service.placeholderNote}
                   />
                 </div>
 
                 <div
-                  className={`lg:col-span-7 ${
+                  className={`lg:col-span-6 ${
                     idx % 2 === 1 ? 'lg:order-1' : ''
                   }`}
                 >

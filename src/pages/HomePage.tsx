@@ -32,6 +32,7 @@ import {
   ServiceCard,
 } from '../components/CatalogComponents';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
+import { OfficeLocationMap } from '../components/OfficeLocationMap';
 import { useLanguage } from '../context/LanguageContext';
 
 interface HomePageProps {
@@ -360,7 +361,9 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="books-printing"
-                  aspectClassName="aspect-[16/9]"
+                  aspectClassName="aspect-[3/2]"
+                  objectFit="contain"
+                  enableLightbox={true}
                   label={t(
                     'One-Stop Offset Printing · Books, Voucher Books & Commercial Print',
                     'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း · စာအုပ်နှင့် ဘောင်ချာစာအုပ်များ'
@@ -591,7 +594,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             }
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {publishedPrintingServices.map((service) => (
               <ServiceCard
                 key={service.id}
@@ -798,6 +801,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               </dl>
             </div>
           </div>
+
+          <OfficeLocationMap className="mt-10" />
         </div>
       </section>
 

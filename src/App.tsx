@@ -159,6 +159,17 @@ export default function App() {
     () => resolveInquiryFromSearch(window.location.search) || 'Bamboo Split'
   );
   const [modalOpen, setModalOpen] = useState(false);
+  const [gmpQuotaExceeded, setGmpQuotaExceeded] = useState(false);
+
+  useEffect(() => {
+    const handleQuotaExceeded = () => {
+      setGmpQuotaExceeded(true);
+    };
+    window.addEventListener('gmp-quota-exceeded', handleQuotaExceeded);
+    return () => {
+      window.removeEventListener('gmp-quota-exceeded', handleQuotaExceeded);
+    };
+  }, []);
 
   // Sync page-level SEO title, meta description, canonical URL, robots, OpenGraph, and JSON-LD
   useEffect(() => {
@@ -272,6 +283,23 @@ export default function App() {
   return (
     <LanguageProvider>
       <div className="min-h-screen flex flex-col bg-[#F6F8F3] text-[#26332B]">
+        {gmpQuotaExceeded && (
+          <div className="bg-amber-50 border-b border-amber-200 text-amber-900 px-4 py-2.5 text-xs md:text-sm text-center sticky top-0 z-50 shadow-sm">
+            <span>
+              Google Maps Platform quota reached. If you are the app owner, visit{' '}
+              <a
+                href="https://developers.google.com/maps/ai/ai-studio?utm_campaign=gmp_mcp_codeassist_v1_aistudio#quota_exceeded_errors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline font-semibold text-amber-950 hover:text-amber-800"
+              >
+                maps developer site
+              </a>{' '}
+              for instructions to update your account.
+            </span>
+          </div>
+        )}
+
         {/* Skip to Main Content Link for Keyboard Accessibility */}
         <a
           href="#main-content"

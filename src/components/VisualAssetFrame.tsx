@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Maximize2, X } from 'lucide-react';
+import { COMPANY_INFO } from '../constants/companyData';
 import { useLanguage } from '../context/LanguageContext';
 
 export type VisualAssetType =
@@ -11,14 +13,20 @@ export type VisualAssetType =
   | 'commercial-printing'
   | 'hero-bamboo';
 
+const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
+  '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+  '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
+  '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
+]);
+
 const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
   'bamboo-split': '/images/products/bamboo-split-main.webp',
   'bamboo-sticks': '/images/products/bamboo-sticks-main.webp',
   'bamboo-custom': '/images/products/bamboo-split-natural.webp',
   charcoal: '/assets/aistudio/Charcoal-Product.svg',
-  'books-printing': '/assets/aistudio/Offset-Printing.svg',
-  'voucher-printing': '/assets/aistudio/Offset-Printing.svg',
-  'commercial-printing': '/assets/aistudio/Offset-Printing.svg',
+  'books-printing': '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+  'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
+  'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
 };
 
 const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
@@ -26,14 +34,17 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
   'bamboo-sticks': 'Natural bamboo sticks from Myanmar',
   'bamboo-custom': 'Natural bamboo splits with authentic bamboo texture',
   charcoal: 'TB Star Company Limited Activated Carbon Category Visual',
-  'books-printing': 'TB Star Company Limited One-Stop Offset Books Printing Services',
-  'voucher-printing': 'TB Star Company Limited Commercial Voucher Books Printing Services',
-  'commercial-printing': 'TB Star Company Limited Commercial Offset Printing Services',
+  'books-printing':
+    'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
+  'voucher-printing':
+    'TB Star Company Limited Voucher Books Printing — Commercial voucher books, invoice pads, receipt books, and business forms customized for daily retail and B2B operations',
+  'commercial-printing':
+    'TB Star Company Limited Other Offset Printing Services — Commercial offset printing for brochures, pamphlets, catalogs, business cards, letterheads, and office forms',
 };
 
 /**
  * Low-resolution Base64 SVG placeholders tailored to the color palette
- * of the 10 Bamboo Split & Bamboo Sticks product images and printing assets.
+ * of the Bamboo Split & Bamboo Sticks product images and Offset Printing assets.
  */
 export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
   // Bamboo Split Assets
@@ -67,6 +78,14 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjdGM0U4Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGMkVDRDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFNURGQzMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/Branding_Image_V2_cc9a2035.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjdGM0U4Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGMkVDRDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFNURGQzMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
+
+  // Offset Printing Promotional Assets
+  '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+  '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+  '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
 };
 
 const DEFAULT_BASE64_PLACEHOLDER =
@@ -96,12 +115,12 @@ export const ProductImageSkeleton: React.FC<ProductImageSkeletonProps> = ({
       <img
         src={placeholderDataUrl}
         alt=""
-         aria-hidden="true"
+        aria-hidden="true"
         className="w-full h-full object-cover scale-110 blur-md"
       />
 
       {/* Subtle brand-tinted surface & GPU-accelerated shimmer sweep */}
-      <div className="absolute inset-0 bg-[#173D2A]/15" />
+      <div className="absolute inset-0 bg-[#173D2A]/10" />
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-skeleton-shimmer" />
     </div>
   );
@@ -115,6 +134,8 @@ interface ProgressiveProductImageProps {
   loading?: 'lazy' | 'eager';
   fetchPriority?: 'high' | 'low' | 'auto';
   imgClassName?: string;
+  preserveNaturalLuminance?: boolean;
+  onClick?: () => void;
 }
 
 const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
@@ -125,14 +146,22 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
   loading = 'lazy',
   fetchPriority,
   imgClassName = 'w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]',
+  preserveNaturalLuminance = false,
+  onClick,
 }) => {
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [computedFilter, setComputedFilter] = useState<string>(
-    'brightness(0.95) contrast(1.04) saturate(0.98)'
+    preserveNaturalLuminance
+      ? 'none'
+      : 'brightness(0.95) contrast(1.04) saturate(0.98)'
   );
 
   const evaluateProductImageFilter = (imgEl: HTMLImageElement) => {
+    if (preserveNaturalLuminance) {
+      setComputedFilter('none');
+      return;
+    }
     try {
       const sampleSize = 12;
       const canvas = document.createElement('canvas');
@@ -183,7 +212,7 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
     } else {
       setIsLoaded(false);
     }
-  }, [src]);
+  }, [src, preserveNaturalLuminance]);
 
   const placeholderDataUrl =
     PRODUCT_IMAGE_BASE64_PLACEHOLDERS[src] || DEFAULT_BASE64_PLACEHOLDER;
@@ -204,14 +233,17 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
         loading={loading}
         fetchPriority={fetchPriority}
         decoding="async"
+        onClick={onClick}
         onLoad={(e) => {
           setIsLoaded(true);
           evaluateProductImageFilter(e.currentTarget);
         }}
         onError={() => setIsLoaded(true)}
         style={{
-          filter: isLoaded ? computedFilter : undefined,
-          WebkitFilter: isLoaded ? computedFilter : undefined,
+          filter:
+            isLoaded && computedFilter !== 'none' ? computedFilter : undefined,
+          WebkitFilter:
+            isLoaded && computedFilter !== 'none' ? computedFilter : undefined,
         }}
         className={`${imgClassName} transition-all duration-500 ease-out ${
           isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-xs scale-[1.01]'
@@ -227,6 +259,9 @@ interface VisualAssetFrameProps {
   altText?: string;
   label?: string;
   aspectClassName?: string;
+  objectFit?: 'cover' | 'contain';
+  hideOverlayBar?: boolean;
+  enableLightbox?: boolean;
   showReplacementNote?: boolean;
   loading?: 'lazy' | 'eager';
   fetchPriority?: 'high' | 'low' | 'auto';
@@ -238,10 +273,25 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
   altText,
   label,
   aspectClassName = 'aspect-[4/3]',
+  objectFit,
+  hideOverlayBar,
+  enableLightbox,
   loading = 'lazy',
   fetchPriority,
 }) => {
   const { t } = useLanguage();
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsLightboxOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isLightboxOpen]);
 
   // Hero Dual-Division 3-Photo Showcase
   if (type === 'hero-bamboo' && !imagePath) {
@@ -287,23 +337,24 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         </div>
 
         {/* Bottom Span: One-Stop Offset Printing Services */}
-        <div className="col-span-2 relative overflow-hidden rounded-md border border-white/15 group bg-[#173D2A]">
+        <div className="col-span-2 relative overflow-hidden rounded-md border border-white/15 group bg-white">
           <ProgressiveProductImage
-            src="/assets/aistudio/Offset-Printing.svg"
-            alt="Placeholder illustration for Offset Printing Services — to be replaced with TB Star's own photos"
+            src="/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp"
+            alt="TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions"
             width={800}
             height={300}
-            imgClassName="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            preserveNaturalLuminance={true}
+            imgClassName="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-3 py-1.5 flex items-center justify-between text-[11px] text-white">
             <span className="font-semibold truncate">
               {t(
-                "One-Stop Offset Printing (Placeholder — To be replaced with TB Star's own photos)",
-                'အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း (TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ)'
+                'One-Stop Offset Printing · Books, Vouchers & Commercial Print',
+                'တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း'
               )}
             </span>
             <span className="text-[#A8D977] font-mono-tabular shrink-0">
-              {t('Placeholder', 'ယာယီပုံစံ')}
+              {t('One-Stop Press', 'အော့ဖ်ဆက် ပုံနှိပ်')}
             </span>
           </div>
         </div>
@@ -317,10 +368,24 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
     '/images/products/bamboo-split-main.webp';
 
   const isSvgPlaceholder = resolvedImage.endsWith('.svg');
+  const isPromotionalPrintingBanner = PROMOTIONAL_PRINTING_BANNERS.has(resolvedImage);
+
+  const resolvedObjectFit =
+    objectFit || (isPromotionalPrintingBanner ? 'contain' : 'cover');
+  const resolvedAspectClass =
+    isPromotionalPrintingBanner && aspectClassName === 'aspect-[4/3]'
+      ? 'aspect-[3/2]'
+      : aspectClassName;
+  const shouldHideOverlayBar =
+    hideOverlayBar !== undefined ? hideOverlayBar : isPromotionalPrintingBanner;
+  const isLightboxEnabled =
+    enableLightbox !== undefined ? enableLightbox : isPromotionalPrintingBanner;
 
   const defaultAlt =
     DEFAULT_ALT_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ||
     'Natural Myanmar bamboo splits with nodes';
+
+  const resolvedAlt = altText || defaultAlt;
 
   const defaultLabel = isSvgPlaceholder
     ? t(
@@ -352,6 +417,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း'
       );
 
+  const resolvedLabel = label || defaultLabel;
+
   const badgeText = isSvgPlaceholder
     ? t('Placeholder', 'ယာယီပုံစံ')
     : type === 'books-printing' ||
@@ -360,24 +427,118 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
     ? t('One-Stop Press', 'အော့ဖ်ဆက် ပုံနှိပ်')
     : t('Myanmar Origin', 'မြန်မာနိုင်ငံထုတ်');
 
+  const imageFitClass =
+    resolvedObjectFit === 'contain'
+      ? `w-full h-full object-contain object-center transition-transform duration-500 ease-out group-hover:scale-[1.015] ${
+          isLightboxEnabled ? 'cursor-zoom-in' : ''
+        }`
+      : `w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02] ${
+          isLightboxEnabled ? 'cursor-zoom-in' : ''
+        }`;
+
   return (
     <div
-      className={`relative w-full ${aspectClassName} overflow-hidden bg-[#173D2A] text-white select-none`}
+      className={`relative w-full ${resolvedAspectClass} overflow-hidden ${
+        isPromotionalPrintingBanner || resolvedObjectFit === 'contain'
+          ? 'bg-white'
+          : 'bg-[#173D2A]'
+      } text-white select-none`}
     >
       <ProgressiveProductImage
         src={resolvedImage}
-        alt={altText || defaultAlt}
-        width={640}
-        height={480}
+        alt={resolvedAlt}
+        width={1536}
+        height={1024}
         loading={loading}
         fetchPriority={fetchPriority}
+        preserveNaturalLuminance={isPromotionalPrintingBanner}
+        imgClassName={imageFitClass}
+        onClick={isLightboxEnabled ? () => setIsLightboxOpen(true) : undefined}
       />
-      <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-4 py-2.5 flex items-center justify-between gap-2 text-[11px] text-white">
-        <span className="truncate font-semibold">{label || defaultLabel}</span>
-        <span className="shrink-0 font-mono-tabular text-[#A8D977] font-semibold">
-          {badgeText}
-        </span>
-      </div>
+
+      {isLightboxEnabled && (
+        <button
+          type="button"
+          onClick={() => setIsLightboxOpen(true)}
+          aria-label={t(`Enlarge preview: ${resolvedLabel}`, `ပုံကြီးချဲ့ကြည့်ရန် - ${resolvedLabel}`)}
+          title={t('Click to enlarge preview', 'ပုံကြီးချဲ့ကြည့်ရန် နှိပ်ပါ')}
+          className="absolute top-2.5 right-2.5 z-20 px-2.5 py-1.5 rounded-md bg-[#173D2A]/85 hover:bg-[#173D2A] text-white text-[11px] font-semibold inline-flex items-center gap-1.5 border border-[#F4B940]/60 shadow-sm opacity-90 group-hover:opacity-100 transition-all duration-200 cursor-pointer"
+        >
+          <Maximize2 className="w-3.5 h-3.5 text-[#F4B940]" />
+          <span className="hidden sm:inline">{t('Enlarge', 'ချဲ့ကြည့်ရန်')}</span>
+        </button>
+      )}
+
+      {!shouldHideOverlayBar && (
+        <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-4 py-2.5 flex items-center justify-between gap-2 text-[11px] text-white">
+          <span className="truncate font-semibold">{resolvedLabel}</span>
+          <span className="shrink-0 font-mono-tabular text-[#A8D977] font-semibold">
+            {badgeText}
+          </span>
+        </div>
+      )}
+
+      {isLightboxEnabled && isLightboxOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#071A10]/85 backdrop-blur-xs"
+          role="dialog"
+          aria-modal="true"
+          aria-label={resolvedLabel}
+          onClick={() => setIsLightboxOpen(false)}
+        >
+          <div
+            className="bg-white border border-[#DDE5D9] rounded-2xl max-w-5xl w-full overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-5 py-3.5 bg-[#173D2A] text-white border-b-2 border-[#F4B940] flex items-center justify-between gap-4">
+              <div className="min-w-0">
+                <p className="text-[11px] font-mono-tabular text-[#F4B940] font-semibold truncate">
+                  {t(
+                    `${COMPANY_INFO.name} · One-Stop Offset Printing Services`,
+                    'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း'
+                  )}
+                </p>
+                <h3 className="text-sm sm:text-base font-bold text-white truncate">
+                  {resolvedLabel}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(false)}
+                className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer shrink-0"
+                aria-label={t('Close enlarged image preview', 'ပုံကြီးချဲ့ကြည့်ရှုမှုကို ပိတ်ရန်')}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="bg-[#F6F8F3] p-2 sm:p-4 flex items-center justify-center max-h-[78vh] overflow-auto">
+              <img
+                src={resolvedImage}
+                alt={resolvedAlt}
+                width={1536}
+                height={1024}
+                decoding="async"
+                className="w-full h-auto max-h-[72vh] object-contain rounded-lg shadow-sm bg-white"
+              />
+            </div>
+
+            <div className="px-5 py-3.5 bg-white border-t border-[#DDE5D9] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <p className="text-xs text-[#26332B]/85 leading-relaxed">
+                {resolvedAlt}
+              </p>
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(false)}
+                className="px-4 py-2 text-xs font-semibold rounded-lg bg-[#173D2A] hover:bg-[#245C3A] text-white transition-colors cursor-pointer self-end sm:self-auto shrink-0"
+              >
+                {t('Close Preview', 'ပိတ်ရန်')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
