@@ -138,12 +138,12 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
       <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="Categorized Visual Showcase · Click 'View' or 'Enlarge Photo' for Full View"
-            kickerMm="ကဏ္ဍအလိုက် ဓာတ်ပုံပြခန်း · ပုံများကို အကြီးချဲ့၍ ကြည့်ရှုနိုင်ပါသည်"
-            title="Product, Packaging & Printing Gallery"
-            titleMm="ဝါးထုတ်ကုန်၊ ထုပ်ပိုးမှုနှင့် ပုံနှိပ်လုပ်ငန်း ပြခန်း"
-            description="Filter by category to inspect our Bamboo Products, Bamboo Production, 30 kg Export Packaging, and Offset Printing deliverables."
-            descriptionMm="ဝါးထုတ်ကုန်များ၊ ဝါးထုတ်လုပ်မှုလုပ်ငန်းစဉ်၊ ထုပ်ပိုးမှု၊ ပုံနှိပ်ထုတ်ကုန်များနှင့် အခြားကုမ္ပဏီလုပ်ငန်းဆောင်တာများကို ကဏ္ဍအလိုက် ရွေးချယ်ကြည့်ရှုနိုင်ပါသည်။"
+            kicker="Categorized Visual Showcase · Click Any Image for Full-Screen Lightbox"
+            kickerMm="ကဏ္ဍအလိုက် ဓာတ်ပုံပြခန်း · ပုံများကို နှိပ်၍ အကြီးချဲ့ကြည့်ရှုနိုင်ပါသည်"
+            title="Bamboo Products, Export Packaging, Offset Printing & Stationery Gallery"
+            titleMm="ဝါးထုတ်ကုန်၊ ပို့ကုန်ထုပ်ပိုးမှု၊ အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဓာတ်ပုံပြခန်း"
+            description="Filter by category to inspect our Natural Bamboo Split & Sticks, Bamboo Production Workflow, 30 kg Export Bag Packaging, Offset Printing Deliverables, and Ball Pen Stationery (Klick & Plano)."
+            descriptionMm="သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံထုတ်ကုန်များ၊ ဝါးထုတ်လုပ်မှုလုပ်ငန်းစဉ်၊ တစ်အိတ် 30 kg ပို့ကုန်ထုပ်ပိုးမှု၊ အော့ဖ်ဆက် ပုံနှိပ်ထုတ်ကုန်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ကဏ္ဍအလိုက် ရွေးချယ်ကြည့်ရှုနိုင်ပါသည်။"
           />
 
           <GalleryGrid

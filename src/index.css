@@ -105,3 +105,14 @@
   will-change: transform;
   animation: skeletonShimmer 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+.tbstar-map-container,
+.tbstar-map-container > div:first-child,
+.tbstar-map-container > iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 460px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+

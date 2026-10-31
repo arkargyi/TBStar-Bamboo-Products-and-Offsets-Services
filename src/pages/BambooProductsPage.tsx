@@ -386,60 +386,38 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
 
           <SearchBar
             query={searchQuery}
-            onSearch={(nextQuery) => {
-              setSearchQuery(nextQuery);
-              if (nextQuery.trim() && selectedCategory !== 'all') {
-                const scopedMatches = filterProductsBySearchQuery(
-                  allPublishedProducts,
-                  nextQuery,
-                  selectedCategory
-                );
-                if (scopedMatches.length === 0) {
-                  const allMatches = filterProductsBySearchQuery(
-                    allPublishedProducts,
-                    nextQuery,
-                    'all'
-                  );
-                  if (allMatches.length > 0) {
-                    setSelectedCategory('all');
-                  }
-                }
-              }
-            }}
-            totalCount={baseProductsForScope.length}
-            resultCount={filteredCatalogProducts.length}
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-            showCategoryTabs={true}
+            onSearch={setSearchQuery}
+            totalCount={BAMBOO_PRODUCTS.length}
+            resultCount={filteredDetailedBambooProducts.length}
+            showCategoryTabs={false}
+            placeholder="Search bamboo products by name, thickness, length, or packaging (e.g., Bamboo Split, 3 mm, With Nodes, Bamboo Sticks, 30 kg)..."
+            placeholderMm="ဝါးထုတ်ကုန်အမည်၊ အထူ၊ အရှည် သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - ဝါးခြမ်းပြား, 3 mm, အဆစ်ပါ, ဝါးတံ, 30 kg)..."
+            suggestions={[
+              { label: 'Bamboo Split (3 mm)', labelMm: 'ဝါးခြမ်းပြား (3 mm)', query: 'Bamboo Split' },
+              { label: 'With Nodes / Without Nodes', labelMm: 'အဆစ်ပါ / အဆစ်မပါ', query: 'Nodes' },
+              { label: 'Bamboo Sticks (30 kg)', labelMm: 'ဝါးတံ (30 kg)', query: 'Bamboo Sticks' },
+              { label: '8", 9", 10" Lengths', labelMm: 'အရှည် ၈"၊ ၉"၊ ၁၀"', query: 'inches' },
+            ]}
             inputId="bamboo-page-product-search"
             className="mb-8"
           />
 
-          {filteredCatalogProducts.length > 0 ? (
+          {filteredDetailedBambooProducts.length > 0 ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              {filteredCatalogProducts.map((product) => (
+              {filteredDetailedBambooProducts.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
                   imageLoading="eager"
                   onInquireProduct={(type) => onInquireWithCategory(type, true)}
-                  onViewDetails={() => {
-                    if (product.route === '/bamboo-products') {
-                      scrollToProductSection(product.sectionId);
-                    } else {
-                      onNavigate(product.route);
-                    }
-                  }}
+                  onViewDetails={() => scrollToProductSection(product.sectionId)}
                 />
               ))}
             </div>
           ) : (
             <ProductSearchEmptyState
               query={searchQuery}
-              onReset={() => {
-                setSearchQuery('');
-                setSelectedCategory('bamboo');
-              }}
+              onReset={() => setSearchQuery('')}
             />
           )}
         </div>
@@ -453,12 +431,12 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="Key Material Advantages · Division A"
-            kickerMm="အဓိက အားသာချက်များ · လုပ်ငန်းကဏ္ဍ (က)"
-            title="Why Choose Our Bamboo"
-            titleMm="ကျွန်ုပ်တို့၏ မြန်မာ့သဘာဝဝါးကို အဘယ်ကြောင့် ရွေးချယ်သင့်သနည်း"
-            description="TB Star Company Limited supplies 100% natural Myanmar bamboo engineered by nature for structural durability, processed without chemical additives, and harvested from rapidly renewable bamboo groves."
-            descriptionMm="TBStar Company Limited သည် သဘာဝအလျောက် ခိုင်ခံ့မှုမြင့်မားပြီး ဓာတုဆေးဝါးမပါဘဲ စနစ်တကျ ထုတ်လုပ်ထားသည့် သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သော ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များကို ဖြန့်ဖြူးတင်ပို့ပေးလျက်ရှိပါသည်။"
+            kicker="Key Material Advantages · Durability, 100% Natural Sourcing & Eco-Friendly Properties"
+            kickerMm="သဘာဝဝါး၏ အဓိက အားသာချက် (၃) ချက် · ခိုင်ခံ့မှု၊ ၁၀၀% သဘာဝစစ်မှန်မှုနှင့် သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်မှု"
+            title="Why Choose Our Natural Myanmar Bamboo"
+            titleMm="ကျွန်ုပ်တို့၏ မြန်မာ့သဘာဝဝါးထုတ်ကုန်များကို အဘယ်ကြောင့် ရွေးချယ်သင့်သနည်း"
+            description="Our Bamboo Split (3 mm thickness, 20–48 inches) and Bamboo Sticks (1.2–2.5 mm, 30 kg/bag) deliver three core material advantages: long-lasting natural fiber durability, 100% chemical-free Myanmar sourcing, and eco-friendly renewable harvesting."
+            descriptionMm="ကျွန်ုပ်တို့၏ ဝါးခြမ်းပြား (Bamboo Split · အထူ 3 mm) နှင့် ဝါးတံ (Bamboo Sticks · တစ်အိတ် 30 kg) ထုတ်ကုန်များသည် သဘာဝအလျောက် ကြာရှည်ခံခိုင်ခံ့မှု၊ ဓာတုဆေးဝါးကင်းစင်သော ၁၀၀% မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြစ်မှုနှင့် သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သော ရေရှည်တည်တံ့သည့် ကုန်ကြမ်းရင်းမြစ်ဖြစ်မှုဟူသော အဓိက အားသာချက် (၃) ချက်နှင့် ပြည့်စုံပါသည်။"
             action={
               <Button
                 type="button"

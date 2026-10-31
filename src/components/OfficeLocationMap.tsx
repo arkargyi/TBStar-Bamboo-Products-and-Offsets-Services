@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
   APIProvider,
   Map,
@@ -7,17 +7,14 @@ import {
   InfoWindow,
   useMap,
   useAdvancedMarkerRef,
-  useApiIsLoaded,
   useApiLoadingStatus,
   APILoadingStatus,
 } from '@vis.gl/react-google-maps';
 import {
-  Building2,
   Check,
   Compass,
   Copy,
   ExternalLink,
-  Loader2,
   LocateFixed,
   MapPin,
   Navigation,
@@ -50,19 +47,63 @@ export const VIEW_LARGER_MAP_URL =
 
 const DEFAULT_MAP_ZOOM = 17;
 
-const OfficeMapCanvas: React.FC = () => {
+/**
+ * Interactive Google Maps Embed View centered on exact coordinates 16.776671, 96.163664.
+ * Used automatically when VITE_GOOGLE_MAPS_API_KEY is not configured in external deployments (e.g., Vercel)
+ * or if the JS SDK key encounters an authentication error.
+ */
+const InteractiveGoogleMapEmbed: React.FC = () => {
+  const { isMm } = useLanguage();
+
+  const langParam = isMm ? 'my' : 'en';
+  const embedUrl = `https://maps.google.com/maps?ll=${PRIMARY_OFFICE_COORDINATES.lat},${PRIMARY_OFFICE_COORDINATES.lng}&q=${PRIMARY_OFFICE_COORDINATES.lat},${PRIMARY_OFFICE_COORDINATES.lng}+(TB%20Star%20Company%20Limited)&hl=${langParam}&z=${DEFAULT_MAP_ZOOM}&t=m&output=embed`;
+
+  return (
+    <div
+      role="region"
+      aria-label="Interactive Google Map showing TB Star Company Limited at Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon"
+      className="tbstar-map-container relative w-full h-[460px] sm:h-[520px] lg:h-[620px] bg-[#EBF0E6] overflow-hidden"
+      style={{ width: '100%', height: '100%', minHeight: '460px' }}
+    >
+      <iframe
+        title="TB Star Company Limited Official Google Map — 16.776671, 96.163664"
+        src={embedUrl}
+        width="100%"
+        height="100%"
+        style={{ border: 0, width: '100%', height: '100%', minHeight: '460px', display: 'block' }}
+        allowFullScreen
+        loading="eager"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="w-full h-full"
+      />
+    </div>
+  );
+};
+
+interface OfficeMapCanvasProps {
+  onMapError: () => void;
+}
+
+const OfficeMapCanvas: React.FC<OfficeMapCanvasProps> = ({ onMapError }) => {
   const { isMm, t } = useLanguage();
   const map = useMap();
-  const isLoaded = useApiIsLoaded();
   const apiStatus = useApiLoadingStatus();
   const [markerRef, marker] = useAdvancedMarkerRef();
 
   const [infoWindowOpen, setInfoWindowOpen] = useState<boolean>(true);
-  const [tilesLoaded, setTilesLoaded] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (
+      apiStatus === APILoadingStatus.FAILED ||
+      apiStatus === APILoadingStatus.AUTH_FAILURE
+    ) {
+      onMapError();
+    }
+  }, [apiStatus, onMapError]);
 
   const handleRecenter = useCallback(() => {
     if (map) {
-      map.panTo(PRIMARY_OFFICE_COORDINATES);
+      map.panTo({ lat: 16.776671, lng: 96.163664 });
       map.setZoom(DEFAULT_MAP_ZOOM);
       setInfoWindowOpen(true);
     }
@@ -71,102 +112,36 @@ const OfficeMapCanvas: React.FC = () => {
   const handleMarkerClick = useCallback(() => {
     setInfoWindowOpen((prev) => !prev);
     if (map) {
-      map.panTo(PRIMARY_OFFICE_COORDINATES);
+      map.panTo({ lat: 16.776671, lng: 96.163664 });
     }
   }, [map]);
 
-  // Fallback UI if Google Maps API fails to load or experiences auth failure
   if (
     apiStatus === APILoadingStatus.FAILED ||
     apiStatus === APILoadingStatus.AUTH_FAILURE
   ) {
-    return (
-      <div
-        role="region"
-        aria-label="TB Star Company Limited Location Map Fallback"
-        className="w-full h-full min-h-[400px] sm:min-h-[480px] bg-[#F6F8F3] flex flex-col items-center justify-center p-6 sm:p-8 text-center"
-      >
-        <div className="w-14 h-14 rounded-2xl bg-[#173D2A]/10 border border-[#245C3A]/20 flex items-center justify-center mb-4">
-          <MapPin className="w-7 h-7 text-[#245C3A]" />
-        </div>
-        <p className="text-xs font-mono-tabular font-semibold uppercase tracking-wider text-[#245C3A] mb-1">
-          {t('OFFICIAL COMPANY LOCATION', 'တရားဝင် ကုမ္ပဏီတည်နေရာ')}
-        </p>
-        <h4 className="text-base sm:text-lg font-bold text-[#173D2A] mb-1">
-          {COMPANY_INFO.name}
-        </h4>
-        <p className="text-sm font-medium text-[#173D2A] mb-1 max-w-md">
-          {PRIMARY_ADDRESS_TEXT}
-        </p>
-        <p className="text-xs text-[#26332B]/80 mb-2 max-w-md">
-          {COMPANY_INFO.address.line1} · {COMPANY_INFO.address.fullMm}
-        </p>
-        <p className="text-xs font-mono-tabular font-semibold text-[#245C3A] bg-white border border-[#DDE5D9] px-3 py-1 rounded-md mb-5">
-          {t('Coordinates:', 'မြေပုံကိုသြဒိနိတ် -')} {PRIMARY_COORDINATES_TEXT}
-        </p>
-        <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto">
-          <a
-            href={GET_DIRECTIONS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Get Directions to TB Star Company Limited on Google Maps"
-            className="w-full sm:w-auto px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-bold rounded-lg inline-flex items-center justify-center gap-2 transition-colors"
-          >
-            <Navigation className="w-3.5 h-3.5 text-[#A8D977]" />
-            <span>{t('Get Directions', 'လမ်းညွှန် ရယူရန်')}</span>
-          </a>
-          <a
-            href={VIEW_LARGER_MAP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open TB Star Company Limited location in Google Maps"
-            className="w-full sm:w-auto px-4 py-2.5 bg-white hover:bg-[#F6F8F3] text-[#173D2A] border border-[#DDE5D9] text-xs font-bold rounded-lg inline-flex items-center justify-center gap-2 transition-colors"
-          >
-            <span>{t('Open in Google Maps', 'Google Maps တွင် ဖွင့်ရန်')}</span>
-            <ExternalLink className="w-3.5 h-3.5 text-[#245C3A]" />
-          </a>
-        </div>
-      </div>
-    );
+    return <InteractiveGoogleMapEmbed />;
   }
 
   return (
     <div
       role="region"
       aria-label="Interactive Google Map showing TB Star Company Limited at Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon"
-      className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] bg-[#EBF0E6]"
+      className="tbstar-map-container relative w-full h-[460px] sm:h-[520px] lg:h-[620px] bg-[#EBF0E6]"
+      style={{ width: '100%', height: '100%', minHeight: '460px' }}
     >
-      {/* Loading State Overlay while Map Initializes */}
-      {(!isLoaded || !tilesLoaded) && (
-        <div
-          aria-live="polite"
-          className="absolute inset-0 z-20 bg-[#F6F8F3]/90 backdrop-blur-xs flex flex-col items-center justify-center p-6 text-center transition-opacity"
-        >
-          <Loader2 className="w-8 h-8 text-[#245C3A] animate-spin mb-3" />
-          <p className="text-sm font-bold text-[#173D2A] mb-1">
-            {t(
-              'Loading TB Star Company Limited Map...',
-              'TB Star Company Limited တည်နေရာမြေပုံ ဖွင့်နေပါသည်...'
-            )}
-          </p>
-          <p className="text-xs font-mono-tabular text-[#245C3A]">
-            {PRIMARY_COORDINATES_TEXT} · Kyauktada Township, Yangon
-          </p>
-        </div>
-      )}
-
       <Map
         mapId="DEMO_MAP_ID"
         defaultZoom={DEFAULT_MAP_ZOOM}
-        defaultCenter={PRIMARY_OFFICE_COORDINATES}
+        defaultCenter={{ lat: 16.776671, lng: 96.163664 }}
         gestureHandling="cooperative"
         internalUsageAttributionIds={['gmp_mcp_codeassist_v1_aistudio']}
-        onTilesLoaded={() => setTilesLoaded(true)}
-        style={{ width: '100%', height: '100%', minHeight: '420px' }}
+        className="w-full h-full"
+        style={{ width: '100%', height: '100%', minHeight: '460px' }}
       >
         <AdvancedMarker
           ref={markerRef}
-          position={PRIMARY_OFFICE_COORDINATES}
+          position={{ lat: 16.776671, lng: 96.163664 }}
           onClick={handleMarkerClick}
           title="TB Star Company Limited — Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon, Myanmar"
         >
@@ -247,17 +222,8 @@ const OfficeMapCanvas: React.FC = () => {
         )}
       </Map>
 
-      {/* Floating Map Overlay Controls */}
-      <div className="absolute top-3 left-3 right-3 z-10 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
-        <div className="bg-white/95 backdrop-blur-xs border border-[#DDE5D9] rounded-lg px-3 py-1.5 shadow-sm flex items-center gap-2 pointer-events-auto">
-          <Building2 className="w-4 h-4 text-[#245C3A] shrink-0" />
-          <span className="text-xs font-bold text-[#173D2A]">
-            {isMm
-              ? 'TB Star Company Limited · ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်'
-              : 'TB Star Company Limited · 39th St & Anawrahta Rd'}
-          </span>
-        </div>
-
+      {/* Recenter Map Control */}
+      <div className="absolute top-3 right-3 z-10 pointer-events-none">
         <button
           type="button"
           onClick={handleRecenter}
@@ -281,10 +247,25 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
 }) => {
   const { isMm, t } = useLanguage();
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
+  const [useEmbedFallback, setUseEmbedFallback] = useState<boolean>(!apiKey);
 
   const [copiedField, setCopiedField] = useState<'address' | 'coordinates' | null>(
     null
   );
+
+  useEffect(() => {
+    if (!apiKey) {
+      setUseEmbedFallback(true);
+      return;
+    }
+    const handleMapError = () => {
+      setUseEmbedFallback(true);
+    };
+    window.addEventListener('gmp-map-error', handleMapError);
+    return () => {
+      window.removeEventListener('gmp-map-error', handleMapError);
+    };
+  }, [apiKey]);
 
   const copyToClipboard = useCallback(
     async (text: string, field: 'address' | 'coordinates') => {
@@ -360,46 +341,23 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
       </div>
 
       {/* Two-Column Desktop Layout / Stacked Mobile Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
         {/* Left/Main Column: Interactive Google Map (7 cols on desktop) */}
-        <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r border-[#DDE5D9]">
-          {apiKey ? (
+        <div
+          className="lg:col-span-7 border-b lg:border-b-0 lg:border-r border-[#DDE5D9] relative w-full h-[460px] sm:h-[520px] lg:h-[620px]"
+          style={{ minHeight: '460px' }}
+        >
+          {apiKey && !useEmbedFallback ? (
             <APIProvider
               apiKey={apiKey}
+              libraries={['marker']}
               language={isMm ? 'my' : 'en'}
               region="MM"
             >
-              <OfficeMapCanvas />
+              <OfficeMapCanvas onMapError={() => setUseEmbedFallback(true)} />
             </APIProvider>
           ) : (
-            <div
-              role="region"
-              aria-label="TB Star Company Limited Static Location Details"
-              className="w-full h-full min-h-[420px] bg-[#F6F8F3] flex flex-col items-center justify-center p-6 text-center"
-            >
-              <MapPin className="w-10 h-10 text-[#245C3A] mb-3" />
-              <h4 className="text-base font-bold text-[#173D2A] mb-1">
-                {COMPANY_INFO.name}
-              </h4>
-              <p className="text-sm font-medium text-[#173D2A] mb-1">
-                {PRIMARY_ADDRESS_TEXT}
-              </p>
-              <p className="text-xs text-[#26332B]/80 mb-3">
-                {COMPANY_INFO.address.fullMm}
-              </p>
-              <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-4">
-                {PRIMARY_COORDINATES_TEXT}
-              </p>
-              <a
-                href={GET_DIRECTIONS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-bold rounded-lg inline-flex items-center gap-2 transition-colors"
-              >
-                <Navigation className="w-3.5 h-3.5 text-[#A8D977]" />
-                <span>{t('Get Directions', 'လမ်းညွှန် ရယူရန်')}</span>
-              </a>
-            </div>
+            <InteractiveGoogleMapEmbed />
           )}
         </div>
 

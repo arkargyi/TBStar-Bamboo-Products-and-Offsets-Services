@@ -46,14 +46,14 @@ const PRINT_DELIVERABLE_HIGHLIGHTS: PrintDeliverableHighlight[] = [
     id: 'deliv-books',
     index: '01',
     icon: 'books-printing',
-    title: 'Book & Publication Printing',
-    titleMm: 'စာအုပ်နှင့် စာပေထုတ်ဝေမှု ပုံနှိပ်ခြင်း',
+    title: 'Books, Magazines & Company Profiles',
+    titleMm: 'စာပေထုတ်ဝေမှု စာအုပ်၊ မဂ္ဂဇင်းနှင့် ကုမ္ပဏီပရိုဖိုင်များ',
     subtitle: 'Books Printing · Multi-Page Editions',
-    subtitleMm: 'စာမျက်နှာစုံ စာအုပ်အမျိုးမျိုး',
+    subtitleMm: 'စာမျက်နှာစုံ စာအုပ်အမျိုးမျိုး ပုံနှိပ်ခြင်း',
     description:
-      'Sharp interior typography, full-color covers, and durable binding for books, manuals, and educational publications.',
+      'Sharp interior typography, full-color covers, and durable binding for commercial books, magazines, company profiles, and manuals.',
     descriptionMm:
-      'ပညာရေးစာအုပ်များ၊ လမ်းညွှန်စာအုပ်များနှင့် စာပေထုတ်ဝေမှုများအတွက် အတွင်းစာသားနှင့် မျက်နှာဖုံးများကို သပ်ရပ်ခိုင်ခံ့စွာ ပုံနှိပ်ချုပ်လုပ်ပေးပါသည်။',
+      'စာပေထုတ်ဝေမှု စာအုပ်များ၊ မဂ္ဂဇင်းများ၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များအတွက် အတွင်းစာသားနှင့် မျက်နှာဖုံးများကို သပ်ရပ်ခိုင်ခံ့စွာ ပုံနှိပ်ချုပ်လုပ်ပေးပါသည်။',
     inquiryType: 'Books Printing',
   },
   {
@@ -74,12 +74,12 @@ const PRINT_DELIVERABLE_HIGHLIGHTS: PrintDeliverableHighlight[] = [
     id: 'deliv-cards',
     index: '03',
     icon: 'business-cards',
-    title: 'Business Cards & Corporate Stationery',
-    titleMm: 'လိပ်စာကတ်နှင့် ရုံးသုံးပုံနှိပ်ပစ္စည်းများ',
+    title: 'Business Cards, Letterheads & Envelopes',
+    titleMm: 'လိပ်စာကတ်၊ ရုံးသုံးစာရွက်နှင့် စာအိတ်များ',
     subtitle: 'Other Offset Printing · Brand Identity',
     subtitleMm: 'ကုမ္ပဏီအမှတ်တံဆိပ် ရုံးသုံးပုံနှိပ်လုပ်ငန်း',
     description:
-      'Executive business cards, letterheads, envelopes, and office stationery printed with consistent corporate color accuracy.',
+      'Executive business cards, letterheads, envelopes, and office print materials produced with consistent corporate color accuracy.',
     descriptionMm:
       'ကုမ္ပဏီသုံး လိပ်စာကတ်များ (Business Cards)၊ ရုံးသုံးစာရွက်များနှင့် စာအိတ်များကို အရောင်အသွေး မှန်ကန်တိကျစွာဖြင့် ပုံနှိပ်ဆောင်ရွက်ပေးပါသည်။',
     inquiryType: 'Other Offset Printing Services',
@@ -88,7 +88,7 @@ const PRINT_DELIVERABLE_HIGHLIGHTS: PrintDeliverableHighlight[] = [
     id: 'deliv-brochures',
     index: '04',
     icon: 'brochures-pamphlets',
-    title: 'Brochures, Pamphlets & Catalogs',
+    title: 'Brochures, Pamphlets & Product Catalogs',
     titleMm: 'လက်ကမ်းစာစောင်နှင့် ကုန်ပစ္စည်းကတ်တလောက်များ',
     subtitle: 'Other Offset Printing · Marketing Materials',
     subtitleMm: 'စီးပွားရေးနှင့် ကြော်ငြာပုံနှိပ်ပစ္စည်းများ',
@@ -102,29 +102,29 @@ const PRINT_DELIVERABLE_HIGHLIGHTS: PrintDeliverableHighlight[] = [
     id: 'deliv-commercial',
     index: '05',
     icon: 'commercial-printing',
-    title: 'Commercial & Administrative Forms',
+    title: 'Commercial & Office Forms',
     titleMm: 'စီးပွားရေးနှင့် ရုံးလုပ်ငန်းသုံး ပုံစံစာရွက်များ',
     subtitle: 'Other Offset Printing · B2B Operations',
     subtitleMm: 'လုပ်ငန်းသုံး ပုံစံစာရွက်အမျိုးမျိုး',
     description:
-      'Custom-formatted logbooks, warehouse sheets, folders, and institutional print materials tailored to your workflow.',
+      'Custom-formatted logbooks, warehouse sheets, folders, and administrative forms tailored to your daily business workflow.',
     descriptionMm:
-      'ကုန်고ဒေါင်သုံး စာရင်းစာအုပ်များ၊ ဖိုင်တွဲများနှင့် အဖွဲ့အစည်းသုံး ပုံစံစာရွက်အမျိုးမျိုးကို လုပ်ငန်းလိုအပ်ချက်အတိုင်း ပုံနှိပ်ပေးပါသည်။',
+      'ကုန်သိုလှောင်ရုံသုံး စာရင်းစာအုပ်များ၊ ဖိုင်တွဲများနှင့် ရုံးလုပ်ငန်းသုံး ပုံစံစာရွက်အမျိုးမျိုးကို လုပ်ငန်းလိုအပ်ချက်အတိုင်း ပုံနှိပ်ပေးပါသည်။',
     inquiryType: 'Other Offset Printing Services',
   },
   {
     id: 'deliv-finishing',
     index: '06',
     icon: 'press-finishing',
-    title: 'One-Stop Press to Finishing',
-    titleMm: 'တစ်နေရာတည်းတွင် အပြီးအစီး ပုံနှိပ်ဝန်ဆောင်မှု',
-    subtitle: 'End-to-End Offset Production · Yangon',
-    subtitleMm: 'ကနဦးပြင်ဆင်မှုမှ စာအုပ်ချုပ်လုပ်ပြီးစီးသည်အထိ',
+    title: 'Ball Pen Stationery (Klick & Plano) & Finishing',
+    titleMm: 'Ball Pen (Klick & Plano) စာရေးကိရိယာနှင့် အပြီးအစီး ပုံနှိပ်မှု',
+    subtitle: 'Stationery & End-to-End Production · Yangon',
+    subtitleMm: 'စာရေးကိရိယာ ဖြန့်ဖြူးရေးနှင့် တစ်နေရာတည်း အပြီးအစီး ပုံနှိပ်လုပ်ငန်း',
     description:
-      'Coordinated layout verification, offset press runs, trimming, numbering, and binding managed under one roof.',
+      'Wholesale Ball Pen stationery supply—Klick (30 pcs per box) and Plano (50 pcs per box)—alongside complete offset press runs, trimming, and binding.',
     descriptionMm:
-      'ပုံနှိပ်မတိုင်မီ စာမျက်နှာစစ်ဆေးခြင်း၊ အော့ဖ်ဆက်စက်ဖြင့် ပုံနှိပ်ခြင်း၊ စက္ကူဖြတ်တောက်ခြင်းနှင့် စာအုပ်ချုပ်လုပ်ခြင်းတို့ကို တစ်နေရာတည်းတွင် ဆောင်ရွက်ပေးပါသည်။',
-    inquiryType: 'Other Offset Printing Services',
+      'Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘောပင် (Ball Pen) စာရေးကိရိယာ ဖြန့်ဖြူးရေးအပြင် အော့ဖ်ဆက်ပုံနှိပ်ခြင်းနှင့် စာအုပ်ချုပ်လုပ်ခြင်းတို့ကို တစ်နေရာတည်းတွင် ဆောင်ရွက်ပေးပါသည်။',
+    inquiryType: 'Ball Pen',
   },
 ];
 
@@ -315,7 +315,7 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
                 </div>
               )}
 
-              { searchQuery.trim().length > 0 && filteredStationeryProducts.length > 0 && (
+              {filteredStationeryProducts.length > 0 && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                   {filteredStationeryProducts.map((product) => (
                     <ProductCard
@@ -337,16 +337,16 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
         </div>
       </section>
 
-      {/* Visual Icon Hierarchy: Specialized Print Deliverables & Capabilities */}
+      {/* Visual Icon Hierarchy: Specialized Print Deliverables & Stationery Scope */}
       <section className="py-16 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="Print Deliverables & Production Scope"
-            kickerMm="ပုံနှိပ်ထုတ်ကုန် အမျိုးအစားများနှင့် ဝန်ဆောင်မှုနယ်ပယ်"
-            title="Complete Offset Printing Capabilities"
-            titleMm="စုံလင်သော အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှု အမျိုးအစားများ"
-            description="From bound books and numbered commercial voucher pads to business cards, corporate brochures, and administrative forms, we coordinate your print project from start to finish."
-            descriptionMm="စာအုပ်များ၊ ဘောင်ချာစာအုပ်များမှစ၍ လိပ်စာကတ်များ၊ လက်ကမ်းစာစောင်များနှင့် ရုံးသုံးပုံစံစာရွက်များအထိ လုပ်ငန်းလိုအပ်ချက်အားလုံးကို တစ်နေရာတည်းတွင် စနစ်တကျ ပုံနှိပ်ဆောင်ရွက်ပေးပါသည်။"
+            kicker="Printing Services & Stationery Deliverables"
+            kickerMm="ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် စာရေးကိရိယာ ထုတ်ကုန်အမျိုးအစားများ"
+            title="Offset Printing Deliverables & Office Stationery Scope"
+            titleMm="အော့ဖ်ဆက် ပုံနှိပ်ထုတ်ကုန်များနှင့် ရုံးသုံးစာရေးကိရိယာ ဝန်ဆောင်မှုနယ်ပယ်"
+            description="From commercial books, magazines, company profiles, and numbered voucher pads to corporate brochures, business cards, office forms, and Ball Pen stationery (Klick & Plano), we coordinate your printing and stationery needs under one roof."
+            descriptionMm="စာပေထုတ်ဝေမှုစာအုပ်များ၊ မဂ္ဂဇင်းများ၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များနှင့် လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များမှစ၍ လိပ်စာကတ်များ၊ လက်ကမ်းစာစောင်များ၊ ရုံးသုံးပုံစံစာရွက်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများအထိ လုပ်ငန်းလိုအပ်ချက်အားလုံးကို တစ်နေရာတည်းတွင် စနစ်တကျ ဆောင်ရွက်ပေးပါသည်။"
           />
 
           {filteredDeliverables.length > 0 ? (

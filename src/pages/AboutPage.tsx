@@ -230,8 +230,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             kickerMm="၀၂။ ကုမ္ပဏီ၏ ဦးတည်ချက် · မျှော်မှန်းချက်နှင့် ရည်မှန်းချက်"
             title="Our Corporate Vision & Mission"
             titleMm="ကုမ္ပဏီ၏ မျှော်မှန်းချက် (Vision) နှင့် ရည်မှန်းချက် (Mission)"
-            description="Driving sustainable Myanmar bamboo manufacturing and dependable one-stop commercial offset printing services."
-            descriptionMm="မြန်မာ့သဘာဝဝါးထုတ်ကုန်များကို နိုင်ငံတကာစံချိန်မီ တင်ပို့ဖြန့်ဖြူးရန်နှင့် ယုံကြည်စိတ်ချရသော One-Stop အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု ပေးအပ်ရန် ချမှတ်ထားသော ဦးတည်ချက်များ။"
+            description="Driving sustainable 100% natural Myanmar bamboo manufacturing and export alongside dependable one-stop commercial offset printing and stationery supply."
+            descriptionMm="၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များကို ပြည်တွင်းနှင့် နိုင်ငံတကာစျေးကွက်သို့ စံချိန်မီ တင်ပို့ဖြန့်ဖြူးရန်နှင့် ယုံကြည်စိတ်ချရသော One-Stop အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှု ပေးအပ်ရန် ချမှတ်ထားသော ဦးတည်ချက်များ။"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -330,12 +330,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="02. Operational Scope"
-            kickerMm="၀၂။ လုပ်ငန်းဆောင်ရွက်မှု နယ်ပယ်"
+            kicker="03. Operational Scope · Core Business Activities"
+            kickerMm="၀၃။ လုပ်ငန်းဆောင်ရွက်မှု နယ်ပယ် · အဓိက စီးပွားရေးလုပ်ငန်းများ"
             title="Core Business Activities & Market Coverage"
             titleMm="အဓိက လုပ်ငန်းဆောင်ရွက်မှုများနှင့် စျေးကွက်ဖြန့်ကျက်မှု"
-            description="An organized breakdown of our manufacturing, domestic distribution, export, and commercial offset printing activities."
-            descriptionMm="သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်ခြင်း၊ ပြည်တွင်းဖြန့်ဖြူးခြင်း၊ ပြည်ပတင်ပို့ခြင်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းများကို ကဏ္ဍအလိုက် စနစ်တကျ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
+            description="An organized breakdown of our three primary operational pillars: Bamboo Production & Export, Domestic Myanmar Distribution, and One-Stop Offset Printing & Stationery Services."
+            descriptionMm="သဘာဝဝါးထုတ်ကုန် ထုတ်လုပ်ခြင်းနှင့် ပြည်ပတင်ပို့ခြင်း၊ မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက် ဖြန့်ဖြူးရေးနှင့် One-Stop အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဝန်ဆောင်မှုလုပ်ငန်းများကို ကဏ္ဍအလိုက် စနစ်တကျ ဆောင်ရွက်ပေးလျက်ရှိပါသည်။"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
@@ -500,8 +500,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="03. Operating Principles · Corporate Commitment"
-            kickerMm="၀၃။ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများ · ကုမ္ပဏီ၏ စံနှုန်းများ"
+            kicker="04. Operating Principles · Corporate Commitment"
+            kickerMm="၀၄။ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများ · ကုမ္ပဏီ၏ စံနှုန်းများ"
             title="Our Core Corporate Values"
             titleMm="ကုမ္ပဏီ၏ အဓိက လုပ်ငန်းဆောင်ရွက်မှု စံနှုန်းများ"
             description="Guided by clear product specifications, responsive B2B coordination in Yangon, and commitment to natural material and print quality."

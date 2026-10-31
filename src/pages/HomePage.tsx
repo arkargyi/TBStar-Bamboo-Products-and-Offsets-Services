@@ -441,16 +441,44 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* FEATURED BAMBOO PRODUCTS */}
+      {/* FEATURED PRODUCTS & SPECIFICATIONS CATALOG */}
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="Division A · Bamboo Production & Export"
-            kickerMm="လုပ်ငန်းကဏ္ဍ (က) · ဝါးထုတ်ကုန်နှင့် ပြည်ပပို့ကုန်"
-            title="Featured Bamboo Products"
-            titleMm="အဓိက ထုတ်လုပ်တင်ပို့သော သဘာဝဝါးထုတ်ကုန်များ"
-            description="Review our core natural Myanmar bamboo products and technical specifications for local distribution and international export."
-            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များအတွက် ထုတ်လုပ်ထားသော မြန်မာ့သဘာဝဝါးထုတ်ကုန်များနှင့် စံချိန်စံညွှန်း အချက်အလက်များကို လေ့လာနိုင်ပါသည်။"
+            kicker={
+              selectedProductCategory === 'bamboo'
+                ? 'Product Catalog · Natural Bamboo, Activated Carbon & Stationery'
+                : selectedProductCategory === 'activated-carbon'
+                ? 'Product Catalog · Activated Carbon Inquiries'
+                : selectedProductCategory === 'stationery'
+                ? 'Product Catalog · Printing & Stationery (Ball Pen)'
+                : 'Product Catalog · All Company Products & Specifications'
+            }
+            kickerMm={
+              selectedProductCategory === 'bamboo'
+                ? 'ထုတ်ကုန်ကဏ္ဍ · သဘာဝဝါးထုတ်ကုန်၊ Activated Carbon နှင့် စာရေးကိရိယာ'
+                : selectedProductCategory === 'activated-carbon'
+                ? 'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)'
+                : selectedProductCategory === 'stationery'
+                ? 'ထုတ်ကုန်ကဏ္ဍ · စာရေးကိရိယာ ဘောပင် (Ball Pen — Klick & Plano)'
+                : 'ထုတ်ကုန်ကဏ္ဍ · ကုမ္ပဏီ၏ ထုတ်ကုန်အားလုံးနှင့် စံချိန်စံညွှန်းများ'
+            }
+            title={
+              selectedProductCategory === 'activated-carbon'
+                ? 'Activated Carbon Product Category'
+                : selectedProductCategory === 'stationery'
+                ? 'Ball Pen Stationery Products (Klick & Plano)'
+                : 'Featured Products & Technical Specifications'
+            }
+            titleMm={
+              selectedProductCategory === 'activated-carbon'
+                ? 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ကုန်ပစ္စည်းကဏ္ဍ'
+                : selectedProductCategory === 'stationery'
+                ? 'စာရေးကိရိယာ ထုတ်ကုန် — ဘောပင် (Ball Pen · Klick နှင့် Plano)'
+                : 'အဓိက ထုတ်လုပ်ဖြန့်ဖြူးသော ထုတ်ကုန်များနှင့် စံချိန်စံညွှန်းများ'
+            }
+            description="Search and filter our 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon inquiry category, and Ball Pen stationery (Klick & Plano) with verified specifications for domestic distribution and international export."
+            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်ဈေးကွက်များအတွက် ထုတ်လုပ်ထားသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ (ဝါးခြမ်းပြားနှင့် ဝါးတံ)၊ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) နှင့် ဘောပင် (Ball Pen — Klick နှင့် Plano) စာရေးကိရိယာများ၏ စံချိန်စံညွှန်း အချက်အလက်များကို ကဏ္ဍအလိုက် ရှာဖွေလေ့လာနိုင်ပါသည်။"
             action={
               <Button
                 type="button"

@@ -2098,17 +2098,17 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   },
   {
     id: 'gal-books-printing',
-    title: 'Books Printing — Multi-Page Books & Publications',
+    title: 'Books Printing — Commercial Books, Magazines & Company Profiles',
     titleMm: 'စာအုပ်ပုံနှိပ်ခြင်းလုပ်ငန်း (Books Printing)',
     category: 'Printing Products',
     caption:
-      'One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding.',
+      'One-stop offset printing for commercial books, magazines, novels, journals, company profiles, product catalogs, and technical manuals with clean typography and durable binding.',
     captionMm:
-      'စာအုပ်အမျိုးမျိုး၊ ပညာရေးစာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များအတွက် တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှု။',
+      'စီးပွားရေးနှင့် စာပေထုတ်ဝေရေး စာအုပ်များ၊ မဂ္ဂဇင်းများ၊ ဝတ္ထုနှင့် ဂျာနယ်များ၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များအတွက် တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှု။',
     visualType: 'books-printing',
     imagePath: '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
     altText:
-      'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
+      'TB Star Company Limited Books Printing — One-stop offset printing for commercial books, magazines, company profiles, and manuals with clean typography and durable binding',
   },
   {
     id: 'gal-voucher-books-printing',
