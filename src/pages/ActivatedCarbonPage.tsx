@@ -56,12 +56,12 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
           { label: 'Activated Carbon', route: '/activated-carbon' },
         ]}
         onNavigate={onNavigate}
-        kicker="TB Star Company Limited · Activated Carbon · Export & Commercial Supply"
-        kickerMm="TBStar Company Limited · အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) · ပြည်ပပို့ကုန်နှင့် လုပ်ငန်းသုံး"
-        title="Activated Carbon Products & Export Specifications"
-        titleMm="အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ထုတ်ကုန်များနှင့် ပို့ကုန်အချက်အလက်များ"
-        description="TB Star Company Limited supplies Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed in standardized 25 Kg per bag packaging and originating in Myanmar for international export buyers and commercial B2B partners."
-        descriptionMm="TBStar Company Limited သည် မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Nut Shell Activated Carbon နှင့် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Coconut Shell Activated Carbon တို့ကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာဝယ်ယူသူများထံ တင်ပို့ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
+        kicker="TB Star Company Limited · Myanmar Activated Carbon Supplier & B2B Exporter"
+        kickerMm="TBStar Company Limited · မြန်မာ့ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ပြည်ပပို့ကုန်နှင့် လက်ကားဖြန့်ဖြူးရေး"
+        title="Nut Shell & Coconut Shell Activated Carbon Export Supply"
+        titleMm="Nut Shell နှင့် Coconut Shell အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ပြည်ပပို့ကုန်များ"
+        description="As a B2B exporter and wholesale supplier in Yangon, Myanmar, TB Star Company Limited supplies Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed in standardized 25 Kg per bag export packaging for international buyers and bulk importers."
+        descriptionMm="ရန်ကုန်မြို့အခြေစိုက် TBStar Company Limited သည် မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Nut Shell Activated Carbon နှင့် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Coconut Shell Activated Carbon တို့ကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ပို့ကုန်စံနှုန်းဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ B2B ဝယ်ယူသူများထံ တင်ပို့ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
         actions={
           <>
             <Button
@@ -154,12 +154,12 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="Activated Carbon Product Line · Origin: Myanmar"
-            kickerMm="အက်တီဗိတ်တက် ကာဗွန် ထုတ်ကုန်အမျိုးအစားများ · မူရင်းနိုင်ငံ - မြန်မာ"
-            title="Nut Shell & Coconut Shell Activated Carbon"
+            kicker="Wholesale & Export Activated Carbon · Country of Origin: Myanmar"
+            kickerMm="ပြည်ပပို့ကုန်နှင့် လက်ကား အက်တီဗိတ်တက် ကာဗွန် · မူရင်းနိုင်ငံ - မြန်မာ"
+            title="Nut Shell Activated Carbon & Coconut Shell Activated Carbon"
             titleMm="Nut Shell Activated Carbon နှင့် Coconut Shell Activated Carbon"
-            description="Explore our two Activated Carbon product offerings originating in Myanmar—Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell)—each supplied in standardized 25 Kg per bag commercial export packaging."
-            descriptionMm="မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Nut Shell Activated Carbon နှင့် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Coconut Shell Activated Carbon ထုတ်ကုန် (၂) မျိုးကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် လေ့လာကြည့်ရှုနိုင်ပါသည်။"
+            description="Explore our two Myanmar Activated Carbon export offerings—Nut Shell Activated Carbon (Jujube Seed Activated Carbon) and Coconut Shell Activated Carbon—each supplied in standardized 25 Kg per bag bulk packaging for B2B commercial trade and international export."
+            descriptionMm="မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Nut Shell Activated Carbon နှင့် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Coconut Shell Activated Carbon ထုတ်ကုန် (၂) မျိုးကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ပို့ကုန်စံနှုန်းဖြင့် လေ့လာကြည့်ရှုနိုင်ပါသည်။"
           />
 
           <SearchBar

@@ -762,13 +762,13 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     categoryMm: 'အက်တီဗိတ်တက် ကာဗွန် · ပြည်ပပို့ကုန်နှင့် စီးပွားရေးလုပ်ငန်းသုံး',
     descriptions: {
       short:
-        'Nut Shell Activated Carbon produced from jujube seed raw material in Myanmar and supplied in standardized 25 Kg per bag commercial export packaging.',
+        'Export-oriented Nut Shell Activated Carbon (Jujube Seed Activated Carbon) manufactured from natural jujube seed raw material in Myanmar and supplied in standardized 25 Kg per bag wholesale packaging for international B2B buyers and bulk importers.',
       shortMm:
-        'မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော Nut Shell Activated Carbon။',
+        'မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး နိုင်ငံတကာ B2B ဝယ်ယူသူများနှင့် ပြည်ပပို့ကုန်တင်သွင်းသူများအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Nut Shell Activated Carbon။',
       detailed:
-        'Supplied by TB Star Company Limited from Yangon, Myanmar, our Nut Shell Activated Carbon is produced from jujube seed raw material originating in Myanmar. Prepared for international export buyers and commercial distribution partners, each unit is packed in standardized 25 Kg per bag packaging for reliable B2B trade handling and shipment coordination.',
+        'As a trusted Myanmar Activated Carbon supplier and B2B exporter based in Yangon, TB Star Company Limited supplies Nut Shell Activated Carbon produced from natural jujube seed raw material originating in Myanmar. Tailored for international importers, wholesale distributors, and commercial B2B procurement partners, our Jujube Seed Nut Shell Activated Carbon is packed in standardized 25 Kg per bag export packaging for dependable bulk trade handling and global shipment coordination.',
       detailedMm:
-        'TBStar Company Limited မှ ဖြန့်ဖြူးတင်ပို့သော Nut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
+        'ရန်ကုန်မြို့အခြေစိုက် မြန်မာ့ပြည်ပပို့ကုန်နှင့် လက်ကားဖြန့်ဖြူးရေး ကုမ္ပဏီ TBStar Company Limited မှ တင်ပို့ဖြန့်ဖြူးသော Nut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် သဘာဝ ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများ၊ လက်ကားဖြန့်ချိသူများနှင့် B2B စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ပို့ကုန်စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
     },
     visualType: 'activated-carbon',
     images: {
@@ -818,9 +818,10 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       },
     ],
     seo: {
-      title: 'Nut Shell Activated Carbon (Jujube Seed · 25 Kg per Bag) – Myanmar | TB Star',
+      title:
+        'Nut Shell Activated Carbon Exporter Myanmar (Jujube Seed · 25 Kg/Bag) | TB Star',
       description:
-        'Nut Shell Activated Carbon produced from Jujube Seed raw material in Myanmar, packed in 25 Kg per Bag for B2B commercial and international export supply by TB Star Company Limited.',
+        'Wholesale Nut Shell Activated Carbon (Jujube Seed raw material) from Myanmar. Packed 25 Kg per Bag for B2B commercial supply and international export by TB Star Company Limited.',
       ogImage: '',
       ogImageAlt: '',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-nut-shell-activated-carbon`,
@@ -839,13 +840,13 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     categoryMm: 'အက်တီဗိတ်တက် ကာဗွန် · ပြည်ပပို့ကုန်နှင့် စီးပွားရေးလုပ်ငန်းသုံး',
     descriptions: {
       short:
-        'Coconut Shell Activated Carbon produced from coconut shell raw material in Myanmar and supplied in standardized 25 Kg per bag commercial export packaging.',
+        'Export-oriented Coconut Shell Activated Carbon manufactured from natural coconut shell raw material in Myanmar and supplied in standardized 25 Kg per bag wholesale packaging for international B2B buyers and bulk importers.',
       shortMm:
-        'မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော Coconut Shell Activated Carbon။',
+        'မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး နိုင်ငံတကာ B2B ဝယ်ယူသူများနှင့် ပြည်ပပို့ကုန်တင်သွင်းသူများအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Coconut Shell Activated Carbon။',
       detailed:
-        'Supplied by TB Star Company Limited from Yangon, Myanmar, our Coconut Shell Activated Carbon is produced from coconut shell raw material originating in Myanmar. Prepared for international export buyers and commercial distribution partners, each unit is packed in standardized 25 Kg per bag packaging for reliable B2B trade handling and shipment coordination.',
+        'As a trusted Myanmar Coconut Shell Activated Carbon supplier and B2B exporter based in Yangon, TB Star Company Limited supplies Coconut Shell Activated Carbon produced from natural coconut shell raw material originating in Myanmar. Prepared for international export buyers, wholesale distributors, and commercial B2B procurement partners, each unit is packed in standardized 25 Kg per bag export packaging for reliable bulk trade handling and global shipment coordination.',
       detailedMm:
-        'TBStar Company Limited မှ ဖြန့်ဖြူးတင်ပို့သော Coconut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
+        'ရန်ကုန်မြို့အခြေစိုက် မြန်မာ့ပြည်ပပို့ကုန်နှင့် လက်ကားဖြန့်ဖြူးရေး ကုမ္ပဏီ TBStar Company Limited မှ တင်ပို့ဖြန့်ဖြူးသော Coconut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် သဘာဝ အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများ၊ လက်ကားဖြန့်ချိသူများနှင့် B2B စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ပို့ကုန်စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
     },
     visualType: 'activated-carbon',
     images: {
@@ -895,9 +896,10 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       },
     ],
     seo: {
-      title: 'Coconut Shell Activated Carbon (Coconut Shell · 25 Kg per Bag) – Myanmar | TB Star',
+      title:
+        'Coconut Shell Activated Carbon Exporter Myanmar (25 Kg/Bag) | TB Star',
       description:
-        'Coconut Shell Activated Carbon produced from Coconut Shell raw material in Myanmar, packed in 25 Kg per Bag for B2B commercial and international export supply by TB Star Company Limited.',
+        'Wholesale Coconut Shell Activated Carbon (Coconut Shell raw material) from Myanmar. Packed 25 Kg per Bag for B2B commercial supply and international export by TB Star Company Limited.',
       ogImage: '',
       ogImageAlt: '',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-coconut-shell-activated-carbon`,
@@ -1817,12 +1819,12 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   },
   '/activated-carbon': {
     title:
-      'Activated Carbon Products (Nut Shell & Coconut Shell · 25 Kg/Bag) – Myanmar | TB Star',
+      'Activated Carbon Exporter Myanmar – Nut Shell & Coconut Shell (25 Kg/Bag) | TB Star',
     description:
-      'Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed 25 Kg per Bag in Myanmar by TB Star Company Limited.',
+      'B2B wholesale supplier and exporter of Myanmar Activated Carbon: Nut Shell Activated Carbon (Jujube Seed) and Coconut Shell Activated Carbon, packed 25 Kg per Bag by TB Star Company Limited.',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/activated-carbon`,
     ogImage: `${COMPANY_INFO.canonicalBase}${COMPANY_INFO.logoPath}`,
-    ogImageAlt: `${COMPANY_INFO.name} – Nut Shell Activated Carbon & Coconut Shell Activated Carbon (25 Kg per Bag, Origin: Myanmar)`,
+    ogImageAlt: `${COMPANY_INFO.name} – Myanmar Nut Shell Activated Carbon & Coconut Shell Activated Carbon B2B Exporter (25 Kg per Bag)`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
       { name: 'Activated Carbon', url: `${COMPANY_INFO.canonicalBase}/activated-carbon` },

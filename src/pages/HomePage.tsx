@@ -279,8 +279,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
-                  imagePath="/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png"
-                  altText="TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)"
+                  imagePath="/assets/aistudio/TB_Star_Bamboo_Product_Showcase.png"
+                  altText="TB Star Company Limited Bamboo Products Showcase — 100% Natural Myanmar Bamboo Splits (3mm, 20 to 48 inches, with nodes / without nodes) and Bamboo Sticks (1.2mm to 2.5mm, 8, 9, 10 inches, 5KG per bundle, 30KG per bag)"
                   aspectClassName="aspect-[16/9]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Split & Sticks Export',

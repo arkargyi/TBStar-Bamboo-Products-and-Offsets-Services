@@ -292,21 +292,21 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
       <div className="hidden md:block bg-[#112E1F] text-white/90 border-b border-white/10">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[42px] py-1.5 flex items-center justify-between gap-4 text-xs">
           {/* Left Zone: Verified Office Location */}
-          <div className="flex items-center gap-3.5 min-w-0">
+          <div className="flex items-center gap-3.5 min-w-0 flex-1 overflow-hidden">
             <a
               href="/contact"
               onClick={(e) => {
                 e.preventDefault();
                 onNavigate('/contact');
               }}
-              className="group inline-flex items-center gap-2 text-white/85 hover:text-white transition-colors min-w-0 cursor-pointer"
+              className="group inline-flex items-center gap-2 text-white/85 hover:text-white transition-colors min-w-0 max-w-full overflow-hidden cursor-pointer"
               title={t(COMPANY_INFO.address.full, COMPANY_INFO.address.fullMm)}
             >
-              <span className="w-5 h-5 rounded-full bg-[#A8D977]/15 border border-[#A8D977]/30 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
+              <span className="relative z-10 w-5 h-5 rounded-full bg-[#112E1F] border border-[#A8D977]/30 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors shadow-[4px_0_8px_#112E1F]">
                 <MapPin className="w-3 h-3" />
               </span>
               <span
-                className={`truncate max-w-[280px] lg:max-w-[380px] xl:max-w-[460px] ${
+                className={`animate-slide-ltr ${
                   isMm ? 'font-myanmar text-[11.5px] leading-relaxed' : 'text-xs font-medium'
                 }`}
               >

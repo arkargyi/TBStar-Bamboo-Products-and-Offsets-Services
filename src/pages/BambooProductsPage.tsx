@@ -502,7 +502,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
 
           {/* Natural Bamboo Product Overview Showcase */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-            {BAMBOO_PRODUCTS.map((product) => (
+            {BAMBOO_PRODUCTS.map((product, idx) => (
               <div
                 key={`natural-${product.id}`}
                 className="bg-white border border-[#DDE5D9] rounded-xl overflow-hidden shadow-2xs flex flex-col"
@@ -512,6 +512,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   imagePath={product.naturalImagePath || product.imagePath}
                   altText={product.naturalImageAlt || product.imageAlt}
                   aspectClassName="aspect-[16/10]"
+                  imgClassName={idx === 1 ? 'h-[334.75px]' : undefined}
                   label={
                     isMm && product.placeholderNoteMm
                       ? product.placeholderNoteMm
