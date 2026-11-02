@@ -19,7 +19,7 @@ import { BackToTopButton, Button } from './components/SharedUI';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { BambooProductsPage } from './pages/BambooProductsPage';
-import { CharcoalPage } from './pages/CharcoalPage';
+import { ActivatedCarbonPage } from './pages/ActivatedCarbonPage';
 import { PrintingServicesPage } from './pages/PrintingServicesPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
@@ -30,7 +30,7 @@ export const VALID_ROUTES: PageRoute[] = [
   '/',
   '/about',
   '/bamboo-products',
-  '/charcoal',
+  '/activated-carbon',
   '/printing-services',
   '/gallery',
   '/contact',
@@ -41,8 +41,8 @@ function resolveRouteState(pathname: string): {
   isNotFound: boolean;
 } {
   const normalized = pathname.replace(/\/+$/, '') || '/';
-  if (normalized === '/activated-carbon') {
-    return { route: '/charcoal', isNotFound: false };
+  if (normalized === '/charcoal') {
+    return { route: '/activated-carbon', isNotFound: false };
   }
   if (VALID_ROUTES.includes(normalized as PageRoute)) {
     return { route: normalized as PageRoute, isNotFound: false };
@@ -53,9 +53,6 @@ function resolveRouteState(pathname: string): {
 function resolveInquiryFromSearch(search: string): InquiryTypeOption | null {
   const params = new URLSearchParams(search);
   const inq = params.get('inquiry');
-  if (inq === 'Charcoal') {
-    return 'Activated Carbon';
-  }
   if (inq && INQUIRY_TYPE_OPTIONS.includes(inq as InquiryTypeOption)) {
     return inq as InquiryTypeOption;
   }
@@ -181,12 +178,12 @@ export default function App() {
       ? `The requested page was not found on ${COMPANY_INFO.name}. Explore 100% natural Myanmar Bamboo Split, Bamboo Sticks, and One-Stop Offset Printing Services.`
       : seo.description;
 
-    // Normalize trailing slashes or /activated-carbon alias in browser URL so URL matches canonical
+    // Normalize trailing slashes or legacy /charcoal route in browser URL so URL matches canonical
     if (
       !isNotFound &&
       window.location.pathname !== currentRoute &&
       (window.location.pathname.endsWith('/') ||
-        window.location.pathname.replace(/\/+$/, '') === '/activated-carbon')
+        window.location.pathname.replace(/\/+$/, '') === '/charcoal')
     ) {
       try {
         window.history.replaceState(
@@ -227,6 +224,7 @@ export default function App() {
     setMetaContent('meta[name="twitter:title"]', title);
     setMetaContent('meta[name="twitter:description"]', description);
     setMetaContent('meta[name="twitter:image"]', seo.ogImage);
+    setMetaContent('meta[name="twitter:image:alt"]', seo.ogImageAlt);
 
     const canonicalEl = document.querySelector('link[rel="canonical"]');
     if (canonicalEl) {
@@ -340,8 +338,8 @@ export default function App() {
                   onInquireWithCategory={handleInquireWithCategory}
                 />
               )}
-              {currentRoute === '/charcoal' && (
-                <CharcoalPage
+              {currentRoute === '/activated-carbon' && (
+                <ActivatedCarbonPage
                   onNavigate={handleNavigate}
                   onInquireWithCategory={handleInquireWithCategory}
                 />

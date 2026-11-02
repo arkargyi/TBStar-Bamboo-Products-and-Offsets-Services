@@ -13,7 +13,7 @@ export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] =
   { label: 'Home', labelMm: 'ပင်မစာမျက်နှာ', route: '/' },
   { label: 'About Us', labelMm: 'ကုမ္ပဏီအကြောင်း', route: '/about' },
   { label: 'Bamboo Products', labelMm: 'ဝါးထုတ်ကုန်များ', route: '/bamboo-products' },
-  { label: 'Activated Carbon', labelMm: 'အက်တီဗိတ်တက် ကာဗွန်', route: '/charcoal' },
+  { label: 'Activated Carbon', labelMm: 'အက်တီဗိတ်တက် ကာဗွန်', route: '/activated-carbon' },
   { label: 'Printing Services', labelMm: 'ပုံနှိပ်နှင့် စာရေးကိရိယာ', route: '/printing-services' },
   { label: 'Gallery', labelMm: 'ဓာတ်ပုံပြခန်း', route: '/gallery' },
   { label: 'Contact Us', labelMm: 'ဆက်သွယ်ရန်', route: '/contact' },

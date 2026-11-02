@@ -550,7 +550,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               <div className="flex items-start gap-4 max-w-3xl">
                 <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
-                  <BambooProductIcon type="charcoal" className="w-6 h-6" />
+                  <BambooProductIcon type="activated-carbon" className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
@@ -607,8 +607,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   type="button"
                   variant="primary-dark"
                   size="sm"
-                  href="/charcoal"
-                  onClick={() => onNavigate('/charcoal')}
+                  href="/activated-carbon"
+                  onClick={() => onNavigate('/activated-carbon')}
                 >
                   {t('Explore Activated Carbon', 'Activated Carbon စာမျက်နှာသို့')}
                   <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />

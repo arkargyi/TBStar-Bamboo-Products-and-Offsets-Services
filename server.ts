@@ -15,7 +15,7 @@ const VALID_ROUTES: PageRoute[] = [
   '/',
   '/about',
   '/bamboo-products',
-  '/charcoal',
+  '/activated-carbon',
   '/printing-services',
   '/gallery',
   '/contact',
@@ -120,6 +120,11 @@ function injectRouteSeoIntoHtml(html: string, pathname: string): {
   output = output.replace(
     /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="twitter:image" content="${escapeHtml(seo.ogImage)}" />`
+  );
+
+  output = output.replace(
+    /<meta\s+name="twitter:image:alt"\s+content="[^"]*"\s*\/?>/i,
+    `<meta name="twitter:image:alt" content="${escapeHtml(seo.ogImageAlt)}" />`
   );
 
   if (isKnownRoute) {
@@ -255,9 +260,23 @@ async function startServer() {
   // Strict JSON body limit to prevent payload abuse
   app.use(express.json({ limit: '16kb' }));
 
-  // Redirect /activated-carbon alias to canonical /charcoal route
-  app.get(['/activated-carbon', '/activated-carbon/'], (_req: Request, res: Response) => {
-    res.redirect(301, '/charcoal');
+  // Permanent HTTP 301 redirect for legacy /charcoal, /charcoal/, and trailing-slash /activated-carbon/ to canonical /activated-carbon
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
+      return next();
+    }
+    const rawUrl = req.originalUrl || req.url || '/';
+    const [pathname, query] = rawUrl.split('?');
+    const qs = query ? `?${query}` : '';
+
+    if (
+      pathname === '/charcoal' ||
+      pathname === '/charcoal/' ||
+      pathname === '/activated-carbon/'
+    ) {
+      return res.redirect(301, `/activated-carbon${qs}`);
+    }
+    next();
   });
 
   // Health check endpoint
@@ -330,8 +349,7 @@ async function startServer() {
     const companyName = sanitizeText(body.companyName, 160);
     const phone = sanitizeText(body.phone, 60);
     const rawCategory = sanitizeText(body.inquiryType, 80);
-    const inquiryTypeRaw =
-      rawCategory === 'Charcoal' ? 'Activated Carbon' : rawCategory;
+    const inquiryTypeRaw = rawCategory;
     const message = sanitizeText(body.message, 4000);
 
     const fieldErrors: Record<string, string> = {};

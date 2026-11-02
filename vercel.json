@@ -51,6 +51,23 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/charcoal",
+      "destination": "/activated-carbon",
+      "permanent": true
+    },
+    {
+      "source": "/charcoal/",
+      "destination": "/activated-carbon",
+      "permanent": true
+    },
+    {
+      "source": "/activated-carbon/",
+      "destination": "/activated-carbon",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api/|assets/|images/|robots\\.txt|sitemap\\.xml).*)",

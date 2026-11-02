@@ -12,7 +12,7 @@ export type BambooIconType =
   | 'bamboo-split'
   | 'bamboo-sticks'
   | 'bamboo-custom'
-  | 'charcoal';
+  | 'activated-carbon';
 
 export type EcoAdvantageType =
   | 'rapid-regeneration'
@@ -458,7 +458,7 @@ export const BambooProductIcon: React.FC<BambooProductIconProps> = ({
         </svg>
       );
 
-    case 'charcoal':
+    case 'activated-carbon':
       return (
         <svg
           viewBox="0 0 40 40"
@@ -467,7 +467,7 @@ export const BambooProductIcon: React.FC<BambooProductIconProps> = ({
           className={className}
           aria-hidden="true"
         >
-          {/* Carbonized Charcoal Logs Stack */}
+          {/* Activated Carbon Granules & Export Supply Stack */}
           <rect
             x="9"
             y="22"

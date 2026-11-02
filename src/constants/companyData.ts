@@ -2,7 +2,7 @@ export type PageRoute =
   | '/'
   | '/about'
   | '/bamboo-products'
-  | '/charcoal'
+  | '/activated-carbon'
   | '/printing-services'
   | '/gallery'
   | '/contact';
@@ -46,7 +46,7 @@ export const COMPANY_INFO = {
   overviewMm:
     '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်လုပ်ငန်းနှင့် အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ မိတ်ဖက်များအား ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။',
   seoDescription:
-    'Established in 2013, TB Star Company Limited operates in Yangon, Myanmar, supplying 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon inquiries, and one-stop offset printing services and stationery (Klick and Plano Ball Pens).',
+    'Established in 2013, TB Star Company Limited operates in Yangon, Myanmar, supplying 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon (Nut Shell Activated Carbon and Coconut Shell Activated Carbon), and one-stop offset printing services and stationery (Klick and Plano Ball Pens).',
   address: {
     line1: 'Room No. 1103, 11th Floor, Central Tower',
     line2: 'Corner of 39th Street and Anawrahta Road',
@@ -199,7 +199,7 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
       'linear-gradient(180deg, rgba(5, 19, 12, 0.70) 0%, rgba(10, 31, 20, 0.32) 50%, rgba(6, 22, 13, 0.88) 100%)',
     imageOpacityClass: 'opacity-70',
   },
-  '/charcoal': {
+  '/activated-carbon': {
     imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
     publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
     alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
@@ -348,7 +348,7 @@ export type ProductVisualType =
   | 'bamboo-split'
   | 'bamboo-sticks'
   | 'bamboo-custom'
-  | 'charcoal'
+  | 'activated-carbon'
   | 'commercial-printing';
 
 /**
@@ -420,7 +420,7 @@ export interface BambooProductItem {
   shortDescriptionMm: string;
   detailedDescription: string;
   detailedDescriptionMm: string;
-  visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom' | 'charcoal';
+  visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom' | 'activated-carbon';
   images: ProductImages;
   imagePath: string;
   imageAlt: string;
@@ -770,7 +770,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       detailedMm:
         'TBStar Company Limited မှ ဖြန့်ဖြူးတင်ပို့သော Nut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
     },
-    visualType: 'charcoal',
+    visualType: 'activated-carbon',
     images: {
       main: '',
       mainAlt: '',
@@ -780,7 +780,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     inquiryType: 'Activated Carbon',
     published: true,
     featured: true,
-    route: '/charcoal',
+    route: '/activated-carbon',
     sectionId: 'product-nut-shell-activated-carbon',
     relatedProductIds: ['coconut-shell-activated-carbon', 'bamboo-split'],
     specifications: [
@@ -823,7 +823,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'Nut Shell Activated Carbon produced from Jujube Seed raw material in Myanmar, packed in 25 Kg per Bag for B2B commercial and international export supply by TB Star Company Limited.',
       ogImage: '',
       ogImageAlt: '',
-      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/charcoal#product-nut-shell-activated-carbon`,
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-nut-shell-activated-carbon`,
     },
   },
   {
@@ -847,7 +847,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       detailedMm:
         'TBStar Company Limited မှ ဖြန့်ဖြူးတင်ပို့သော Coconut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
     },
-    visualType: 'charcoal',
+    visualType: 'activated-carbon',
     images: {
       main: '',
       mainAlt: '',
@@ -857,7 +857,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     inquiryType: 'Activated Carbon',
     published: true,
     featured: true,
-    route: '/charcoal',
+    route: '/activated-carbon',
     sectionId: 'product-coconut-shell-activated-carbon',
     relatedProductIds: ['nut-shell-activated-carbon', 'bamboo-split'],
     specifications: [
@@ -900,7 +900,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'Coconut Shell Activated Carbon produced from Coconut Shell raw material in Myanmar, packed in 25 Kg per Bag for B2B commercial and international export supply by TB Star Company Limited.',
       ogImage: '',
       ogImageAlt: '',
-      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/charcoal#product-coconut-shell-activated-carbon`,
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-coconut-shell-activated-carbon`,
     },
   },
   {
@@ -1131,7 +1131,7 @@ export function normalizeCatalogProducts(
     const route: PageRoute =
       raw.route ||
       (categoryKey === 'activated-carbon'
-        ? '/charcoal'
+        ? '/activated-carbon'
         : categoryKey === 'stationery'
         ? '/printing-services'
         : '/bamboo-products');
@@ -1214,16 +1214,16 @@ export function normalizeCatalogProducts(
         ? 'Ball Pen'
         : 'General Inquiry';
 
-    const visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom' | 'charcoal' =
+    const visualType: 'bamboo-split' | 'bamboo-sticks' | 'bamboo-custom' | 'activated-carbon' =
       raw.visualType === 'bamboo-split' ||
       raw.visualType === 'bamboo-sticks' ||
       raw.visualType === 'bamboo-custom' ||
-      raw.visualType === 'charcoal'
+      raw.visualType === 'activated-carbon'
         ? raw.visualType
         : cleanSlug.includes('stick')
         ? 'bamboo-sticks'
         : categoryKey === 'activated-carbon'
-        ? 'charcoal'
+        ? 'activated-carbon'
         : 'bamboo-split';
 
     const ogImageUrl =
@@ -1619,7 +1619,7 @@ const RAW_PRINTING_SERVICES: PrintingServiceItem[] = [
     detailedDescriptionMm:
       'TBStar Company Limited သည် စာပေထုတ်ဝေမှု စာအုပ်များ၊ မဂ္ဂဇင်းများ၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်အမျိုးမျိုးအတွက် စာမျက်နှာစစ်ဆေးခြင်းမှစ၍ အော့ဖ်ဆက်စက်ဖြင့် ပုံနှိပ်ခြင်း၊ မျက်နှာဖုံးပုံနှိပ်ခြင်းနှင့် စာအုပ်ချုပ်လုပ်ခြင်းအထိ တစ်နေရာတည်းတွင် အပြီးအစီး တာဝန်ယူ ဆောင်ရွက်ပေးပါသည်။',
     visualType: 'books-printing',
-    imagePath: '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+    imagePath: '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp',
     imageAlt:
       'TB Star Company Limited Books Printing — One-stop offset printing for commercial books, magazines, company profiles, manuals, and multi-page editions with clean typography and durable binding',
     placeholderNote: 'Books Printing · Multi-Page Books, Magazines & Company Profiles',
@@ -1815,17 +1815,17 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
       { name: 'Bamboo Products', url: `${COMPANY_INFO.canonicalBase}/bamboo-products` },
     ],
   },
-  '/charcoal': {
+  '/activated-carbon': {
     title:
       'Activated Carbon Products (Nut Shell & Coconut Shell · 25 Kg/Bag) – Myanmar | TB Star',
     description:
       'Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed 25 Kg per Bag in Myanmar by TB Star Company Limited.',
-    canonicalUrl: `${COMPANY_INFO.canonicalBase}/charcoal`,
+    canonicalUrl: `${COMPANY_INFO.canonicalBase}/activated-carbon`,
     ogImage: `${COMPANY_INFO.canonicalBase}${COMPANY_INFO.logoPath}`,
     ogImageAlt: `${COMPANY_INFO.name} – Nut Shell Activated Carbon & Coconut Shell Activated Carbon (25 Kg per Bag, Origin: Myanmar)`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
-      { name: 'Activated Carbon', url: `${COMPANY_INFO.canonicalBase}/charcoal` },
+      { name: 'Activated Carbon', url: `${COMPANY_INFO.canonicalBase}/activated-carbon` },
     ],
   },
   '/printing-services': {
@@ -1834,7 +1834,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     description:
       'One-stop offset printing services in Yangon for Books Printing, Voucher Books Printing, and Other Offset Printing Services, plus Ball Pen stationery (Klick: 30 pcs per box; Plano: 50 pcs per box).',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/printing-services`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp`,
     ogImageAlt: `${COMPANY_INFO.name} Offset Printing Services — Books Printing, Voucher Books Printing, Other Offset Printing Services & Ball Pen Stationery`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
@@ -1957,7 +1957,7 @@ export function buildStructuredData(route: PageRoute) {
       ? 'ContactPage'
       : route === '/gallery' ||
         route === '/bamboo-products' ||
-        route === '/charcoal'
+        route === '/activated-carbon'
       ? 'CollectionPage'
       : 'WebPage';
 
@@ -2038,7 +2038,7 @@ export function buildStructuredData(route: PageRoute) {
     });
   }
 
-  if (route === '/charcoal') {
+  if (route === '/activated-carbon') {
     const publishedCarbon = getProductsByCategory('activated-carbon');
     if (publishedCarbon.length > 0) {
       graph.push({
@@ -2308,7 +2308,7 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       'စီးပွားရေးနှင့် စာပေထုတ်ဝေရေး စာအုပ်များ၊ မဂ္ဂဇင်းများ၊ ဝတ္ထုနှင့် ဂျာနယ်များ၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များနှင့် လမ်းညွှန်စာအုပ်များအတွက် တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှု။',
     visualType: 'books-printing',
-    imagePath: '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+    imagePath: '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp',
     altText:
       'TB Star Company Limited Books Printing — One-stop offset printing for commercial books, magazines, company profiles, and manuals with clean typography and durable binding',
   },
@@ -2460,16 +2460,16 @@ export const INDUSTRIES_SERVED: IndustryServedItem[] = [
   {
     id: 'ind-filtration',
     index: '03',
-    sector: 'Activated Carbon Inquiries',
+    sector: 'Activated Carbon Supply',
     sectorMm: 'အက်တီဗိတ်တက် ကာဗွန် ကဏ္ဍ',
-    title: 'Activated Carbon Commercial Inquiries',
-    titleMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) စုံစမ်းမေးမြန်းမှုများ',
+    title: 'Nut Shell & Coconut Shell Activated Carbon',
+    titleMm: 'Nut Shell နှင့် Coconut Shell အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
     description:
-      'Direct inquiry coordination with our Yangon office for buyers inquiring about Activated Carbon.',
+      'Supplying Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed 25 Kg per Bag in Myanmar.',
     descriptionMm:
-      'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) အတွက် စုံစမ်းမေးမြန်းလိုသူများအား ရန်ကုန်ရုံးချုပ်မှ တိုက်ရိုက်လက်ခံဆွေးနွေးပေးပါသည်။',
-    productsUsed: 'Activated Carbon (Inquiry Only)',
-    productsUsedMm: 'အက်တီဗိတ်တက် ကာဗွန် (ဆက်သွယ်စုံစမ်းရန်)',
+      'မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) နှင့် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းများဖြင့် ထုတ်လုပ်ထားသော Activated Carbon ထုတ်ကုန်များကို တစ်အိတ် 25 Kg စံနှုန်းဖြင့် တင်ပို့ဖြန့်ဖြူးပေးပါသည်။',
+    productsUsed: 'Nut Shell Activated Carbon & Coconut Shell Activated Carbon (25 Kg/Bag)',
+    productsUsedMm: 'Nut Shell Activated Carbon နှင့် Coconut Shell Activated Carbon (တစ်အိတ် 25 Kg)',
     inquiryType: 'Activated Carbon',
   },
   {

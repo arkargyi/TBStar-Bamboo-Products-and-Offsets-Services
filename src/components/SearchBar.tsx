@@ -87,6 +87,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const categoryTabs: Array<{ id: 'all' | ProductCategoryId; label: string; labelMm: string }> = [
     { id: 'all', label: 'All Categories', labelMm: 'အားလုံး' },
     { id: 'bamboo', label: 'Bamboo Products', labelMm: 'ဝါးထုတ်ကုန်များ' },
+    { id: 'activated-carbon', label: 'Activated Carbon', labelMm: 'အက်တီဗိတ်တက် ကာဗွန်' },
     { id: 'stationery', label: 'Stationery Products', labelMm: 'စာရေးကိရိယာများ' },
   ];
 

@@ -7,14 +7,14 @@ export type VisualAssetType =
   | 'bamboo-split'
   | 'bamboo-sticks'
   | 'bamboo-custom'
-  | 'charcoal'
+  | 'activated-carbon'
   | 'books-printing'
   | 'voucher-printing'
   | 'commercial-printing'
   | 'hero-bamboo';
 
 const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
-  '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+  '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp',
   '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
   '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
 ]);
@@ -41,8 +41,8 @@ const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, str
   'bamboo-split': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
   'bamboo-sticks': '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
   'bamboo-custom': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
-  charcoal: '',
-  'books-printing': '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
+  'activated-carbon': '',
+  'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp',
   'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
   'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
 };
@@ -54,7 +54,7 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
     'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
   'bamboo-custom':
     'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
-  charcoal: '',
+  'activated-carbon': '',
   'books-printing':
     'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
   'voucher-printing':
@@ -99,7 +99,7 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjdGM0U4Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGMkVDRDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFNURGQzMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
 
   // Offset Printing Promotional Assets
-  '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp':
+  '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
@@ -360,7 +360,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         {/* Bottom Span: One-Stop Offset Printing Services */}
         <div className="col-span-2 relative overflow-hidden rounded-md border border-white/15 group bg-white">
           <ProgressiveProductImage
-            src="/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp"
+            src="/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp"
             alt="TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions"
             width={800}
             height={300}
@@ -444,7 +444,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         'TB Star Company · 100% Natural Myanmar Bamboo Products',
         'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
       )
-    : type === 'charcoal'
+    : type === 'activated-carbon'
     ? t(
         "Placeholder — To be replaced with TB Star's own photos",
         'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)'

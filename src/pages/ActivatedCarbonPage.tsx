@@ -20,12 +20,12 @@ import { SearchBar } from '../components/SearchBar';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
 
-interface CharcoalPageProps {
+interface ActivatedCarbonPageProps {
   onNavigate: (route: PageRoute) => void;
   onInquireWithCategory: (type: InquiryTypeOption, navigateToContact?: boolean) => void;
 }
 
-export const CharcoalPage: React.FC<CharcoalPageProps> = ({
+export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
   onNavigate,
   onInquireWithCategory,
 }) => {
@@ -53,7 +53,7 @@ export const CharcoalPage: React.FC<CharcoalPageProps> = ({
       <HeroSection
         breadcrumbs={[
           { label: 'Home', route: '/' },
-          { label: 'Activated Carbon', route: '/charcoal' },
+          { label: 'Activated Carbon', route: '/activated-carbon' },
         ]}
         onNavigate={onNavigate}
         kicker="TB Star Company Limited · Activated Carbon · Export & Commercial Supply"
