@@ -1,14 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import {
+  ACTIVATED_CARBON_PRODUCTS,
   BAMBOO_PRODUCTS,
   COMPANY_INFO,
   filterProductsBySearchQuery,
-  getProductByIdOrSlug,
-  getPublishedProducts,
   InquiryTypeOption,
   PageRoute,
-  ProductCategoryId,
 } from '../constants/companyData';
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
 import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
@@ -238,28 +236,6 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
 }) => {
   const { isMm, t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<'all' | ProductCategoryId>('bamboo');
-
-  const activatedCarbonProduct = getProductByIdOrSlug('activated-carbon');
-  const allPublishedProducts = useMemo(() => getPublishedProducts(), []);
-
-  const baseProductsForScope = useMemo(
-    () =>
-      selectedCategory === 'all'
-        ? allPublishedProducts
-        : allPublishedProducts.filter((p) => p.categoryKey === selectedCategory),
-    [allPublishedProducts, selectedCategory]
-  );
-
-  const filteredCatalogProducts = useMemo(
-    () =>
-      filterProductsBySearchQuery(
-        allPublishedProducts,
-        searchQuery,
-        selectedCategory
-      ),
-    [allPublishedProducts, searchQuery, selectedCategory]
-  );
 
   const filteredDetailedBambooProducts = useMemo(
     () => filterProductsBySearchQuery(BAMBOO_PRODUCTS, searchQuery, 'bamboo'),
@@ -343,20 +319,18 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               <EcoAdvantageIcon type="rapid-regeneration" className="w-4 h-4 shrink-0" />
               <span>{t('Eco-Advantages', 'သဘာဝပတ်ဝန်းကျင် အားသာချက်များ')}</span>
             </button>
-            {activatedCarbonProduct && (
+            {ACTIVATED_CARBON_PRODUCTS.length > 0 && (
               <a
-                href={activatedCarbonProduct.route}
+                href="/charcoal"
                 onClick={(e) => {
                   e.preventDefault();
-                  onNavigate(activatedCarbonProduct.route);
+                  onNavigate('/charcoal');
                 }}
                 className="px-3.5 py-2 text-xs font-semibold rounded-md bg-[#F6F8F3] hover:bg-[#A8D977]/40 text-[#173D2A] border border-[#DDE5D9] hover:border-[#245C3A] transition-colors cursor-pointer inline-flex items-center gap-2"
               >
-                <BambooProductIcon type={activatedCarbonProduct.visualType} className="w-4 h-4 shrink-0" />
+                <BambooProductIcon type="charcoal" className="w-4 h-4 shrink-0" />
                 <span>
-                  {isMm
-                    ? `${activatedCarbonProduct.nameMm} →`
-                    : `${activatedCarbonProduct.name} →`}
+                  {t('Activated Carbon →', 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) →')}
                 </span>
               </a>
             )}

@@ -9,3 +9,6 @@ coverage/
 /data/
 !/src/data/
 !/src/data/**
+.aistudio/
+.gmp_cache/
+

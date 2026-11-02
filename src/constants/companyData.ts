@@ -480,12 +480,18 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     },
     visualType: 'bamboo-split',
     images: {
-      main: '/images/products/bamboo-split-main.webp',
-      mainAlt: 'Natural Myanmar bamboo splits with nodes',
-      featured: '/images/products/bamboo-split-featured.webp',
-      featuredAlt: 'Featured natural Myanmar bamboo splits for export and domestic supply',
-      natural: '/images/products/bamboo-split-natural.webp',
-      naturalAlt: 'Natural bamboo splits with authentic bamboo texture',
+      main: '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+      mainAlt:
+        'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
+      secondary: '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
+      secondaryAlt:
+        'TB Star Company Limited Bamboo Split Product Banner — Specification Type: with nodes / without nodes, Packaging: 50pcs per bundle with nodes, 100pcs per bundle without nodes',
+      featured: '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp',
+      featuredAlt:
+        'TB Star Company Limited Natural Myanmar Bamboo Split Showcase — 3mm thickness, 20 to 48 inches, with nodes and without nodes',
+      natural: '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+      naturalAlt:
+        'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
       wholesale: '/images/products/bamboo-split-wholesale.webp',
       wholesaleAlt: 'Bamboo splits bundled for commercial supply',
       texture: '/images/products/bamboo-split-texture.webp',
@@ -517,16 +523,17 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       {
         kicker: 'PRODUCT TYPES · WITH NODES & WITHOUT NODES',
         kickerMm: 'အမျိုးအစား · အဆစ်ပါ နှင့် အဆစ်မပါ',
-        title: 'With Nodes & Without Nodes Bamboo Split',
-        titleMm: 'အဆစ်ပါ (With Nodes) နှင့် အဆစ်မပါ (Without Nodes) ဝါးခြမ်းပြား',
+        title: 'With Nodes & Without Nodes Bamboo Split Showcase',
+        titleMm: 'အဆစ်ပါ (With Nodes) နှင့် အဆစ်မပါ (Without Nodes) ဝါးခြမ်းပြား ပြကွက်',
         description:
-          '100% natural Myanmar bamboo splits in 3 mm thickness and 20 to 48 inch lengths, available with nodes or without nodes.',
+          '100% natural Myanmar bamboo splits in 3 mm thickness and 20 to 48 inch lengths, available with nodes (50 pcs per bundle) or without nodes (100 pcs per bundle).',
         descriptionMm:
-          '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများကို အထူ 3 mm၊ အရှည် ၂၀ မှ ၄၈ လက်မဖြင့် အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ရရှိနိုင်ပါသည်။',
-        imagePath: '/images/products/bamboo-split-texture.webp',
-        imageAlt: 'Close-up texture of 3 mm natural Myanmar bamboo splits',
-        frameLabel: 'Bamboo Split · With Nodes & Without Nodes Texture',
-        frameLabelMm: 'ဝါးခြမ်းပြား · အဆစ်ပါ နှင့် အဆစ်မပါ သဘာဝဝါးအသားဖွဲ့စည်းပုံ',
+          '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများကို အထူ 3 mm၊ အရှည် ၂၀ မှ ၄၈ လက်မဖြင့် အဆစ်ပါ (တစ်စည်း ၅၀ ချောင်း) သို့မဟုတ် အဆစ်မပါ (တစ်စည်း ၁၀၀ ချောင်း) ရရှိနိုင်ပါသည်။',
+        imagePath: '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
+        imageAlt:
+          'TB Star Company Limited Bamboo Split Product Banner — Specification Type: with nodes / without nodes, Packaging: 50pcs per bundle with nodes, 100pcs per bundle without nodes',
+        frameLabel: 'Bamboo Split · With Nodes (50pcs/bundle) & Without Nodes (100pcs/bundle)',
+        frameLabelMm: 'ဝါးခြမ်းပြား · အဆစ်ပါ (တစ်စည်း 50pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100pcs)',
       },
       {
         kicker: 'DOMESTIC & EXPORT SUPPLY',
@@ -597,8 +604,9 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       title: 'Bamboo Split (3 mm · 20–48 inches) – 100% Natural Myanmar Bamboo | TB Star',
       description:
         '100% natural Myanmar Bamboo Split in 3 mm thickness and 20 to 48 inch lengths, available with nodes or without nodes.',
-      ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
-      ogImageAlt: 'Natural Myanmar bamboo splits with nodes',
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png`,
+      ogImageAlt:
+        'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/bamboo-products#product-bamboo-split`,
     },
   },
@@ -625,16 +633,21 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     },
     visualType: 'bamboo-sticks',
     images: {
-      main: '/images/products/bamboo-sticks-main.webp',
-      mainAlt: 'Natural bamboo sticks from Myanmar',
-      featured: '/images/products/bamboo-sticks-featured.webp',
-      featuredAlt: 'Featured natural Myanmar bamboo sticks packed at 30 kg per bag',
-      natural: '/images/products/bamboo-sticks-natural.webp',
-      naturalAlt: 'Natural bamboo sticks in 8, 9, and 10 inch lengths',
-      wholesale: '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp',
-      wholesaleAlt: 'Bamboo sticks prepared in 30 kg bags for commercial supply',
-      texture: '/images/products/bamboo-sticks-texture.webp',
-      textureAlt: 'Close-up texture of 1.2 mm to 2.5 mm natural Myanmar bamboo sticks',
+      main: '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
+      mainAlt:
+        'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
+      featured: '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
+      featuredAlt:
+        'TB Star Company Limited Natural Myanmar Bamboo Sticks Showcase — 1.2mm to 2.5mm thickness, 8/9/10 inches, 5KG per bundle and 30KG per bag',
+      natural: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+      naturalAlt:
+        'Myanmar Bamboo Sticks 6-bundle packaging — 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
+      wholesale: '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
+      wholesaleAlt:
+        'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag',
+      texture: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+      textureAlt:
+        'Myanmar Bamboo Sticks packaging structure: 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
     },
     placeholderNote: 'Bamboo Sticks · 1.2–2.5 mm · 8", 9", 10" · 30 kg per bag',
     placeholderNoteMm: 'ဝါးတံ · အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg',
@@ -646,32 +659,34 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     relatedProductIds: ['bamboo-split'],
     detailSubCards: [
       {
-        kicker: 'MATERIAL TEXTURE & APPEARANCE',
-        kickerMm: 'သဘာဝဝါးအသားနှင့် အသွင်အပြင်',
-        title: '1.2–2.5 mm Natural Bamboo Stick Texture',
-        titleMm: 'အထူ 1.2–2.5 mm သဘာဝဝါးတံ အသေးစိတ်ပုံစံ',
+        kicker: 'BUNDLE & BAG PACKAGING · 6 × 5KG = 30KG',
+        kickerMm: 'အစည်းနှင့် အိတ်ထုပ်ပိုးမှု · ၆ စည်း × 5KG = 30KG',
+        title: '5 kg per Bundle · 6 Bundles per 30 kg Bag',
+        titleMm: 'တစ်စည်းလျှင် 5 kg · တစ်အိတ်လျှင် ၆ စည်း (စုစုပေါင်း 30 kg)',
         description:
-          'Close-up physical appearance of 100% natural Myanmar bamboo sticks in 1.2 to 2.5 mm thickness.',
+          'Standardized bundle and bag packaging structure for 100% natural Myanmar bamboo sticks: 5 kg per bundle, with 6 bundles packed into each 30 kg woven export bag (6 bundles × 5KG = 30KG).',
         descriptionMm:
-          'အထူ 1.2 မှ 2.5 mm ရှိသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးတံများ၏ အသားဖွဲ့စည်းပုံ။',
-        imagePath: '/images/products/bamboo-sticks-texture.webp',
-        imageAlt: 'Close-up texture of 1.2 mm to 2.5 mm natural Myanmar bamboo sticks',
-        frameLabel: 'Bamboo Sticks · 1.2–2.5 mm Cross-Section & Texture',
-        frameLabelMm: 'ဝါးတံ · အထူ 1.2–2.5 mm နှင့် သဘာဝဝါးအသားဖွဲ့စည်းပုံ',
+          '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံများကို တစ်စည်းလျှင် 5 kg စည်းနှောင်ထားပြီး တစ်အိတ်လျှင် ၆ စည်း (6 bundles × 5KG = 30KG) စနစ်တကျ ထုပ်ပိုးထားပါသည်။',
+        imagePath: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+        imageAlt:
+          'Myanmar Bamboo Sticks packaging structure: 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
+        frameLabel: 'Bamboo Sticks · 6 Bundles × 5KG = 30KG Packaging',
+        frameLabelMm: 'ဝါးတံ · တစ်စည်း 5KG × ၆ စည်း = တစ်အိတ် 30KG ထုပ်ပိုးမှု',
       },
       {
         kicker: 'COMMERCIAL & WHOLESALE SUPPLY',
         kickerMm: 'လက်ကားနှင့် ပြည်ပပို့ကုန်',
-        title: '30 kg per Bag Commercial Packaging',
-        titleMm: 'တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားရှိမှု',
+        title: '30 kg per Bag Commercial & Wholesale Showcase',
+        titleMm: 'တစ်အိတ်လျှင် 30 kg လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်',
         description:
-          'Available in 8, 9, and 10 inch sizes and packed 30 kg per bag for domestic and export supply.',
+          'Available in 8, 9, and 10 inch sizes and packed 30 kg per bag (6 × 5 kg bundles) for domestic distribution in Myanmar and international export.',
         descriptionMm:
-          'အရွယ်အစား ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော ဝါးတံများ။',
-        imagePath: '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp',
-        imageAlt: 'Bamboo sticks prepared in 30 kg bags for commercial supply',
-        frameLabel: 'Bamboo Sticks · 30 kg per Bag Wholesale & Export Packaging',
-        frameLabelMm: 'ဝါးတံ · တစ်အိတ် 30 kg လက်ကားနှင့် ပြည်ပပို့ကုန် ထုပ်ပိုးမှု',
+          'အရွယ်အစား ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်အိတ်လျှင် 30 kg (5 kg အစည်း ၆ စည်း) ထုပ်ပိုးထားသော လက်ကားနှင့် ပြည်ပပို့ကုန် ဝါးတံများ။',
+        imagePath: '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
+        imageAlt:
+          'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag',
+        frameLabel: 'Bamboo Sticks · 5KG Bundle & 30KG Wholesale Bag Showcase',
+        frameLabelMm: 'ဝါးတံ · 5KG အစည်းနှင့် 30KG လက်ကားပို့ကုန်အိတ် ပြကွက်',
       },
     ],
     specifications: [
@@ -728,68 +743,170 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       title: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30 kg/bag) | TB Star',
       description:
         '100% natural Myanmar Bamboo Sticks in 1.2 to 2.5 mm thickness and 8, 9, and 10 inch sizes, packed 30 kg per bag.',
-      ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-sticks-main.webp`,
-      ogImageAlt: 'Natural bamboo sticks from Myanmar',
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/bamboo-sticks-main_49720bd6.webp`,
+      ogImageAlt:
+        'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/bamboo-products#product-bamboo-sticks`,
     },
   },
   {
-    id: 'activated-carbon',
-    slug: 'activated-carbon',
+    id: 'nut-shell-activated-carbon',
+    slug: 'nut-shell-activated-carbon',
     index: '03',
-    name: 'Activated Carbon',
-    nameMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
-    footerLabel: 'Activated Carbon',
-    footerLabelMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
+    name: 'Nut Shell Activated Carbon',
+    nameMm: 'ဇီးစေ့ခွံ အက်တီဗိတ်တက် ကာဗွန် (Nut Shell Activated Carbon)',
+    footerLabel: 'Nut Shell Activated Carbon (25 Kg/Bag)',
+    footerLabelMm: 'Nut Shell Activated Carbon (တစ်အိတ် 25 Kg)',
     category: 'activated-carbon',
-    categoryLabel: 'Activated Carbon · Inquiry Only',
-    categoryMm: 'အက်တီဗိတ်တက် ကာဗွန် · ဆက်သွယ်စုံစမ်းရန်',
+    categoryLabel: 'Activated Carbon · Export & Commercial Supply',
+    categoryMm: 'အက်တီဗိတ်တက် ကာဗွန် · ပြည်ပပို့ကုန်နှင့် စီးပွားရေးလုပ်ငန်းသုံး',
     descriptions: {
       short:
-        'Activated Carbon product category by TB Star Company Limited. Contact our Yangon office directly for inquiries.',
+        'Nut Shell Activated Carbon produced from jujube seed raw material in Myanmar and supplied in standardized 25 Kg per bag commercial export packaging.',
       shortMm:
-        'TBStar Company Limited ၏ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ကုန်ပစ္စည်းကဏ္ဍ။ စုံစမ်းမေးမြန်းမှုများအတွက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်နိုင်ပါသည်။',
+        'မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော Nut Shell Activated Carbon။',
       detailed:
-        'TB Star Company Limited handles inquiries for Activated Carbon from our office in Kyauktada Township, Yangon. Please contact our team directly with your inquiry.',
+        'Supplied by TB Star Company Limited from Yangon, Myanmar, our Nut Shell Activated Carbon is produced from jujube seed raw material originating in Myanmar. Prepared for international export buyers and commercial distribution partners, each unit is packed in standardized 25 Kg per bag packaging for reliable B2B trade handling and shipment coordination.',
       detailedMm:
-        'TBStar Company Limited သည် ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ် ရုံးချုပ်မှတစ်ဆင့် အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) နှင့် ပတ်သက်သော စုံစမ်းမေးမြန်းမှုများကို လက်ခံဆောင်ရွက်ပေးလျက်ရှိပါသည်။ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။',
+        'TBStar Company Limited မှ ဖြန့်ဖြူးတင်ပို့သော Nut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
     },
     visualType: 'charcoal',
     images: {
-      main: '/assets/aistudio/Charcoal-Product.svg',
-      mainAlt: "Placeholder image for Activated Carbon — to be replaced with TB Star's own photos",
+      main: '',
+      mainAlt: '',
     },
-    placeholderNote: "Placeholder — To be replaced with TB Star's own photos",
-    placeholderNoteMm: 'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)',
+    placeholderNote: '',
+    placeholderNoteMm: '',
     inquiryType: 'Activated Carbon',
     published: true,
-    featured: false,
+    featured: true,
     route: '/charcoal',
-    sectionId: 'activated-carbon-overview',
-    relatedProductIds: ['bamboo-split', 'bamboo-sticks'],
+    sectionId: 'product-nut-shell-activated-carbon',
+    relatedProductIds: ['coconut-shell-activated-carbon', 'bamboo-split'],
     specifications: [
       {
-        parameter: 'Product Category',
-        parameterMm: 'ကုန်ပစ္စည်းကဏ္ဍ',
-        value: 'Activated Carbon',
-        valueMm: 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)',
-        notes: 'Inquiry only',
-        notesMm: 'ဆက်သွယ်စုံစမ်းရန်',
+        parameter: 'Product Name',
+        parameterMm: 'ကုန်ပစ္စည်းအမည် (Product Name)',
+        value: 'Nut Shell Activated Carbon',
+        valueMm: 'Nut Shell Activated Carbon',
+        notes: 'Activated Carbon export product line',
+        notesMm: 'အက်တီဗိတ်တက် ကာဗွန် ပို့ကုန်အမျိုးအစား',
+      },
+      {
+        parameter: 'Raw Material',
+        parameterMm: 'ကုန်ကြမ်းအမျိုးအစား (Raw Material)',
+        value: 'Jujube Seed',
+        valueMm: 'ဇီးစေ့ခွံ (Jujube Seed)',
+        notes: 'Natural jujube seed raw material',
+        notesMm: 'သဘာဝ ဇီးစေ့ခွံ ကုန်ကြမ်း',
+      },
+      {
+        parameter: 'Packaging',
+        parameterMm: 'ထုပ်ပိုးမှုပုံစံ (Packaging)',
+        value: '25 Kg per Bag',
+        valueMm: 'တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag)',
+        notes: 'Standard commercial export bag packaging',
+        notesMm: 'ပြည်ပပို့ကုန်နှင့် လက်ကား စံချိန်မီ ထုပ်ပိုးမှု',
+      },
+      {
+        parameter: 'Country of Origin',
+        parameterMm: 'မူရင်းနိုင်ငံ (Country of Origin)',
+        value: 'Myanmar',
+        valueMm: 'မြန်မာနိုင်ငံ (Myanmar)',
+        notes: 'Supplied by TB Star Company Limited, Yangon',
+        notesMm: 'TBStar Company Limited (ရန်ကုန်မြို့) မှ တင်ပို့ဖြန့်ဖြူးသည်',
       },
     ],
     seo: {
-      title: 'Activated Carbon Inquiries – TB Star Company Limited Yangon, Myanmar',
+      title: 'Nut Shell Activated Carbon (Jujube Seed · 25 Kg per Bag) – Myanmar | TB Star',
       description:
-        'Contact TB Star Company Limited in Yangon, Myanmar for Activated Carbon inquiries.',
-      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Charcoal-Product.svg`,
-      ogImageAlt: "Placeholder image for Activated Carbon — to be replaced with TB Star's own photos",
-      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/charcoal#activated-carbon-overview`,
+        'Nut Shell Activated Carbon produced from Jujube Seed raw material in Myanmar, packed in 25 Kg per Bag for B2B commercial and international export supply by TB Star Company Limited.',
+      ogImage: '',
+      ogImageAlt: '',
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/charcoal#product-nut-shell-activated-carbon`,
+    },
+  },
+  {
+    id: 'coconut-shell-activated-carbon',
+    slug: 'coconut-shell-activated-carbon',
+    index: '04',
+    name: 'Coconut Shell Activated Carbon',
+    nameMm: 'အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Coconut Shell Activated Carbon)',
+    footerLabel: 'Coconut Shell Activated Carbon (25 Kg/Bag)',
+    footerLabelMm: 'Coconut Shell Activated Carbon (တစ်အိတ် 25 Kg)',
+    category: 'activated-carbon',
+    categoryLabel: 'Activated Carbon · Export & Commercial Supply',
+    categoryMm: 'အက်တီဗိတ်တက် ကာဗွန် · ပြည်ပပို့ကုန်နှင့် စီးပွားရေးလုပ်ငန်းသုံး',
+    descriptions: {
+      short:
+        'Coconut Shell Activated Carbon produced from coconut shell raw material in Myanmar and supplied in standardized 25 Kg per bag commercial export packaging.',
+      shortMm:
+        'မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော Coconut Shell Activated Carbon။',
+      detailed:
+        'Supplied by TB Star Company Limited from Yangon, Myanmar, our Coconut Shell Activated Carbon is produced from coconut shell raw material originating in Myanmar. Prepared for international export buyers and commercial distribution partners, each unit is packed in standardized 25 Kg per bag packaging for reliable B2B trade handling and shipment coordination.',
+      detailedMm:
+        'TBStar Company Limited မှ ဖြန့်ဖြူးတင်ပို့သော Coconut Shell Activated Carbon ကို မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပါသည်။ နိုင်ငံတကာ ပြည်ပပို့ကုန်ဝယ်ယူသူများနှင့် စီးပွားရေးမိတ်ဖက်များအတွက် တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် စနစ်တကျ ထုပ်ပိုးပေးထားပါသည်။',
+    },
+    visualType: 'charcoal',
+    images: {
+      main: '',
+      mainAlt: '',
+    },
+    placeholderNote: '',
+    placeholderNoteMm: '',
+    inquiryType: 'Activated Carbon',
+    published: true,
+    featured: true,
+    route: '/charcoal',
+    sectionId: 'product-coconut-shell-activated-carbon',
+    relatedProductIds: ['nut-shell-activated-carbon', 'bamboo-split'],
+    specifications: [
+      {
+        parameter: 'Product Name',
+        parameterMm: 'ကုန်ပစ္စည်းအမည် (Product Name)',
+        value: 'Coconut Shell Activated Carbon',
+        valueMm: 'Coconut Shell Activated Carbon',
+        notes: 'Activated Carbon export product line',
+        notesMm: 'အက်တီဗိတ်တက် ကာဗွန် ပို့ကုန်အမျိုးအစား',
+      },
+      {
+        parameter: 'Raw Material',
+        parameterMm: 'ကုန်ကြမ်းအမျိုးအစား (Raw Material)',
+        value: 'Coconut Shell',
+        valueMm: 'အုန်းမှုတ်ခွံ (Coconut Shell)',
+        notes: 'Natural coconut shell raw material',
+        notesMm: 'သဘာဝ အုန်းမှုတ်ခွံ ကုန်ကြမ်း',
+      },
+      {
+        parameter: 'Packaging',
+        parameterMm: 'ထုပ်ပိုးမှုပုံစံ (Packaging)',
+        value: '25 Kg per Bag',
+        valueMm: 'တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag)',
+        notes: 'Standard commercial export bag packaging',
+        notesMm: 'ပြည်ပပို့ကုန်နှင့် လက်ကား စံချိန်မီ ထုပ်ပိုးမှု',
+      },
+      {
+        parameter: 'Country of Origin',
+        parameterMm: 'မူရင်းနိုင်ငံ (Country of Origin)',
+        value: 'Myanmar',
+        valueMm: 'မြန်မာနိုင်ငံ (Myanmar)',
+        notes: 'Supplied by TB Star Company Limited, Yangon',
+        notesMm: 'TBStar Company Limited (ရန်ကုန်မြို့) မှ တင်ပို့ဖြန့်ဖြူးသည်',
+      },
+    ],
+    seo: {
+      title: 'Coconut Shell Activated Carbon (Coconut Shell · 25 Kg per Bag) – Myanmar | TB Star',
+      description:
+        'Coconut Shell Activated Carbon produced from Coconut Shell raw material in Myanmar, packed in 25 Kg per Bag for B2B commercial and international export supply by TB Star Company Limited.',
+      ogImage: '',
+      ogImageAlt: '',
+      canonicalAnchor: `${COMPANY_INFO.canonicalBase}/charcoal#product-coconut-shell-activated-carbon`,
     },
   },
   {
     id: 'ball-pen',
     slug: 'ball-pen',
-    index: '04',
+    index: '05',
     name: 'Ball Pen',
     nameMm: 'ဘောပင် (Ball Pen)',
     footerLabel: 'Ball Pen (Klick: 30 pcs/box · Plano: 50 pcs/box)',
@@ -958,14 +1075,28 @@ export function normalizeCatalogProducts(
       raw.detailedDescriptionMm ||
       shortDescMm;
 
+    const hasExplicitEmptyImage =
+      raw.images?.main === '' ||
+      raw.imagePath === '' ||
+      categoryKey === 'activated-carbon';
+
     const mainImg =
-      raw.images?.main ||
-      raw.imagePath ||
-      '/images/products/bamboo-split-main.webp';
+      raw.images?.main !== undefined
+        ? raw.images.main
+        : raw.imagePath !== undefined
+        ? raw.imagePath
+        : hasExplicitEmptyImage
+        ? ''
+        : '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png';
+
     const mainAlt =
-      raw.images?.mainAlt ||
-      raw.imageAlt ||
-      `${raw.name} – ${COMPANY_INFO.name}`;
+      raw.images?.mainAlt !== undefined
+        ? raw.images.mainAlt
+        : raw.imageAlt !== undefined
+        ? raw.imageAlt
+        : hasExplicitEmptyImage
+        ? ''
+        : `${raw.name} – ${COMPANY_INFO.name}`;
 
     const resolvedImages: ProductImages = {
       main: mainImg,
@@ -1006,10 +1137,7 @@ export function normalizeCatalogProducts(
         : '/bamboo-products');
 
     const sectionId = raw.sectionId || `product-${cleanSlug}`;
-    const href =
-      route === '/charcoal'
-        ? '/charcoal'
-        : `${route}#${sectionId}`;
+    const href = `${route}#${sectionId}`;
 
     const normalizedFeatures: ProductFeatureItem[] = (raw.features || []).map(
       (feat) =>
@@ -1098,11 +1226,14 @@ export function normalizeCatalogProducts(
         ? 'charcoal'
         : 'bamboo-split';
 
-    const ogImageUrl = raw.seo?.ogImage
-      ? raw.seo.ogImage
-      : mainImg.startsWith('http')
-      ? mainImg
-      : `${COMPANY_INFO.canonicalBase}${mainImg}`;
+    const ogImageUrl =
+      raw.seo?.ogImage !== undefined
+        ? raw.seo.ogImage
+        : !mainImg
+        ? ''
+        : mainImg.startsWith('http')
+        ? mainImg
+        : `${COMPANY_INFO.canonicalBase}${mainImg}`;
 
     preliminary.push({
       id: cleanId,
@@ -1139,9 +1270,20 @@ export function normalizeCatalogProducts(
       textureImageAlt: resolvedImages.textureAlt,
       secondaryImagePath: resolvedImages.secondary,
       secondaryImageAlt: resolvedImages.secondaryAlt,
-      placeholderNote: raw.placeholderNote || `${raw.name} · ${COMPANY_INFO.name}`,
+      placeholderNote:
+        raw.placeholderNote !== undefined
+          ? raw.placeholderNote
+          : hasExplicitEmptyImage
+          ? ''
+          : `${raw.name} · ${COMPANY_INFO.name}`,
       placeholderNoteMm:
-        raw.placeholderNoteMm || raw.placeholderNote || `${raw.nameMm || raw.name}`,
+        raw.placeholderNoteMm !== undefined
+          ? raw.placeholderNoteMm
+          : raw.placeholderNote !== undefined
+          ? raw.placeholderNote
+          : hasExplicitEmptyImage
+          ? ''
+          : `${raw.nameMm || raw.name}`,
       inquiryType: resolvedInquiryType,
       specifications: normalizedSpecs,
       features: normalizedFeatures,
@@ -1359,12 +1501,15 @@ export function searchPublishedProducts(
 export const BAMBOO_PRODUCTS: BambooProductItem[] =
   getProductsByCategory('bamboo');
 
+export const ACTIVATED_CARBON_PRODUCTS: BambooProductItem[] =
+  getProductsByCategory('activated-carbon');
+
 const fallbackActivatedCarbon = ALL_NORMALIZED_PRODUCTS.find(
-  (p) => p.id === 'activated-carbon'
+  (p) => p.categoryKey === 'activated-carbon'
 )!;
 
 export const CHARCOAL_PRODUCT_INFO =
-  getProductByIdOrSlug('activated-carbon') || fallbackActivatedCarbon;
+  ACTIVATED_CARBON_PRODUCTS[0] || fallbackActivatedCarbon;
 
 export interface BallPenProductInfo {
   id: string;
@@ -1639,7 +1784,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     title: `${COMPANY_INFO.name} – Natural Myanmar Bamboo Products, Activated Carbon & Offset Printing Services`,
     description: `Established in ${COMPANY_INFO.establishedYear}, ${COMPANY_INFO.name} operates in Yangon, Myanmar, supplying 100% natural Myanmar ${publishedBambooNames || 'Bamboo Products'}, Activated Carbon, and one-stop Offset Printing Services & Ball Pen stationery.`,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png`,
     ogImageAlt: `Natural Myanmar bamboo splits with nodes by ${COMPANY_INFO.name}`,
     breadcrumbs: [{ name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` }],
   },
@@ -1647,7 +1792,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     title: `About ${COMPANY_INFO.name} – Established in ${COMPANY_INFO.establishedYear} in Yangon, Myanmar`,
     description: COMPANY_INFO.overview,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/about`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-natural.webp`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png`,
     ogImageAlt: `About ${COMPANY_INFO.name} in Yangon, Myanmar`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
@@ -1661,7 +1806,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/bamboo-products`,
     ogImage:
       BAMBOO_PRODUCTS[0]?.seo.ogImage ||
-      `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
+      `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png`,
     ogImageAlt:
       BAMBOO_PRODUCTS[0]?.seo.ogImageAlt ||
       `100% Natural Myanmar Bamboo Split and Bamboo Sticks by ${COMPANY_INFO.name}`,
@@ -1671,14 +1816,16 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     ],
   },
   '/charcoal': {
-    title: CHARCOAL_PRODUCT_INFO.seo.title,
-    description: CHARCOAL_PRODUCT_INFO.seo.description,
+    title:
+      'Activated Carbon Products (Nut Shell & Coconut Shell · 25 Kg/Bag) – Myanmar | TB Star',
+    description:
+      'Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed 25 Kg per Bag in Myanmar by TB Star Company Limited.',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/charcoal`,
-    ogImage: CHARCOAL_PRODUCT_INFO.seo.ogImage,
-    ogImageAlt: CHARCOAL_PRODUCT_INFO.seo.ogImageAlt,
+    ogImage: `${COMPANY_INFO.canonicalBase}${COMPANY_INFO.logoPath}`,
+    ogImageAlt: `${COMPANY_INFO.name} – Nut Shell Activated Carbon & Coconut Shell Activated Carbon (25 Kg per Bag, Origin: Myanmar)`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
-      { name: CHARCOAL_PRODUCT_INFO.name, url: `${COMPANY_INFO.canonicalBase}/charcoal` },
+      { name: 'Activated Carbon', url: `${COMPANY_INFO.canonicalBase}/charcoal` },
     ],
   },
   '/printing-services': {
@@ -1713,7 +1860,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     title: `Contact ${COMPANY_INFO.name} – Central Tower, Kyauktada Township, Yangon`,
     description: `Contact ${COMPANY_INFO.name} at ${COMPANY_INFO.address.line1}, ${COMPANY_INFO.address.township}, ${COMPANY_INFO.address.city} (Tel: ${COMPANY_INFO.telephone}) for Bamboo, Activated Carbon, Printing, and Ball Pen inquiries.`,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/contact`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-main.webp`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png`,
     ogImageAlt: `Contact ${COMPANY_INFO.name} in Yangon, Myanmar`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
@@ -1904,6 +2051,30 @@ export function buildStructuredData(route: PageRoute) {
           name: prod.name,
           description: prod.detailedDescription,
           url: `${seo.canonicalUrl}#${prod.sectionId}`,
+          item: {
+            '@type': 'Product',
+            '@id': `${seo.canonicalUrl}#${prod.sectionId}`,
+            name: prod.name,
+            description: prod.detailedDescription,
+            ...(prod.seo.ogImage ? { image: prod.seo.ogImage } : {}),
+            category: prod.category,
+            brand: {
+              '@type': 'Brand',
+              name: COMPANY_INFO.name,
+            },
+            manufacturer: {
+              '@id': `${baseUrl}/#organization`,
+            },
+            countryOfOrigin: {
+              '@type': 'Country',
+              name: COMPANY_INFO.address.country,
+            },
+            additionalProperty: prod.specifications.map((spec) => ({
+              '@type': 'PropertyValue',
+              name: spec.parameter,
+              value: spec.value,
+            })),
+          },
         })),
       });
     }
@@ -2013,8 +2184,9 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 3 mm၊ အရှည် ၂၀ မှ ၄၈ လက်မ ဝါးခြမ်းပြား (အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ)။',
     visualType: 'bamboo-split',
-    imagePath: '/images/products/bamboo-split-main.webp',
-    altText: 'Natural Myanmar bamboo splits with nodes',
+    imagePath: '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+    altText:
+      'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
   },
   {
     id: 'gal-bamboo-sticks-main',
@@ -2026,8 +2198,23 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       'ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်အတွက် မြန်မာနိုင်ငံတွင် ထုတ်လုပ်ထားသော အထူ 1.2–2.5 mm သဘာဝဝါးတံများ။',
     visualType: 'bamboo-sticks',
-    imagePath: '/images/products/bamboo-sticks-main.webp',
-    altText: 'Natural bamboo sticks from Myanmar',
+    imagePath: '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
+    altText:
+      'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
+  },
+  {
+    id: 'gal-bamboo-split-brochure',
+    title: 'Bamboo Split — Specification Types & Bundle Packaging',
+    titleMm: 'ဝါးခြမ်းပြား — အဆစ်ပါ နှင့် အဆစ်မပါ အစည်းထုပ်ပိုးမှု ပြကွက်',
+    category: 'Bamboo Products',
+    caption:
+      'Official TB Star Company Limited Bamboo Split product banner showing With Nodes (50 pcs per bundle) and Without Nodes (100 pcs per bundle) specifications.',
+    captionMm:
+      'အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs) မြန်မာ့သဘာဝဝါးခြမ်းပြား ထုပ်ပိုးမှုနှင့် စံချိန်စံညွှန်းပြကွက်။',
+    visualType: 'bamboo-split',
+    imagePath: '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
+    altText:
+      'TB Star Company Limited Bamboo Split Product Banner — Specification Type: with nodes / without nodes, Packaging: 50pcs per bundle with nodes, 100pcs per bundle without nodes',
   },
   {
     id: 'gal-bamboo-split-texture',
@@ -2044,16 +2231,31 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   },
   {
     id: 'gal-bamboo-sticks-packaging',
-    title: 'Bamboo Sticks — 30 kg per Bag Export Packaging',
-    titleMm: 'ဝါးတံ — တစ်အိတ်လျှင် 30 kg ပြည်ပပို့ကုန် ထုပ်ပိုးမှု',
+    title: 'Bamboo Sticks — 30 kg per Bag Wholesale Product Showcase',
+    titleMm: 'ဝါးတံ — တစ်အိတ်လျှင် 30 kg လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်',
     category: 'Packaging',
     caption:
-      '30 kg per bag packaging for 8, 9, and 10 inch Myanmar Bamboo Sticks.',
+      'Official TB Star Company Limited Bamboo Sticks wholesale showcase featuring a 5 kg bundle and 30 kg woven export bag.',
     captionMm:
-      '၈ လက်မ၊ ၉ လက်မနှင့် ၁၀ လက်မ မြန်မာ့ဝါးတံများကို တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားပုံ။',
+      '5 kg အစည်းနှင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော TBStar Company Limited ၏ မြန်မာ့ဝါးတံ လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်။',
     visualType: 'bamboo-sticks',
-    imagePath: '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp',
-    altText: 'Bamboo sticks prepared in 30 kg bags for commercial supply',
+    imagePath: '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
+    altText:
+      'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag',
+  },
+  {
+    id: 'gal-bamboo-sticks-six-bundle',
+    title: 'Bamboo Sticks — 6 Bundles × 5KG = 30KG Packaging Structure',
+    titleMm: 'ဝါးတံ — တစ်စည်း 5KG × ၆ စည်း = တစ်အိတ် 30KG ထုပ်ပိုးမှုပုံစံ',
+    category: 'Packaging',
+    caption:
+      'Standardized packaging breakdown: 5 kg per bundle with 6 bundles packed per 30 kg woven export bag (6 bundles × 5KG = 30KG).',
+    captionMm:
+      'တစ်စည်းလျှင် 5 kg ဖြင့် အစည်း ၆ စည်းကို တစ်အိတ်လျှင် 30 kg (6 bundles × 5KG = 30KG) စနစ်တကျ ထုပ်ပိုးထားပုံ။',
+    visualType: 'bamboo-sticks',
+    imagePath: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+    altText:
+      'Myanmar Bamboo Sticks packaging structure: 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
   },
   {
     id: 'gal-bamboo-split-bundles',

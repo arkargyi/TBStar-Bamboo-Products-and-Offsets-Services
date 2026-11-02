@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowRight, Check, Globe2, Phone, ShieldCheck } from 'lucide-react';
 import {
+  ACTIVATED_CARBON_PRODUCTS,
   COMPANY_INFO,
   EXPORT_AND_DOMESTIC_MARKETS,
   filterProductsBySearchQuery,
@@ -53,7 +54,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   const homeBg = PAGE_BACKGROUNDS['/'];
   const featuredBambooProducts = getFeaturedProducts('bamboo');
   const allPublishedProducts = useMemo(() => getPublishedProducts(), []);
-  const activatedCarbonProduct = getProductByIdOrSlug('activated-carbon');
   const publishedPrintingServices = getPublishedPrintingServices();
   const ballPenProduct = getProductByIdOrSlug('ball-pen');
 
@@ -279,8 +279,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
-                  imagePath="/images/products/bamboo-split-natural.webp"
-                  altText="Natural bamboo splits with authentic bamboo texture"
+                  imagePath="/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png"
+                  altText="TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)"
                   aspectClassName="aspect-[16/9]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Split & Sticks Export',
@@ -449,7 +449,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               selectedProductCategory === 'bamboo'
                 ? 'Product Catalog · Natural Bamboo, Activated Carbon & Stationery'
                 : selectedProductCategory === 'activated-carbon'
-                ? 'Product Catalog · Activated Carbon Inquiries'
+                ? 'Product Catalog · Activated Carbon Products (Origin: Myanmar)'
                 : selectedProductCategory === 'stationery'
                 ? 'Product Catalog · Printing & Stationery (Ball Pen)'
                 : 'Product Catalog · All Company Products & Specifications'
@@ -458,27 +458,27 @@ export const HomePage: React.FC<HomePageProps> = ({
               selectedProductCategory === 'bamboo'
                 ? 'ထုတ်ကုန်ကဏ္ဍ · သဘာဝဝါးထုတ်ကုန်၊ Activated Carbon နှင့် စာရေးကိရိယာ'
                 : selectedProductCategory === 'activated-carbon'
-                ? 'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)'
+                ? 'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် ထုတ်ကုန်များ (Activated Carbon)'
                 : selectedProductCategory === 'stationery'
                 ? 'ထုတ်ကုန်ကဏ္ဍ · စာရေးကိရိယာ ဘောပင် (Ball Pen — Klick & Plano)'
                 : 'ထုတ်ကုန်ကဏ္ဍ · ကုမ္ပဏီ၏ ထုတ်ကုန်အားလုံးနှင့် စံချိန်စံညွှန်းများ'
             }
             title={
               selectedProductCategory === 'activated-carbon'
-                ? 'Activated Carbon Product Category'
+                ? 'Activated Carbon Products (Nut Shell & Coconut Shell)'
                 : selectedProductCategory === 'stationery'
                 ? 'Ball Pen Stationery Products (Klick & Plano)'
                 : 'Featured Products & Technical Specifications'
             }
             titleMm={
               selectedProductCategory === 'activated-carbon'
-                ? 'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) ကုန်ပစ္စည်းကဏ္ဍ'
+                ? 'အက်တီဗိတ်တက် ကာဗွန် ထုတ်ကုန်များ (Nut Shell နှင့် Coconut Shell Activated Carbon)'
                 : selectedProductCategory === 'stationery'
                 ? 'စာရေးကိရိယာ ထုတ်ကုန် — ဘောပင် (Ball Pen · Klick နှင့် Plano)'
                 : 'အဓိက ထုတ်လုပ်ဖြန့်ဖြူးသော ထုတ်ကုန်များနှင့် စံချိန်စံညွှန်းများ'
             }
-            description="Search and filter our 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon inquiry category, and Ball Pen stationery (Klick & Plano) with verified specifications for domestic distribution and international export."
-            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်ဈေးကွက်များအတွက် ထုတ်လုပ်ထားသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ (ဝါးခြမ်းပြားနှင့် ဝါးတံ)၊ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) နှင့် ဘောပင် (Ball Pen — Klick နှင့် Plano) စာရေးကိရိယာများ၏ စံချိန်စံညွှန်း အချက်အလက်များကို ကဏ္ဍအလိုက် ရှာဖွေလေ့လာနိုင်ပါသည်။"
+            description="Search and filter our 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon products (Nut Shell Activated Carbon and Coconut Shell Activated Carbon), and Ball Pen stationery (Klick & Plano) with verified specifications for domestic distribution and international export."
+            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်ဈေးကွက်များအတွက် ထုတ်လုပ်ထားသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ (ဝါးခြမ်းပြားနှင့် ဝါးတံ)၊ အက်တီဗိတ်တက် ကာဗွန် ထုတ်ကုန်များ (Nut Shell နှင့် Coconut Shell Activated Carbon) နှင့် ဘောပင် (Ball Pen — Klick နှင့် Plano) စာရေးကိရိယာများ၏ စံချိန်စံညွှန်း အချက်အလက်များကို ကဏ္ဍအလိုက် ရှာဖွေလေ့လာနိုင်ပါသည်။"
             action={
               <Button
                 type="button"
@@ -546,30 +546,59 @@ export const HomePage: React.FC<HomePageProps> = ({
           )}
 
           {/* Dedicated Activated Carbon Product Page Cross-Link Banner */}
-          {activatedCarbonProduct && (
+          {ACTIVATED_CARBON_PRODUCTS.length > 0 && (
             <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               <div className="flex items-start gap-4 max-w-3xl">
                 <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
-                  <BambooProductIcon type={activatedCarbonProduct.visualType} className="w-6 h-6" />
+                  <BambooProductIcon type="charcoal" className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                     {t(
-                      'ADDITIONAL PRODUCT CATEGORY · ACTIVATED CARBON',
+                      'ACTIVATED CARBON PRODUCTS · ORIGIN: MYANMAR',
                       'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (ACTIVATED CARBON)'
                     )}
                   </p>
                   <h3 className="text-xl font-bold text-[#173D2A] mb-1.5">
                     {t(
-                      'Looking for Activated Carbon?',
-                      'အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon) အတွက် ဆက်သွယ်စုံစမ်းလိုပါသလား?'
+                      'Nut Shell Activated Carbon & Coconut Shell Activated Carbon',
+                      'ဆီးစေ့ခွံနှင့် အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)'
                     )}
                   </h3>
-                  <p className="text-sm text-[#26332B]/85 leading-relaxed">
-                    {isMm
-                      ? activatedCarbonProduct.shortDescriptionMm
-                      : activatedCarbonProduct.shortDescription}
+                  <p className="text-sm text-[#26332B]/85 leading-relaxed mb-3">
+                    {t(
+                      'TB Star Company Limited supplies Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed in 25 Kg per Bag with Country of Origin: Myanmar for international export and domestic B2B trade.',
+                      'TBStar Company Limited သည် မြန်မာနိုင်ငံထုတ် ဆီးစေ့ခွံ အက်တီဗိတ်တက် ကာဗွန် (Nut Shell Activated Carbon · ကုန်ကြမ်း - ဆီးစေ့ / Jujube Seed) နှင့် အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Coconut Shell Activated Carbon · ကုန်ကြမ်း - အုန်းမှုတ်ခွံ / Coconut Shell) တို့ကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ထုပ်ပိုးမှုဖြင့် ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်ဈေးကွက်သို့ ဖြန့်ဖြူးတင်ပို့ပေးလျက်ရှိပါသည်။'
+                    )}
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {ACTIVATED_CARBON_PRODUCTS.map((acProd) => {
+                      const rawMat = acProd.specifications.find(
+                        (s) => s.parameter === 'Raw Material'
+                      );
+                      const pack = acProd.specifications.find(
+                        (s) => s.parameter === 'Packaging'
+                      );
+                      return (
+                        <span
+                          key={acProd.id}
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-[#DDE5D9] text-xs font-semibold text-[#173D2A]"
+                        >
+                          <span>{isMm ? acProd.nameMm : acProd.name}</span>
+                          {rawMat && (
+                            <span className="text-[#245C3A] font-normal">
+                              · {isMm && rawMat.valueMm ? rawMat.valueMm : rawMat.value}
+                            </span>
+                          )}
+                          {pack && (
+                            <span className="text-[#26332B]/75 font-mono-tabular">
+                              ({isMm && pack.valueMm ? pack.valueMm : pack.value})
+                            </span>
+                          )}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -578,8 +607,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   type="button"
                   variant="primary-dark"
                   size="sm"
-                  href={activatedCarbonProduct.route}
-                  onClick={() => onNavigate(activatedCarbonProduct.route)}
+                  href="/charcoal"
+                  onClick={() => onNavigate('/charcoal')}
                 >
                   {t('Explore Activated Carbon', 'Activated Carbon စာမျက်နှာသို့')}
                   <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
@@ -588,8 +617,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   type="button"
                   variant="outline-dark"
                   size="sm"
-                  href={`/contact?inquiry=${encodeURIComponent(activatedCarbonProduct.inquiryType)}`}
-                  onClick={() => onInquireWithCategory(activatedCarbonProduct.inquiryType, true)}
+                  href={`/contact?inquiry=${encodeURIComponent('Activated Carbon')}`}
+                  onClick={() => onInquireWithCategory('Activated Carbon', true)}
                 >
                   {t('Inquire About Activated Carbon', 'Activated Carbon မေးမြန်းရန်')}
                 </Button>
@@ -1005,8 +1034,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl overflow-hidden shadow-2xs flex flex-col">
               <VisualAssetFrame
                 type="bamboo-sticks"
-                imagePath="/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp"
-                altText="Bamboo sticks prepared for commercial supply"
+                imagePath="/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png"
+                altText="TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag"
                 aspectClassName="aspect-[16/9]"
                 label={t(
                   'Bamboo Sticks · Standardized 30 kg per Bag Export Supply',

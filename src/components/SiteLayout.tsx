@@ -543,11 +543,7 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
                           href={prod.href}
                           onClick={(e) => {
                             e.preventDefault();
-                            if (prod.categoryKey === 'activated-carbon') {
-                              onNavigate(prod.route);
-                            } else {
-                              navigateAndScroll(prod.route, prod.sectionId);
-                            }
+                            navigateAndScroll(prod.route, prod.sectionId);
                           }}
                           className="hover:text-white transition-colors text-left cursor-pointer block"
                         >

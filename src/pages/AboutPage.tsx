@@ -22,6 +22,7 @@ import {
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
 import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import { ContactCTA } from '../components/CatalogComponents';
+import { CorporateGrowthTimeline } from '../components/CorporateGrowthTimeline';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -326,12 +327,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </section>
 
-      {/* Section 2: Detailed Breakdown of Core Business Activities */}
+      {/* Section 3: Vertical Scroll-Activated Growth Milestones Timeline (2013 – Present) */}
+      <CorporateGrowthTimeline
+        onNavigate={onNavigate}
+        onInquireWithCategory={onInquireWithCategory}
+      />
+
+      {/* Section 4: Detailed Breakdown of Core Business Activities */}
       <section className="py-20 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="03. Operational Scope · Core Business Activities"
-            kickerMm="၀၃။ လုပ်ငန်းဆောင်ရွက်မှု နယ်ပယ် · အဓိက စီးပွားရေးလုပ်ငန်းများ"
+            kicker="04. Operational Scope · Core Business Activities"
+            kickerMm="၀၄။ လုပ်ငန်းဆောင်ရွက်မှု နယ်ပယ် · အဓိက စီးပွားရေးလုပ်ငန်းများ"
             title="Core Business Activities & Market Coverage"
             titleMm="အဓိက လုပ်ငန်းဆောင်ရွက်မှုများနှင့် စျေးကွက်ဖြန့်ကျက်မှု"
             description="An organized breakdown of our three primary operational pillars: Bamboo Production & Export, Domestic Myanmar Distribution, and One-Stop Offset Printing & Stationery Services."
@@ -396,8 +403,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-sticks"
-                  imagePath="/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp"
-                  altText="Bamboo sticks prepared for commercial supply"
+                  imagePath="/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png"
+                  altText="TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag"
                   aspectClassName="aspect-[16/10]"
                   label={t(
                     '30KG Export & Wholesale Bag Packaging · Domestic Supply',
@@ -496,12 +503,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </section>
 
-      {/* Section 3: Core Corporate Values */}
+      {/* Section 5: Core Corporate Values */}
       <section className="py-20 bg-white border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="04. Operating Principles · Corporate Commitment"
-            kickerMm="၀၄။ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများ · ကုမ္ပဏီ၏ စံနှုန်းများ"
+            kicker="05. Operating Principles · Corporate Commitment"
+            kickerMm="၀၅။ လုပ်ငန်းဆောင်ရွက်မှု မူဝါဒများ · ကုမ္ပဏီ၏ စံနှုန်းများ"
             title="Our Core Corporate Values"
             titleMm="ကုမ္ပဏီ၏ အဓိက လုပ်ငန်းဆောင်ရွက်မှု စံနှုန်းများ"
             description="Guided by clear product specifications, responsive B2B coordination in Yangon, and commitment to natural material and print quality."
@@ -585,7 +592,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </section>
 
-      {/* Section 5: Business Partners & Collaboration */}
+      {/* Section 6: Business Partners & Collaboration */}
       <section
         id="business-partners"
         aria-label="Business Partners and Collaboration"
@@ -593,8 +600,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       >
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            kicker="05. Business Partners & B2B Collaboration"
-            kickerMm="၀၅။ လုပ်ငန်းမိတ်ဖက်များနှင့် ပူးပေါင်းဆောင်ရွက်မှု"
+            kicker="06. Business Partners & B2B Collaboration"
+            kickerMm="၀၆။ လုပ်ငန်းမိတ်ဖက်များနှင့် ပူးပေါင်းဆောင်ရွက်မှု"
             title="Long-Term Partnerships Across Export, Distribution & Printing"
             titleMm="လုပ်ငန်းမိတ်ဖက်များနှင့် ရေရှည်လက်တွဲ ပူးပေါင်းဆောင်ရွက်မှု"
             description="We build dependable B2B partnerships with international bamboo importers, domestic wholesalers, agricultural enterprises, and corporate printing clients."

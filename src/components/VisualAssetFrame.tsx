@@ -19,21 +19,42 @@ const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
   '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
 ]);
 
+const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
+  '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+  '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp',
+  '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
+  '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
+  '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
+  '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
+  '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+]);
+
+const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
+  '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+  '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp',
+  '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
+  '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
+  '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
+]);
+
 const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
-  'bamboo-split': '/images/products/bamboo-split-main.webp',
-  'bamboo-sticks': '/images/products/bamboo-sticks-main.webp',
-  'bamboo-custom': '/images/products/bamboo-split-natural.webp',
-  charcoal: '/assets/aistudio/Charcoal-Product.svg',
+  'bamboo-split': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+  'bamboo-sticks': '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
+  'bamboo-custom': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+  charcoal: '',
   'books-printing': '/assets/aistudio/TBStar_Books_Printing_Banner_59c4210b.webp',
   'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
   'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
 };
 
 const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
-  'bamboo-split': 'Natural Myanmar bamboo splits with nodes',
-  'bamboo-sticks': 'Natural bamboo sticks from Myanmar',
-  'bamboo-custom': 'Natural bamboo splits with authentic bamboo texture',
-  charcoal: 'TB Star Company Limited Activated Carbon Category Visual',
+  'bamboo-split':
+    'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
+  'bamboo-sticks':
+    'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
+  'bamboo-custom':
+    'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
+  charcoal: '',
   'books-printing':
     'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
   'voucher-printing':
@@ -48,30 +69,28 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
  */
 export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
   // Bamboo Split Assets
-  '/images/products/bamboo-split-main.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0VFRjVFRCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRDRFMkM4Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQzlCQTlCIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/images/products/bamboo-split-natural.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0Y1RjJFQSIvPjxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjREJDRkIzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOTlCNTc4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+  '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
+  '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/images/products/bamboo-split-wholesale.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJBNDQzMiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOEI5Rjc2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRDhDRkI4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/images/products/bamboo-split-featured.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0VBRjNFNiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjQzdEOEI1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQjhBQTg2Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/images/products/bamboo-split-texture.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0UyRDhDMiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjQzhCOUEwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjN0M5NDY0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+  '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFNUVDRUQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNDREUwQkUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
 
   // Bamboo Sticks Assets
-  '/images/products/bamboo-sticks-main.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0YwRjRFQyIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjREJEMkJDIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQzBBRTg2Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/images/products/bamboo-sticks-natural.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0YzRUZFNCIvPjxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjRDVDN0E5Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjODhBMTY4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/images/products/bamboo-sticks-wholesale.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJDNDUzNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOTRBMjgyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjREJDRkJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/assets/aistudio/bamboo-sticks-wholesale_d8d4d6b3.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJDNDUzNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOTRBMjgyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjREJDRkJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/images/products/bamboo-sticks-featured.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0VDRjJFNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRDBDN0FCIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjQjRBMjc4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/images/products/bamboo-sticks-texture.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0U2REMwNCIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRTVEREM2Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNDQUI5OTkiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4Nzk2NjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTIiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=',
+  '/assets/aistudio/bamboo-sticks-main_49720bd6.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNENUUzQzQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4QTlCNjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
+  '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNENUUzQzQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4QTlCNjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
+  '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNjAlIiBzdG9wLWNvbG9yPSIjRjRGNkYwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRTJFOEQwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+  '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZCRkFGNSIvPjxzdG9wIG9mZnNldD0iNjAlIiBzdG9wLWNvbG9yPSIjRjJFRUUyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjREJDRkJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
 
   // Ball Pen Stationery Assets
   '/assets/aistudio/Branding_Image_V1_c6c098a8.webp':
@@ -300,15 +319,16 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         className={`relative w-full ${aspectClassName} overflow-hidden rounded-lg bg-[#112E1F] border border-white/15 p-2 grid grid-cols-2 grid-rows-2 gap-2 select-none`}
       >
         {/* Top-Left: Bamboo Split */}
-        <div className="relative overflow-hidden rounded-md border border-white/15 group bg-[#173D2A]">
+        <div className="relative overflow-hidden rounded-md border border-white/15 group bg-white">
           <ProgressiveProductImage
-            src="/images/products/bamboo-split-main.webp"
-            alt="Natural Myanmar bamboo splits with nodes"
+            src="/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png"
+            alt="TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)"
             width={400}
             height={300}
             loading="eager"
             fetchPriority="high"
-            imgClassName="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            preserveNaturalLuminance={true}
+            imgClassName="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-2.5 py-1.5 flex items-center justify-between text-[10px] text-white">
             <span className="font-semibold truncate">
@@ -319,14 +339,15 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         </div>
 
         {/* Top-Right: Bamboo Sticks (30KG per bag) */}
-        <div className="relative overflow-hidden rounded-md border border-white/15 group bg-[#173D2A]">
+        <div className="relative overflow-hidden rounded-md border border-white/15 group bg-white">
           <ProgressiveProductImage
-            src="/images/products/bamboo-sticks-main.webp"
-            alt="Natural bamboo sticks from Myanmar"
+            src="/assets/aistudio/bamboo-sticks-main_49720bd6.webp"
+            alt="TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging"
             width={400}
             height={300}
             loading="eager"
-            imgClassName="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            preserveNaturalLuminance={true}
+            imgClassName="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-2.5 py-1.5 flex items-center justify-between text-[10px] text-white">
             <span className="font-semibold truncate">
@@ -363,23 +384,39 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
   }
 
   const resolvedImage =
-    imagePath ||
-    DEFAULT_IMAGE_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ||
-    '/images/products/bamboo-split-main.webp';
+    imagePath !== undefined
+      ? imagePath
+      : DEFAULT_IMAGE_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ?? '';
+
+  // Render an empty placeholder container when image field is intentionally left empty for future product images
+  if (!resolvedImage) {
+    return (
+      <div
+        className={`relative w-full ${aspectClassName} overflow-hidden bg-[#F6F8F3] border-b border-[#DDE5D9] select-none`}
+        aria-hidden="true"
+      />
+    );
+  }
 
   const isSvgPlaceholder = resolvedImage.endsWith('.svg');
   const isPromotionalPrintingBanner = PROMOTIONAL_PRINTING_BANNERS.has(resolvedImage);
+  const isBrandedBambooShowcase = BRANDED_BAMBOO_SHOWCASE_ASSETS.has(resolvedImage);
+  const isWidescreenBambooBanner = WIDESCREEN_BAMBOO_BANNERS.has(resolvedImage);
+  const isBrandedVisualAsset = isPromotionalPrintingBanner || isBrandedBambooShowcase;
 
   const resolvedObjectFit =
-    objectFit || (isPromotionalPrintingBanner ? 'contain' : 'cover');
+    objectFit || (isBrandedVisualAsset ? 'contain' : 'cover');
   const resolvedAspectClass =
     isPromotionalPrintingBanner && aspectClassName === 'aspect-[4/3]'
       ? 'aspect-[3/2]'
+      : isWidescreenBambooBanner &&
+        (aspectClassName === 'aspect-[4/3]' || aspectClassName === 'aspect-[16/10]')
+      ? 'aspect-[16/9]'
       : aspectClassName;
   const shouldHideOverlayBar =
-    hideOverlayBar !== undefined ? hideOverlayBar : isPromotionalPrintingBanner;
+    hideOverlayBar !== undefined ? hideOverlayBar : isBrandedVisualAsset;
   const isLightboxEnabled =
-    enableLightbox !== undefined ? enableLightbox : isPromotionalPrintingBanner;
+    enableLightbox !== undefined ? enableLightbox : isBrandedVisualAsset;
 
   const defaultAlt =
     DEFAULT_ALT_BY_TYPE[type as Exclude<VisualAssetType, 'hero-bamboo'>] ||
@@ -439,7 +476,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
   return (
     <div
       className={`relative w-full ${resolvedAspectClass} overflow-hidden ${
-        isPromotionalPrintingBanner || resolvedObjectFit === 'contain'
+        isBrandedVisualAsset || resolvedObjectFit === 'contain'
           ? 'bg-white'
           : 'bg-[#173D2A]'
       } text-white select-none`}
@@ -451,7 +488,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         height={1024}
         loading={loading}
         fetchPriority={fetchPriority}
-        preserveNaturalLuminance={isPromotionalPrintingBanner}
+        preserveNaturalLuminance={isBrandedVisualAsset}
         imgClassName={imageFitClass}
         onClick={isLightboxEnabled ? () => setIsLightboxOpen(true) : undefined}
       />
@@ -493,10 +530,17 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
             <div className="px-5 py-3.5 bg-[#173D2A] text-white border-b-2 border-[#F4B940] flex items-center justify-between gap-4">
               <div className="min-w-0">
                 <p className="text-[11px] font-mono-tabular text-[#F4B940] font-semibold truncate">
-                  {t(
-                    `${COMPANY_INFO.name} · One-Stop Offset Printing Services`,
-                    'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း'
-                  )}
+                  {type === 'bamboo-split' ||
+                  type === 'bamboo-sticks' ||
+                  type === 'bamboo-custom'
+                    ? t(
+                        `${COMPANY_INFO.name} · 100% Natural Myanmar Bamboo Products`,
+                        'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
+                      )
+                    : t(
+                        `${COMPANY_INFO.name} · One-Stop Offset Printing Services`,
+                        'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း'
+                      )}
                 </p>
                 <h3 className="text-sm sm:text-base font-bold text-white truncate">
                   {resolvedLabel}

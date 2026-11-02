@@ -141,9 +141,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       : product.imageAlt;
 
   const keySpecs = (product.specifications || []).filter(
-    (s) =>
-      s.parameter !== 'Product Name' &&
-      s.parameter !== 'Product Category'
+    (s) => s.parameter !== 'Product Category'
   );
 
   const featureList: string[] = (product.features || [])
@@ -416,6 +414,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                 imagePath={item.imagePath}
                 altText={item.altText}
                 aspectClassName="aspect-[16/10]"
+                enableLightbox={false}
                 label={isMm ? item.titleMm : item.title}
               />
               <button
@@ -517,6 +516,7 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
               imagePath={lightboxItem.imagePath}
               altText={lightboxItem.altText}
               aspectClassName="aspect-[16/9]"
+              enableLightbox={false}
               label={isMm ? lightboxItem.titleMm : lightboxItem.title}
             />
 
