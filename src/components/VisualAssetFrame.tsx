@@ -14,9 +14,9 @@ export type VisualAssetType =
   | 'hero-bamboo';
 
 const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
-  '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp',
-  '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
-  '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
+  '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp',
+  '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png',
+  '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp',
 ]);
 
 const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
@@ -45,9 +45,9 @@ const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, str
   'bamboo-sticks': '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
   'bamboo-custom': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
   'activated-carbon': '',
-  'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp',
-  'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp',
-  'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp',
+  'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp',
+  'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png',
+  'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp',
 };
 
 const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
@@ -104,11 +104,11 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjdGM0U4Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGMkVDRDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFNURGQzMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
 
   // Offset Printing Promotional Assets
-  '/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp':
+  '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/assets/aistudio/TBStar_Voucher_Book_Printing_0a73a6b8.webp':
+  '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
-  '/assets/aistudio/TBStar_Offset_Printing_Services_Banner_0ee53437.webp':
+  '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
 };
 
@@ -367,12 +367,12 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         {/* Bottom Span: One-Stop Offset Printing Services */}
         <div className="col-span-2 relative overflow-hidden rounded-md border border-white/15 group bg-white">
           <ProgressiveProductImage
-            src="/assets/aistudio/Books_Printing_for_a_Brighter_Future_5e0627c7.webp"
-            alt="TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions"
+            src="/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp"
+            alt="TB Star Company Limited Offset Printing Services — Commercial offset printing for books, voucher books, brochures, pamphlets, catalogs, business cards, letterheads, and office forms"
             width={800}
             height={300}
             preserveNaturalLuminance={true}
-            imgClassName="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            imgClassName="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-x-0 bottom-0 z-20 bg-[#081F14]/90 backdrop-blur-[2px] border-t border-white/15 px-3 py-1.5 flex items-center justify-between text-[11px] text-white">
             <span className="font-semibold truncate">
@@ -414,7 +414,10 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
   const resolvedObjectFit =
     objectFit || (isBrandedVisualAsset ? 'contain' : 'cover');
   const resolvedAspectClass =
-    isPromotionalPrintingBanner && aspectClassName === 'aspect-[4/3]'
+    isPromotionalPrintingBanner &&
+    (aspectClassName === 'aspect-[4/3]' ||
+      aspectClassName === 'aspect-[16/10]' ||
+      aspectClassName === 'aspect-[16/9]')
       ? 'aspect-[3/2]'
       : isWidescreenBambooBanner &&
         (aspectClassName === 'aspect-[4/3]' || aspectClassName === 'aspect-[16/10]')
