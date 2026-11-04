@@ -23,32 +23,14 @@ import { ActivatedCarbonPage } from './pages/ActivatedCarbonPage';
 import { PrintingServicesPage } from './pages/PrintingServicesPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
+import {
+  INDEXABLE_ROBOTS,
+  NOT_FOUND_SEO,
+  resolveRouteState,
+  VALID_ROUTES,
+} from './utils/seoHtml';
 
-export { buildStructuredData };
-
-export const VALID_ROUTES: PageRoute[] = [
-  '/',
-  '/about',
-  '/bamboo-products',
-  '/activated-carbon',
-  '/printing-services',
-  '/gallery',
-  '/contact',
-];
-
-function resolveRouteState(pathname: string): {
-  route: PageRoute;
-  isNotFound: boolean;
-} {
-  const normalized = pathname.replace(/\/+$/, '') || '/';
-  if (normalized === '/charcoal') {
-    return { route: '/activated-carbon', isNotFound: false };
-  }
-  if (VALID_ROUTES.includes(normalized as PageRoute)) {
-    return { route: normalized as PageRoute, isNotFound: false };
-  }
-  return { route: '/', isNotFound: true };
-}
+export { buildStructuredData, VALID_ROUTES };
 
 function resolveInquiryFromSearch(search: string): InquiryTypeOption | null {
   const params = new URLSearchParams(search);
@@ -63,8 +45,13 @@ const NotFoundView: React.FC<{ onNavigate: (route: PageRoute) => void }> = ({
   onNavigate,
 }) => {
   const { isMm, t } = useLanguage();
-  const attemptedPath =
-    typeof window !== 'undefined' ? window.location.pathname : '';
+  const [attemptedPath, setAttemptedPath] = useState<string>('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setAttemptedPath(window.location.pathname);
+    }
+  }, []);
 
   return (
     <section
@@ -143,20 +130,42 @@ const NotFoundView: React.FC<{ onNavigate: (route: PageRoute) => void }> = ({
   );
 };
 
-export default function App() {
+export interface AppProps {
+  initialPathname?: string;
+  initialSearch?: string;
+}
+
+export default function App({ initialPathname, initialSearch }: AppProps) {
   const [routeState, setRouteState] = useState<{
     route: PageRoute;
     isNotFound: boolean;
-  }>(() => resolveRouteState(window.location.pathname));
+  }>(() =>
+    resolveRouteState(
+      initialPathname ??
+        (typeof window !== 'undefined' ? window.location.pathname : '/')
+    )
+  );
 
   const currentRoute = routeState.route;
   const isNotFound = routeState.isNotFound;
 
-  const [selectedInquiryType, setSelectedInquiryType] = useState<InquiryTypeOption>(
-    () => resolveInquiryFromSearch(window.location.search) || 'Bamboo Split'
-  );
+  const [selectedInquiryType, setSelectedInquiryType] =
+    useState<InquiryTypeOption>(() =>
+      initialSearch
+        ? resolveInquiryFromSearch(initialSearch) || 'Bamboo Split'
+        : 'Bamboo Split'
+    );
   const [modalOpen, setModalOpen] = useState(false);
   const [gmpQuotaExceeded, setGmpQuotaExceeded] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const inq = resolveInquiryFromSearch(window.location.search);
+      if (inq) {
+        setSelectedInquiryType(inq);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const handleQuotaExceeded = () => {
@@ -171,12 +180,10 @@ export default function App() {
   // Sync page-level SEO title, meta description, canonical URL, robots, OpenGraph, and JSON-LD
   useEffect(() => {
     const seo = PAGE_SEO[currentRoute] || PAGE_SEO['/'];
-    const title = isNotFound
-      ? `Page Not Found (404) – ${COMPANY_INFO.name}`
-      : seo.title;
-    const description = isNotFound
-      ? `The requested page was not found on ${COMPANY_INFO.name}. Explore 100% natural Myanmar Bamboo Split, Bamboo Sticks, and One-Stop Offset Printing Services.`
-      : seo.description;
+    const title = isNotFound ? NOT_FOUND_SEO.title : seo.title;
+    const description = isNotFound ? NOT_FOUND_SEO.description : seo.description;
+    const ogImage = isNotFound ? NOT_FOUND_SEO.ogImage : seo.ogImage;
+    const ogImageAlt = isNotFound ? NOT_FOUND_SEO.ogImageAlt : seo.ogImageAlt;
 
     // Normalize trailing slashes or legacy /charcoal route in browser URL so URL matches canonical
     if (
@@ -212,19 +219,17 @@ export default function App() {
     setMetaContent('meta[name="description"]', description);
     setMetaContent(
       'meta[name="robots"]',
-      isNotFound
-        ? 'noindex, nofollow'
-        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      isNotFound ? NOT_FOUND_SEO.robots : INDEXABLE_ROBOTS
     );
     setMetaContent('meta[property="og:title"]', title);
     setMetaContent('meta[property="og:description"]', description);
     setMetaContent('meta[property="og:url"]', effectiveCanonicalUrl);
-    setMetaContent('meta[property="og:image"]', seo.ogImage);
-    setMetaContent('meta[property="og:image:alt"]', seo.ogImageAlt);
+    setMetaContent('meta[property="og:image"]', ogImage);
+    setMetaContent('meta[property="og:image:alt"]', ogImageAlt);
     setMetaContent('meta[name="twitter:title"]', title);
     setMetaContent('meta[name="twitter:description"]', description);
-    setMetaContent('meta[name="twitter:image"]', seo.ogImage);
-    setMetaContent('meta[name="twitter:image:alt"]', seo.ogImageAlt);
+    setMetaContent('meta[name="twitter:image"]', ogImage);
+    setMetaContent('meta[name="twitter:image:alt"]', ogImageAlt);
 
     const canonicalEl = document.querySelector('link[rel="canonical"]');
     if (canonicalEl) {

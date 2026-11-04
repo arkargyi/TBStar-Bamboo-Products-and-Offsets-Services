@@ -246,8 +246,12 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
   className = '',
 }) => {
   const { isMm, t } = useLanguage();
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
-  const [useEmbedFallback, setUseEmbedFallback] = useState<boolean>(!apiKey);
+  const apiKey =
+    (typeof import.meta !== 'undefined' &&
+      import.meta.env &&
+      import.meta.env.VITE_GOOGLE_MAPS_API_KEY) ||
+    '';
+  const [useEmbedFallback, setUseEmbedFallback] = useState<boolean>(true);
 
   const [copiedField, setCopiedField] = useState<'address' | 'coordinates' | null>(
     null
@@ -258,6 +262,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
       setUseEmbedFallback(true);
       return;
     }
+    setUseEmbedFallback(false);
     const handleMapError = () => {
       setUseEmbedFallback(true);
     };

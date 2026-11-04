@@ -1,5 +1,6 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -70,8 +71,28 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|images/|robots\\.txt|sitemap\\.xml).*)",
-      "destination": "/index.html"
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/bamboo-products",
+      "destination": "/bamboo-products.html"
+    },
+    {
+      "source": "/activated-carbon",
+      "destination": "/activated-carbon.html"
+    },
+    {
+      "source": "/printing-services",
+      "destination": "/printing-services.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/gallery.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
     }
   ]
 }

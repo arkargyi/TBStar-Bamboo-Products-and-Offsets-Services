@@ -52,7 +52,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   const [message, setMessage] = useState('');
   // Honeypot anti-spam field (must remain empty for legitimate users)
   const [websiteHoneypot, setWebsiteHoneypot] = useState('');
-  const formRenderedAtRef = useRef<number>(Date.now());
+  const formRenderedAtRef = useRef<number>(0);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -66,6 +66,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
+    formRenderedAtRef.current = Date.now();
+  }, []);
+
+  useEffect(() => {
     setInquiryType(selectedInquiryType);
   }, [selectedInquiryType]);
 
@@ -76,9 +80,40 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     }
   };
 
+  const buildLocalSummaryAndState = (refId: string, delivered: boolean, channel: string, notice?: string) => {
+    const label = isMm
+      ? INQUIRY_TYPE_LABELS[inquiryType].mm
+      : INQUIRY_TYPE_LABELS[inquiryType].en;
+    const summaryText = [
+      `INQUIRY REFERENCE: ${refId}`,
+      `INQUIRY FOR: ${COMPANY_INFO.name}`,
+      `Inquiry Type: ${label}`,
+      `Full Name: ${name.trim()}`,
+      `Company Name: ${companyName.trim() || 'Not specified'}`,
+      `Phone Number: ${phone.trim()}`,
+      `Message / Specifications:`,
+      message.trim(),
+    ].join('\n');
+
+    setDeliveryState({
+      inquiryId: refId,
+      delivered,
+      deliveryChannel: channel,
+      notice,
+    });
+    setSubmittedSummary(summaryText);
+  };
+
   const validateAndSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+
+    if (websiteHoneypot.trim().length > 0) {
+      setErrorMessage(
+        t('Automated spam submission detected.', 'အလိုအလျောက် စပမ်ပေးပို့မှုကို တွေ့ရှိရပါသည်။')
+      );
+      return;
+    }
 
     if (!name.trim() || name.trim().length < 2) {
       setErrorMessage(
@@ -104,6 +139,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     }
 
     setIsSubmitting(true);
+    const fallbackRefId = `TBS-${Date.now().toString(36).toUpperCase()}`;
 
     try {
       const response = await fetch('/api/inquiries', {
@@ -123,6 +159,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         }),
       });
 
+      // On static deployments (e.g. Vercel static hosting without Express server),
+      // /api/inquiries returns 404/405. Fall back cleanly to validated direct inquiry summary.
+      if (response.status === 404 || response.status === 405) {
+        buildLocalSummaryAndState(fallbackRefId, false, 'static-direct');
+        setIsSubmitting(false);
+        return;
+      }
+
       const data = (await response.json().catch(() => null)) as InquiryApiResponse | null;
 
       if (!response.ok || !data || !data.ok) {
@@ -137,35 +181,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         return;
       }
 
-      const refId = data.referenceId || data.inquiryId || 'TBS-INQUIRY';
-      const label = isMm
-        ? INQUIRY_TYPE_LABELS[inquiryType].mm
-        : INQUIRY_TYPE_LABELS[inquiryType].en;
-      const summaryText = [
-        `INQUIRY REFERENCE: ${refId}`,
-        `INQUIRY FOR: ${COMPANY_INFO.name}`,
-        `Inquiry Type: ${label}`,
-        `Full Name: ${name.trim()}`,
-        `Company Name: ${companyName.trim() || 'Not specified'}`,
-        `Phone Number: ${phone.trim()}`,
-        `Message / Specifications:`,
-        message.trim(),
-      ].join('\n');
-
-      setDeliveryState({
-        inquiryId: refId,
-        delivered: Boolean(data.delivered),
-        deliveryChannel: data.deliveryChannel || 'server-log',
-        notice: data.notice,
-      });
-      setSubmittedSummary(summaryText);
-    } catch {
-      setErrorMessage(
-        t(
-          `Network error while connecting to the inquiry server. Please contact us directly at ${COMPANY_INFO.telephone}.`,
-          `အင်တာနက်ချိတ်ဆက်မှု အခက်အခဲရှိနေပါသည်။ ဖုန်း ${COMPANY_INFO.telephone} သို့ တိုက်ရိုက် ဆက်သွယ်နိုင်ပါသည်။`
-        )
+      const refId = data.referenceId || data.inquiryId || fallbackRefId;
+      buildLocalSummaryAndState(
+        refId,
+        Boolean(data.delivered),
+        data.deliveryChannel || 'server-log',
+        data.notice
       );
+    } catch {
+      buildLocalSummaryAndState(fallbackRefId, false, 'static-direct');
     } finally {
       setIsSubmitting(false);
     }

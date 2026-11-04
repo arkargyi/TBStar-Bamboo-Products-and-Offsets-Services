@@ -2,33 +2,19 @@ import express, { Request, Response, NextFunction } from 'express';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import App from './src/App';
 import {
-  buildStructuredData,
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
   InquiryTypeOption,
-  PAGE_SEO,
   PageRoute,
 } from './src/constants/companyData';
-
-const VALID_ROUTES: PageRoute[] = [
-  '/',
-  '/about',
-  '/bamboo-products',
-  '/activated-carbon',
-  '/printing-services',
-  '/gallery',
-  '/contact',
-];
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
+import {
+  injectRouteSeoAndHtml,
+  VALID_ROUTES,
+} from './src/utils/seoHtml';
 
 function sanitizeText(input: unknown, maxLength: number): string {
   if (typeof input !== 'string') return '';
@@ -38,107 +24,19 @@ function sanitizeText(input: unknown, maxLength: number): string {
     .slice(0, maxLength);
 }
 
-function injectRouteSeoIntoHtml(html: string, pathname: string): {
+function renderRouteHtml(templateHtml: string, pathname: string): {
   html: string;
   statusCode: number;
 } {
-  const normalized = pathname.replace(/\/+$/, '') || '/';
-  const isKnownRoute = VALID_ROUTES.includes(normalized as PageRoute);
-  const route: PageRoute = isKnownRoute ? (normalized as PageRoute) : '/';
-  const seo = PAGE_SEO[route] || PAGE_SEO['/'];
-
-  const title = isKnownRoute
-    ? seo.title
-    : `Page Not Found (404) – ${COMPANY_INFO.name}`;
-  const description = isKnownRoute
-    ? seo.description
-    : `The requested page was not found on ${COMPANY_INFO.name}. Explore 100% natural Myanmar Bamboo Split, Bamboo Sticks, Activated Carbon, and One-Stop Offset Printing Services.`;
-  const robots = isKnownRoute
-    ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-    : 'noindex, nofollow';
-  const canonicalUrl = isKnownRoute
-    ? seo.canonicalUrl
-    : `${COMPANY_INFO.canonicalBase}${pathname}`;
-
-  let output = html;
-
-  output = output.replace(
-    /<title>[\s\S]*?<\/title>/i,
-    `<title>${escapeHtml(title)}</title>`
+  const appHtml = renderToString(
+    React.createElement(App, { initialPathname: pathname })
   );
-
-  output = output.replace(
-    /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="description" content="${escapeHtml(description)}" />`
+  const { html, statusCode } = injectRouteSeoAndHtml(
+    templateHtml,
+    pathname,
+    appHtml
   );
-
-  output = output.replace(
-    /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="robots" content="${escapeHtml(robots)}" />`
-  );
-
-  output = output.replace(
-    /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
-    `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:title" content="${escapeHtml(title)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:description" content="${escapeHtml(description)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:image" content="${escapeHtml(seo.ogImage)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:image:alt" content="${escapeHtml(seo.ogImageAlt)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="twitter:title" content="${escapeHtml(title)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="twitter:description" content="${escapeHtml(description)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="twitter:image" content="${escapeHtml(seo.ogImage)}" />`
-  );
-
-  output = output.replace(
-    /<meta\s+name="twitter:image:alt"\s+content="[^"]*"\s*\/?>/i,
-    `<meta name="twitter:image:alt" content="${escapeHtml(seo.ogImageAlt)}" />`
-  );
-
-  if (isKnownRoute) {
-    const jsonLd = JSON.stringify(buildStructuredData(route), null, 2);
-    output = output.replace(
-      /<script id="structured-data-jsonld" type="application\/ld\+json">[\s\S]*?<\/script>/i,
-      `<script id="structured-data-jsonld" type="application/ld+json">\n${jsonLd}\n    </script>`
-    );
-  }
-
-  return {
-    html: output,
-    statusCode: isKnownRoute ? 200 : 404,
-  };
+  return { html, statusCode };
 }
 
 // In-memory IP rate limiter for inquiry endpoint
@@ -275,6 +173,15 @@ async function startServer() {
       pathname === '/activated-carbon/'
     ) {
       return res.redirect(301, `/activated-carbon${qs}`);
+    }
+
+    const normalizedPath = pathname.replace(/\/+$/, '') || '/';
+    if (
+      pathname !== '/' &&
+      pathname.endsWith('/') &&
+      VALID_ROUTES.includes(normalizedPath as PageRoute)
+    ) {
+      return res.redirect(301, `${normalizedPath}${qs}`);
     }
     next();
   });
@@ -456,10 +363,7 @@ async function startServer() {
         const templatePath = path.resolve(process.cwd(), 'index.html');
         const rawTemplate = fs.readFileSync(templatePath, 'utf-8');
         const transformed = await vite.transformIndexHtml(url, rawTemplate);
-        const { html, statusCode } = injectRouteSeoIntoHtml(
-          transformed,
-          pathname
-        );
+        const { html, statusCode } = renderRouteHtml(transformed, pathname);
 
         res
           .status(statusCode)
@@ -477,6 +381,7 @@ async function startServer() {
     app.use(
       express.static(distPath, {
         index: false,
+        redirect: false,
         maxAge: '7d',
       })
     );
@@ -486,11 +391,39 @@ async function startServer() {
         return next();
       }
       if (!fs.existsSync(indexHtmlPath)) {
-        return res.status(500).send('Production build not found. Run npm run build.');
+        return res
+          .status(500)
+          .send('Production build not found. Run npm run build.');
       }
       const pathname = (req.originalUrl || '/').split('?')[0] || '/';
+      const normalized = pathname.replace(/\/+$/, '') || '/';
+      const isKnownRoute = VALID_ROUTES.includes(normalized as PageRoute);
+
+      if (isKnownRoute) {
+        const prerenderedPath =
+          normalized === '/'
+            ? indexHtmlPath
+            : path.join(distPath, `${normalized.slice(1)}.html`);
+        if (fs.existsSync(prerenderedPath)) {
+          const prerenderedHtml = fs.readFileSync(prerenderedPath, 'utf-8');
+          return res
+            .status(200)
+            .set({ 'Content-Type': 'text/html; charset=utf-8' })
+            .send(prerenderedHtml);
+        }
+      } else {
+        const notFoundHtmlPath = path.join(distPath, '404.html');
+        if (fs.existsSync(notFoundHtmlPath)) {
+          const notFoundHtml = fs.readFileSync(notFoundHtmlPath, 'utf-8');
+          return res
+            .status(404)
+            .set({ 'Content-Type': 'text/html; charset=utf-8' })
+            .send(notFoundHtml);
+        }
+      }
+
       const rawHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
-      const { html, statusCode } = injectRouteSeoIntoHtml(rawHtml, pathname);
+      const { html, statusCode } = renderRouteHtml(rawHtml, pathname);
       res
         .status(statusCode)
         .set({ 'Content-Type': 'text/html; charset=utf-8' })

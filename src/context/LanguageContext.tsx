@@ -16,22 +16,25 @@ const STORAGE_KEY = 'tbstar_preferred_language';
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<LanguageCode>(() => {
+  const [lang, setLangState] = useState<LanguageCode>('en');
+
+  useEffect(() => {
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
       if (saved === 'en' || saved === 'mm') {
-        return saved;
+        setLangState(saved);
       }
     } catch {
       // Ignore storage access errors in restricted environments
     }
-    return 'en';
-  });
+  }, []);
 
   const setLang = useCallback((nextLang: LanguageCode) => {
     setLangState(nextLang);
     try {
-      window.localStorage.setItem(STORAGE_KEY, nextLang);
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(STORAGE_KEY, nextLang);
+      }
     } catch {
       // Ignore storage access errors
     }
@@ -41,7 +44,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setLangState((prev) => {
       const next = prev === 'en' ? 'mm' : 'en';
       try {
-        window.localStorage.setItem(STORAGE_KEY, next);
+        if (typeof window !== 'undefined') {
+          window.localStorage.setItem(STORAGE_KEY, next);
+        }
       } catch {
         // Ignore storage access errors
       }
@@ -50,7 +55,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = lang === 'mm' ? 'my' : 'en';
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = lang === 'mm' ? 'my' : 'en';
+    }
   }, [lang]);
 
   const t = useCallback(
