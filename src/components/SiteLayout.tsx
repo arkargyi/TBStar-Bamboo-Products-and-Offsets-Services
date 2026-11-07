@@ -490,7 +490,23 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
               {t(COMPANY_INFO.overview, COMPANY_INFO.overviewMm)}
             </p>
             <p className="text-xs font-mono-tabular text-[#A8D977]">
-              {t('Official Domain:', 'ကုမ္ပဏီ ဝဘ်ဆိုက်ဒိုမိန်း -')} {COMPANY_INFO.domain}
+              {t('Official Domain:', 'ကုမ္ပဏီ ဝဘ်ဆိုက်ဒိုမိန်း -')}{' '}
+              <a
+                href={COMPANY_INFO.canonicalBase}
+                rel="home"
+                title={`${COMPANY_INFO.name} Official Website (${COMPANY_INFO.canonicalBase})`}
+                aria-label={t(
+                  `Go to ${COMPANY_INFO.name} Home (${COMPANY_INFO.domain})`,
+                  `${COMPANY_INFO.name} ပင်မစာမျက်နှာသို့ သွားရန် (${COMPANY_INFO.domain})`
+                )}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/');
+                }}
+                className="hover:text-white hover:underline underline-offset-4 transition-colors cursor-pointer"
+              >
+                {COMPANY_INFO.domain}
+              </a>
             </p>
           </div>
 

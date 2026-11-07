@@ -210,7 +210,22 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     {t('Corporate Domain', 'ဝဘ်ဆိုက်ဒိုမိန်း')}
                   </dt>
                   <dd className="font-mono-tabular font-semibold text-[#245C3A]">
-                    {COMPANY_INFO.domain}
+                    <a
+                      href={COMPANY_INFO.canonicalBase}
+                      rel="home"
+                      title={`${COMPANY_INFO.name} Official Website (${COMPANY_INFO.canonicalBase})`}
+                      aria-label={t(
+                        `Go to ${COMPANY_INFO.name} Home (${COMPANY_INFO.domain})`,
+                        `${COMPANY_INFO.name} ပင်မစာမျက်နှာသို့ သွားရန် (${COMPANY_INFO.domain})`
+                      )}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigate('/');
+                      }}
+                      className="hover:text-[#173D2A] hover:underline underline-offset-4 transition-colors cursor-pointer"
+                    >
+                      {COMPANY_INFO.domain}
+                    </a>
                   </dd>
                 </div>
               </dl>
