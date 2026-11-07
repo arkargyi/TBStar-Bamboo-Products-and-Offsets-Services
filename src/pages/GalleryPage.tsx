@@ -95,11 +95,11 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                 {isMm ? (
                   <>
-                    ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော <strong>{COMPANY_INFO.nameMm}</strong> သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (Bamboo Split — အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ရောင်းချလျက်ရှိပါသည်။
+                    ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော <strong>{COMPANY_INFO.nameMm}</strong> သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (Bamboo Split — အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ရောင်းချလျက်ရှိပါသည်။
                   </>
                 ) : (
                   <>
-                    Established in 2013, <strong>{COMPANY_INFO.name}</strong> manufactures 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2–2.5 mm, 8&quot;/9&quot;/10&quot;, packed at 30 kg per bag) for domestic distribution and international export.
+                    Established in 2013, <strong>{COMPANY_INFO.name}</strong> manufactures 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2–2.5 mm, 8&quot;/9&quot;/10&quot;, packed at 1 KG Per Bundle / 30 Bundles Per Bag) for domestic distribution and international export.
                   </>
                 )}
               </p>
@@ -142,8 +142,8 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             kickerMm="ကဏ္ဍအလိုက် ဓာတ်ပုံပြခန်း · ပုံများကို နှိပ်၍ အကြီးချဲ့ကြည့်ရှုနိုင်ပါသည်"
             title="Bamboo Products, Export Packaging, Offset Printing & Stationery Gallery"
             titleMm="ဝါးထုတ်ကုန်၊ ပို့ကုန်ထုပ်ပိုးမှု၊ အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာ ဓာတ်ပုံပြခန်း"
-            description="Filter by category to inspect our Natural Bamboo Split & Sticks, Bamboo Production Workflow, 30 kg Export Bag Packaging, Offset Printing Deliverables, and Ball Pen Stationery (Klick & Plano)."
-            descriptionMm="သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံထုတ်ကုန်များ၊ ဝါးထုတ်လုပ်မှုလုပ်ငန်းစဉ်၊ တစ်အိတ် 30 kg ပို့ကုန်ထုပ်ပိုးမှု၊ အော့ဖ်ဆက် ပုံနှိပ်ထုတ်ကုန်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ကဏ္ဍအလိုက် ရွေးချယ်ကြည့်ရှုနိုင်ပါသည်။"
+            description="Filter by category to inspect our Natural Bamboo Split & Sticks, Bamboo Production Workflow, 30 Bundles Per Bag Export Packaging, Offset Printing Deliverables, and Ball Pen Stationery (Klick & Plano)."
+            descriptionMm="သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံထုတ်ကုန်များ၊ ဝါးထုတ်လုပ်မှုလုပ်ငန်းစဉ်၊ တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ပို့ကုန်ထုပ်ပိုးမှု၊ အော့ဖ်ဆက် ပုံနှိပ်ထုတ်ကုန်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ကဏ္ဍအလိုက် ရွေးချယ်ကြည့်ရှုနိုင်ပါသည်။"
           />
 
           <GalleryGrid

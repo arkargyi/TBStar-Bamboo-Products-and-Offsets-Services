@@ -54,7 +54,7 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
   'bamboo-split':
     'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
   'bamboo-sticks':
-    'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
+    'TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging',
   'bamboo-custom':
     'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
   'activated-carbon': '',
@@ -345,11 +345,11 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
           </div>
         </div>
 
-        {/* Top-Right: Bamboo Sticks (30KG per bag) */}
+        {/* Top-Right: Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag) */}
         <div className="relative overflow-hidden rounded-md border border-white/15 group bg-white">
           <ProgressiveProductImage
             src="/assets/aistudio/bamboo-sticks-main_49720bd6.webp"
-            alt="TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging"
+            alt="TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging"
             width={400}
             height={300}
             loading="eager"
@@ -360,7 +360,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
             <span className="font-semibold truncate">
               {t('Bamboo Sticks', 'ဝါးတံ (Bamboo Sticks)')}
             </span>
-            <span className="text-[#A8D977] font-mono-tabular shrink-0">30KG/bag</span>
+            <span className="text-[#A8D977] font-mono-tabular shrink-0">30 Bundles/Bag</span>
           </div>
         </div>
 
@@ -446,8 +446,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
       )
     : type === 'bamboo-sticks'
     ? t(
-        'TB Star Company · Bamboo Sticks (1.2–2.5 mm · 30 kg/bag)',
-        'TBStar Company Limited · ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30 kg)'
+        'TB Star Company · Bamboo Sticks (1.2–2.5 mm · 1 KG Per Bundle / 30 Bundles Per Bag)',
+        'TBStar Company Limited · ဝါးတံ (1.2–2.5 mm · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း)'
       )
     : type === 'bamboo-custom'
     ? t(

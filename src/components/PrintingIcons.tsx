@@ -277,7 +277,7 @@ export const EcoAdvantageIcon: React.FC<EcoAdvantageIconProps> = ({
           className={className}
           aria-hidden="true"
         >
-          {/* 30KG Export Sack Body */}
+          {/* 30 Bundles Per Bag Export Sack Body */}
           <path
             d="M11 14C11 12.3431 12.3431 11 14 11H26C27.6569 11 29 12.3431 29 14L31 30C31 31.6569 29.6569 33 28 33H12C10.3431 33 9 31.6569 9 30L11 14Z"
             fill="#F6F8F3"
@@ -389,7 +389,7 @@ export const BambooProductIcon: React.FC<BambooProductIconProps> = ({
             strokeWidth="2.2"
             strokeLinecap="round"
           />
-          {/* Binding Band (30KG Export Bundle) */}
+          {/* Binding Band (1 KG Per Bundle Export Bundle) */}
           <rect
             x="8"
             y="16.5"

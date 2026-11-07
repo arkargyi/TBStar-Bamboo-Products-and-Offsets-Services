@@ -1,11 +1,27 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import { execSync } from 'node:child_process';
 import path from 'path';
-import {defineConfig} from 'vite';
+import { defineConfig, Plugin } from 'vite';
+
+function tbstarBuildPrerenderPlugin(): Plugin {
+  return {
+    name: 'tbstar-build-prerender',
+    apply: 'build',
+    buildStart() {
+      if (process.env.SKIP_VITE_PRERENDER === 'true') return;
+      execSync('npx tsx scripts/generate-sitemap.ts', { stdio: 'inherit' });
+    },
+    closeBundle() {
+      if (process.env.SKIP_VITE_PRERENDER === 'true') return;
+      execSync('npx tsx scripts/prerender.tsx', { stdio: 'inherit' });
+    },
+  };
+}
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), tbstarBuildPrerenderPlugin()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
@@ -20,3 +36,4 @@ export default defineConfig(() => {
     },
   };
 });
+

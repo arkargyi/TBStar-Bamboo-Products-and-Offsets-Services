@@ -98,26 +98,26 @@ export const CORPORATE_GROWTH_MILESTONES: GrowthMilestoneItem[] = [
     step: '03',
     year: '2018 – 2019',
     yearMm: '၂၀၁၈ – ၂၀၁၉',
-    phaseTag: 'BAMBOO STICKS & 30KG EXPORT BAGGING',
-    phaseTagMm: 'ဝါးတံထုတ်လုပ်မှုနှင့် 30KG ပြည်ပပို့ကုန် ထုပ်ပိုးမှုစနစ်',
-    title: 'Precision Bamboo Sticks & Standardized 30 kg Export Supply',
-    titleMm: 'သဘာဝဝါးတံ (Bamboo Sticks) နှင့် တစ်အိတ် 30 kg ပို့ကုန်ထုပ်ပိုးမှု',
+    phaseTag: 'BAMBOO STICKS & 30 BUNDLES/BAG EXPORT PACKAGING',
+    phaseTagMm: 'ဝါးတံထုတ်လုပ်မှုနှင့် တစ်အိတ်လျှင် ၃၀ စည်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှုစနစ်',
+    title: 'Precision Bamboo Sticks & Standardized 30 Bundles Per Bag Export Supply',
+    titleMm: 'သဘာဝဝါးတံ (Bamboo Sticks) နှင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ပို့ကုန်ထုပ်ပိုးမှု',
     description:
-      'Scaled high-volume production of 1.2 to 2.5 mm Bamboo Sticks in 8, 9, and 10 inch sizes with standardized 30 kg per bag woven export packaging (6 bundles × 5 kg = 30 kg), serving both domestic Myanmar distribution and international export buyers.',
+      'Scaled high-volume production of 1.2 to 2.5 mm Bamboo Sticks in 8, 9, and 10 inch sizes with standardized export packaging (1 KG Per Bundle / 30 Bundles Per Bag), serving both domestic Myanmar distribution and international export buyers.',
     descriptionMm:
-      'အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈ လက်မ၊ ၉ လက်မနှင့် ၁၀ လက်မရှိသော သဘာဝဝါးတံများကို တစ်စည်း 5 kg × ၆ စည်း (တစ်အိတ်လျှင် 30 kg) စံနှုန်းဖြင့် ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်စျေးကွက်များသို့ တိုးချဲ့တင်ပို့ခဲ့ပါသည်။',
+      'အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈ လက်မ၊ ၉ လက်မနှင့် ၁၀ လက်မရှိသော သဘာဝဝါးတံများကို တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း စံနှုန်းဖြင့် ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်စျေးကွက်များသို့ တိုးချဲ့တင်ပို့ခဲ့ပါသည်။',
     highlights: [
       'Bamboo Sticks sized at 1.2–2.5 mm thickness in 8", 9", and 10" lengths',
-      'Standardized 5 kg bundles packed 6 bundles per 30 kg woven export bag',
+      'Standardized export packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
       'Coordinated domestic Myanmar distribution and international export logistics',
     ],
     highlightsMm: [
       'အထူ 1.2–2.5 mm နှင့် အရွယ်အစား ၈"၊ ၉"၊ ၁၀" သဘာဝဝါးတံများ ထုတ်လုပ်မှု',
-      'တစ်စည်း 5 kg ဖြင့် တစ်အိတ်လျှင် ၆ စည်း (စုစုပေါင်း 30 kg) ပို့ကုန်ထုပ်ပိုးမှု',
+      'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း စံနှုန်းမီ ပို့ကုန်ထုပ်ပိုးမှု',
       'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန် တင်ပို့မှုကွန်ရက် ချဲ့ထွင်ခြင်း',
     ],
-    metricLabel: '1.2–2.5 mm · 8", 9", 10" · 30 kg/bag',
-    metricLabelMm: '1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg',
+    metricLabel: '1.2–2.5 mm · 8", 9", 10" · 1 KG/Bundle · 30 Bundles/Bag',
+    metricLabelMm: '1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း',
     iconType: 'bamboo-sticks',
     ctaLabel: 'Inquire About Bamboo Sticks',
     ctaLabelMm: 'ဝါးတံ မေးမြန်းရန်',
@@ -504,8 +504,8 @@ export const CorporateGrowthTimeline: React.FC<CorporateGrowthTimelineProps> = (
             </h3>
             <p className="text-sm text-white/85 leading-relaxed">
               {t(
-                'From 100% natural Myanmar Bamboo Split and 30 kg/bag Bamboo Sticks to Activated Carbon inquiries, One-Stop Offset Printing, and Ball Pen stationery, our Yangon team is ready to support your requirements.',
-                'သဘာဝ မြန်မာ့ဝါးခြမ်းပြားနှင့် တစ်အိတ် 30 kg ဝါးတံများ၊ Activated Carbon၊ တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းနှင့် Ball Pen စာရေးကိရိယာများအတွက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
+                'From 100% natural Myanmar Bamboo Split and Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag) to Activated Carbon inquiries, One-Stop Offset Printing, and Ball Pen stationery, our Yangon team is ready to support your requirements.',
+                'သဘာဝ မြန်မာ့ဝါးခြမ်းပြားနှင့် ဝါးတံများ (တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း)၊ Activated Carbon၊ တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်းနှင့် Ball Pen စာရေးကိရိယာများအတွက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။'
               )}
             </p>
           </div>

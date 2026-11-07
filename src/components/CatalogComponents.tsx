@@ -706,7 +706,7 @@ const DEFAULT_QUICK_SUGGESTIONS: ProductSearchSuggestion[] = [
   { label: 'Bamboo Split', labelMm: 'ဝါးခြမ်းပြား', query: 'Bamboo Split' },
   { label: 'Bamboo Sticks', labelMm: 'ဝါးတံ', query: 'Bamboo Sticks' },
   { label: 'With Nodes', labelMm: 'အဆစ်ပါ (With Nodes)', query: 'With Nodes' },
-  { label: '30 kg per bag', labelMm: 'တစ်အိတ် 30 kg', query: '30 kg' },
+  { label: '30 Bundles Per Bag', labelMm: 'တစ်အိတ်လျှင် ၃၀ စည်း', query: '30 Bundles Per Bag' },
   { label: 'Activated Carbon', labelMm: 'Activated Carbon', query: 'Activated Carbon' },
   { label: 'Ball Pen (Klick / Plano)', labelMm: 'ဘောပင် (Klick / Plano)', query: 'Ball Pen' },
 ];
@@ -736,8 +736,8 @@ export const ProductSearchBar: React.FC<ProductSearchBarProps> = ({
   showCategoryTabs = false,
   categoryTabs = DEFAULT_PRODUCT_SEARCH_TABS,
   suggestions = DEFAULT_QUICK_SUGGESTIONS,
-  placeholder = 'Search products by name, description, dimension, or packaging (e.g. Bamboo Split, 30 kg, Without Nodes)...',
-  placeholderMm = 'ထုတ်ကုန်အမည်၊ အကြောင်းအရာ၊ အရွယ်အစား သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - ဝါးခြမ်းပြား၊ ဝါးတံ၊ 30 kg)...',
+  placeholder = 'Search products by name, description, dimension, or packaging (e.g. Bamboo Split, 30 Bundles Per Bag, Without Nodes)...',
+  placeholderMm = 'ထုတ်ကုန်အမည်၊ အကြောင်းအရာ၊ အရွယ်အစား သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - ဝါးခြမ်းပြား၊ ဝါးတံ၊ တစ်အိတ်လျှင် ၃၀ စည်း)...',
   inputId = 'tbstar-product-search-input',
 }) => {
   const { isMm, t } = useLanguage();
@@ -898,8 +898,8 @@ export const ProductSearchEmptyState: React.FC<ProductSearchEmptyStateProps> = (
       </h3>
       <p className="text-sm text-[#26332B]/80 max-w-xl mx-auto mb-5 leading-relaxed">
         {t(
-          'Try searching by product name (Bamboo Split, Bamboo Sticks, Activated Carbon, Ball Pen) or specification keywords (3 mm, With Nodes, Without Nodes, 30 kg, Klick, Plano).',
-          'ထုတ်ကုန်အမည် (Bamboo Split၊ Bamboo Sticks၊ Activated Carbon၊ Ball Pen) သို့မဟုတ် အသေးစိတ်အချက်အလက်များ (3 mm၊ အဆစ်ပါ၊ အဆစ်မပါ၊ 30 kg၊ Klick၊ Plano) ဖြင့် ပြန်လည်ရှာဖွေကြည့်ပါ။'
+          'Try searching by product name (Bamboo Split, Bamboo Sticks, Activated Carbon, Ball Pen) or specification keywords (3 mm, With Nodes, Without Nodes, 1 KG Per Bundle, 30 Bundles Per Bag, Klick, Plano).',
+          'ထုတ်ကုန်အမည် (Bamboo Split၊ Bamboo Sticks၊ Activated Carbon၊ Ball Pen) သို့မဟုတ် အသေးစိတ်အချက်အလက်များ (3 mm၊ အဆစ်ပါ၊ အဆစ်မပါ၊ တစ်စည်းလျှင် ၁ ကီလိုဂရမ်၊ တစ်အိတ်လျှင် ၃၀ စည်း၊ Klick၊ Plano) ဖြင့် ပြန်လည်ရှာဖွေကြည့်ပါ။'
         )}
       </p>
       <Button type="button" variant="primary-dark" size="sm" onClick={onReset}>

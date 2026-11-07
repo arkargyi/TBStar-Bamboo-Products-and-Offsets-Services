@@ -515,8 +515,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder={t(
-            'Specify product requirements (e.g., Bamboo Split 3 mm 20–48 inches with or without nodes, Bamboo Sticks 8"/9"/10" packed 30 kg per bag, Activated Carbon inquiry, Books / Voucher Books Printing, or Ball Pen Klick 30 pcs/box / Plano 50 pcs/box)...',
-            'လိုအပ်သော ကုန်ပစ္စည်းအချက်အလက် (ဥပမာ - ဝါးခြမ်းပြား 3 mm ၂၀–၄၈ လက်မ၊ 30 kg အိတ်သွင်း ဝါးတံ၊ Activated Carbon၊ စာအုပ်/ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်း သို့မဟုတ် Ball Pen Klick / Plano) ကို ရေးသားပေးပါ...'
+            'Specify product requirements (e.g., Bamboo Split 3 mm 20–48 inches with or without nodes, Bamboo Sticks 8"/9"/10" packed 1 KG Per Bundle / 30 Bundles Per Bag, Activated Carbon inquiry, Books / Voucher Books Printing, or Ball Pen Klick 30 pcs/box / Plano 50 pcs/box)...',
+            'လိုအပ်သော ကုန်ပစ္စည်းအချက်အလက် (ဥပမာ - ဝါးခြမ်းပြား 3 mm ၂၀–၄၈ လက်မ၊ ဝါးတံ တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း၊ Activated Carbon၊ စာအုပ်/ဘောင်ချာစာအုပ် ပုံနှိပ်ခြင်း သို့မဟုတ် Ball Pen Klick / Plano) ကို ရေးသားပေးပါ...'
           )}
           className="w-full px-3.5 py-2.5 rounded-lg border border-[#DDE5D9] bg-[#F6F8F3]/60 text-sm text-[#26332B] focus:bg-white focus:border-[#245C3A] focus:outline-none transition-colors resize-y"
         />

@@ -584,12 +584,12 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         notesMm: 'ရရှိနိုင်သော အရှည်အတိုင်းအတာ',
       },
       {
-        parameter: 'Available Types',
-        parameterMm: 'ရရှိနိုင်သော အမျိုးအစားများ',
-        value: 'With Nodes / Without Nodes',
-        valueMm: 'အဆစ်ပါ (With Nodes) / အဆစ်မပါ (Without Nodes)',
-        notes: 'With nodes or without nodes',
-        notesMm: 'အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ',
+        parameter: 'Packaging',
+        parameterMm: 'ထုပ်ပိုးမှု (Packaging)',
+        value: '50 pcs Per Bundle (with Nodes), 100 pcs Per Bundle (without Nodes)',
+        valueMm: 'တစ်စည်းလျှင် 50 pcs (အဆစ်ပါ)၊ တစ်စည်းလျှင် 100 pcs (အဆစ်မပါ)',
+        notes: '50 pcs per bundle (with nodes), 100 pcs per bundle (without nodes)',
+        notesMm: 'အဆစ်ပါ တစ်စည်း 50 pcs၊ အဆစ်မပါ တစ်စည်း 100 pcs',
       },
       {
         parameter: 'Origin',
@@ -616,41 +616,41 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     index: '02',
     name: 'Bamboo Sticks',
     nameMm: 'ဝါးတံ (Bamboo Sticks)',
-    footerLabel: 'Bamboo Sticks (8", 9", 10" · 30 kg/bag)',
-    footerLabelMm: 'ဝါးတံ (၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg)',
+    footerLabel: 'Bamboo Sticks (8", 9", 10" · 1 KG/Bundle · 30 Bundles/Bag)',
+    footerLabelMm: 'ဝါးတံ (၈"၊ ၉"၊ ၁၀" · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)',
     category: 'bamboo',
     categoryLabel: '100% Natural Bamboo · Domestic & Export Supply',
     categoryMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါး · ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်',
     descriptions: {
       short:
-        '100% natural Myanmar bamboo sticks in 1.2 to 2.5 mm thickness across 8, 9, and 10 inch sizes, packed 30 kg per bag.',
+        '100% natural Myanmar bamboo sticks in 1.2 to 2.5 mm thickness across 8, 9, and 10 inch sizes, packed at 1 KG Per Bundle / 30 Bundles Per Bag.',
       shortMm:
-        '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈ လက်မ၊ ၉ လက်မ နှင့် ၁၀ လက်မ ဝါးတံများကို တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားပါသည်။',
+        '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈ လက်မ၊ ၉ လက်မ နှင့် ၁၀ လက်မ ဝါးတံများကို တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း စံနှုန်းဖြင့် ထုပ်ပိုးထားပါသည်။',
       detailed:
-        'Manufactured from 100% natural bamboo originating in Myanmar, our Bamboo Sticks are supplied in thicknesses from 1.2 to 2.5 mm and sizes of 8, 9, and 10 inches, packed 30 kg per bag for domestic distribution in Myanmar and international export.',
+        'Manufactured from 100% natural bamboo originating in Myanmar, our Bamboo Sticks are supplied in thicknesses from 1.2 to 2.5 mm and sizes of 8, 9, and 10 inches, packed at 1 KG Per Bundle / 30 Bundles Per Bag for domestic distribution in Myanmar and international export.',
       detailedMm:
-        'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 1.2 မှ 2.5 mm နှင့် အရွယ်အစား ၈ လက်မ၊ ၉ လက်မ၊ ၁၀ လက်မ ဝါးတံများကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်အတွက် တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg per bag) ထုပ်ပိုးထားပါသည်။',
+        'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် အထူ 1.2 မှ 2.5 mm နှင့် အရွယ်အစား ၈ လက်မ၊ ၉ လက်မ၊ ၁၀ လက်မ ဝါးတံများကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်အတွက် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားပါသည်။',
     },
     visualType: 'bamboo-sticks',
     images: {
       main: '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
       mainAlt:
-        'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
+        'TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging',
       featured: '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
       featuredAlt:
-        'TB Star Company Limited Natural Myanmar Bamboo Sticks Showcase — 1.2mm to 2.5mm thickness, 8/9/10 inches, 5KG per bundle and 30KG per bag',
+        'TB Star Company Limited Natural Myanmar Bamboo Sticks Showcase — 1.2mm to 2.5mm thickness, 8/9/10 inches, 1 KG Per Bundle / 30 Bundles Per Bag',
       natural: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
       naturalAlt:
-        'Myanmar Bamboo Sticks 6-bundle packaging — 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
+        'Myanmar Bamboo Sticks bundle and woven bag packaging — 1 KG Per Bundle / 30 Bundles Per Bag',
       wholesale: '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
       wholesaleAlt:
-        'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag',
+        'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 1 KG Per Bundle / 30 Bundles Per Bag',
       texture: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
       textureAlt:
-        'Myanmar Bamboo Sticks packaging structure: 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
+        'Myanmar Bamboo Sticks packaging structure: 1 KG Per Bundle / 30 Bundles Per Bag',
     },
-    placeholderNote: 'Bamboo Sticks · 1.2–2.5 mm · 8", 9", 10" · 30 kg per bag',
-    placeholderNoteMm: 'ဝါးတံ · အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg',
+    placeholderNote: 'Bamboo Sticks · 1.2–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag',
+    placeholderNoteMm: 'ဝါးတံ · အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း',
     inquiryType: 'Bamboo Sticks',
     published: true,
     featured: true,
@@ -659,34 +659,34 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     relatedProductIds: ['bamboo-split'],
     detailSubCards: [
       {
-        kicker: 'BUNDLE & BAG PACKAGING · 6 × 5KG = 30KG',
-        kickerMm: 'အစည်းနှင့် အိတ်ထုပ်ပိုးမှု · ၆ စည်း × 5KG = 30KG',
-        title: '5 kg per Bundle · 6 Bundles per 30 kg Bag',
-        titleMm: 'တစ်စည်းလျှင် 5 kg · တစ်အိတ်လျှင် ၆ စည်း (စုစုပေါင်း 30 kg)',
+        kicker: 'BUNDLE & BAG PACKAGING · 1 KG / BUNDLE · 30 BUNDLES / BAG',
+        kickerMm: 'အစည်းနှင့် အိတ်ထုပ်ပိုးမှု · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း',
+        title: '1 KG Per Bundle / 30 Bundles Per Bag',
+        titleMm: 'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း',
         description:
-          'Standardized bundle and bag packaging structure for 100% natural Myanmar bamboo sticks: 5 kg per bundle, with 6 bundles packed into each 30 kg woven export bag (6 bundles × 5KG = 30KG).',
+          'Standardized bundle and bag packaging for 100% natural Myanmar bamboo sticks: 1 KG Per Bundle / 30 Bundles Per Bag in woven export bags.',
         descriptionMm:
-          '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံများကို တစ်စည်းလျှင် 5 kg စည်းနှောင်ထားပြီး တစ်အိတ်လျှင် ၆ စည်း (6 bundles × 5KG = 30KG) စနစ်တကျ ထုပ်ပိုးထားပါသည်။',
+          '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံများကို တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စနစ်တကျ ထုပ်ပိုးထားပါသည်။',
         imagePath: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
         imageAlt:
-          'Myanmar Bamboo Sticks packaging structure: 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
-        frameLabel: 'Bamboo Sticks · 6 Bundles × 5KG = 30KG Packaging',
-        frameLabelMm: 'ဝါးတံ · တစ်စည်း 5KG × ၆ စည်း = တစ်အိတ် 30KG ထုပ်ပိုးမှု',
+          'Myanmar Bamboo Sticks packaging structure: 1 KG Per Bundle / 30 Bundles Per Bag',
+        frameLabel: 'Bamboo Sticks · 1 KG Per Bundle / 30 Bundles Per Bag',
+        frameLabelMm: 'ဝါးတံ · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း',
       },
       {
         kicker: 'COMMERCIAL & WHOLESALE SUPPLY',
         kickerMm: 'လက်ကားနှင့် ပြည်ပပို့ကုန်',
-        title: '30 kg per Bag Commercial & Wholesale Showcase',
-        titleMm: 'တစ်အိတ်လျှင် 30 kg လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်',
+        title: '30 Bundles Per Bag Commercial & Wholesale Showcase',
+        titleMm: 'တစ်အိတ်လျှင် ၃၀ စည်း လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်',
         description:
-          'Available in 8, 9, and 10 inch sizes and packed 30 kg per bag (6 × 5 kg bundles) for domestic distribution in Myanmar and international export.',
+          'Available in 8, 9, and 10 inch sizes and packed at 1 KG Per Bundle / 30 Bundles Per Bag for domestic distribution in Myanmar and international export.',
         descriptionMm:
-          'အရွယ်အစား ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်အိတ်လျှင် 30 kg (5 kg အစည်း ၆ စည်း) ထုပ်ပိုးထားသော လက်ကားနှင့် ပြည်ပပို့ကုန် ဝါးတံများ။',
+          'အရွယ်အစား ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးထားသော လက်ကားနှင့် ပြည်ပပို့ကုန် ဝါးတံများ။',
         imagePath: '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
         imageAlt:
-          'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag',
-        frameLabel: 'Bamboo Sticks · 5KG Bundle & 30KG Wholesale Bag Showcase',
-        frameLabelMm: 'ဝါးတံ · 5KG အစည်းနှင့် 30KG လက်ကားပို့ကုန်အိတ် ပြကွက်',
+          'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 1 KG Per Bundle / 30 Bundles Per Bag',
+        frameLabel: 'Bamboo Sticks · 1 KG Per Bundle / 30 Bundles Per Bag Showcase',
+        frameLabelMm: 'ဝါးတံ · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း ပြကွက်',
       },
     ],
     specifications: [
@@ -725,10 +725,10 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       {
         parameter: 'Packaging',
         parameterMm: 'ထုပ်ပိုးမှုပုံစံ (Packaging)',
-        value: '30 kg per bag',
-        valueMm: 'တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg per bag)',
-        notes: 'Packed 30 kg per bag',
-        notesMm: 'တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးမှု',
+        value: '1 KG Per Bundle / 30 Bundles Per Bag',
+        valueMm: 'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း',
+        notes: '1 KG Per Bundle / 30 Bundles Per Bag',
+        notesMm: 'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးမှု',
       },
       {
         parameter: 'Origin',
@@ -740,12 +740,12 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       },
     ],
     seo: {
-      title: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30 kg/bag) | TB Star',
+      title: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag) | TB Star',
       description:
-        '100% natural Myanmar Bamboo Sticks in 1.2 to 2.5 mm thickness and 8, 9, and 10 inch sizes, packed 30 kg per bag.',
+        '100% natural Myanmar Bamboo Sticks in 1.2 to 2.5 mm thickness and 8, 9, and 10 inch sizes, packed at 1 KG Per Bundle / 30 Bundles Per Bag.',
       ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/bamboo-sticks-main_49720bd6.webp`,
       ogImageAlt:
-        'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
+        'TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/bamboo-products#product-bamboo-sticks`,
     },
   },
@@ -1804,7 +1804,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   '/bamboo-products': {
     title: `${publishedBambooNames || 'Bamboo Products'} Specifications – 100% Natural Myanmar Bamboo | TB Star`,
     description:
-      'Explore 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 to 2.5 mm, 8, 9, 10 inches, packed 30 kg per bag) from TB Star Company Limited.',
+      'Explore 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 to 2.5 mm, 8, 9, 10 inches, packed at 1 KG Per Bundle / 30 Bundles Per Bag) from TB Star Company Limited.',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/bamboo-products`,
     ogImage:
       BAMBOO_PRODUCTS[0]?.seo.ogImage ||
@@ -1849,7 +1849,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   '/gallery': {
     title: 'Product & Packaging Gallery – Bamboo, Offset Printing & Ball Pen | TB Star',
     description:
-      'Inspect product photos of 100% natural Myanmar Bamboo Split, Bamboo Sticks, 30 kg export packaging, Offset Printing deliverables, and Klick & Plano Ball Pens.',
+      'Inspect product photos of 100% natural Myanmar Bamboo Split, Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag), Offset Printing deliverables, and Klick & Plano Ball Pens.',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/gallery`,
     ogImage: `${COMPANY_INFO.canonicalBase}/images/products/bamboo-split-featured.webp`,
     ogImageAlt: `${COMPANY_INFO.name} Product and Packaging Gallery`,
@@ -2202,7 +2202,7 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     visualType: 'bamboo-sticks',
     imagePath: '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
     altText:
-      'TB Star Company Limited Natural Myanmar Bamboo Sticks — bundled sticks and 30KG per bag export packaging',
+      'TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging',
   },
   {
     id: 'gal-bamboo-split-brochure',
@@ -2233,31 +2233,31 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   },
   {
     id: 'gal-bamboo-sticks-packaging',
-    title: 'Bamboo Sticks — 30 kg per Bag Wholesale Product Showcase',
-    titleMm: 'ဝါးတံ — တစ်အိတ်လျှင် 30 kg လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်',
+    title: 'Bamboo Sticks — 30 Bundles Per Bag Wholesale Product Showcase',
+    titleMm: 'ဝါးတံ — တစ်အိတ်လျှင် ၃၀ စည်း လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်',
     category: 'Packaging',
     caption:
-      'Official TB Star Company Limited Bamboo Sticks wholesale showcase featuring a 5 kg bundle and 30 kg woven export bag.',
+      'Official TB Star Company Limited Bamboo Sticks wholesale showcase: 1 KG Per Bundle / 30 Bundles Per Bag in woven export bags.',
     captionMm:
-      '5 kg အစည်းနှင့် တစ်အိတ်လျှင် 30 kg ထုပ်ပိုးထားသော TBStar Company Limited ၏ မြန်မာ့ဝါးတံ လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်။',
+      'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း စံနှုန်းဖြင့် ထုပ်ပိုးထားသော TBStar Company Limited ၏ မြန်မာ့ဝါးတံ လက်ကားနှင့် ပြည်ပပို့ကုန် ပြကွက်။',
     visualType: 'bamboo-sticks',
     imagePath: '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
     altText:
-      'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag',
+      'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 1 KG Per Bundle / 30 Bundles Per Bag',
   },
   {
     id: 'gal-bamboo-sticks-six-bundle',
-    title: 'Bamboo Sticks — 6 Bundles × 5KG = 30KG Packaging Structure',
-    titleMm: 'ဝါးတံ — တစ်စည်း 5KG × ၆ စည်း = တစ်အိတ် 30KG ထုပ်ပိုးမှုပုံစံ',
+    title: 'Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag Packaging',
+    titleMm: 'ဝါးတံ — တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးမှုပုံစံ',
     category: 'Packaging',
     caption:
-      'Standardized packaging breakdown: 5 kg per bundle with 6 bundles packed per 30 kg woven export bag (6 bundles × 5KG = 30KG).',
+      'Standardized packaging specification for natural Myanmar Bamboo Sticks: 1 KG Per Bundle / 30 Bundles Per Bag.',
     captionMm:
-      'တစ်စည်းလျှင် 5 kg ဖြင့် အစည်း ၆ စည်းကို တစ်အိတ်လျှင် 30 kg (6 bundles × 5KG = 30KG) စနစ်တကျ ထုပ်ပိုးထားပုံ။',
+      'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စနစ်တကျ ထုပ်ပိုးထားပုံ။',
     visualType: 'bamboo-sticks',
     imagePath: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
     altText:
-      'Myanmar Bamboo Sticks packaging structure: 5KG per bundle, 30KG per bag (6 bundles × 5KG = 30KG)',
+      'Myanmar Bamboo Sticks packaging structure: 1 KG Per Bundle / 30 Bundles Per Bag',
   },
   {
     id: 'gal-bamboo-split-bundles',
@@ -2386,9 +2386,9 @@ export const WHY_CHOOSE_US_ITEMS: WhyChooseUsItem[] = [
     title: 'Verified Myanmar Bamboo Specifications',
     titleMm: 'တိကျမှန်ကန်သော မြန်မာ့သဘာဝဝါး စံချိန်စံညွှန်းများ',
     description:
-      'We supply 3 mm Bamboo Split (20 to 48 inches, with nodes or without nodes) and 1.2–2.5 mm Bamboo Sticks (8", 9", 10", packed 30 kg per bag).',
+      'We supply 3 mm Bamboo Split (20 to 48 inches, with nodes or without nodes) and 1.2–2.5 mm Bamboo Sticks (8", 9", 10", packed at 1 KG Per Bundle / 30 Bundles Per Bag).',
     descriptionMm:
-      'အထူ 3 mm ဝါးခြမ်းပြား (၂၀ မှ ၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ) နှင့် 1.2–2.5 mm ဝါးတံ (၈"၊ ၉"၊ ၁၀"၊ တစ်အိတ် 30 kg) တို့ကို ထုတ်လုပ်ပေးပါသည်။',
+      'အထူ 3 mm ဝါးခြမ်းပြား (၂၀ မှ ၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ) နှင့် 1.2–2.5 mm ဝါးတံ (၈"၊ ၉"၊ ၁၀"၊ တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) တို့ကို ထုတ်လုပ်ပေးပါသည်။',
   },
   {
     index: '03',
@@ -2452,11 +2452,11 @@ export const INDUSTRIES_SERVED: IndustryServedItem[] = [
     title: 'Raw Bamboo Sticks for Incense & Crafts',
     titleMm: 'အမွှေးတိုင်နှင့် လက်မှုလုပ်ငန်းသုံး သဘာဝဝါးတံများ',
     description:
-      '1.2 to 2.5 mm natural bamboo sticks in 8, 9, and 10 inch sizes, packed 30 kg per bag.',
+      '1.2 to 2.5 mm natural bamboo sticks in 8, 9, and 10 inch sizes, packed at 1 KG Per Bundle / 30 Bundles Per Bag.',
     descriptionMm:
-      'အမွှေးတိုင်လုပ်ငန်းနှင့် လက်မှုကုန်ထုတ်လုပ်ငန်းများအတွက် အထူ 1.2–2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" ဝါးတံများကို တစ်အိတ် 30 kg ထုပ်ပိုးပံ့ပိုးပေးပါသည်။',
-    productsUsed: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 30 kg/bag)',
-    productsUsedMm: 'ဝါးတံ (အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg)',
+      'အမွှေးတိုင်လုပ်ငန်းနှင့် လက်မှုကုန်ထုတ်လုပ်ငန်းများအတွက် အထူ 1.2–2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" ဝါးတံများကို တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးပံ့ပိုးပေးပါသည်။',
+    productsUsed: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag)',
+    productsUsedMm: 'ဝါးတံ (အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း)',
     inquiryType: 'Bamboo Sticks',
   },
   {
@@ -2550,17 +2550,17 @@ export const EXPORT_AND_DOMESTIC_MARKETS = {
     title: 'International Export Supply',
     titleMm: 'နိုင်ငံတကာ ပြည်ပပို့ကုန် တင်ပို့ရောင်းချခြင်း',
     description:
-      'We supply 100% natural Myanmar Bamboo Split and Bamboo Sticks (packed 30 kg per bag) for international export.',
+      'We supply 100% natural Myanmar Bamboo Split and Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag) for international export.',
     descriptionMm:
-      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံ (တစ်အိတ် 30 kg) တို့ကို နိုင်ငံတကာ ပြည်ပပို့ကုန်အဖြစ် တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။',
+      'မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံ (တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) တို့ကို နိုင်ငံတကာ ပြည်ပပို့ကုန်အဖြစ် တင်ပို့ရောင်းချပေးလျက်ရှိပါသည်။',
     regions: [
       {
         name: 'Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes)',
         nameMm: 'ဝါးခြမ်းပြား (အထူ 3 mm၊ ၂၀ မှ ၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ)',
       },
       {
-        name: 'Bamboo Sticks (1.2 to 2.5 mm, sizes 8, 9, 10 inches, packed 30 kg per bag)',
-        nameMm: 'ဝါးတံ (အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈၊ ၉၊ ၁၀ လက်မ၊ တစ်အိတ် 30 kg)',
+        name: 'Bamboo Sticks (1.2 to 2.5 mm, sizes 8, 9, 10 inches, 1 KG Per Bundle / 30 Bundles Per Bag)',
+        nameMm: 'ဝါးတံ (အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈၊ ၉၊ ၁၀ လက်မ၊ တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း)',
       },
       {
         name: 'Direct export inquiry coordination from Yangon, Myanmar',
@@ -2617,14 +2617,14 @@ export const QUALITY_AND_STANDARDS: QualityStandardItem[] = [
     index: '03',
     category: 'Bamboo Sticks Packaging',
     categoryMm: 'ဝါးတံ ထုပ်ပိုးမှုစံနှုန်း',
-    title: '1.2–2.5 mm Thickness & 30 kg Bags',
-    titleMm: 'အထူ 1.2–2.5 mm နှင့် 30 kg ထုပ်ပိုးမှု',
+    title: '1.2–2.5 mm Thickness & 30 Bundles Per Bag',
+    titleMm: 'အထူ 1.2–2.5 mm နှင့် တစ်အိတ် ၃၀ စည်း ထုပ်ပိုးမှု',
     description:
-      'Sized to 1.2 to 2.5 mm thickness in 8, 9, and 10 inch sizes and packed 30 kg per bag.',
+      'Sized to 1.2 to 2.5 mm thickness in 8, 9, and 10 inch sizes and packed at 1 KG Per Bundle / 30 Bundles Per Bag.',
     descriptionMm:
-      'အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" ဝါးတံများကို တစ်အိတ် 30 kg ထုပ်ပိုးထားပါသည်။',
-    standardSpec: '1.2–2.5 mm · 8", 9", 10" · 30 kg/bag',
-    standardSpecMm: '1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် 30 kg',
+      'အထူ 1.2 မှ 2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" ဝါးတံများကို တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးထားပါသည်။',
+    standardSpec: '1.2–2.5 mm · 8", 9", 10" · 1 KG/Bundle · 30 Bundles/Bag',
+    standardSpecMm: '1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း',
   },
   {
     id: 'qual-printing',
@@ -2671,12 +2671,12 @@ export const COMPANY_VISION_MISSION = {
     statementMm:
       'မြန်မာ့သဘာဝဝါးထုတ်ကုန်များကို တိကျသော စံချိန်စံညွှန်းများအတိုင်း ထုတ်လုပ်ဖြန့်ဖြူးရန်နှင့် စီးပွားရေးလုပ်ငန်းများအတွက် အော့ဖ်ဆက်ပုံနှိပ်နှင့် စာရေးကိရိယာများကို တစ်နေရာတည်းတွင် ပံ့ပိုးပေးရန်။',
     highlights: [
-      'Supplying Bamboo Split (3 mm, 20–48 inches) and Bamboo Sticks (30 kg/bag)',
+      'Supplying Bamboo Split (3 mm, 20–48 inches) and Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag)',
       'Serving both domestic Myanmar distribution and international export markets',
       'Delivering Books Printing, Voucher Books Printing, and Klick / Plano Ball Pens',
     ],
     highlightsMm: [
-      'ဝါးခြမ်းပြား (3 mm, ၂၀–၄၈ လက်မ) နှင့် ဝါးတံ (30 kg/bag) တို့ကို ထုတ်လုပ်တင်ပို့ခြင်း',
+      'ဝါးခြမ်းပြား (3 mm, ၂၀–၄၈ လက်မ) နှင့် ဝါးတံ (တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) တို့ကို ထုတ်လုပ်တင်ပို့ခြင်း',
       'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်စျေးကွက် နှစ်ခုလုံးကို ဝန်ဆောင်မှုပေးခြင်း',
       'စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် Klick / Plano ဘောပင်များကို ဖြန့်ဖြူးပေးခြင်း',
     ],
@@ -2697,9 +2697,9 @@ export const PROPOSED_CORPORATE_VALUES: CorporateValueItem[] = [
     title: 'Clear & Verified Product Specifications',
     titleMm: 'တိကျရှင်းလင်းသော ကုန်ပစ္စည်း စံချိန်စံညွှန်းများ',
     description:
-      'Every bamboo and stationery product is presented with clear specifications—from 3 mm Bamboo Split (20 to 48 inches) to 30 kg Bamboo Stick bags and boxed Ball Pens.',
+      'Every bamboo and stationery product is presented with clear specifications—from 3 mm Bamboo Split (20 to 48 inches) to Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag) and boxed Ball Pens.',
     descriptionMm:
-      'အထူ 3 mm ဝါးခြမ်းပြားများ (၂၀ မှ ၄၈ လက်မ)၊ တစ်အိတ် 30 kg ဝါးတံများနှင့် Klick / Plano ဘောပင်ဘူးများအထိ စံချိန်စံညွှန်းများကို ရှင်းလင်းစွာ ဖော်ပြထားပါသည်။',
+      'အထူ 3 mm ဝါးခြမ်းပြားများ (၂၀ မှ ၄၈ လက်မ)၊ တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ဝါးတံများနှင့် Klick / Plano ဘောပင်ဘူးများအထိ စံချိန်စံညွှန်းများကို ရှင်းလင်းစွာ ဖော်ပြထားပါသည်။',
   },
   {
     index: '02',
@@ -2749,12 +2749,12 @@ export const BUSINESS_PARTNERS_COLLABORATION: BusinessPartnerCollaborationItem[]
       'မြန်မာ့သဘာဝ ဝါးခြမ်းပြားနှင့် ဝါးတံများကို ပြည်ပသို့ တင်သွင်းလိုသော နိုင်ငံတကာ ဝယ်ယူသူများနှင့် လက်တွဲဆောင်ရွက်ပါသည်။',
     collaborationPoints: [
       'Bamboo Split: 3 mm thickness, 20 to 48 inches, with nodes or without nodes',
-      'Bamboo Sticks: 1.2 to 2.5 mm, 8"/9"/10", packed 30 kg per bag',
+      'Bamboo Sticks: 1.2 to 2.5 mm, 8"/9"/10", packed at 1 KG Per Bundle / 30 Bundles Per Bag',
       'Direct export inquiry coordination with our Yangon office',
     ],
     collaborationPointsMm: [
       'ဝါးခြမ်းပြား - အထူ 3 mm၊ ၂၀ မှ ၄၈ လက်မ၊ အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ',
-      'ဝါးတံ - အထူ 1.2–2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" (တစ်အိတ် 30 kg)',
+      'ဝါးတံ - အထူ 1.2–2.5 mm၊ အရွယ်အစား ၈"၊ ၉"၊ ၁၀" (တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း)',
       'ရန်ကုန်ရုံးချုပ်နှင့် တိုက်ရိုက်ချိတ်ဆက်၍ ပို့ကုန်ဆောင်ရွက်နိုင်ခြင်း',
     ],
     inquiryType: 'Bamboo Split',

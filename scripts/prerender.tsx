@@ -68,14 +68,16 @@ function prerenderBuild() {
       const slug = route.replace(/^\/+/, '');
       const flatHtmlPath = path.join(distDir, `${slug}.html`);
       const nestedDir = path.join(distDir, slug);
-      const nestedIndexPath = path.join(nestedDir, 'index.html');
 
-      fs.mkdirSync(nestedDir, { recursive: true });
+      // Remove any legacy nested directory index so flat .html files do not collide under cleanUrls + trailingSlash: false
+      if (fs.existsSync(nestedDir)) {
+        fs.rmSync(nestedDir, { recursive: true, force: true });
+      }
+
       fs.writeFileSync(flatHtmlPath, html, 'utf-8');
-      fs.writeFileSync(nestedIndexPath, html, 'utf-8');
 
       console.log(
-        `  ✓ ${route} -> dist/${slug}.html & dist/${slug}/index.html | H1: "${h1Text}" | Canonical: ${expectedSeo.canonicalUrl}`
+        `  ✓ ${route} -> dist/${slug}.html | H1: "${h1Text}" | Canonical: ${expectedSeo.canonicalUrl}`
       );
     }
   }

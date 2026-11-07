@@ -173,8 +173,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </p>
                   <p>
                     {t(
-                      'Bamboo Split (3 mm · 20"–48") & Sticks (30 kg/bag)',
-                      'ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (30 kg/bag)'
+                      'Bamboo Split (3 mm · 20"–48") & Sticks (1 KG/Bundle · 30 Bundles/Bag)',
+                      'ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)'
                     )}
                   </p>
                 </div>
@@ -280,7 +280,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <VisualAssetFrame
                   type="bamboo-split"
                   imagePath="/assets/aistudio/TB_Star_Bamboo_Product_Showcase.png"
-                  altText="TB Star Company Limited Bamboo Products Showcase — 100% Natural Myanmar Bamboo Splits (3mm, 20 to 48 inches, with nodes / without nodes) and Bamboo Sticks (1.2mm to 2.5mm, 8, 9, 10 inches, 5KG per bundle, 30KG per bag)"
+                  altText="TB Star Company Limited Bamboo Products Showcase — 100% Natural Myanmar Bamboo Splits (3mm, 20 to 48 inches, with nodes / without nodes) and Bamboo Sticks (1.2mm to 2.5mm, 8, 9, 10 inches, 1 KG Per Bundle / 30 Bundles Per Bag)"
                   aspectClassName="aspect-[16/9]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Split & Sticks Export',
@@ -324,7 +324,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       { en: 'Bamboo Split (3 mm · 20"–48")', mm: 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")' },
                       { en: 'With Nodes or Without Nodes options', mm: 'အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ရွေးချယ်နိုင်ခြင်း' },
                       { en: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10")', mm: 'ဝါးတံ (အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀")' },
-                      { en: 'Standard 30 kg/bag packaging', mm: 'တစ်အိတ် 30 kg စံနှုန်းထုပ်ပိုးမှု' },
+                      { en: '1 KG Per Bundle / 30 Bundles Per Bag', mm: 'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း' },
                       { en: 'Domestic Myanmar distribution', mm: 'ပြည်တွင်းဖြန့်ဖြူးရေး' },
                       { en: 'International export supply', mm: 'နိုင်ငံတကာ ပြည်ပပို့ကုန်' },
                     ].map((item) => (
@@ -771,8 +771,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
               <p className="text-base text-[#26332B]/85 leading-relaxed mb-6">
                 {t(
-                  'With long-term operational experience since 2013, our Bamboo Production and Export division manufactures 100% natural Myanmar bamboo products—including Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (30 kg per bag)—for domestic distribution and international export. Our Printing Services & Stationery division provides one-stop offset printing solutions for Books Printing, Voucher Books Printing, and commercial printing alongside Ball Pen stationery supply (Klick & Plano).',
-                  '၂၀၁၃ ခုနှစ်မှစတင်၍ ရေရှည်လုပ်ငန်းအတွေ့အကြုံများဖြင့် ကျွန်ုပ်တို့၏ ဝါးထုတ်ကုန်ဌာနမှ ၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အထူ 3 mm၊ အရှည် ၂၀" မှ ၄၈"၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) တို့ကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ပေးလျက်ရှိပြီး၊ ပုံနှိပ်နှင့် စာရေးကိရိယာဌာနမှ စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
+                  'With long-term operational experience since 2013, our Bamboo Production and Export division manufactures 100% natural Myanmar bamboo products—including Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag)—for domestic distribution and international export. Our Printing Services & Stationery division provides one-stop offset printing solutions for Books Printing, Voucher Books Printing, and commercial printing alongside Ball Pen stationery supply (Klick & Plano).',
+                  '၂၀၁၃ ခုနှစ်မှစတင်၍ ရေရှည်လုပ်ငန်းအတွေ့အကြုံများဖြင့် ကျွန်ုပ်တို့၏ ဝါးထုတ်ကုန်ဌာနမှ ၁၀၀% သဘာဝမြန်မာ့ဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အထူ 3 mm၊ အရှည် ၂၀" မှ ၄၈"၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) တို့ကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ပေးလျက်ရှိပြီး၊ ပုံနှိပ်နှင့် စာရေးကိရိယာဌာနမှ စာအုပ်များ၊ ဘောင်ချာစာအုပ်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများကို ဆောင်ရွက်ပေးလျက်ရှိပါသည်။'
                 )}
               </p>
 
@@ -1035,11 +1035,11 @@ export const HomePage: React.FC<HomePageProps> = ({
               <VisualAssetFrame
                 type="bamboo-sticks"
                 imagePath="/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png"
-                altText="TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 5KG bundle and 30KG woven bag"
+                altText="TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 1 KG Per Bundle / 30 Bundles Per Bag"
                 aspectClassName="aspect-[16/9]"
                 label={t(
-                  'Bamboo Sticks · Standardized 30 kg per Bag Export Supply',
-                  'ဝါးတံ · တစ်အိတ်လျှင် 30 kg စံနှုန်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
+                  'Bamboo Sticks · 1 KG Per Bundle / 30 Bundles Per Bag Export Supply',
+                  'ဝါးတံ · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
                 )}
               />
               <div className="p-6 sm:p-8 flex-1">
@@ -1112,7 +1112,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             kickerMm="ဓာတ်ပုံမှတ်တမ်း · ကဏ္ဍအလိုက် ထုတ်ကုန်ပြခန်း"
             title="Products, Packaging & Printing Gallery"
             titleMm="ထုတ်ကုန်နှင့် လုပ်ငန်းဆောင်ရွက်မှု ဓာတ်ပုံမှတ်တမ်း"
-            description="Explore our natural Myanmar bamboo products, 30 kg export bag packaging, and one-stop offset printing deliverables."
+            description="Explore our natural Myanmar bamboo products, 30 Bundles Per Bag export packaging, and one-stop offset printing deliverables."
             descriptionMm="ဝါးထုတ်ကုန်များ၊ ထုတ်လုပ်မှုလုပ်ငန်းစဉ်၊ ထုပ်ပိုးမှုပုံစံနှင့် ပုံနှိပ်ထုတ်ကုန် အမျိုးအစားများကို ကဏ္ဍအလိုက် လေ့လာကြည့်ရှုနိုင်ပါသည်။"
             action={
               <Button

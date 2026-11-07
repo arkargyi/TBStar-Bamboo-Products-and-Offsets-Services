@@ -111,12 +111,12 @@ const WHY_CHOOSE_BAMBOO_ITEMS: WhyChooseBambooItem[] = [
     highlights: [
       'Fast natural regeneration from existing root systems',
       '100% plant-based, plastic-free raw material for agriculture & industry',
-      'High-yield culm utilization and breathable 30 kg export bagging',
+      'High-yield culm utilization and breathable 30 Bundles Per Bag export bagging (1 KG Per Bundle)',
     ],
     highlightsMm: [
       'မူလအမြစ်စနစ်မှ သဘာဝအလျောက် လျင်မြန်စွာ ပြန်လည်ရှင်သန်ကြီးထွားမှု',
       'စိုက်ပျိုးရေးနှင့် စက်မှုလုပ်ငန်းသုံး ပလတ်စတစ်ကင်းစင်သော သဘာဝကုန်ကြမ်း',
-      'အလေအလွင့်နည်းပါးသော ထုတ်လုပ်မှုနှင့် တစ်အိတ် 30 kg စံချိန်မီ ထုပ်ပိုးမှု',
+      'အလေအလွင့်နည်းပါးသော ထုတ်လုပ်မှုနှင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း စံချိန်မီ ထုပ်ပိုးမှု',
     ],
     metricLabel: 'Renewable Plant Fiber · Plastic-Free Supply',
     metricLabelMm: 'ပြန်လည်ပြည့်ဖြိုးမြဲ သဘာဝအမျှင် · ပလတ်စတစ်ကင်းစင်',
@@ -219,14 +219,14 @@ const ECO_ADVANTAGE_ITEMS: EcoAdvantageItem[] = [
     icon: 'sustainable-packaging',
     kicker: 'Export Logistics Efficiency',
     kickerMm: 'ပြည်ပပို့ကုန် စံချိန်မီ ထုပ်ပိုးမှု',
-    title: 'Breathable 30KG Export Bagging & Bundling',
-    titleMm: 'လေဝင်လေထွက်ကောင်းမွန်သော 30KG စံချိန်မီ ထုပ်ပိုးမှုပုံစံ',
+    title: 'Breathable 30 Bundles Per Bag Export Bagging & Bundling',
+    titleMm: 'လေဝင်လေထွက်ကောင်းမွန်သော တစ်အိတ် ၃၀ စည်း စံချိန်မီ ထုပ်ပိုးမှုပုံစံ',
     description:
-      'Standardized 30 kg per bag packaging and tightly bound bundles protect natural bamboo moisture balance during sea freight and maximize container loading efficiency.',
+      'Standardized 1 KG Per Bundle / 30 Bundles Per Bag packaging protects natural bamboo moisture balance during sea freight and maximizes container loading efficiency.',
     descriptionMm:
-      'တစ်အိတ်လျှင် ၃၀ ကီလိုဂရမ် (30 kg) စံနှုန်းဖြင့် လေဝင်လေထွက်ကောင်းမွန်စွာ ထုပ်ပိုးထားသဖြင့် ပင်လယ်ရေကြောင်း တင်ပို့ရာတွင် အစိုဓာတ်ထိန်းညှိပေးပြီး သဘာဝအရည်အသွေးကို အပြည့်အဝ ထိန်းသိမ်းပေးပါသည်။',
-    metricLabel: 'Standardized 30 kg/bag · Export Ready',
-    metricLabelMm: 'တစ်အိတ်လျှင် 30 kg စံနှုန်း · ပြည်ပပို့ကုန်အဆင့်',
+      'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း စံနှုန်းဖြင့် လေဝင်လေထွက်ကောင်းမွန်စွာ ထုပ်ပိုးထားသဖြင့် ပင်လယ်ရေကြောင်း တင်ပို့ရာတွင် အစိုဓာတ်ထိန်းညှိပေးပြီး သဘာဝအရည်အသွေးကို အပြည့်အဝ ထိန်းသိမ်းပေးပါသည်။',
+    metricLabel: '1 KG Per Bundle / 30 Bundles Per Bag · Export Ready',
+    metricLabelMm: 'တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း · ပြည်ပပို့ကုန်အဆင့်',
   },
 ];
 
@@ -260,8 +260,8 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         kickerMm="လုပ်ငန်းကဏ္ဍ (က) · သဘာဝဝါးထုတ်လုပ်ရေး၊ ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်"
         title="100% Natural Myanmar Bamboo Products & Export Specifications"
         titleMm="၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များနှင့် ပြည်ပပို့ကုန် အချက်အလက်များ"
-        description="Established in 2013, TB Star Company Limited manufactures and supplies 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 to 2.5 mm thickness, 8, 9, 10 inches, packed 30 kg per bag) for domestic distribution within Myanmar and export to international markets."
-        descriptionMm="၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင်း ဖြန့်ဖြူးရောင်းချရန်နှင့် နိုင်ငံတကာဈေးကွက်သို့ တင်ပို့ရန် ဝါးခြမ်းပြား (Bamboo Split · အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (Bamboo Sticks · တစ်အိတ် 30 kg) တို့ကို ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
+        description="Established in 2013, TB Star Company Limited manufactures and supplies 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 to 2.5 mm thickness, 8, 9, 10 inches, packed at 1 KG Per Bundle / 30 Bundles Per Bag) for domestic distribution within Myanmar and export to international markets."
+        descriptionMm="၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင်း ဖြန့်ဖြူးရောင်းချရန်နှင့် နိုင်ငံတကာဈေးကွက်သို့ တင်ပို့ရန် ဝါးခြမ်းပြား (Bamboo Split · အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (Bamboo Sticks · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) တို့ကို ထုတ်လုပ်ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။"
         actions={
           <>
             <Button
@@ -364,12 +364,12 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             totalCount={BAMBOO_PRODUCTS.length}
             resultCount={filteredDetailedBambooProducts.length}
             showCategoryTabs={false}
-            placeholder="Search bamboo products by name, thickness, length, or packaging (e.g., Bamboo Split, 3 mm, With Nodes, Bamboo Sticks, 30 kg)..."
-            placeholderMm="ဝါးထုတ်ကုန်အမည်၊ အထူ၊ အရှည် သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - ဝါးခြမ်းပြား, 3 mm, အဆစ်ပါ, ဝါးတံ, 30 kg)..."
+            placeholder="Search bamboo products by name, thickness, length, or packaging (e.g., Bamboo Split, 3 mm, With Nodes, Bamboo Sticks, 1 KG Per Bundle, 30 Bundles Per Bag)..."
+            placeholderMm="ဝါးထုတ်ကုန်အမည်၊ အထူ၊ အရှည် သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - ဝါးခြမ်းပြား, 3 mm, အဆစ်ပါ, ဝါးတံ, ၃၀ စည်း)..."
             suggestions={[
               { label: 'Bamboo Split (3 mm)', labelMm: 'ဝါးခြမ်းပြား (3 mm)', query: 'Bamboo Split' },
               { label: 'With Nodes / Without Nodes', labelMm: 'အဆစ်ပါ / အဆစ်မပါ', query: 'Nodes' },
-              { label: 'Bamboo Sticks (30 kg)', labelMm: 'ဝါးတံ (30 kg)', query: 'Bamboo Sticks' },
+              { label: 'Bamboo Sticks (30 Bundles/Bag)', labelMm: 'ဝါးတံ (တစ်အိတ် ၃၀ စည်း)', query: 'Bamboo Sticks' },
               { label: '8", 9", 10" Lengths', labelMm: 'အရှည် ၈"၊ ၉"၊ ၁၀"', query: 'inches' },
             ]}
             inputId="bamboo-page-product-search"
@@ -409,8 +409,8 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             kickerMm="သဘာဝဝါး၏ အဓိက အားသာချက် (၃) ချက် · ခိုင်ခံ့မှု၊ ၁၀၀% သဘာဝစစ်မှန်မှုနှင့် သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်မှု"
             title="Why Choose Our Natural Myanmar Bamboo"
             titleMm="ကျွန်ုပ်တို့၏ မြန်မာ့သဘာဝဝါးထုတ်ကုန်များကို အဘယ်ကြောင့် ရွေးချယ်သင့်သနည်း"
-            description="Our Bamboo Split (3 mm thickness, 20–48 inches) and Bamboo Sticks (1.2–2.5 mm, 30 kg/bag) deliver three core material advantages: long-lasting natural fiber durability, 100% chemical-free Myanmar sourcing, and eco-friendly renewable harvesting."
-            descriptionMm="ကျွန်ုပ်တို့၏ ဝါးခြမ်းပြား (Bamboo Split · အထူ 3 mm) နှင့် ဝါးတံ (Bamboo Sticks · တစ်အိတ် 30 kg) ထုတ်ကုန်များသည် သဘာဝအလျောက် ကြာရှည်ခံခိုင်ခံ့မှု၊ ဓာတုဆေးဝါးကင်းစင်သော ၁၀၀% မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြစ်မှုနှင့် သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သော ရေရှည်တည်တံ့သည့် ကုန်ကြမ်းရင်းမြစ်ဖြစ်မှုဟူသော အဓိက အားသာချက် (၃) ချက်နှင့် ပြည့်စုံပါသည်။"
+            description="Our Bamboo Split (3 mm thickness, 20–48 inches) and Bamboo Sticks (1.2–2.5 mm, 1 KG Per Bundle / 30 Bundles Per Bag) deliver three core material advantages: long-lasting natural fiber durability, 100% chemical-free Myanmar sourcing, and eco-friendly renewable harvesting."
+            descriptionMm="ကျွန်ုပ်တို့၏ ဝါးခြမ်းပြား (Bamboo Split · အထူ 3 mm) နှင့် ဝါးတံ (Bamboo Sticks · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) ထုတ်ကုန်များသည် သဘာဝအလျောက် ကြာရှည်ခံခိုင်ခံ့မှု၊ ဓာတုဆေးဝါးကင်းစင်သော ၁၀၀% မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြစ်မှုနှင့် သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သော ရေရှည်တည်တံ့သည့် ကုန်ကြမ်းရင်းမြစ်ဖြစ်မှုဟူသော အဓိက အားသာချက် (၃) ချက်နှင့် ပြည့်စုံပါသည်။"
             action={
               <Button
                 type="button"
@@ -589,8 +589,8 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               </h3>
               <p className="text-sm text-white/85 leading-relaxed">
                 {t(
-                  'Every shipment of TB Star Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.2–2.5 mm · 30 kg per bag) is produced from 100% natural bamboo harvested in Myanmar, delivering consistent dimensional quality with a low environmental footprint.',
-                  'TBStar Company Limited မှ ထုတ်လုပ်တင်ပို့သော ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (1.2–2.5 mm · တစ်အိတ် 30 kg) တိုင်းသည် သဘာဝပတ်ဝန်းကျင် ထိခိုက်မှုမရှိသော မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြင့် အရည်အသွေးမီ ထုတ်လုပ်ထားပါသည်။'
+                  'Every shipment of TB Star Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.2–2.5 mm · 1 KG Per Bundle / 30 Bundles Per Bag) is produced from 100% natural bamboo harvested in Myanmar, delivering consistent dimensional quality with a low environmental footprint.',
+                  'TBStar Company Limited မှ ထုတ်လုပ်တင်ပို့သော ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (1.2–2.5 mm · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) တိုင်းသည် သဘာဝပတ်ဝန်းကျင် ထိခိုက်မှုမရှိသော မြန်မာ့သဘာဝဝါးစစ်စစ်ဖြင့် အရည်အသွေးမီ ထုတ်လုပ်ထားပါသည်။'
                 )}
               </p>
             </div>

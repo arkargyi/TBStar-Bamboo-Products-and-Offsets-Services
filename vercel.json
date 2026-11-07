@@ -1,5 +1,8 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "installCommand": "npm install --legacy-peer-deps",
+  "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {
@@ -72,27 +75,27 @@
   "rewrites": [
     {
       "source": "/about",
-      "destination": "/about.html"
+      "destination": "/index.html"
     },
     {
       "source": "/bamboo-products",
-      "destination": "/bamboo-products.html"
+      "destination": "/index.html"
     },
     {
       "source": "/activated-carbon",
-      "destination": "/activated-carbon.html"
+      "destination": "/index.html"
     },
     {
       "source": "/printing-services",
-      "destination": "/printing-services.html"
+      "destination": "/index.html"
     },
     {
       "source": "/gallery",
-      "destination": "/gallery.html"
+      "destination": "/index.html"
     },
     {
       "source": "/contact",
-      "destination": "/contact.html"
+      "destination": "/index.html"
     }
   ]
 }
