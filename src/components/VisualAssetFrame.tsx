@@ -28,6 +28,8 @@ const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
   '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
   '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
   '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
 ]);
 
 const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
@@ -38,13 +40,35 @@ const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
   '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
   '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
   '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
 ]);
+
+const RESPONSIVE_PRODUCT_IMAGE_META: Record<
+  string,
+  { srcSet: string; sizes: string; width: number; height: number }
+> = {
+  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp': {
+    srcSet:
+      '/assets/aistudio/tbstar-nut-shell-activated-carbon-960_dc7d4828.webp 960w, /assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp 1600w',
+    sizes: '(max-width: 1024px) 100vw, 50vw',
+    width: 1600,
+    height: 900,
+  },
+  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp': {
+    srcSet:
+      '/assets/aistudio/tbstar-coconut-shell-activated-carbon-960_23364002.webp 960w, /assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp 1600w',
+    sizes: '(max-width: 1024px) 100vw, 50vw',
+    width: 1600,
+    height: 900,
+  },
+};
 
 const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
   'bamboo-split': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
   'bamboo-sticks': '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
   'bamboo-custom': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
-  'activated-carbon': '',
+  'activated-carbon': '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
   'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp',
   'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png',
   'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp',
@@ -57,7 +81,8 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
     'TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging',
   'bamboo-custom':
     'TB Star Company Limited Natural Myanmar Bamboo Splits — with nodes (50pcs per bundle) and without nodes (100pcs per bundle)',
-  'activated-carbon': '',
+  'activated-carbon':
+    'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
   'books-printing':
     'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
   'voucher-printing':
@@ -110,6 +135,12 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+
+  // Activated Carbon Studio Product Assets (Sage-Green & Warm Ivory Backdrop)
+  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRDZFMEM5Ii8+PHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNDN0Q0QjgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFRUVBRTAAIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjkiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=',
+  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRDZFMEM5Ii8+PHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNDN0Q0QjgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFRUVBRTAAIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjkiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=',
 };
 
 const DEFAULT_BASE64_PLACEHOLDER =
@@ -240,6 +271,7 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
 
   const placeholderDataUrl =
     PRODUCT_IMAGE_BASE64_PLACEHOLDERS[src] || DEFAULT_BASE64_PLACEHOLDER;
+  const responsiveMeta = RESPONSIVE_PRODUCT_IMAGE_META[src];
 
   return (
     <>
@@ -250,9 +282,11 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
       <img
         ref={imgRef}
         src={src}
+        srcSet={responsiveMeta?.srcSet}
+        sizes={responsiveMeta?.sizes}
         alt={alt}
-        width={width}
-        height={height}
+        width={responsiveMeta?.width ?? width}
+        height={responsiveMeta?.height ?? height}
         referrerPolicy="no-referrer"
         loading={loading}
         fetchPriority={fetchPriority}
@@ -456,8 +490,8 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
       )
     : type === 'activated-carbon'
     ? t(
-        "Placeholder — To be replaced with TB Star's own photos",
-        'TB Star ၏ ကိုယ်ပိုင်ဓာတ်ပုံများဖြင့် အစားထိုးရန် ယာယီပုံစံ (Placeholder)'
+        'TB Star Company · Activated Carbon (25 Kg per Bag · Origin: Myanmar)',
+        'TBStar Company Limited · အက်တီဗိတ်တက် ကာဗွန် (တစ်အိတ် 25 Kg · မြန်မာနိုင်ငံထုတ်)'
       )
     : t(
         'TB Star Company · One-Stop Offset Printing Services',
@@ -547,6 +581,11 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
                         `${COMPANY_INFO.name} · 100% Natural Myanmar Bamboo Products`,
                         'TBStar Company Limited · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ'
                       )
+                    : type === 'activated-carbon'
+                    ? t(
+                        `${COMPANY_INFO.name} · Activated Carbon Export & Commercial Supply`,
+                        'TBStar Company Limited · အက်တီဗိတ်တက် ကာဗွန် ပြည်ပပို့ကုန်နှင့် လက်ကားဖြန့်ဖြူးရေး'
+                      )
                     : t(
                         `${COMPANY_INFO.name} · One-Stop Offset Printing Services`,
                         'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း'
@@ -569,9 +608,11 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
             <div className="bg-[#F6F8F3] p-2 sm:p-4 flex items-center justify-center max-h-[78vh] overflow-auto">
               <img
                 src={resolvedImage}
+                srcSet={RESPONSIVE_PRODUCT_IMAGE_META[resolvedImage]?.srcSet}
+                sizes="90vw"
                 alt={resolvedAlt}
-                width={1536}
-                height={1024}
+                width={RESPONSIVE_PRODUCT_IMAGE_META[resolvedImage]?.width ?? 1536}
+                height={RESPONSIVE_PRODUCT_IMAGE_META[resolvedImage]?.height ?? 1024}
                 decoding="async"
                 className="w-full h-auto max-h-[72vh] object-contain rounded-lg shadow-sm bg-white"
               />

@@ -136,6 +136,7 @@ export interface PageBackgroundConfig {
   objectPosition: string;
   estimatedLuminance: number;
   highlightIntensity: number;
+  lockFilterMetrics?: boolean;
   filterMetrics: CssFilterMetrics;
   overlayGradient: string;
   vignetteGradient: string;
@@ -146,22 +147,26 @@ export interface PageBackgroundConfig {
 
 export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
   '/': {
-    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
-    objectPosition: 'object-center',
+    imagePath: '/assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f.webp',
+    publicSourceUrl: '/assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f.png',
+    alt: '',
+    objectPosition: 'object-[center_60%]',
     estimatedLuminance: 0.78,
-    highlightIntensity: 0.86,
-    filterMetrics: computeLegibilityFilter(0.78, 0.86),
+    highlightIntensity: 0.84,
+    lockFilterMetrics: true,
+    filterMetrics: {
+      brightness: 1,
+      contrast: 1,
+      saturate: 1,
+      cssFilter: 'none',
+    },
     overlayGradient:
-      'bg-linear-to-r from-[#06170E]/92 via-[#0B2417]/84 to-[#123322]/68',
-    vignetteGradient:
-      'bg-linear-to-t from-[#05140C]/90 via-[#0A2015]/35 to-[#05140C]/68',
+      'bg-linear-to-r from-[#F4F2E9]/90 via-[#F4F2E9]/76 to-transparent',
+    vignetteGradient: 'bg-transparent',
     overlayCss:
-      'linear-gradient(90deg, rgba(5, 20, 12, 0.92) 0%, rgba(10, 34, 21, 0.84) 55%, rgba(16, 46, 30, 0.68) 100%)',
-    vignetteCss:
-      'linear-gradient(180deg, rgba(5, 18, 11, 0.70) 0%, rgba(9, 28, 18, 0.30) 50%, rgba(5, 20, 12, 0.88) 100%)',
-    imageOpacityClass: 'opacity-70',
+      'linear-gradient(90deg, rgba(244, 242, 233, 0.90) 0%, rgba(244, 242, 233, 0.78) 36%, rgba(244, 242, 233, 0.25) 47%, rgba(244, 242, 233, 0) 56%)',
+    vignetteCss: 'none',
+    imageOpacityClass: 'opacity-100',
   },
   '/about': {
     imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
@@ -182,22 +187,28 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-65',
   },
   '/bamboo-products': {
-    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
+    imagePath: '/assets/aistudio/Green_Bamboo_Industrial_Yard_93c02e45.png',
+    publicSourceUrl: '/assets/aistudio/Green_Bamboo_Industrial_Yard_93c02e45.png',
+    alt: 'TB Star Company Limited Bamboo Production Warehouse and Natural Myanmar Bamboo Yard',
     objectPosition: 'object-center',
-    estimatedLuminance: 0.76,
-    highlightIntensity: 0.84,
-    filterMetrics: computeLegibilityFilter(0.76, 0.84),
+    estimatedLuminance: 0.56,
+    highlightIntensity: 0.62,
+    lockFilterMetrics: true,
+    filterMetrics: {
+      brightness: 0.86,
+      contrast: 1.06,
+      saturate: 1.03,
+      cssFilter: 'brightness(0.86) contrast(1.06) saturate(1.03)',
+    },
     overlayGradient:
-      'bg-linear-to-r from-[#06170E]/92 via-[#0C2618]/84 to-[#133523]/68',
+      'bg-linear-to-r from-[#061A10]/86 via-[#0A2617]/70 to-[#0F3320]/22',
     vignetteGradient:
-      'bg-linear-to-t from-[#06170E]/90 via-[#0A2015]/35 to-[#06170E]/68',
+      'bg-linear-to-t from-[#05150C]/68 via-[#082013]/20 to-[#05150C]/48',
     overlayCss:
-      'linear-gradient(90deg, rgba(6, 22, 13, 0.92) 0%, rgba(11, 36, 23, 0.84) 55%, rgba(18, 50, 33, 0.68) 100%)',
+      'linear-gradient(90deg, rgba(6, 26, 16, 0.86) 0%, rgba(10, 38, 23, 0.72) 48%, rgba(14, 48, 29, 0.35) 76%, rgba(14, 48, 29, 0.16) 100%)',
     vignetteCss:
-      'linear-gradient(180deg, rgba(5, 19, 12, 0.70) 0%, rgba(10, 31, 20, 0.32) 50%, rgba(6, 22, 13, 0.88) 100%)',
-    imageOpacityClass: 'opacity-70',
+      'linear-gradient(180deg, rgba(5, 21, 12, 0.46) 0%, rgba(8, 30, 18, 0.16) 50%, rgba(5, 21, 12, 0.65) 100%)',
+    imageOpacityClass: 'opacity-95',
   },
   '/activated-carbon': {
     imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
@@ -292,6 +303,9 @@ export interface ProductDescriptions {
 export interface ProductImages {
   main: string;
   mainAlt: string;
+  srcSet?: string;
+  width?: number;
+  height?: number;
   featured?: string;
   featuredAlt?: string;
   natural?: string;
@@ -772,11 +786,16 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     },
     visualType: 'activated-carbon',
     images: {
-      main: '',
-      mainAlt: '',
+      main: '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+      mainAlt:
+        'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
+      srcSet:
+        '/assets/aistudio/tbstar-nut-shell-activated-carbon-960_dc7d4828.webp 960w, /assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp 1600w',
+      width: 1600,
+      height: 900,
     },
-    placeholderNote: '',
-    placeholderNoteMm: '',
+    placeholderNote: 'Nut Shell Activated Carbon · Jujube Seed · 25 Kg per Bag · Origin: Myanmar',
+    placeholderNoteMm: 'Nut Shell Activated Carbon · ဇီးစေ့ခွံ (Jujube Seed) · တစ်အိတ် ၂၅ ကီလိုဂရမ်',
     inquiryType: 'Activated Carbon',
     published: true,
     featured: true,
@@ -822,8 +841,9 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'Nut Shell Activated Carbon Exporter Myanmar (Jujube Seed · 25 Kg/Bag) | TB Star',
       description:
         'Wholesale Nut Shell Activated Carbon (Jujube Seed raw material) from Myanmar. Packed 25 Kg per Bag for B2B commercial supply and international export by TB Star Company Limited.',
-      ogImage: '',
-      ogImageAlt: '',
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp`,
+      ogImageAlt:
+        'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-nut-shell-activated-carbon`,
     },
   },
@@ -850,11 +870,16 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     },
     visualType: 'activated-carbon',
     images: {
-      main: '',
-      mainAlt: '',
+      main: '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
+      mainAlt:
+        'Coconut shell activated carbon chips beside a plain white woven wholesale sack.',
+      srcSet:
+        '/assets/aistudio/tbstar-coconut-shell-activated-carbon-960_23364002.webp 960w, /assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp 1600w',
+      width: 1600,
+      height: 900,
     },
-    placeholderNote: '',
-    placeholderNoteMm: '',
+    placeholderNote: 'Coconut Shell Activated Carbon · Coconut Shell · 25 Kg per Bag · Origin: Myanmar',
+    placeholderNoteMm: 'Coconut Shell Activated Carbon · အုန်းမှုတ်ခွံ (Coconut Shell) · တစ်အိတ် ၂၅ ကီလိုဂရမ်',
     inquiryType: 'Activated Carbon',
     published: true,
     featured: true,
@@ -900,8 +925,9 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'Coconut Shell Activated Carbon Exporter Myanmar (25 Kg/Bag) | TB Star',
       description:
         'Wholesale Coconut Shell Activated Carbon (Coconut Shell raw material) from Myanmar. Packed 25 Kg per Bag for B2B commercial supply and international export by TB Star Company Limited.',
-      ogImage: '',
-      ogImageAlt: '',
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp`,
+      ogImageAlt:
+        'Coconut shell activated carbon chips beside a plain white woven wholesale sack.',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-coconut-shell-activated-carbon`,
     },
   },
@@ -1103,6 +1129,9 @@ export function normalizeCatalogProducts(
     const resolvedImages: ProductImages = {
       main: mainImg,
       mainAlt,
+      srcSet: raw.images?.srcSet,
+      width: raw.images?.width,
+      height: raw.images?.height,
       featured: raw.images?.featured || raw.featuredImagePath,
       featuredAlt:
         raw.images?.featuredAlt ||
@@ -1823,8 +1852,9 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     description:
       'B2B wholesale supplier and exporter of Myanmar Activated Carbon: Nut Shell Activated Carbon (Jujube Seed) and Coconut Shell Activated Carbon, packed 25 Kg per Bag by TB Star Company Limited.',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/activated-carbon`,
-    ogImage: `${COMPANY_INFO.canonicalBase}${COMPANY_INFO.logoPath}`,
-    ogImageAlt: `${COMPANY_INFO.name} – Myanmar Nut Shell Activated Carbon & Coconut Shell Activated Carbon B2B Exporter (25 Kg per Bag)`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp`,
+    ogImageAlt:
+      'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
       { name: 'Activated Carbon', url: `${COMPANY_INFO.canonicalBase}/activated-carbon` },
@@ -2168,6 +2198,7 @@ export interface GalleryPreviewItem {
     | 'bamboo-split'
     | 'bamboo-sticks'
     | 'bamboo-custom'
+    | 'activated-carbon'
     | 'books-printing'
     | 'voucher-printing'
     | 'commercial-printing';
@@ -2271,6 +2302,34 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     visualType: 'bamboo-split',
     imagePath: '/images/products/bamboo-split-wholesale.webp',
     altText: 'Bamboo splits bundled for commercial supply',
+  },
+  {
+    id: 'gal-nut-shell-activated-carbon',
+    title: 'Nut Shell Activated Carbon — Jujube Seed (25 Kg per Bag)',
+    titleMm: 'Nut Shell Activated Carbon — ဇီးစေ့ခွံ ကုန်ကြမ်း (တစ်အိတ် ၂၅ ကီလိုဂရမ်)',
+    category: 'Packaging',
+    caption:
+      'Export-oriented Nut Shell Activated Carbon (Jujube Seed Activated Carbon) manufactured from natural jujube seed raw material in Myanmar and supplied in standardized 25 Kg per bag wholesale packaging.',
+    captionMm:
+      'မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Nut Shell Activated Carbon။',
+    visualType: 'activated-carbon',
+    imagePath: '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+    altText:
+      'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
+  },
+  {
+    id: 'gal-coconut-shell-activated-carbon',
+    title: 'Coconut Shell Activated Carbon — Coconut Shell (25 Kg per Bag)',
+    titleMm: 'Coconut Shell Activated Carbon — အုန်းမှုတ်ခွံ ကုန်ကြမ်း (တစ်အိတ် ၂၅ ကီလိုဂရမ်)',
+    category: 'Packaging',
+    caption:
+      'Export-oriented Coconut Shell Activated Carbon manufactured from natural coconut shell raw material in Myanmar and supplied in standardized 25 Kg per bag wholesale packaging.',
+    captionMm:
+      'မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Coconut Shell Activated Carbon။',
+    visualType: 'activated-carbon',
+    imagePath: '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
+    altText:
+      'Coconut shell activated carbon chips beside a plain white woven wholesale sack.',
   },
   {
     id: 'gal-ball-pen-packaging',

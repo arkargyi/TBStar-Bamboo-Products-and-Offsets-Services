@@ -454,7 +454,9 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                   onClick={() => {
                     if (onInquireFromGallery) {
                       onInquireFromGallery(
-                        item.category === 'Printing Products'
+                        item.visualType === 'activated-carbon'
+                          ? 'Activated Carbon'
+                          : item.category === 'Printing Products'
                           ? 'Books Printing'
                           : item.visualType === 'bamboo-sticks'
                           ? 'Bamboo Sticks'

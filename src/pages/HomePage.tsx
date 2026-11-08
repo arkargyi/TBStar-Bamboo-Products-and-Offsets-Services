@@ -12,7 +12,6 @@ import {
   getPublishedProducts,
   INDUSTRIES_SERVED,
   InquiryTypeOption,
-  PAGE_BACKGROUNDS,
   PageRoute,
   ProductCategoryId,
   QUALITY_AND_STANDARDS,
@@ -20,7 +19,6 @@ import {
 } from '../constants/companyData';
 import { VisualAssetFrame } from '../components/VisualAssetFrame';
 import {
-  AdaptiveBackgroundMedia,
   Button,
   SectionHeading,
 } from '../components/SharedUI';
@@ -51,7 +49,6 @@ export const HomePage: React.FC<HomePageProps> = ({
     'all' | ProductCategoryId
   >('bamboo');
 
-  const homeBg = PAGE_BACKGROUNDS['/'];
   const featuredBambooProducts = getFeaturedProducts('bamboo');
   const allPublishedProducts = useMemo(() => getPublishedProducts(), []);
   const publishedPrintingServices = getPublishedPrintingServices();
@@ -86,178 +83,152 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div>
-      {/* HERO SECTION WITH TOPIC-MATCHED NATURAL BAMBOO FOREST BACKGROUND & READABILITY OVERLAY */}
+      {/* HERO SECTION WITH BAMBOO PRODUCTS & PRINTING SAMPLES COMPOSITION */}
       <section
         aria-label="Hero Banner"
-        className="relative bg-[#071A10] text-white overflow-hidden border-b border-[#245C3A]"
+        className="relative bg-[#EAE8DC] text-[#173D2A] overflow-hidden border-b border-[#D0CEBE]"
       >
-        <AdaptiveBackgroundMedia
-          bgConfig={homeBg}
-          loading="eager"
-          fetchPriority="high"
+        {/* Subtle ivory-to-transparent readability overlay behind the left text column on tablet & desktop */}
+        <div
+          aria-hidden="true"
+          className="hidden md:block absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(244, 242, 233, 0.90) 0%, rgba(244, 242, 233, 0.78) 36%, rgba(244, 242, 233, 0.25) 47%, rgba(244, 242, 233, 0) 56%)',
+          }}
         />
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-22 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: Proposition & CTAs */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[#A8D977] font-semibold tracking-wide mb-4 drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]">
-                <span>{t(COMPANY_INFO.name, 'TBStar Company Limited')}</span>
-                <span aria-hidden="true">·</span>
-                <span>
-                  {t(
-                    'Kyauktada Township, Yangon, Myanmar',
-                    'ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
-                  )}
-                </span>
-              </div>
-
-              <h1
-                className={`text-3xl sm:text-5xl lg:text-[46px] font-extrabold text-white tracking-tight mb-5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] ${
-                  isMm ? 'font-myanmar leading-[1.38]' : 'leading-[1.12]'
-                }`}
-                style={{ textWrap: 'balance' }}
-              >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-5 sm:pt-10 sm:pb-6 md:py-14 lg:py-18 xl:py-22 relative z-10">
+          {/* Left Column: 40–45% width on desktop, keeping the bamboo products and printing samples visible on the right */}
+          <div className="w-full md:w-[45%] lg:w-[43%] xl:w-[44%] flex flex-col justify-center">
+            <div className="flex flex-wrap items-center gap-2 text-xs text-[#245C3A] font-bold tracking-wide mb-3.5">
+              <span>{t(COMPANY_INFO.name, 'TBStar Company Limited')}</span>
+              <span aria-hidden="true">·</span>
+              <span>
                 {t(
-                  'Natural Bamboo Products & Professional Printing Solutions',
-                  'သဘာဝဝါးထုတ်ကုန်များနှင့် အဆင့်မြင့် ပုံနှိပ်ဝန်ဆောင်မှုများ'
+                  'Kyauktada Township, Yangon, Myanmar',
+                  'ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
                 )}
-              </h1>
-
-              <p className="text-base sm:text-lg text-white/95 leading-relaxed max-w-2xl mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.55)]">
-                {t(
-                  'Established in 2013, TB Star Company Limited has been operating in Myanmar, serving domestic and international customers through its natural bamboo products and one-stop offset printing services businesses.',
-                  '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်များ ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပတင်ပို့ရေးလုပ်ငန်းအပြင် တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။'
-                )}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3.5 mb-10">
-                <Button
-                  type="button"
-                  variant="primary-light"
-                  size="lg"
-                  href="/bamboo-products"
-                  onClick={() => onNavigate('/bamboo-products')}
-                >
-                  {t('Explore Bamboo Products', 'ဝါးထုတ်ကုန်များ လေ့လာရန်')}
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-
-                <Button
-                  type="button"
-                  variant="outline-light"
-                  size="lg"
-                  href="/printing-services"
-                  onClick={() => onNavigate('/printing-services')}
-                >
-                  {t('Printing Services', 'ပုံနှိပ်ဝန်ဆောင်မှုများ')}
-                </Button>
-
-                <a
-                  href="/contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate('/contact');
-                  }}
-                  className="px-3 py-3 text-sm font-semibold text-[#A8D977] hover:text-white underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)]"
-                >
-                  {t('Contact Us', 'ဆက်သွယ်ရန်')}
-                </a>
-              </div>
-
-              {/* Quick Summary Row */}
-              <div className="pt-6 border-t border-white/20 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-white/95 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
-                <div>
-                  <p className="text-[#A8D977] font-semibold mb-0.5">
-                    {t('Division A · Bamboo & Export', 'လုပ်ငန်းကဏ္ဍ (က) · ဝါးထုတ်ကုန်')}
-                  </p>
-                  <p>
-                    {t(
-                      'Bamboo Split (3 mm · 20"–48") & Sticks (1 KG/Bundle · 30 Bundles/Bag)',
-                      'ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)'
-                    )}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[#A8D977] font-semibold mb-0.5">
-                    {t('Division B · Printing & Stationery', 'လုပ်ငန်းကဏ္ဍ (ခ) · ပုံနှိပ်နှင့် စာရေးကိရိယာ')}
-                  </p>
-                  <p>
-                    {t(
-                      'Books, Voucher Books & Ball Pen (Klick / Plano)',
-                      'စာအုပ်၊ ဘောင်ချာစာအုပ်နှင့် Ball Pen (Klick / Plano)'
-                    )}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[#A8D977] font-semibold mb-0.5">
-                    {t('Direct Telephone', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ်')}
-                  </p>
-                  <a
-                    href={COMPANY_INFO.telephoneHref}
-                    className="font-mono-tabular text-white font-bold hover:underline"
-                  >
-                    {COMPANY_INFO.telephone}
-                  </a>
-                </div>
-              </div>
+              </span>
             </div>
 
-            {/* Right Column: Dual-Division Product & Service Showcase */}
-            <div className="lg:col-span-5 flex flex-col justify-between bg-[#0B2316]/90 backdrop-blur-md border border-[#A8D977]/35 rounded-2xl p-5 shadow-2xl">
-              <div className="flex items-center justify-between gap-3 pb-3.5 mb-3.5 border-b border-white/15">
-                <div className="flex items-center gap-3">
-                  <img
-                    src={COMPANY_INFO.logoPath}
-                    alt="TB Star Official Star Emblem"
-                    width={40}
-                    height={40}
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                    className="w-10 h-10 rounded-full object-contain bg-white p-0.5 shrink-0"
-                  />
-                  <div>
-                    <p className="text-xs font-bold text-white">
-                      {t(COMPANY_INFO.name, 'TBStar Company Limited')}
-                    </p>
-                    <p className="text-[11px] text-[#A8D977]">
-                      {t(
-                        'Core Products & Printing Showcase',
-                        'အဓိက ထုတ်ကုန်နှင့် ပုံနှိပ်လုပ်ငန်း ပြကွက်'
-                      )}
-                    </p>
-                  </div>
-                </div>
-                <span className="text-[11px] font-mono-tabular text-[#A8D977] font-semibold">
-                  {t('Myanmar Origin', 'မြန်မာနိုင်ငံထုတ်')}
-                </span>
-              </div>
+            <h1
+              className={`text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-[#173D2A] tracking-tight mb-4 ${
+                isMm ? 'font-myanmar leading-[1.38]' : 'leading-[1.14]'
+              }`}
+              style={{ textWrap: 'balance' }}
+            >
+              {t(
+                'Natural Bamboo Products & Professional Printing Solutions',
+                'သဘာဝဝါးထုတ်ကုန်များနှင့် အဆင့်မြင့် ပုံနှိပ်ဝန်ဆောင်မှုများ'
+              )}
+            </h1>
 
-              <VisualAssetFrame
-                type="hero-bamboo"
-                aspectClassName="aspect-[4/3]"
-              />
+            <p className="text-base sm:text-[17px] text-[#26332B] leading-relaxed mb-7">
+              {t(
+                'Established in 2013, TB Star Company Limited has been operating in Myanmar, serving domestic and international customers through its natural bamboo products and one-stop offset printing services businesses.',
+                '၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော TBStar Company Limited သည် မြန်မာနိုင်ငံတွင် သဘာဝဝါးထုတ်ကုန်များ ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပတင်ပို့ရေးလုပ်ငန်းအပြင် တစ်နေရာတည်းတွင် အပြီးအစီး ရရှိနိုင်သော အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှုလုပ်ငန်းများဖြင့် ဝန်ဆောင်မှုပေးလျက်ရှိပါသည်။'
+              )}
+            </p>
 
-              <div className="mt-3.5 pt-3 border-t border-white/15 flex items-center justify-between text-xs text-white/85">
-                <span className="truncate">
+            <div className="flex flex-wrap items-center gap-3 mb-8">
+              <Button
+                type="button"
+                variant="primary-dark"
+                size="lg"
+                href="/bamboo-products"
+                onClick={() => onNavigate('/bamboo-products')}
+                className="min-h-[44px]"
+              >
+                {t('Explore Bamboo Products', 'ဝါးထုတ်ကုန်များ လေ့လာရန်')}
+                <ArrowRight className="w-4 h-4 text-[#A8D977]" />
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline-dark"
+                size="lg"
+                href="/printing-services"
+                onClick={() => onNavigate('/printing-services')}
+                className="min-h-[44px] bg-white/90 hover:bg-white border-[#173D2A]/25 hover:border-[#173D2A] text-[#173D2A] shadow-2xs"
+              >
+                {t('Printing Services', 'ပုံနှိပ်ဝန်ဆောင်မှုများ')}
+              </Button>
+
+              <a
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/contact');
+                }}
+                className="min-h-[44px] inline-flex items-center px-3 py-2.5 text-sm font-bold text-[#173D2A] hover:text-[#245C3A] underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 cursor-pointer rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#245C3A]"
+              >
+                {t('Contact Us', 'ဆက်သွယ်ရန်')}
+              </a>
+            </div>
+
+            {/* Quick Summary Row */}
+            <div className="pt-5 border-t border-[#173D2A]/15 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 xl:grid-cols-3 gap-3.5 text-xs text-[#26332B]">
+              <div>
+                <p className="text-[#173D2A] font-bold mb-0.5">
+                  {t('Division A · Bamboo & Export', 'လုပ်ငန်းကဏ္ဍ (က) · ဝါးထုတ်ကုန်')}
+                </p>
+                <p className="text-[#26332B]/90 leading-snug">
                   {t(
-                    'Central Tower, Kyauktada Township, Yangon',
-                    'Central Tower၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့'
+                    'Bamboo Split (3 mm · 20"–48") & Sticks (1 KG/Bundle · 30 Bundles/Bag)',
+                    'ဝါးခြမ်းပြား (3 mm · ၂၀"–၄၈") နှင့် ဝါးတံ (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)'
                   )}
-                </span>
+                </p>
+              </div>
+              <div>
+                <p className="text-[#173D2A] font-bold mb-0.5">
+                  {t('Division B · Printing & Stationery', 'လုပ်ငန်းကဏ္ဍ (ခ) · ပုံနှိပ်နှင့် စာရေးကိရိယာ')}
+                </p>
+                <p className="text-[#26332B]/90 leading-snug">
+                  {t(
+                    'Books, Voucher Books & Ball Pen (Klick / Plano)',
+                    'စာအုပ်၊ ဘောင်ချာစာအုပ်နှင့် Ball Pen (Klick / Plano)'
+                  )}
+                </p>
+              </div>
+              <div className="sm:col-span-1 md:col-span-2 xl:col-span-1">
+                <p className="text-[#173D2A] font-bold mb-0.5">
+                  {t('Direct Telephone', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ်')}
+                </p>
                 <a
-                  href="/contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate('/contact');
-                  }}
-                  className="text-[#A8D977] hover:underline font-semibold whitespace-nowrap shrink-0 cursor-pointer ml-2"
+                  href={COMPANY_INFO.telephoneHref}
+                  className="font-mono-tabular text-[#173D2A] font-extrabold hover:text-[#245C3A] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#245C3A] rounded-xs"
                 >
-                  {t('Inquire Now →', 'ဆက်သွယ်ရန် →')}
+                  {COMPANY_INFO.telephone}
                 </a>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Hero Image Asset: Stacked below text on narrow mobile screens to preserve complete product composition; full-bleed background on tablet & desktop */}
+        <div
+          aria-hidden="true"
+          className="relative w-full aspect-[1672/941] md:aspect-auto md:absolute md:inset-0 md:w-full md:h-full z-0 pointer-events-none select-none"
+        >
+          <picture className="block w-full h-full">
+            <source
+              type="image/webp"
+              srcSet="/assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f-800w.webp 800w, /assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f-1280w.webp 1280w, /assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f.webp 1672w"
+              sizes="100vw"
+            />
+            <img
+              src="/assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f.png"
+              alt=""
+              width={1672}
+              height={941}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center md:object-[76%_62%] lg:object-[70%_60%] xl:object-[center_60%]"
+            />
+          </picture>
         </div>
       </section>
 
@@ -547,81 +518,120 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {/* Dedicated Activated Carbon Product Page Cross-Link Banner */}
           {ACTIVATED_CARBON_PRODUCTS.length > 0 && (
-            <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-              <div className="flex items-start gap-4 max-w-3xl">
-                <div className="w-12 h-12 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
-                  <BambooProductIcon type="activated-carbon" className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
-                    {t(
-                      'ACTIVATED CARBON PRODUCTS · ORIGIN: MYANMAR',
-                      'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (ACTIVATED CARBON)'
-                    )}
-                  </p>
-                  <h3 className="text-xl font-bold text-[#173D2A] mb-1.5">
-                    {t(
-                      'Nut Shell Activated Carbon & Coconut Shell Activated Carbon',
-                      'ဆီးစေ့ခွံနှင့် အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)'
-                    )}
-                  </h3>
-                  <p className="text-sm text-[#26332B]/85 leading-relaxed mb-3">
-                    {t(
-                      'TB Star Company Limited supplies Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed in 25 Kg per Bag with Country of Origin: Myanmar for international export and domestic B2B trade.',
-                      'TBStar Company Limited သည် မြန်မာနိုင်ငံထုတ် ဆီးစေ့ခွံ အက်တီဗိတ်တက် ကာဗွန် (Nut Shell Activated Carbon · ကုန်ကြမ်း - ဆီးစေ့ / Jujube Seed) နှင့် အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Coconut Shell Activated Carbon · ကုန်ကြမ်း - အုန်းမှုတ်ခွံ / Coconut Shell) တို့ကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ထုပ်ပိုးမှုဖြင့် ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်ဈေးကွက်သို့ ဖြန့်ဖြူးတင်ပို့ပေးလျက်ရှိပါသည်။'
-                    )}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {ACTIVATED_CARBON_PRODUCTS.map((acProd) => {
-                      const rawMat = acProd.specifications.find(
-                        (s) => s.parameter === 'Raw Material'
-                      );
-                      const pack = acProd.specifications.find(
-                        (s) => s.parameter === 'Packaging'
-                      );
-                      return (
-                        <span
-                          key={acProd.id}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-[#DDE5D9] text-xs font-semibold text-[#173D2A]"
-                        >
-                          <span>{isMm ? acProd.nameMm : acProd.name}</span>
-                          {rawMat && (
-                            <span className="text-[#245C3A] font-normal">
-                              · {isMm && rawMat.valueMm ? rawMat.valueMm : rawMat.value}
-                            </span>
-                          )}
-                          {pack && (
-                            <span className="text-[#26332B]/75 font-mono-tabular">
-                              ({isMm && pack.valueMm ? pack.valueMm : pack.value})
-                            </span>
-                          )}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </div>
+            <div className="mt-10 bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xs">
+              <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {ACTIVATED_CARBON_PRODUCTS.map((acProd) => (
+                  <a
+                    key={`preview-${acProd.id}`}
+                    href={acProd.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate(acProd.route);
+                    }}
+                    className="group rounded-lg overflow-hidden border border-[#DDE5D9] hover:border-[#245C3A] bg-white transition-all shadow-2xs"
+                  >
+                    <img
+                      src={acProd.imagePath}
+                      srcSet={acProd.images.srcSet}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                      alt={acProd.imageAlt}
+                      width={acProd.images.width ?? 1600}
+                      height={acProd.images.height ?? 900}
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                    <div className="px-3.5 py-2.5 bg-white border-t border-[#DDE5D9] flex items-center justify-between gap-2 text-xs">
+                      <span className="font-bold text-[#173D2A] truncate">
+                        {isMm ? acProd.nameMm : acProd.name}
+                      </span>
+                      <span className="font-mono-tabular font-semibold text-[#245C3A] shrink-0">
+                        25 Kg/Bag
+                      </span>
+                    </div>
+                  </a>
+                ))}
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 shrink-0">
-                <Button
-                  type="button"
-                  variant="primary-dark"
-                  size="sm"
-                  href="/activated-carbon"
-                  onClick={() => onNavigate('/activated-carbon')}
-                >
-                  {t('Explore Activated Carbon', 'Activated Carbon စာမျက်နှာသို့')}
-                  <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline-dark"
-                  size="sm"
-                  href={`/contact?inquiry=${encodeURIComponent('Activated Carbon')}`}
-                  onClick={() => onInquireWithCategory('Activated Carbon', true)}
-                >
-                  {t('Inquire About Activated Carbon', 'Activated Carbon မေးမြန်းရန်')}
-                </Button>
+              <div className="lg:col-span-6">
+                <div className="flex items-start gap-3.5 mb-3">
+                  <div className="w-11 h-11 rounded-lg bg-white border border-[#DDE5D9] flex items-center justify-center shrink-0 mt-0.5">
+                    <BambooProductIcon type="activated-carbon" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-0.5">
+                      {t(
+                        'ACTIVATED CARBON PRODUCTS · ORIGIN: MYANMAR',
+                        'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (ACTIVATED CARBON)'
+                      )}
+                    </p>
+                    <h3 className="text-xl font-bold text-[#173D2A]">
+                      {t(
+                        'Nut Shell Activated Carbon & Coconut Shell Activated Carbon',
+                        'ဇီးစေ့ခွံနှင့် အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)'
+                      )}
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
+                  {t(
+                    'TB Star Company Limited supplies Nut Shell Activated Carbon (Raw Material: Jujube Seed) and Coconut Shell Activated Carbon (Raw Material: Coconut Shell), packed in 25 Kg per Bag with Country of Origin: Myanmar for international export and domestic B2B trade.',
+                    'TBStar Company Limited သည် မြန်မာနိုင်ငံထုတ် ဇီးစေ့ခွံ အက်တီဗိတ်တက် ကာဗွန် (Nut Shell Activated Carbon · ကုန်ကြမ်း - ဇီးစေ့ခွံ / Jujube Seed) နှင့် အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Coconut Shell Activated Carbon · ကုန်ကြမ်း - အုန်းမှုတ်ခွံ / Coconut Shell) တို့ကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ထုပ်ပိုးမှုဖြင့် ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်ဈေးကွက်သို့ ဖြန့်ဖြူးတင်ပို့ပေးလျက်ရှိပါသည်။'
+                  )}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {ACTIVATED_CARBON_PRODUCTS.map((acProd) => {
+                    const rawMat = acProd.specifications.find(
+                      (s) => s.parameter === 'Raw Material'
+                    );
+                    const pack = acProd.specifications.find(
+                      (s) => s.parameter === 'Packaging'
+                    );
+                    return (
+                      <span
+                        key={acProd.id}
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-[#DDE5D9] text-xs font-semibold text-[#173D2A]"
+                      >
+                        <span>{isMm ? acProd.nameMm : acProd.name}</span>
+                        {rawMat && (
+                          <span className="text-[#245C3A] font-normal">
+                            · {isMm && rawMat.valueMm ? rawMat.valueMm : rawMat.value}
+                          </span>
+                        )}
+                        {pack && (
+                          <span className="text-[#26332B]/75 font-mono-tabular">
+                            ({isMm && pack.valueMm ? pack.valueMm : pack.value})
+                          </span>
+                        )}
+                      </span>
+                    );
+                  })}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <Button
+                    type="button"
+                    variant="primary-dark"
+                    size="sm"
+                    href="/activated-carbon"
+                    onClick={() => onNavigate('/activated-carbon')}
+                  >
+                    {t('Explore Activated Carbon', 'Activated Carbon စာမျက်နှာသို့')}
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A8D977]" />
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline-dark"
+                    size="sm"
+                    href={`/contact?inquiry=${encodeURIComponent('Activated Carbon')}`}
+                    onClick={() => onInquireWithCategory('Activated Carbon', true)}
+                  >
+                    {t('Inquire About Activated Carbon', 'Activated Carbon မေးမြန်းရန်')}
+                  </Button>
+                </div>
               </div>
             </div>
           )}

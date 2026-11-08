@@ -232,14 +232,14 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
           >
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                {/* Left Column: Empty Image Placeholder Frame & Product Overview Card */}
+                {/* Left Column: 16:9 Studio Product Image Frame & Product Overview Card */}
                 <div className="lg:col-span-5">
-                  <div className="rounded-xl overflow-hidden border border-[#DDE5D9] bg-white">
+                  <div className="rounded-xl overflow-hidden border border-[#DDE5D9] bg-white shadow-2xs">
                     <VisualAssetFrame
                       type={product.visualType}
                       imagePath={product.imagePath}
                       altText={product.imageAlt}
-                      aspectClassName="aspect-[4/3]"
+                      aspectClassName="aspect-[16/9]"
                       loading={idx === 0 ? 'eager' : 'lazy'}
                       label={
                         isMm && product.placeholderNoteMm
@@ -402,8 +402,8 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
               kickerMm="ဆက်စပ် ထုတ်ကုန်များ · ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ"
               title="Explore Our Natural Bamboo Split & Bamboo Sticks"
               titleMm="ကျွန်ုပ်တို့၏ သဘာဝ ဝါးခြမ်းပြား (Bamboo Split) နှင့် ဝါးတံ (Bamboo Sticks) များ"
-              description="Review our verified specifications for 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (30 kg/bag)."
-              descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (တစ်အိတ် 30 kg) စံချိန်စံညွှန်းများကိုလည်း လေ့လာနိုင်ပါသည်။"
+              description="Review our verified specifications for 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag)."
+              descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် ဝါးတံ (တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း) စံချိန်စံညွှန်းများကိုလည်း လေ့လာနိုင်ပါသည်။"
               action={
                 <Button
                   type="button"

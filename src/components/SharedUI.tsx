@@ -253,6 +253,10 @@ export const AdaptiveBackgroundMedia: React.FC<AdaptiveBackgroundMediaProps> = (
 
   const handleImageLoad = useCallback(
     (e: { currentTarget: HTMLImageElement }) => {
+      if (bgConfig.lockFilterMetrics) {
+        setFilterMetrics(bgConfig.filterMetrics);
+        return;
+      }
       const img = e.currentTarget;
       try {
         const sampleSize = 16;
