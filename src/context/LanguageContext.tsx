@@ -136,7 +136,7 @@ export const GALLERY_CATEGORY_LABELS: Record<
   { en: string; mm: string }
 > = {
   All: {
-    en: 'All Categories',
+    en: 'All',
     mm: 'ကဏ္ဍအားလုံး',
   },
   'Bamboo Products': {
@@ -154,6 +154,14 @@ export const GALLERY_CATEGORY_LABELS: Record<
   'Printing Products': {
     en: 'Printing Products',
     mm: 'ပုံနှိပ်ထုတ်ကုန်များ',
+  },
+  'Industrial Machinery': {
+    en: 'Industrial Machinery',
+    mm: 'စက်မှုလုပ်ငန်းသုံး စက်ပစ္စည်းများ',
+  },
+  'Offset Printing': {
+    en: 'Offset Printing',
+    mm: 'အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း',
   },
   'Other Company Activities': {
     en: 'Other Company Activities',

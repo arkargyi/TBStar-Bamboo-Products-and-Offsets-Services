@@ -187,8 +187,8 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-65',
   },
   '/bamboo-products': {
-    imagePath: '/assets/aistudio/Green_Bamboo_Industrial_Yard_93c02e45.png',
-    publicSourceUrl: '/assets/aistudio/Green_Bamboo_Industrial_Yard_93c02e45.png',
+    imagePath: '/assets/aistudio/Bamboo_Products_BG_d40edb7a.png',
+    publicSourceUrl: '/assets/aistudio/Bamboo_Products_BG_d40edb7a.png',
     alt: 'TB Star Company Limited Bamboo Production Warehouse and Natural Myanmar Bamboo Yard',
     objectPosition: 'object-center',
     estimatedLuminance: 0.56,
@@ -2185,6 +2185,8 @@ export type GalleryCategoryName =
   | 'Bamboo Production'
   | 'Packaging'
   | 'Printing Products'
+  | 'Industrial Machinery'
+  | 'Offset Printing'
   | 'Other Company Activities';
 
 export interface GalleryPreviewItem {
@@ -2192,8 +2194,8 @@ export interface GalleryPreviewItem {
   title: string;
   titleMm: string;
   category: GalleryCategoryName;
-  caption: string;
-  captionMm: string;
+  caption?: string;
+  captionMm?: string;
   visualType:
     | 'bamboo-split'
     | 'bamboo-sticks'
@@ -2203,7 +2205,11 @@ export interface GalleryPreviewItem {
     | 'voucher-printing'
     | 'commercial-printing';
   imagePath: string;
+  imageSrcSet?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   altText: string;
+  editedBackground?: boolean;
 }
 
 export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
@@ -2314,6 +2320,10 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
       'မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Nut Shell Activated Carbon။',
     visualType: 'activated-carbon',
     imagePath: '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+    imageSrcSet:
+      '/assets/aistudio/tbstar-nut-shell-activated-carbon-960_dc7d4828.webp 960w, /assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp 1600w',
+    imageWidth: 1600,
+    imageHeight: 900,
     altText:
       'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
   },
@@ -2328,6 +2338,10 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
       'မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Coconut Shell Activated Carbon။',
     visualType: 'activated-carbon',
     imagePath: '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
+    imageSrcSet:
+      '/assets/aistudio/tbstar-coconut-shell-activated-carbon-960_23364002.webp 960w, /assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp 1600w',
+    imageWidth: 1600,
+    imageHeight: 900,
     altText:
       'Coconut shell activated carbon chips beside a plain white woven wholesale sack.',
   },
@@ -2413,6 +2427,47 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     visualType: 'bamboo-custom',
     imagePath: '/images/products/bamboo-split-featured.webp',
     altText: 'TB Star Company Limited bamboo export and distribution activities',
+  },
+  {
+    id: 'gal-industrial-machinery-01',
+    title: 'Industrial Machinery — Multi-Stand Roll-Forming Unit',
+    titleMm: 'စက်မှုလုပ်ငန်းသုံး စက်ပစ္စည်း (Multi-Stand Roll-Forming Unit)',
+    category: 'Industrial Machinery',
+    visualType: 'bamboo-custom',
+    imagePath: '/assets/aistudio/industrial-machinery-01-1600_d1438f4e.webp',
+    imageSrcSet:
+      '/assets/aistudio/industrial-machinery-01-480_c3d06818.webp 480w, /assets/aistudio/industrial-machinery-01-960_10e2e5dd.webp 960w, /assets/aistudio/industrial-machinery-01-1600_d1438f4e.webp 1600w',
+    imageWidth: 1600,
+    imageHeight: 1200,
+    altText: 'Multi-stand teal industrial roll-forming machine in an indoor workshop.',
+  },
+  {
+    id: 'gal-industrial-machinery-02',
+    title: 'Industrial Machinery — Multi-Station Roll-Forming Line',
+    titleMm: 'စက်မှုလုပ်ငန်းသုံး ထုတ်လုပ်ရေးစက်လိုင်း (Multi-Station Roll-Forming Line)',
+    category: 'Industrial Machinery',
+    visualType: 'bamboo-custom',
+    imagePath: '/assets/aistudio/industrial-machinery-02-1600_bcf9abe3.webp',
+    imageSrcSet:
+      '/assets/aistudio/industrial-machinery-02-480_875d2265.webp 480w, /assets/aistudio/industrial-machinery-02-960_ab6f3b88.webp 960w, /assets/aistudio/industrial-machinery-02-1600_bcf9abe3.webp 1600w',
+    imageWidth: 1600,
+    imageHeight: 900,
+    altText:
+      'Blue multi-station industrial roll-forming machine line shown with an edited background.',
+    editedBackground: true,
+  },
+  {
+    id: 'gal-offset-printing-press',
+    title: 'Offset Printing Press — Multi-Unit Sheet-Fed Press',
+    titleMm: 'အော့ဖ်ဆက် ပုံနှိပ်စက်ကြီး (Multi-Unit Sheet-Fed Offset Press)',
+    category: 'Offset Printing',
+    visualType: 'commercial-printing',
+    imagePath: '/assets/aistudio/offset-printing-press-1600_8123c3bd.webp',
+    imageSrcSet:
+      '/assets/aistudio/offset-printing-press-480_25531ceb.webp 480w, /assets/aistudio/offset-printing-press-960_bf46da79.webp 960w, /assets/aistudio/offset-printing-press-1600_8123c3bd.webp 1600w',
+    imageWidth: 1000,
+    imageHeight: 667,
+    altText: 'Multi-unit sheet-fed commercial offset printing press in a pressroom.',
   },
 ];
 
