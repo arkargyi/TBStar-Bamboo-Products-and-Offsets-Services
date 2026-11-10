@@ -1,6 +1,8 @@
 import {
   buildStructuredData,
   COMPANY_INFO,
+  INQUIRY_TYPE_OPTIONS,
+  InquiryTypeOption,
   PAGE_SEO,
   PageRoute,
 } from '../constants/companyData';
@@ -26,11 +28,47 @@ export const NOT_FOUND_SEO = {
 export const INDEXABLE_ROBOTS =
   'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
-export function resolveRouteState(pathname: string): {
+export function resolveInquiryFromSearch(
+  searchOrUrl: string
+): InquiryTypeOption | null {
+  if (!searchOrUrl) return null;
+  const queryPart = searchOrUrl.includes('?')
+    ? searchOrUrl.slice(searchOrUrl.indexOf('?'))
+    : searchOrUrl;
+  const cleanQuery = queryPart.split('#')[0];
+  const params = new URLSearchParams(cleanQuery);
+  let rawInq = params.get('inquiry');
+  if (!rawInq) return null;
+
+  try {
+    if (rawInq.includes('%')) {
+      rawInq = decodeURIComponent(rawInq);
+    }
+  } catch {
+    // Keep original decoded param if malformed percent encoding
+  }
+
+  const normalizedInq = rawInq.replace(/\s+/g, ' ').trim().toLowerCase();
+  const matched = INQUIRY_TYPE_OPTIONS.find(
+    (opt) => opt.toLowerCase() === normalizedInq
+  );
+  return matched ?? null;
+}
+
+export function resolveRouteState(pathnameOrUrl: string): {
   route: PageRoute;
   isNotFound: boolean;
 } {
-  const normalized = pathname.replace(/\/+$/, '') || '/';
+  let cleanPath = (pathnameOrUrl || '/').trim();
+  if (cleanPath.startsWith('http://') || cleanPath.startsWith('https://')) {
+    try {
+      cleanPath = new URL(cleanPath).pathname;
+    } catch {
+      cleanPath = '/';
+    }
+  }
+  cleanPath = cleanPath.split('?')[0].split('#')[0] || '/';
+  const normalized = cleanPath.replace(/\/+$/, '') || '/';
   if (normalized === '/charcoal') {
     return { route: '/activated-carbon', isNotFound: false };
   }
@@ -62,10 +100,9 @@ export interface RouteSeoPayload {
   jsonLd: Record<string, unknown>;
 }
 
-export function getRouteSeoPayload(pathname: string): RouteSeoPayload {
-  const normalized = pathname.replace(/\/+$/, '') || '/';
-  const isKnownRoute = VALID_ROUTES.includes(normalized as PageRoute);
-  const route: PageRoute = isKnownRoute ? (normalized as PageRoute) : '/';
+export function getRouteSeoPayload(pathnameOrUrl: string): RouteSeoPayload {
+  const { route, isNotFound } = resolveRouteState(pathnameOrUrl);
+  const isKnownRoute = !isNotFound;
   const seo = PAGE_SEO[route] || PAGE_SEO['/'];
 
   const title = isKnownRoute ? seo.title : NOT_FOUND_SEO.title;
@@ -73,9 +110,7 @@ export function getRouteSeoPayload(pathname: string): RouteSeoPayload {
     ? seo.description
     : NOT_FOUND_SEO.description;
   const robots = isKnownRoute ? INDEXABLE_ROBOTS : NOT_FOUND_SEO.robots;
-  const canonicalUrl = isKnownRoute
-    ? seo.canonicalUrl
-    : `${COMPANY_INFO.canonicalBase}${pathname === '/404' ? '/404' : pathname}`;
+  const canonicalUrl = isKnownRoute ? seo.canonicalUrl : '';
   const ogImage = isKnownRoute ? seo.ogImage : NOT_FOUND_SEO.ogImage;
   const ogImageAlt = isKnownRoute ? seo.ogImageAlt : NOT_FOUND_SEO.ogImageAlt;
 
@@ -130,13 +165,17 @@ export function injectRouteSeoAndHtml(
   );
 
   output = output.replace(
-    /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
-    `<link rel="canonical" href="${escapeHtml(payload.canonicalUrl)}" />`
+    /\s*<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
+    payload.isKnownRoute
+      ? `\n    <link rel="canonical" href="${escapeHtml(payload.canonicalUrl)}" />`
+      : ''
   );
 
   output = output.replace(
-    /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
-    `<meta property="og:url" content="${escapeHtml(payload.canonicalUrl)}" />`
+    /\s*<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
+    payload.isKnownRoute
+      ? `\n    <meta property="og:url" content="${escapeHtml(payload.canonicalUrl)}" />`
+      : ''
   );
 
   output = output.replace(

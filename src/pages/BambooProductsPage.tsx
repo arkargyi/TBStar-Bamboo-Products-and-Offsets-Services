@@ -23,6 +23,7 @@ import {
   EcoAdvantageType,
 } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from '../components/AnimatedHeading';
 
 interface BambooProductsPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -443,9 +444,12 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   <p className="text-xs text-[#245C3A] font-medium mb-1">
                     {isMm ? pillar.kickerMm : pillar.kicker}
                   </p>
-                  <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-lg font-bold text-[#173D2A] mb-2.5 justify-start"
+                  >
                     {isMm ? pillar.titleMm : pillar.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                     {isMm ? pillar.descriptionMm : pillar.description}
                   </p>
@@ -524,9 +528,12 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                     <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                       {t('100% NATURAL BAMBOO · ORIGIN: MYANMAR', '၁၀၀% သဘာဝဝါးစစ်စစ် · မူရင်းနိုင်ငံ - မြန်မာ')}
                     </p>
-                    <h3 className="text-lg font-bold text-[#173D2A] mb-2">
+                    <AnimatedHeading
+                      tag="h3"
+                      className="text-lg font-bold text-[#173D2A] mb-2 justify-start"
+                    >
                       {isMm ? product.nameMm : product.name}
-                    </h3>
+                    </AnimatedHeading>
                     <p className="text-xs sm:text-sm text-[#26332B]/85 leading-relaxed">
                       {isMm ? product.shortDescriptionMm : product.shortDescription}
                     </p>
@@ -556,9 +563,12 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   <p className="text-xs text-[#245C3A] font-medium mb-1">
                     {isMm ? item.kickerMm : item.kicker}
                   </p>
-                  <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-lg font-bold text-[#173D2A] mb-2.5 justify-start"
+                  >
                     {isMm ? item.titleMm : item.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                     {isMm ? item.descriptionMm : item.description}
                   </p>
@@ -581,12 +591,15 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   'သဘာဝပတ်ဝန်းကျင်နှင့် သဟဇာတဖြစ်သော ကုန်ကြမ်း · ၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ်'
                 )}
               </p>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <AnimatedHeading
+                tag="h3"
+                className="text-xl font-bold text-white mb-2 justify-start"
+              >
                 {t(
                   'Ready for Eco-Conscious Domestic & International Buyers',
                   'ပြည်တွင်းနှင့် နိုင်ငံတကာမှ သဘာဝပတ်ဝန်းကျင် အလေးထားသော လုပ်ငန်းများအတွက် အသင့်တော်ဆုံး'
                 )}
-              </h3>
+              </AnimatedHeading>
               <p className="text-sm text-white/85 leading-relaxed">
                 {t(
                   'Every shipment of TB Star Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.2–2.5 mm · 1 KG Per Bundle / 30 Bundles Per Bag) is produced from 100% natural bamboo harvested in Myanmar, delivering consistent dimensional quality with a low environmental footprint.',
@@ -668,9 +681,12 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                             `ထုတ်ကုန် ${product.index} · မူရင်းနိုင်ငံ - မြန်မာ`
                           )}
                         </p>
-                        <h2 className="text-2xl font-bold text-[#173D2A]">
+                        <AnimatedHeading
+                          tag="h2"
+                          className="text-2xl font-bold text-[#173D2A] justify-start"
+                        >
                           {isMm ? product.nameMm : product.name}
-                        </h2>
+                        </AnimatedHeading>
                       </div>
                     </div>
 
@@ -766,9 +782,12 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                             <p className="text-[11px] font-mono-tabular text-[#245C3A] font-semibold mb-1">
                               {isMm ? subCard.kickerMm : subCard.kicker}
                             </p>
-                            <h3 className="text-sm font-bold text-[#173D2A] mb-1">
+                            <AnimatedHeading
+                              tag="h3"
+                              className="text-sm font-bold text-[#173D2A] mb-1 justify-start"
+                            >
                               {isMm ? subCard.titleMm : subCard.title}
-                            </h3>
+                            </AnimatedHeading>
                             <p className="text-xs text-[#26332B]/80 leading-relaxed">
                               {isMm ? subCard.descriptionMm : subCard.description}
                             </p>

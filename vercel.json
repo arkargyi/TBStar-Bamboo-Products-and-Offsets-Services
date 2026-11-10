@@ -57,6 +57,17 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.tbstarcompany.com"
+        }
+      ],
+      "destination": "https://tbstarcompany.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/charcoal",
       "destination": "/activated-carbon",
       "permanent": true
@@ -70,32 +81,57 @@
       "source": "/activated-carbon/",
       "destination": "/activated-carbon",
       "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/bamboo-products/",
+      "destination": "/bamboo-products",
+      "permanent": true
+    },
+    {
+      "source": "/printing-services/",
+      "destination": "/printing-services",
+      "permanent": true
+    },
+    {
+      "source": "/gallery/",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
       "source": "/about",
-      "destination": "/index.html"
+      "destination": "/about.html"
     },
     {
       "source": "/bamboo-products",
-      "destination": "/index.html"
+      "destination": "/bamboo-products.html"
     },
     {
       "source": "/activated-carbon",
-      "destination": "/index.html"
+      "destination": "/activated-carbon.html"
     },
     {
       "source": "/printing-services",
-      "destination": "/index.html"
+      "destination": "/printing-services.html"
     },
     {
       "source": "/gallery",
-      "destination": "/index.html"
+      "destination": "/gallery.html"
     },
     {
       "source": "/contact",
-      "destination": "/index.html"
+      "destination": "/contact.html"
     }
   ]
 }

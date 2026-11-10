@@ -24,12 +24,19 @@ function sanitizeText(input: unknown, maxLength: number): string {
     .slice(0, maxLength);
 }
 
-function renderRouteHtml(templateHtml: string, pathname: string): {
+function renderRouteHtml(
+  templateHtml: string,
+  pathname: string,
+  search: string = ''
+): {
   html: string;
   statusCode: number;
 } {
   const appHtml = renderToString(
-    React.createElement(App, { initialPathname: pathname })
+    React.createElement(App, {
+      initialPathname: pathname,
+      initialSearch: search,
+    })
   );
   const { html, statusCode } = injectRouteSeoAndHtml(
     templateHtml,
@@ -158,11 +165,13 @@ async function startServer() {
   // Strict JSON body limit to prevent payload abuse
   app.use(express.json({ limit: '16kb' }));
 
-  // Permanent HTTP 301 redirect for legacy /charcoal, /charcoal/, and trailing-slash /activated-carbon/ to canonical /activated-carbon
+  // Permanent HTTP 301 redirect for www host, legacy /charcoal, /charcoal/, and trailing-slash routes to canonical https://tbstarcompany.com
   app.use((req: Request, res: Response, next: NextFunction) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       return next();
     }
+    const hostHeader = (req.headers.host || '').toLowerCase().split(':')[0];
+    const isWwwHost = hostHeader === 'www.tbstarcompany.com';
     const rawUrl = req.originalUrl || req.url || '/';
     const [pathname, query] = rawUrl.split('?');
     const qs = query ? `?${query}` : '';
@@ -172,7 +181,11 @@ async function startServer() {
       pathname === '/charcoal/' ||
       pathname === '/activated-carbon/'
     ) {
-      return res.redirect(301, `/activated-carbon${qs}`);
+      const targetPath = `/activated-carbon${qs}`;
+      return res.redirect(
+        301,
+        isWwwHost ? `${COMPANY_INFO.canonicalBase}${targetPath}` : targetPath
+      );
     }
 
     const normalizedPath = pathname.replace(/\/+$/, '') || '/';
@@ -181,7 +194,15 @@ async function startServer() {
       pathname.endsWith('/') &&
       VALID_ROUTES.includes(normalizedPath as PageRoute)
     ) {
-      return res.redirect(301, `${normalizedPath}${qs}`);
+      const targetPath = `${normalizedPath}${qs}`;
+      return res.redirect(
+        301,
+        isWwwHost ? `${COMPANY_INFO.canonicalBase}${targetPath}` : targetPath
+      );
+    }
+
+    if (isWwwHost) {
+      return res.redirect(301, `${COMPANY_INFO.canonicalBase}${pathname}${qs}`);
     }
     next();
   });
@@ -359,11 +380,16 @@ async function startServer() {
 
       try {
         const url = req.originalUrl || '/';
-        const pathname = url.split('?')[0] || '/';
+        const [pathname = '/', rawQuery = ''] = url.split('?');
+        const search = rawQuery ? `?${rawQuery}` : '';
         const templatePath = path.resolve(process.cwd(), 'index.html');
         const rawTemplate = fs.readFileSync(templatePath, 'utf-8');
         const transformed = await vite.transformIndexHtml(url, rawTemplate);
-        const { html, statusCode } = renderRouteHtml(transformed, pathname);
+        const { html, statusCode } = renderRouteHtml(
+          transformed,
+          pathname,
+          search
+        );
 
         res
           .status(statusCode)
@@ -395,7 +421,8 @@ async function startServer() {
           .status(500)
           .send('Production build not found. Run npm run build.');
       }
-      const pathname = (req.originalUrl || '/').split('?')[0] || '/';
+      const [pathname = '/', rawQuery = ''] = (req.originalUrl || '/').split('?');
+      const search = rawQuery ? `?${rawQuery}` : '';
       const normalized = pathname.replace(/\/+$/, '') || '/';
       const isKnownRoute = VALID_ROUTES.includes(normalized as PageRoute);
 
@@ -423,7 +450,7 @@ async function startServer() {
       }
 
       const rawHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
-      const { html, statusCode } = renderRouteHtml(rawHtml, pathname);
+      const { html, statusCode } = renderRouteHtml(rawHtml, pathname, search);
       res
         .status(statusCode)
         .set({ 'Content-Type': 'text/html; charset=utf-8' })

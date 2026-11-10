@@ -25,6 +25,7 @@ import { ContactCTA } from '../components/CatalogComponents';
 import { CorporateGrowthTimeline } from '../components/CorporateGrowthTimeline';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from '../components/AnimatedHeading';
 
 interface AboutPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -86,15 +87,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   '၀၁။ ကုမ္ပဏီမိတ်ဆက်နှင့် လုပ်ငန်းအကျဉ်းချုပ် · ၂၀၁၃ ခုနှစ်တွင် တည်ထောင်သည်'
                 )}
               </p>
-              <h2
-                className="text-2xl sm:text-4xl font-bold text-[#173D2A] tracking-tight mb-6"
+              <AnimatedHeading
+                tag="h2"
+                className="text-2xl sm:text-4xl font-bold text-[#173D2A] tracking-tight mb-6 justify-start"
                 style={{ textWrap: 'balance' }}
               >
                 {t(
                   'Serving Myanmar & International Buyers Since 2013',
                   '၂၀၁၃ ခုနှစ်မှစတင်၍ သဘာဝဝါးထုတ်ကုန်နှင့် ပုံနှိပ်ဝန်ဆောင်မှုများ ဆောင်ရွက်နေသော ကုမ္ပဏီ'
                 )}
-              </h2>
+              </AnimatedHeading>
 
               <div className="space-y-4 text-base text-[#26332B]/90 leading-relaxed">
                 <p>
@@ -164,9 +166,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
                     {t('OFFICIAL CORPORATE INFORMATION', 'တရားဝင် ကုမ္ပဏီအချက်အလက်များ')}
                   </p>
-                  <h3 className="text-lg font-bold text-[#173D2A]">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-lg font-bold text-[#173D2A] justify-start"
+                  >
                     {t(COMPANY_INFO.name, 'TBStar Company Limited')}
-                  </h3>
+                  </AnimatedHeading>
                 </div>
               </div>
 
@@ -211,9 +216,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   </dt>
                   <dd className="font-mono-tabular font-semibold text-[#245C3A]">
                     <a
-                      href={COMPANY_INFO.canonicalBase}
+                      href="/"
                       rel="home"
-                      title={`${COMPANY_INFO.name} Official Website (${COMPANY_INFO.canonicalBase})`}
+                      title={`${COMPANY_INFO.name} Official Website (${COMPANY_INFO.canonicalBase}/)`}
                       aria-label={t(
                         `Go to ${COMPANY_INFO.name} Home (${COMPANY_INFO.domain})`,
                         `${COMPANY_INFO.name} ပင်မစာမျက်နှာသို့ သွားရန် (${COMPANY_INFO.domain})`
@@ -263,11 +268,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       <p className="text-xs font-mono-tabular font-semibold text-[#245C3A]">
                         {COMPANY_VISION_MISSION.vision.kicker}
                       </p>
-                      <h3 className="text-2xl font-bold text-[#173D2A]">
+                      <AnimatedHeading
+                        tag="h3"
+                        className="text-2xl font-bold text-[#173D2A] justify-start"
+                      >
                         {isMm
                           ? COMPANY_VISION_MISSION.vision.titleMm
                           : COMPANY_VISION_MISSION.vision.title}
-                      </h3>
+                      </AnimatedHeading>
                     </div>
                   </div>
                   <span className="text-xs font-mono-tabular font-bold text-[#245C3A] bg-[#F6F8F3] px-2.5 py-1 rounded border border-[#DDE5D9]">
@@ -307,11 +315,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       <p className="text-xs font-mono-tabular font-semibold text-[#A8D977]">
                         {COMPANY_VISION_MISSION.mission.kicker}
                       </p>
-                      <h3 className="text-2xl font-bold text-white">
+                      <AnimatedHeading
+                        tag="h3"
+                        className="text-2xl font-bold text-white justify-start"
+                      >
                         {isMm
                           ? COMPANY_VISION_MISSION.mission.titleMm
                           : COMPANY_VISION_MISSION.mission.title}
-                      </h3>
+                      </AnimatedHeading>
                     </div>
                   </div>
                   <span className="text-xs font-mono-tabular font-bold text-[#173D2A] bg-[#A8D977] px-2.5 py-1 rounded">
@@ -384,12 +395,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                     {t('DIVISION A · PRODUCTION & EXPORT', 'လုပ်ငန်းကဏ္ဍ (က) · ထုတ်လုပ်ရေးနှင့် ပို့ကုန်')}
                   </p>
-                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-xl font-bold text-[#173D2A] mb-3 justify-start"
+                  >
                     {t(
                       'Bamboo Production & Export Activities',
                       'ဝါးထုတ်ကုန် ထုတ်လုပ်ခြင်းနှင့် ပြည်ပတင်ပို့ခြင်း'
                     )}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {t(
                       'We manufacture 100% natural bamboo products originating in Myanmar—featuring Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2 mm to 2.5 mm, 8"/9"/10", packed at 1 KG Per Bundle / 30 Bundles Per Bag)—prepared for international export markets.',
@@ -436,12 +450,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                     {t('DOMESTIC SUPPLY · MYANMAR MARKET', 'ပြည်တွင်းဖြန့်ဖြူးရေး · မြန်မာ့စျေးကွက်')}
                   </p>
-                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-xl font-bold text-[#173D2A] mb-3 justify-start"
+                  >
                     {t(
                       'Domestic Distribution Activities',
                       'မြန်မာနိုင်ငံ ပြည်တွင်းစျေးကွက်သို့ ဖြန့်ဖြူးပေးခြင်း'
                     )}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {t(
                       `Alongside international export, ${COMPANY_INFO.name} distributes Bamboo Split and Bamboo Sticks locally within Myanmar, providing reliable supply to domestic commercial buyers, agricultural users, and industrial customers from our Yangon office.`,
@@ -486,12 +503,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
                     {t('DIVISION B · COMMERCIAL PRESS', 'လုပ်ငန်းကဏ္ဍ (ခ) · အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း')}
                   </p>
-                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-xl font-bold text-[#173D2A] mb-3 justify-start"
+                  >
                     {t(
                       'One-Stop Offset Printing Services',
                       'တစ်နေရာတည်းတွင် အပြီးအစီး အော့ဖ်ဆက်ပုံနှိပ်ဝန်ဆောင်မှု'
                     )}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {t(
                       'Our Offset Printing Services division provides one-stop printing solutions for Books Printing, Voucher Books Printing, and other offset printing services—supporting businesses, publishers, and organizations in Yangon.',
@@ -551,9 +571,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       {val.index}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-lg font-bold text-[#173D2A] mb-2.5 justify-start"
+                  >
                     {isMm ? val.titleMm : val.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {isMm ? val.descriptionMm : val.description}
                   </p>
@@ -567,9 +590,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="flex items-start gap-4">
               <MapPin className="w-6 h-6 text-[#245C3A] shrink-0 mt-1" />
               <div>
-                <h3 className="text-base font-bold text-[#173D2A] mb-1">
+                <AnimatedHeading
+                  tag="h3"
+                  className="text-base font-bold text-[#173D2A] mb-1 justify-start"
+                >
                   {t('Visit or Contact Our Yangon Office', 'ရန်ကုန်ရုံးချုပ် လိပ်စာ')}
-                </h3>
+                </AnimatedHeading>
                 <p className="text-sm text-[#26332B]/85">
                   {t(COMPANY_INFO.address.full, COMPANY_INFO.address.fullMm)}
                 </p>
@@ -642,9 +668,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <p className="text-xs font-semibold text-[#245C3A] mb-1">
                     {isMm ? partner.partnerTypeMm : partner.partnerType}
                   </p>
-                  <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-xl font-bold text-[#173D2A] mb-3 justify-start"
+                  >
                     {isMm ? partner.titleMm : partner.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                     {isMm ? partner.descriptionMm : partner.description}
                   </p>
@@ -686,11 +715,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   {EXPORT_AND_DOMESTIC_MARKETS.domestic.badge}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+              <AnimatedHeading
+                tag="h3"
+                className="text-xl font-bold text-[#173D2A] mb-2.5 justify-start"
+              >
                 {isMm
                   ? EXPORT_AND_DOMESTIC_MARKETS.domestic.titleMm
                   : EXPORT_AND_DOMESTIC_MARKETS.domestic.title}
-              </h3>
+              </AnimatedHeading>
               <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                 {isMm
                   ? EXPORT_AND_DOMESTIC_MARKETS.domestic.descriptionMm
@@ -713,11 +745,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   {EXPORT_AND_DOMESTIC_MARKETS.international.badge}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+              <AnimatedHeading
+                tag="h3"
+                className="text-xl font-bold text-[#173D2A] mb-2.5 justify-start"
+              >
                 {isMm
                   ? EXPORT_AND_DOMESTIC_MARKETS.international.titleMm
                   : EXPORT_AND_DOMESTIC_MARKETS.international.title}
-              </h3>
+              </AnimatedHeading>
               <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                 {isMm
                   ? EXPORT_AND_DOMESTIC_MARKETS.international.descriptionMm

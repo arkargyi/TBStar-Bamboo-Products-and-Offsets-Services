@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Maximize2, X } from 'lucide-react';
 import { COMPANY_INFO } from '../constants/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from './AnimatedHeading';
 
 export type VisualAssetType =
   | 'bamboo-split'
@@ -591,9 +592,12 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
                         'TBStar Company Limited · တစ်နေရာတည်း အပြီးအစီး အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း'
                       )}
                 </p>
-                <h3 className="text-sm sm:text-base font-bold text-white truncate">
+                <AnimatedHeading
+                  tag="h3"
+                  className="text-sm sm:text-base font-bold text-white justify-start"
+                >
                   {resolvedLabel}
-                </h3>
+                </AnimatedHeading>
               </div>
               <button
                 type="button"

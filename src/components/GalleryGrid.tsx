@@ -6,6 +6,7 @@ import {
   InquiryTypeOption,
 } from '../constants/companyData';
 import { GALLERY_CATEGORY_LABELS, useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from './AnimatedHeading';
 
 interface GalleryGridProps {
   items: GalleryPreviewItem[];
@@ -151,9 +152,12 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
               <p className="text-xs text-[#245C3A] font-medium mb-2">
                 {label(item.category)}
               </p>
-              <h3 className="text-base font-bold text-[#173D2A] mb-2">
+              <AnimatedHeading
+                tag="h3"
+                className="text-base font-bold text-[#173D2A] mb-2 justify-start"
+              >
                 {title(item)}
-              </h3>
+              </AnimatedHeading>
               {item.caption && (
                 <p className="text-xs text-[#26332B]/80 leading-relaxed mb-3">
                   {isMm ? item.captionMm : item.caption}
@@ -221,9 +225,13 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
                 <p id={categoryId} className="text-xs text-[#A8D977] mb-1">
                   {label(selected.category)}
                 </p>
-                <h2 id={titleId} className="text-lg font-bold">
+                <AnimatedHeading
+                  tag="h2"
+                  id={titleId}
+                  className="text-lg font-bold justify-start"
+                >
                   {title(selected)}
-                </h2>
+                </AnimatedHeading>
               </div>
               <button
                 autoFocus

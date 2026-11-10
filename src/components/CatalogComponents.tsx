@@ -14,6 +14,7 @@ import { VisualAssetFrame } from './VisualAssetFrame';
 import { AdaptiveBackgroundMedia, Button } from './SharedUI';
 import { BambooProductIcon, PrintingServiceIcon } from './PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from './AnimatedHeading';
 
 interface ProductSpecificationTableProps {
   title: string;
@@ -46,9 +47,12 @@ export const ProductSpecificationTable: React.FC<ProductSpecificationTableProps>
           <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-1">
             {isMm ? subtitleMm : subtitle}
           </p>
-          <h3 className="text-lg md:text-xl font-bold text-[#173D2A]">
+          <AnimatedHeading
+            tag="h3"
+            className="text-lg md:text-xl font-bold text-[#173D2A] justify-start"
+          >
             {isMm && titleMm ? titleMm : title}
-          </h3>
+          </AnimatedHeading>
         </div>
         {onInquire && (
           <Button type="button" variant="primary-light" size="sm" onClick={onInquire}>
@@ -175,9 +179,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <p className="text-xs text-[#245C3A] font-medium mb-1">
             {isMm ? product.categoryMm : product.category}
           </p>
-          <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+          <AnimatedHeading
+            tag="h3"
+            className="text-xl font-bold text-[#173D2A] mb-2.5 justify-start"
+          >
             {isMm ? product.nameMm : product.name}
-          </h3>
+          </AnimatedHeading>
           <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
             {isMm ? product.shortDescriptionMm : product.shortDescription}
           </p>
@@ -286,9 +293,12 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
           <p className="text-xs text-[#245C3A] font-semibold mb-1">
             {isMm ? service.categoryMm : service.category}
           </p>
-          <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+          <AnimatedHeading
+            tag="h3"
+            className="text-xl font-bold text-[#173D2A] mb-2.5 justify-start"
+          >
             {isMm ? service.nameMm : service.name}
-          </h3>
+          </AnimatedHeading>
           <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
             {isMm ? service.shortDescriptionMm : service.shortDescription}
           </p>
@@ -366,15 +376,16 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                   'စီးပွားရေးလုပ်ငန်း ဆက်သွယ်မေးမြန်းရန် · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
                 )}
               </p>
-              <h2
-                className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+              <AnimatedHeading
+                tag="h2"
+                className="text-2xl sm:text-4xl font-bold text-white tracking-tight mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] justify-start"
                 style={{ textWrap: 'balance' }}
               >
                 {t(
                   "Let's Discuss Your Business Requirements",
                   'လူကြီးမင်းတို့၏ လုပ်ငန်းလိုအပ်ချက်များအတွက် ဆက်သွယ်ဆွေးနွေးနိုင်ပါသည်'
                 )}
-              </h2>
+              </AnimatedHeading>
               <p className="text-sm sm:text-base text-white/95 leading-relaxed mb-6 max-w-2xl">
                 {t(
                   `Contact ${COMPANY_INFO.name} for natural Myanmar bamboo export and distribution inquiries or one-stop offset printing services.`,
@@ -655,11 +666,14 @@ export const ProductSearchEmptyState: React.FC<ProductSearchEmptyStateProps> = (
       <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold mb-2">
         {t('NO MATCHING PRODUCTS FOUND', 'ရှာဖွေမှုနှင့် ကိုက်ညီသော ထုတ်ကုန် မတွေ့ရှိပါ')}
       </p>
-      <h3 className="text-lg sm:text-xl font-bold text-[#173D2A] mb-2">
+      <AnimatedHeading
+        tag="h3"
+        className="text-lg sm:text-xl font-bold text-[#173D2A] mb-2 justify-center"
+      >
         {isMm
           ? `"${query}" နှင့် ကိုက်ညီသော ထုတ်ကုန် မရှိပါ`
           : `No products matched "${query}"`}
-      </h3>
+      </AnimatedHeading>
       <p className="text-sm text-[#26332B]/80 max-w-xl mx-auto mb-5 leading-relaxed">
         {t(
           'Try searching by product name (Bamboo Split, Bamboo Sticks, Activated Carbon, Ball Pen) or specification keywords (3 mm, With Nodes, Without Nodes, 1 KG Per Bundle, 30 Bundles Per Bag, Klick, Plano).',

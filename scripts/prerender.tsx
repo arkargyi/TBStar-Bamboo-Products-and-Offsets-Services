@@ -14,7 +14,16 @@ import {
 function extractFirstH1Text(html: string): string {
   const match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (!match) return '';
-  return match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  const inner = match[1];
+  // When spring-text-engine renders with seo=true (default), the first child <span> holds the clean full heading text
+  const firstSpanMatch = inner.match(/^<span[^>]*>([\s\S]*?)<\/span>/i);
+  if (firstSpanMatch && inner.includes('aria-hidden="true"')) {
+    return firstSpanMatch[1]
+      .replace(/<[^>]+>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+  return inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 }
 
 function prerenderBuild() {

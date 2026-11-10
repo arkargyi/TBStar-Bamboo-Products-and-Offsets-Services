@@ -22,6 +22,7 @@ import {
 import { SearchBar } from '../components/SearchBar';
 import { PrintingIconType, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from '../components/AnimatedHeading';
 
 interface PrintingServicesPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -369,9 +370,12 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
                     <p className="text-xs text-[#245C3A] font-medium mb-1">
                       {isMm ? item.subtitleMm : item.subtitle}
                     </p>
-                    <h3 className="text-lg font-bold text-[#173D2A] mb-2">
+                    <AnimatedHeading
+                      tag="h3"
+                      className="text-lg font-bold text-[#173D2A] mb-2 justify-start"
+                    >
                       {isMm ? item.titleMm : item.title}
-                    </h3>
+                    </AnimatedHeading>
                     <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                       {isMm ? item.descriptionMm : item.description}
                     </p>
@@ -447,9 +451,12 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
                           ? `ဝန်ဆောင်မှု ${service.index} · ${service.categoryMm}`
                           : `SERVICE ${service.index} · ${service.category.toUpperCase()}`}
                       </p>
-                      <h2 className="text-2xl sm:text-3xl font-bold text-[#173D2A]">
+                      <AnimatedHeading
+                        tag="h2"
+                        className="text-2xl sm:text-3xl font-bold text-[#173D2A] justify-start"
+                      >
                         {isMm ? service.nameMm : service.name}
-                      </h2>
+                      </AnimatedHeading>
                     </div>
                   </div>
 
@@ -575,9 +582,13 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
                           `စာရေးကိရိယာ ${BALL_PEN_PRODUCT.index} · ပုံနှိပ်နှင့် စာရေးကိရိယာ`
                         )}
                       </p>
-                      <h3 id="ball-pen-heading" className="text-2xl font-bold text-[#173D2A]">
+                      <AnimatedHeading
+                        tag="h3"
+                        id="ball-pen-heading"
+                        className="text-2xl font-bold text-[#173D2A] justify-start"
+                      >
                         {isMm ? BALL_PEN_PRODUCT.nameMm : BALL_PEN_PRODUCT.name}
-                      </h3>
+                      </AnimatedHeading>
                     </div>
                   </div>
 
@@ -628,9 +639,12 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
                             </span>
                           </div>
 
-                          <h4 className="text-xl font-bold text-[#173D2A] mb-2">
+                          <AnimatedHeading
+                            tag="h4"
+                            className="text-xl font-bold text-[#173D2A] mb-2 justify-start"
+                          >
                             {isMm ? `Ball Pen — ${variant.typeMm}` : `Ball Pen — ${variant.type}`}
-                          </h4>
+                          </AnimatedHeading>
 
                           <dl className="mt-4 pt-3 border-t border-[#DDE5D9] space-y-2 text-xs">
                             <div className="flex items-center justify-between gap-2">

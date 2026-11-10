@@ -9,6 +9,7 @@ import {
 import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import { ContactCTA, GalleryGrid } from '../components/CatalogComponents';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from '../components/AnimatedHeading';
 
 interface GalleryPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -86,12 +87,15 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                   'TBStar Company Limited · ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်သည် · ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ'
                 )}
               </p>
-              <h2 className="text-2xl font-bold text-[#173D2A] mb-3">
+              <AnimatedHeading
+                tag="h2"
+                className="text-2xl font-bold text-[#173D2A] mb-3 justify-start"
+              >
                 {t(
                   '100% Natural Myanmar Bamboo & One-Stop Offset Printing Portfolio',
                   '၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်နှင့် အော့ဖ်ဆက် ပုံနှိပ်လုပ်ငန်း ပြခန်း'
                 )}
-              </h2>
+              </AnimatedHeading>
               <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                 {isMm ? (
                   <>

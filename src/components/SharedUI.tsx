@@ -8,6 +8,7 @@ import {
   PageRoute,
 } from '../constants/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from './AnimatedHeading';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary-light' | 'primary-dark' | 'outline-light' | 'outline-dark' | 'subtle';
@@ -118,14 +119,15 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
             {displayKicker}
           </p>
         )}
-        <h2
-          className={`text-2xl sm:text-4xl font-bold tracking-tight ${
+        <AnimatedHeading
+          tag="h2"
+          className={`text-2xl sm:text-4xl font-bold tracking-tight justify-start ${
             light ? 'text-white' : 'text-[#173D2A]'
           } ${isMm ? 'font-myanmar leading-[1.4]' : ''}`}
           style={{ textWrap: 'balance' }}
         >
           {displayTitle}
-        </h2>
+        </AnimatedHeading>
         {displayDescription && (
           <p
             className={`mt-3 text-sm sm:text-base leading-relaxed ${
@@ -416,15 +418,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {displayKicker}
               </p>
             )}
-            <h1
-              className={`w-[900px] max-w-full rounded-none text-left text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-white tracking-tight mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] ${
+            <AnimatedHeading
+              tag="h1"
+              className={`w-[900px] max-w-full rounded-none text-left justify-start text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-white tracking-tight mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] ${
                 isMm
                   ? 'font-myanmar leading-[1.45] lg:leading-[77.24px]'
                   : 'leading-[1.18] lg:leading-[1.22]'
               }`}
             >
               {displayTitle}
-            </h1>
+            </AnimatedHeading>
             <p
               className={`text-base sm:text-lg text-white/95 leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.55)] ${
                 isMm ? 'font-myanmar' : ''

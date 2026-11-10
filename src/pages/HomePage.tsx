@@ -33,6 +33,7 @@ import {
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { OfficeLocationMap } from '../components/OfficeLocationMap';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from '../components/AnimatedHeading';
 
 interface HomePageProps {
   onNavigate: (route: PageRoute) => void;
@@ -112,8 +113,9 @@ export const HomePage: React.FC<HomePageProps> = ({
               </span>
             </div>
 
-            <h1
-              className={`text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-[#173D2A] tracking-tight mb-4 ${
+            <AnimatedHeading
+              tag="h1"
+              className={`text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-[#173D2A] tracking-tight mb-4 justify-start ${
                 isMm ? 'font-myanmar leading-[1.38]' : 'leading-[1.14]'
               }`}
               style={{ textWrap: 'balance' }}
@@ -122,7 +124,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 'Natural Bamboo Products & Professional Printing Solutions',
                 'သဘာဝဝါးထုတ်ကုန်များနှင့် အဆင့်မြင့် ပုံနှိပ်ဝန်ဆောင်မှုများ'
               )}
-            </h1>
+            </AnimatedHeading>
 
             <p className="text-base sm:text-[17px] text-[#26332B] leading-relaxed mb-7">
               {t(
@@ -276,12 +278,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#173D2A] mb-3">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-2xl font-bold text-[#173D2A] mb-3 justify-start"
+                  >
                     {t(
                       '01. Bamboo Production & Export',
                       '၀၁။ ဝါးထုတ်ကုန် ထုတ်လုပ်ရေးနှင့် ပြည်ပပို့ကုန်လုပ်ငန်း'
                     )}
-                  </h3>
+                  </AnimatedHeading>
 
                   <p className="text-sm text-[#26332B]/85 leading-relaxed mb-6">
                     {t(
@@ -358,12 +363,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-2xl font-bold text-white mb-3 justify-start"
+                  >
                     {t(
                       '02. Printing Services & Stationery',
                       '၀၂။ အော့ဖ်ဆက် ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်း'
                     )}
-                  </h3>
+                  </AnimatedHeading>
 
                   <p className="text-sm text-white/85 leading-relaxed mb-6">
                     {t(
@@ -566,12 +574,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                         'ထုတ်ကုန်ကဏ္ဍ · အက်တီဗိတ်တက် ကာဗွန် (ACTIVATED CARBON)'
                       )}
                     </p>
-                    <h3 className="text-xl font-bold text-[#173D2A]">
+                    <AnimatedHeading
+                      tag="h3"
+                      className="text-xl font-bold text-[#173D2A] justify-start"
+                    >
                       {t(
                         'Nut Shell Activated Carbon & Coconut Shell Activated Carbon',
                         'ဇီးစေ့ခွံနှင့် အုန်းမှုတ်ခွံ အက်တီဗိတ်တက် ကာဗွန် (Activated Carbon)'
                       )}
-                    </h3>
+                    </AnimatedHeading>
                   </div>
                 </div>
 
@@ -711,12 +722,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                     'ပုံနှိပ်နှင့် စာရေးကိရိယာ ကဏ္ဍ · ဘောပင် (BALL PEN)'
                   )}
                 </p>
-                <h3 className="text-xl font-bold text-[#173D2A] mb-2">
+                <AnimatedHeading
+                  tag="h3"
+                  className="text-xl font-bold text-[#173D2A] mb-2 justify-start"
+                >
                   {t(
                     'Ball Pen Stationery — Klick (30 pcs per box) & Plano (50 pcs per box)',
                     'ဘောပင် (Ball Pen) — Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs)'
                   )}
-                </h3>
+                </AnimatedHeading>
                 <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                   {isMm
                     ? ballPenProduct.shortDescriptionMm
@@ -760,12 +774,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                   'ကုမ္ပဏီမိတ်ဆက် · ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်သည်'
                 )}
               </p>
-              <h2
-                className="text-2xl sm:text-4xl font-bold text-[#173D2A] tracking-tight mb-5"
+              <AnimatedHeading
+                tag="h2"
+                className="text-2xl sm:text-4xl font-bold text-[#173D2A] tracking-tight mb-5 justify-start"
                 style={{ textWrap: 'balance' }}
               >
                 {t(`About ${COMPANY_INFO.name}`, 'TBStar Company Limited အကြောင်း မိတ်ဆက်')}
-              </h2>
+              </AnimatedHeading>
 
               <p className="text-base text-[#26332B]/90 leading-relaxed mb-4">
                 {isMm ? (
@@ -823,9 +838,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
                     {t('CORPORATE HEADQUARTERS · EST. 2013', 'တရားဝင် ကုမ္ပဏီအချက်အလက် · ၂၀၁၃')}
                   </p>
-                  <h3 className="text-lg font-bold text-[#173D2A]">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-lg font-bold text-[#173D2A] justify-start"
+                  >
                     {t(COMPANY_INFO.name, 'TBStar Company Limited')}
-                  </h3>
+                  </AnimatedHeading>
                 </div>
               </div>
 
@@ -911,9 +929,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <p className="text-xs text-[#245C3A] font-medium mb-1">
                     {isMm && pillar.divisionTagMm ? pillar.divisionTagMm : pillar.divisionTag}
                   </p>
-                  <h3 className="text-lg font-bold text-[#173D2A] mb-2.5">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-lg font-bold text-[#173D2A] mb-2.5 justify-start"
+                  >
                     {isMm ? pillar.titleMm : pillar.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed">
                     {isMm ? pillar.descriptionMm : pillar.description}
                   </p>
@@ -956,9 +977,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#173D2A] mb-2">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-lg font-bold text-[#173D2A] mb-2 justify-start"
+                  >
                     {isMm ? ind.titleMm : ind.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                     {isMm ? ind.descriptionMm : ind.description}
                   </p>
@@ -1020,11 +1044,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                     {EXPORT_AND_DOMESTIC_MARKETS.domestic.badge}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+                <AnimatedHeading
+                  tag="h3"
+                  className="text-xl font-bold text-[#173D2A] mb-2.5 justify-start"
+                >
                   {isMm
                     ? EXPORT_AND_DOMESTIC_MARKETS.domestic.titleMm
                     : EXPORT_AND_DOMESTIC_MARKETS.domestic.title}
-                </h3>
+                </AnimatedHeading>
                 <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                   {isMm
                     ? EXPORT_AND_DOMESTIC_MARKETS.domestic.descriptionMm
@@ -1059,11 +1086,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                     {EXPORT_AND_DOMESTIC_MARKETS.international.badge}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2.5">
+                <AnimatedHeading
+                  tag="h3"
+                  className="text-xl font-bold text-white mb-2.5 justify-start"
+                >
                   {isMm
                     ? EXPORT_AND_DOMESTIC_MARKETS.international.titleMm
                     : EXPORT_AND_DOMESTIC_MARKETS.international.title}
-                </h3>
+                </AnimatedHeading>
                 <p className="text-sm text-white/85 leading-relaxed mb-5">
                   {isMm
                     ? EXPORT_AND_DOMESTIC_MARKETS.international.descriptionMm
@@ -1098,9 +1128,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <p className="text-xs text-[#245C3A] font-semibold mb-1">
                     {isMm ? q.categoryMm : q.category}
                   </p>
-                  <h3 className="text-base font-bold text-[#173D2A] mb-2">
+                  <AnimatedHeading
+                    tag="h3"
+                    className="text-base font-bold text-[#173D2A] mb-2 justify-start"
+                  >
                     {isMm ? q.titleMm : q.title}
-                  </h3>
+                  </AnimatedHeading>
                   <p className="text-xs text-[#26332B]/85 leading-relaxed mb-4">
                     {isMm ? q.descriptionMm : q.description}
                   </p>

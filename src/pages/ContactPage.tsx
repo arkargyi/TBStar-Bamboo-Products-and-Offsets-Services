@@ -14,6 +14,7 @@ import {
   PRIMARY_COORDINATES_TEXT,
 } from '../components/OfficeLocationMap';
 import { INQUIRY_TYPE_LABELS, useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from '../components/AnimatedHeading';
 
 interface ContactPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -89,15 +90,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 `ပင်မ ကုမ္ပဏီတည်နေရာ · GPS ${PRIMARY_COORDINATES_TEXT}`
               )}
             </p>
-            <h2
+            <AnimatedHeading
+              tag="h2"
               id="location-map-heading"
-              className="text-2xl sm:text-3xl font-bold text-[#173D2A] tracking-tight mb-3"
+              className="text-2xl sm:text-3xl font-bold text-[#173D2A] tracking-tight mb-3 justify-start"
             >
               {t(
                 'Our Location at Corner of 39th Street and Anawrahta Road, Kyauktada Township, Yangon',
                 'ရန်ကုန်မြို့၊ ကျောက်တံတားမြို့နယ်၊ ၃၉ လမ်းနှင့် အနော်ရထာလမ်းထောင့်ရှိ ကျွန်ုပ်တို့၏ ရုံးချုပ်တည်နေရာ'
               )}
-            </h2>
+            </AnimatedHeading>
             <p className="text-sm sm:text-base text-[#26332B]/85 leading-relaxed">
               {t(
                 'Use the interactive Google Map and Location Information Card below to view our exact office pin, copy our address or GPS coordinates, or launch turn-by-turn directions in Google Maps.',
@@ -132,9 +134,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <p className="text-xs font-mono-tabular text-[#245C3A] font-semibold">
                       {t('OFFICIAL CONTACT DETAILS', 'တရားဝင် ဆက်သွယ်ရန် အချက်အလက်များ')}
                     </p>
-                    <h2 className="text-xl font-bold text-[#173D2A]">
+                    <AnimatedHeading
+                      tag="h2"
+                      className="text-xl font-bold text-[#173D2A] justify-start"
+                    >
                       {t(COMPANY_INFO.name, 'TBStar Company Limited')}
-                    </h2>
+                    </AnimatedHeading>
                   </div>
                 </div>
 
@@ -143,9 +148,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <div className="flex items-start gap-3.5">
                     <MapPin className="w-5 h-5 text-[#245C3A] shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1">
+                      <AnimatedHeading
+                        tag="h3"
+                        className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1 justify-start"
+                      >
                         {t('Registered Office Address', 'ရုံးချုပ်လိပ်စာ')}
-                      </h3>
+                      </AnimatedHeading>
                       <address className="not-italic text-sm text-[#173D2A] font-medium leading-relaxed">
                         {isMm ? (
                           <span>{COMPANY_INFO.address.fullMm}</span>
@@ -168,9 +176,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <div className="pt-5 border-t border-[#DDE5D9] flex items-start gap-3.5">
                     <Phone className="w-5 h-5 text-[#245C3A] shrink-0 mt-1" />
                     <div className="w-full">
-                      <h3 className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1">
+                      <AnimatedHeading
+                        tag="h3"
+                        className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1 justify-start"
+                      >
                         {t('Phone & WhatsApp Contact', 'ဖုန်း နှင့် WhatsApp ဆက်သွယ်ရန်')}
-                      </h3>
+                      </AnimatedHeading>
                       <a
                         href={COMPANY_INFO.telephoneHref}
                         className="text-lg font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] transition-colors block mb-3"
@@ -202,9 +213,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <div className="pt-5 border-t border-[#DDE5D9] flex items-start gap-3.5">
                     <Building2 className="w-5 h-5 text-[#245C3A] shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1">
+                      <AnimatedHeading
+                        tag="h3"
+                        className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1 justify-start"
+                      >
                         {t('Location & Landmark Reference', 'တည်နေရာ လမ်းညွှန်')}
-                      </h3>
+                      </AnimatedHeading>
                       <p className="text-xs text-[#26332B]/85 leading-relaxed">
                         {t(
                           'Located at the Corner of 39th Street and Anawrahta Road (Central Tower, 11th Floor, Room No. 1103) in downtown Kyauktada Township, Yangon (GPS: 16.776671, 96.163664).',

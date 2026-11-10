@@ -4,6 +4,7 @@ import { COMPANY_INFO, InquiryTypeOption, PageRoute } from '../constants/company
 import { BambooProductIcon, PrintingServiceIcon } from './PrintingIcons';
 import { Button, SectionHeading } from './SharedUI';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from './AnimatedHeading';
 
 export interface GrowthMilestoneItem {
   id: string;
@@ -496,12 +497,15 @@ export const CorporateGrowthTimeline: React.FC<CorporateGrowthTimelineProps> = (
                 `${COMPANY_INFO.establishedYear} ခုနှစ်မှစတင်သော စဉ်ဆက်မပြတ် လုပ်ငန်းအတွေ့အကြုံ · ရန်ကုန်မြို့`
               )}
             </p>
-            <h3 className="text-xl font-bold text-white mb-2">
+            <AnimatedHeading
+              tag="h3"
+              className="text-xl font-bold text-white mb-2 justify-start"
+            >
               {t(
                 'Partner With TB Star Company Limited for Your Next Order',
                 'လူကြီးမင်းတို့၏ လုပ်ငန်းလိုအပ်ချက်များအတွက် TBStar Company Limited နှင့် လက်တွဲဆောင်ရွက်ပါ'
               )}
-            </h3>
+            </AnimatedHeading>
             <p className="text-sm text-white/85 leading-relaxed">
               {t(
                 'From 100% natural Myanmar Bamboo Split and Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag) to Activated Carbon inquiries, One-Stop Offset Printing, and Ball Pen stationery, our Yangon team is ready to support your requirements.',
@@ -646,9 +650,12 @@ const MilestoneCard: React.FC<MilestoneCardProps> = ({
       </div>
 
       {/* Title & Description */}
-      <h3 className="text-xl font-bold text-[#173D2A] mb-2.5">
+      <AnimatedHeading
+        tag="h3"
+        className="text-xl font-bold text-[#173D2A] mb-2.5 justify-start"
+      >
         {isMm ? milestone.titleMm : milestone.title}
-      </h3>
+      </AnimatedHeading>
       <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
         {isMm ? milestone.descriptionMm : milestone.description}
       </p>

@@ -8,6 +8,7 @@ import {
   PageRoute,
 } from '../constants/companyData';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from './AnimatedHeading';
 
 export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] = [
   { label: 'Home', labelMm: 'ပင်မစာမျက်နှာ', route: '/' },
@@ -512,9 +513,12 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 
           {/* Col 2: Navigation Links */}
           <div className="lg:col-span-2">
-            <h2 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
+            <AnimatedHeading
+              tag="h2"
+              className="text-xs font-semibold text-white tracking-wider uppercase mb-4 justify-start"
+            >
               {t('Navigation', 'စာမျက်နှာများ')}
-            </h2>
+            </AnimatedHeading>
             <ul className="space-y-2.5 text-sm">
               {NAV_ITEMS.map((nav) => {
                 const isActive = !isNotFound && currentRoute === nav.route;
@@ -543,9 +547,12 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 
           {/* Col 3: Bamboo Products & Printing Services Links */}
           <div className="lg:col-span-3">
-            <h2 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
+            <AnimatedHeading
+              tag="h2"
+              className="text-xs font-semibold text-white tracking-wider uppercase mb-4 justify-start"
+            >
               {t('Products & Services', 'ထုတ်ကုန်နှင့် ဝန်ဆောင်မှုများ')}
-            </h2>
+            </AnimatedHeading>
             <div className="space-y-4 text-sm">
               {bambooExportProducts.length > 0 && (
                 <div>
@@ -616,9 +623,12 @@ export const SiteFooter: React.FC<SiteFooterProps> = ({
 
           {/* Col 4: Verified Office Address & Telephone */}
           <div className="lg:col-span-3">
-            <h2 className="text-xs font-semibold text-white tracking-wider uppercase mb-4">
+            <AnimatedHeading
+              tag="h2"
+              className="text-xs font-semibold text-white tracking-wider uppercase mb-4 justify-start"
+            >
               {t('Office & Contact', 'ရုံးချုပ်လိပ်စာနှင့် ဖုန်းနံပါတ်')}
-            </h2>
+            </AnimatedHeading>
             <address className="not-italic text-sm text-white/80 leading-relaxed mb-4">
               <strong className="text-white block mb-1">
                 {t(COMPANY_INFO.name, COMPANY_INFO.nameMm)}

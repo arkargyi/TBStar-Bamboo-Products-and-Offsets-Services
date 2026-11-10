@@ -16,6 +16,7 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { SiteHeader, SiteFooter, NAV_ITEMS } from './components/SiteLayout';
 import { InquiryModal } from './components/InquiryModal';
 import { BackToTopButton, Button } from './components/SharedUI';
+import { AnimatedHeading } from './components/AnimatedHeading';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { BambooProductsPage } from './pages/BambooProductsPage';
@@ -26,20 +27,12 @@ import { ContactPage } from './pages/ContactPage';
 import {
   INDEXABLE_ROBOTS,
   NOT_FOUND_SEO,
+  resolveInquiryFromSearch,
   resolveRouteState,
   VALID_ROUTES,
 } from './utils/seoHtml';
 
-export { buildStructuredData, VALID_ROUTES };
-
-function resolveInquiryFromSearch(search: string): InquiryTypeOption | null {
-  const params = new URLSearchParams(search);
-  const inq = params.get('inquiry');
-  if (inq && INQUIRY_TYPE_OPTIONS.includes(inq as InquiryTypeOption)) {
-    return inq as InquiryTypeOption;
-  }
-  return null;
-}
+export { buildStructuredData, resolveInquiryFromSearch, VALID_ROUTES };
 
 const NotFoundView: React.FC<{ onNavigate: (route: PageRoute) => void }> = ({
   onNavigate,
@@ -63,15 +56,16 @@ const NotFoundView: React.FC<{ onNavigate: (route: PageRoute) => void }> = ({
           <span>404 · {t('Page Not Found', 'စာမျက်နှာ မတွေ့ရှိပါ')}</span>
         </div>
 
-        <h1
+        <AnimatedHeading
+          tag="h1"
           id="not-found-heading"
-          className="text-3xl sm:text-4xl font-extrabold text-[#173D2A] mb-4"
+          className="text-3xl sm:text-4xl font-extrabold text-[#173D2A] mb-4 justify-center"
         >
           {t(
             'The Requested Page Could Not Be Found',
             'သင်ရှာဖွေသော စာမျက်နှာကို မတွေ့ရှိပါ'
           )}
-        </h1>
+        </AnimatedHeading>
 
         {attemptedPath && attemptedPath !== '/' && (
           <p className="text-xs font-mono-tabular text-[#245C3A] bg-white border border-[#DDE5D9] rounded-md px-3 py-1.5 inline-block mb-4">
@@ -150,11 +144,12 @@ export default function App({ initialPathname, initialSearch }: AppProps) {
   const isNotFound = routeState.isNotFound;
 
   const [selectedInquiryType, setSelectedInquiryType] =
-    useState<InquiryTypeOption>(() =>
-      initialSearch
-        ? resolveInquiryFromSearch(initialSearch) || 'Bamboo Split'
-        : 'Bamboo Split'
-    );
+    useState<InquiryTypeOption>(() => {
+      const rawSearch =
+        initialSearch ??
+        (typeof window !== 'undefined' ? window.location.search : '');
+      return resolveInquiryFromSearch(rawSearch) || 'Bamboo Split';
+    });
   const [modalOpen, setModalOpen] = useState(false);
   const [gmpQuotaExceeded, setGmpQuotaExceeded] = useState(false);
 
@@ -203,9 +198,7 @@ export default function App({ initialPathname, initialSearch }: AppProps) {
       }
     }
 
-    const effectiveCanonicalUrl = isNotFound
-      ? `${COMPANY_INFO.canonicalBase}${window.location.pathname}`
-      : seo.canonicalUrl;
+    const effectiveCanonicalUrl = isNotFound ? '' : seo.canonicalUrl;
 
     document.title = title;
 
@@ -223,7 +216,6 @@ export default function App({ initialPathname, initialSearch }: AppProps) {
     );
     setMetaContent('meta[property="og:title"]', title);
     setMetaContent('meta[property="og:description"]', description);
-    setMetaContent('meta[property="og:url"]', effectiveCanonicalUrl);
     setMetaContent('meta[property="og:image"]', ogImage);
     setMetaContent('meta[property="og:image:alt"]', ogImageAlt);
     setMetaContent('meta[name="twitter:title"]', title);
@@ -231,9 +223,34 @@ export default function App({ initialPathname, initialSearch }: AppProps) {
     setMetaContent('meta[name="twitter:image"]', ogImage);
     setMetaContent('meta[name="twitter:image:alt"]', ogImageAlt);
 
-    const canonicalEl = document.querySelector('link[rel="canonical"]');
-    if (canonicalEl) {
+    let canonicalEl = document.querySelector(
+      'link[rel="canonical"]'
+    ) as HTMLLinkElement | null;
+    let ogUrlEl = document.querySelector(
+      'meta[property="og:url"]'
+    ) as HTMLMetaElement | null;
+
+    if (isNotFound) {
+      if (canonicalEl) {
+        canonicalEl.remove();
+      }
+      if (ogUrlEl) {
+        ogUrlEl.remove();
+      }
+    } else {
+      if (!canonicalEl) {
+        canonicalEl = document.createElement('link');
+        canonicalEl.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonicalEl);
+      }
       canonicalEl.setAttribute('href', effectiveCanonicalUrl);
+
+      if (!ogUrlEl) {
+        ogUrlEl = document.createElement('meta');
+        ogUrlEl.setAttribute('property', 'og:url');
+        document.head.appendChild(ogUrlEl);
+      }
+      ogUrlEl.setAttribute('content', effectiveCanonicalUrl);
     }
 
     const jsonLdEl = document.getElementById('structured-data-jsonld');
@@ -247,9 +264,7 @@ export default function App({ initialPathname, initialSearch }: AppProps) {
     const handlePopState = () => {
       setRouteState(resolveRouteState(window.location.pathname));
       const inq = resolveInquiryFromSearch(window.location.search);
-      if (inq) {
-        setSelectedInquiryType(inq);
-      }
+      setSelectedInquiryType(inq || 'Bamboo Split');
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);

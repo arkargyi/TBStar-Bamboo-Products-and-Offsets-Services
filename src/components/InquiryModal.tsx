@@ -16,6 +16,7 @@ import {
 } from '../constants/companyData';
 import { Button, ErrorMessage } from './SharedUI';
 import { INQUIRY_TYPE_LABELS, useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from './AnimatedHeading';
 
 export type { InquiryTypeOption };
 export { INQUIRY_TYPE_OPTIONS };
@@ -232,7 +233,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                       `မေးမြန်းလွှာ လက်ခံမှတ်တမ်းတင်ပြီးပါပြီ · အမှတ်စဉ် #${deliveryState.inquiryId}`
                     )}
               </p>
-              <h3 className="text-xl font-bold text-[#173D2A]">
+              <AnimatedHeading
+                tag="h3"
+                className="text-xl font-bold text-[#173D2A] justify-start"
+              >
                 {deliveryState.delivered
                   ? t(
                       'Your Inquiry Has Been Sent to TB Star Company Limited',
@@ -242,7 +246,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                       'Inquiry Validated & Logged — Send Directly via WhatsApp or Phone',
                       'မေးမြန်းလွှာကို စစ်ဆေးမှတ်တမ်းတင်ပြီးပါပြီ — WhatsApp သို့မဟုတ် ဖုန်းဖြင့် တိုက်ရိုက်ဆက်သွယ်နိုင်ပါသည်'
                     )}
-              </h3>
+              </AnimatedHeading>
             </div>
           </div>
           {isModal && onClose && (
@@ -366,12 +370,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               'ဝါးထုတ်ကုန်၊ အက်တီဗိတ်တက် ကာဗွန်၊ ပုံနှိပ်နှင့် စာရေးကိရိယာ စုံစမ်းမေးမြန်းလွှာ'
             )}
           </p>
-          <h3 className="text-xl md:text-2xl font-bold text-[#173D2A]">
+          <AnimatedHeading
+            tag="h3"
+            className="text-xl md:text-2xl font-bold text-[#173D2A] justify-start"
+          >
             {t(
               `Send an Inquiry to ${COMPANY_INFO.name}`,
               'TBStar Company Limited သို့ ဆက်သွယ်မေးမြန်းရန်'
             )}
-          </h3>
+          </AnimatedHeading>
         </div>
         {isModal && onClose && (
           <button

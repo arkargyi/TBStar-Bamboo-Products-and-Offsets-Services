@@ -19,6 +19,7 @@ import {
 import { SearchBar } from '../components/SearchBar';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
+import { AnimatedHeading } from '../components/AnimatedHeading';
 
 interface ActivatedCarbonPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -269,12 +270,13 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
                             `အက်တီဗိတ်တက် ကာဗွန် ထုတ်ကုန် ${product.index} · မူရင်းနိုင်ငံ - မြန်မာ`
                           )}
                         </p>
-                        <h2
+                        <AnimatedHeading
+                          tag="h2"
                           id={`${product.sectionId}-heading`}
-                          className="text-2xl font-bold text-[#173D2A]"
+                          className="text-2xl font-bold text-[#173D2A] justify-start"
                         >
                           {isMm ? product.nameMm : product.name}
-                        </h2>
+                        </AnimatedHeading>
                       </div>
                     </div>
 
@@ -329,11 +331,14 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
                         'ပြည်ပပို့ကုန်နှင့် လက်ကားဖြန့်ဖြူးရေး · ရန်ကုန်ရုံးချုပ်'
                       )}
                     </p>
-                    <h3 className="text-xl font-bold text-[#173D2A] mb-3">
+                    <AnimatedHeading
+                      tag="h3"
+                      className="text-xl font-bold text-[#173D2A] mb-3 justify-start"
+                    >
                       {isMm
                         ? `${product.nameMm} — စီးပွားရေးလုပ်ငန်းသုံး ဆက်သွယ်မှာယူရန်`
                         : `${product.name} — B2B & Export Inquiries`}
-                    </h3>
+                    </AnimatedHeading>
                     <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                       {isMm
                         ? `TBStar Company Limited သည် ${product.name} ကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) စံနှုန်းဖြင့် ပြည်တွင်းနှင့် နိုင်ငံတကာ ဝယ်ယူသူများထံ တင်ပို့ဖြန့်ဖြူးပေးလျက်ရှိပါသည်။ မှာယူလိုသော ပမာဏနှင့် ပို့ဆောင်ရေးအချက်အလက်များအတွက် ရန်ကုန်ရုံးချုပ်သို့ တိုက်ရိုက် ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။`
@@ -432,9 +437,12 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
                         {t('Origin: Myanmar', 'မြန်မာနိုင်ငံထုတ်')}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-[#173D2A] mb-2">
+                    <AnimatedHeading
+                      tag="h3"
+                      className="text-xl font-bold text-[#173D2A] mb-2 justify-start"
+                    >
                       {isMm ? prod.nameMm : prod.name}
-                    </h3>
+                    </AnimatedHeading>
                     <p className="text-sm text-[#26332B]/85 leading-relaxed mb-5">
                       {isMm ? prod.shortDescriptionMm : prod.shortDescription}
                     </p>
