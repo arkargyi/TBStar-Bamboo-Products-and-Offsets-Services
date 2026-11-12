@@ -3,6 +3,18 @@ import App from './App.tsx';
 import './index.css';
 
 if (typeof window !== 'undefined') {
+  window.addEventListener('unhandledrejection', (event) => {
+    const reasonMsg = String(
+      (event.reason && (event.reason.message || event.reason)) || ''
+    );
+    if (
+      reasonMsg.includes('WebSocket closed without opened') ||
+      reasonMsg.includes('failed to connect to websocket')
+    ) {
+      event.preventDefault();
+    }
+  });
+
   const prevAuthFailure = (window as unknown as { gm_authFailure?: () => void }).gm_authFailure;
   (window as unknown as { gm_authFailure?: () => void }).gm_authFailure = () => {
     if (typeof prevAuthFailure === 'function') {

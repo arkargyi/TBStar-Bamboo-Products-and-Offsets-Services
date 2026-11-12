@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ArrowRight, Check, Globe2, Phone, ShieldCheck } from 'lucide-react';
 import {
   ACTIVATED_CARBON_PRODUCTS,
@@ -40,6 +40,32 @@ interface HomePageProps {
   onInquireWithCategory: (type: InquiryTypeOption, navigateToContact?: boolean) => void;
 }
 
+const HERO_SLIDE_INTERVAL_MS = 5000;
+
+const HERO_BACKGROUND_SLIDES = [
+  {
+    id: 'company-overview',
+    label: 'Company Overview',
+    src: '/assets/aistudio/Bamboo_Bundles_on_a_Natural_Worktable_59ea9b51.png',
+    objectPositionClass:
+      'object-[74%_58%] md:object-[72%_55%] lg:object-[68%_55%] xl:object-[center_55%]',
+  },
+  {
+    id: 'offset-printing',
+    label: 'Offset Printing',
+    src: '/assets/aistudio/tbstar-homepage-hero-printing_194f43cf.png',
+    objectPositionClass:
+      'object-[72%_62%] md:object-[70%_58%] lg:object-[66%_58%] xl:object-[center_58%]',
+  },
+  {
+    id: 'bamboo-products',
+    label: 'Bamboo Products',
+    src: '/assets/aistudio/tbstar-homepage-hero-bamboo_2aa74598.png',
+    objectPositionClass:
+      'object-[70%_58%] md:object-[68%_55%] lg:object-[65%_55%] xl:object-[center_55%]',
+  },
+] as const;
+
 export const HomePage: React.FC<HomePageProps> = ({
   onNavigate,
   onInquireWithCategory,
@@ -49,6 +75,14 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [selectedProductCategory, setSelectedProductCategory] = useState<
     'all' | ProductCategoryId
   >('bamboo');
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHeroSlide((prev) => (prev + 1) % HERO_BACKGROUND_SLIDES.length);
+    }, HERO_SLIDE_INTERVAL_MS);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const featuredBambooProducts = getFeaturedProducts('bamboo');
   const allPublishedProducts = useMemo(() => getPublishedProducts(), []);
@@ -84,22 +118,58 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div>
-      {/* HERO SECTION WITH BAMBOO PRODUCTS & PRINTING SAMPLES COMPOSITION */}
+      {/* HERO SECTION WITH ANIMATED 3-SLIDE BACKGROUND SLIDESHOW */}
       <section
         aria-label="Hero Banner"
-        className="relative bg-[#EAE8DC] text-[#173D2A] overflow-hidden border-b border-[#D0CEBE]"
+        className="relative bg-[#1E4628] text-[#173D2A] overflow-hidden border-b border-[#D0CEBE] min-h-[540px] sm:min-h-[560px] md:min-h-[580px]"
       >
-        {/* Subtle ivory-to-transparent readability overlay behind the left text column on tablet & desktop */}
+        {/* Animated Background Slideshow: Company Overview -> Offset Printing -> Bamboo Products */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full z-0 pointer-events-none select-none overflow-hidden"
+        >
+          {HERO_BACKGROUND_SLIDES.map((slide, index) => {
+            const isActive = index === activeHeroSlide;
+            return (
+              <img
+                key={slide.id}
+                src={slide.src}
+                alt=""
+                width={1920}
+                height={1080}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchPriority={index === 0 ? 'high' : 'auto'}
+                decoding="async"
+                referrerPolicy="no-referrer"
+                className={`absolute inset-0 w-full h-full object-cover ${slide.objectPositionClass} transition-opacity duration-1000 ease-in-out will-change-[opacity] ${
+                  isActive ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            );
+          })}
+        </div>
+
+        {/* Mobile readability overlay: keeps the fixed headline and buttons clear at top while keeping the main subjects visible below */}
+        <div
+          aria-hidden="true"
+          className="md:hidden absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(244, 242, 233, 0.92) 0%, rgba(244, 242, 233, 0.86) 58%, rgba(244, 242, 233, 0.42) 82%, rgba(244, 242, 233, 0.15) 100%)',
+          }}
+        />
+
+        {/* Tablet & Desktop readability overlay behind the left text column, keeping the right-side subjects vivid and unobstructed */}
         <div
           aria-hidden="true"
           className="hidden md:block absolute inset-0 z-[1] pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(244, 242, 233, 0.90) 0%, rgba(244, 242, 233, 0.78) 36%, rgba(244, 242, 233, 0.25) 47%, rgba(244, 242, 233, 0) 56%)',
+              'linear-gradient(90deg, rgba(244, 242, 233, 0.92) 0%, rgba(244, 242, 233, 0.82) 36%, rgba(244, 242, 233, 0.30) 48%, rgba(244, 242, 233, 0) 58%)',
           }}
         />
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-5 sm:pt-10 sm:pb-6 md:py-14 lg:py-18 xl:py-22 relative z-10">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 sm:pt-10 sm:pb-32 md:py-14 lg:py-18 xl:py-22 relative z-10">
           {/* Left Column: 40–45% width on desktop, keeping the bamboo products and printing samples visible on the right */}
           <div className="w-full md:w-[45%] lg:w-[43%] xl:w-[44%] flex flex-col justify-center">
             <div className="flex flex-wrap items-center gap-2 text-xs text-[#245C3A] font-bold tracking-wide mb-3.5">
@@ -206,31 +276,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Hero Image Asset: Stacked below text on narrow mobile screens to preserve complete product composition; full-bleed background on tablet & desktop */}
-        <div
-          aria-hidden="true"
-          className="relative w-full aspect-[1672/941] md:aspect-auto md:absolute md:inset-0 md:w-full md:h-full z-0 pointer-events-none select-none"
-        >
-          <picture className="block w-full h-full">
-            <source
-              type="image/webp"
-              srcSet="/assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f-800w.webp 800w, /assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f-1280w.webp 1280w, /assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f.webp 1672w"
-              sizes="100vw"
-            />
-            <img
-              src="/assets/aistudio/Bamboo_sticks__splits__and_print_samples_a1a5cb7f.png"
-              alt=""
-              width={1672}
-              height={941}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-center md:object-[76%_62%] lg:object-[70%_60%] xl:object-[center_60%]"
-            />
-          </picture>
         </div>
       </section>
 

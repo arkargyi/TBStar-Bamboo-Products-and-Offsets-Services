@@ -650,16 +650,16 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       main: '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
       mainAlt:
         'TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging',
-      featured: '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
+      featured: '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
       featuredAlt:
         'TB Star Company Limited Natural Myanmar Bamboo Sticks Showcase — 1.2mm to 2.5mm thickness, 8/9/10 inches, 1 KG Per Bundle / 30 Bundles Per Bag',
-      natural: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+      natural: '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
       naturalAlt:
         'Myanmar Bamboo Sticks bundle and woven bag packaging — 1 KG Per Bundle / 30 Bundles Per Bag',
       wholesale: '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
       wholesaleAlt:
         'TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 1 KG Per Bundle / 30 Bundles Per Bag',
-      texture: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+      texture: '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
       textureAlt:
         'Myanmar Bamboo Sticks packaging structure: 1 KG Per Bundle / 30 Bundles Per Bag',
     },
@@ -681,7 +681,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
           'Standardized bundle and bag packaging for 100% natural Myanmar bamboo sticks: 1 KG Per Bundle / 30 Bundles Per Bag in woven export bags.',
         descriptionMm:
           '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံများကို တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စနစ်တကျ ထုပ်ပိုးထားပါသည်။',
-        imagePath: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+        imagePath: '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
         imageAlt:
           'Myanmar Bamboo Sticks packaging structure: 1 KG Per Bundle / 30 Bundles Per Bag',
         frameLabel: 'Bamboo Sticks · 1 KG Per Bundle / 30 Bundles Per Bag',
@@ -1821,10 +1821,10 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   },
   '/about': {
     title: `About ${COMPANY_INFO.name} – Established in ${COMPANY_INFO.establishedYear} in Yangon, Myanmar`,
-    description: COMPANY_INFO.overview,
+    description: `Learn about ${COMPANY_INFO.name}, established in ${COMPANY_INFO.establishedYear} at Central Tower, Kyauktada Township, Yangon, Myanmar—serving domestic and international B2B partners across natural bamboo exports, activated carbon, and offset printing.`,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/about`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png`,
-    ogImageAlt: `About ${COMPANY_INFO.name} in Yangon, Myanmar`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Products_BG_d40edb7a.png`,
+    ogImageAlt: `${COMPANY_INFO.name} bamboo warehousing and export operations in Myanmar`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
       { name: 'About Us', url: `${COMPANY_INFO.canonicalBase}/about` },
@@ -1892,8 +1892,8 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     title: `Contact ${COMPANY_INFO.name} – Central Tower, Kyauktada Township, Yangon`,
     description: `Contact ${COMPANY_INFO.name} at ${COMPANY_INFO.address.line1}, ${COMPANY_INFO.address.township}, ${COMPANY_INFO.address.city} (Tel: ${COMPANY_INFO.telephone}) for Bamboo, Activated Carbon, Printing, and Ball Pen inquiries.`,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/contact`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png`,
-    ogImageAlt: `Contact ${COMPANY_INFO.name} in Yangon, Myanmar`,
+    ogImage: `${COMPANY_INFO.canonicalBase}${COMPANY_INFO.logoPath}`,
+    ogImageAlt: `Contact ${COMPANY_INFO.name} at Central Tower, Kyauktada Township, Yangon`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
       { name: 'Contact Us', url: `${COMPANY_INFO.canonicalBase}/contact` },
@@ -2292,7 +2292,7 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စနစ်တကျ ထုပ်ပိုးထားပုံ။',
     visualType: 'bamboo-sticks',
-    imagePath: '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
+    imagePath: '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
     altText:
       'Myanmar Bamboo Sticks packaging structure: 1 KG Per Bundle / 30 Bundles Per Bag',
   },

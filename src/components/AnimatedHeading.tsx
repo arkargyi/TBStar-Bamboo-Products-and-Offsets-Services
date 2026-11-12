@@ -94,14 +94,30 @@ export const AnimatedHeading: React.FC<AnimatedHeadingProps> = ({
   children,
   ...rest
 }) => {
+  const [isClientMounted, setIsClientMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClientMounted(true);
+  }, []);
+
   const contentKey = `${tag}:${extractTextKey(children)}`;
   const resolvedClassName = resolveHeadingClassName(className);
+
+  if (!isClientMounted) {
+    const Tag = tag;
+    return (
+      <Tag className={resolvedClassName} style={style} {...rest}>
+        {children}
+      </Tag>
+    );
+  }
 
   return (
     <TextEngine
       key={contentKey}
       tag={tag}
       mode="once"
+      seo={false}
       overflow
       letterOut={LETTER_OUT}
       letterIn={LETTER_IN}
