@@ -21,7 +21,7 @@ const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
 ]);
 
 const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
-  '/assets/aistudio/TB_Star_Bamboo_Product_Showcase.png',
+  '/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp',
   '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
   '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp',
   '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
@@ -36,7 +36,7 @@ const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
 ]);
 
 const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
-  '/assets/aistudio/TB_Star_Bamboo_Product_Showcase.png',
+  '/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp',
   '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
   '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp',
   '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
@@ -102,7 +102,7 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
  */
 export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
   // Bamboo Split Assets
-  '/assets/aistudio/TB_Star_Bamboo_Product_Showcase.png':
+  '/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',

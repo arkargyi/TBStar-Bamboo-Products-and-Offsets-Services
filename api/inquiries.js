@@ -11,6 +11,7 @@ const INQUIRY_TYPES = new Set([
   "Books Printing",
   "Voucher Books Printing",
   "Other Offset Printing Services",
+  "Ball Pen",
   "Ball Pen (Klick / Plano)",
   "General Inquiry",
 ]);
