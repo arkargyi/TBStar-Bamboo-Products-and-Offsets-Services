@@ -24,11 +24,9 @@ const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
   '/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp',
   '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
   '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp',
-  '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
   '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
   '/src/assets/images/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
   '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
-  '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png',
   '/assets/aistudio/TBStar_Bamboo_Strips_Product_Banner_6aee4f1d.png',
   '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp',
   '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
@@ -39,7 +37,6 @@ const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
   '/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp',
   '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
   '/assets/aistudio/Bamboo_split_product_showcase_e09d33a9.webp',
-  '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
   '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
   '/src/assets/images/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
   '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp',
@@ -71,8 +68,8 @@ const RESPONSIVE_PRODUCT_IMAGE_META: Record<
 
 const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
   'bamboo-split': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
-  'bamboo-sticks': '/assets/aistudio/bamboo-sticks-main_49720bd6.webp',
-  'bamboo-custom': '/assets/aistudio/Bamboo_Splits_Product_Showcase_6112ef80.png',
+  'bamboo-sticks': '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg',
+  'bamboo-custom': '/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp',
   'activated-carbon': '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
   'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp',
   'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png',
@@ -118,12 +115,10 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFNUVDRUQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNDREUwQkUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
 
   // Bamboo Sticks Assets
-  '/assets/aistudio/bamboo-sticks-main_49720bd6.webp':
+  '/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNENUUzQzQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4QTlCNjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/Natural_bamboo_sticks_packaging_showcase_02f33054.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNENUUzQzQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4QTlCNjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
-  '/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNjAlIiBzdG9wLWNvbG9yPSIjRjRGNkYwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRTJFOEQwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/assets/aistudio/Bamboo_sticks_six-bundle_packaging_75ee48d2.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZCRkFGNSIvPjxzdG9wIG9mZnNldD0iNjAlIiBzdG9wLWNvbG9yPSIjRjJFRUUyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjREJDRkJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
 
@@ -387,7 +382,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
         {/* Top-Right: Bamboo Sticks (1 KG Per Bundle / 30 Bundles Per Bag) */}
         <div className="relative overflow-hidden rounded-md border border-white/15 group bg-white">
           <ProgressiveProductImage
-            src="/assets/aistudio/bamboo-sticks-main_49720bd6.webp"
+            src="/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg"
             alt="TB Star Company Limited Natural Myanmar Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag export packaging"
             width={400}
             height={300}

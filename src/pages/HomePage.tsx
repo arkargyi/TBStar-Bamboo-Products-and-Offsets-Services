@@ -1116,12 +1116,12 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl overflow-hidden shadow-2xs flex flex-col">
               <VisualAssetFrame
                 type="bamboo-sticks"
-                imagePath="/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png"
-                altText="TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 1 KG Per Bundle / 30 Bundles Per Bag"
+                imagePath="/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp"
+                altText="TB Star Company Limited Bamboo Products Showcase — Bamboo Split (3 mm · 20 to 48 inches) and Bamboo Sticks (1.2–2.5 mm · 8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag)"
                 aspectClassName="aspect-[16/9]"
                 label={t(
-                  'Bamboo Sticks · 1 KG Per Bundle / 30 Bundles Per Bag Export Supply',
-                  'ဝါးတံ · တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
+                  'Bamboo Split & Sticks · 1 KG Per Bundle / 30 Bundles Per Bag Export Supply',
+                  'ဝါးခြမ်းပြားနှင့် ဝါးတံ · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
                 )}
               />
               <div className="p-6 sm:p-8 flex-1">

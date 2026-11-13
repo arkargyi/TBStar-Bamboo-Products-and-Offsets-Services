@@ -377,8 +377,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
-                  imagePath="/images/products/bamboo-split-wholesale.webp"
-                  altText="Bamboo splits arranged for commercial supply"
+                  imagePath="/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp"
+                  altText="TB Star Company Limited Bamboo Products Showcase — Bamboo Split (3 mm · 20 to 48 inches) and Bamboo Sticks (1.2–2.5 mm · 8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag)"
                   aspectClassName="aspect-[16/10]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Production & Export',
@@ -432,8 +432,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-sticks"
-                  imagePath="/assets/aistudio/Bamboo_Sticks_Wholesale_Product_Showcase_591af8f9.png"
-                  altText="TB Star Company Limited Bamboo Sticks Wholesale Product Showcase — 1 KG Per Bundle / 30 Bundles Per Bag"
+                  imagePath="/assets/aistudio/bamboo_sticks_packaging_1kg_30bundle_1794409176473.jpg"
+                  altText="TB Star Company Limited Bamboo Sticks Packaging Showcase — 1 KG Per Bundle / 30 Bundles Per Bag"
                   aspectClassName="aspect-[16/10]"
                   label={t(
                     '1 KG Per Bundle / 30 Bundles Per Bag Packaging · Domestic Supply',
