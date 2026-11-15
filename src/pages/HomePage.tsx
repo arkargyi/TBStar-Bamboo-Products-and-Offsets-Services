@@ -297,8 +297,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
-                  imagePath="/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp"
-                  altText="TB Star Company Limited Bamboo Products Showcase — 100% Natural Myanmar Bamboo Splits (3mm, 20 to 48 inches, with nodes / without nodes) and Bamboo Sticks (1.2mm to 2.5mm, 8, 9, 10 inches, 1 KG Per Bundle / 30 Bundles Per Bag)"
+                  imagePath="/assets/aistudio/bamboo-products-splits-and-sticks.webp"
+                  altText="TB Star Company Limited Bamboo Products — 100% Natural Myanmar Bamboo Split (Grade: A +++, 3 mm · 20″–48″, With Nodes or Without Nodes options) and Bamboo Sticks (1.25–2.5 mm · 8″, 9″, 10″, 1 KG Per Bundle / 30 Bundles Per Bag)"
                   aspectClassName="aspect-[16/9]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Split & Sticks Export',
@@ -342,9 +342,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm">
                     {[
-                      { en: 'Bamboo Split (3 mm · 20"–48")', mm: 'ဝါးခြမ်းပြား (အထူ 3 mm · ၂၀"–၄၈")' },
+                      { en: 'Bamboo Split (Grade: A +++ · 3 mm · 20"–48")', mm: 'ဝါးခြမ်းပြား (အဆင့် A +++ · အထူ 3 mm · ၂၀"–၄၈")' },
                       { en: 'With Nodes or Without Nodes options', mm: 'အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ရွေးချယ်နိုင်ခြင်း' },
-                      { en: 'Bamboo Sticks (1.2–2.5 mm · 8", 9", 10")', mm: 'ဝါးတံ (အထူ 1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀")' },
+                      { en: 'Bamboo Sticks (1.25–2.5 mm · 8", 9", 10")', mm: 'ဝါးတံ (အထူ 1.25–2.5 mm · ၈"၊ ၉"၊ ၁၀")' },
                       { en: '1 KG Per Bundle / 30 Bundles Per Bag', mm: 'တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း' },
                       { en: 'Domestic Myanmar distribution', mm: 'ပြည်တွင်းဖြန့်ဖြူးရေး' },
                       { en: 'International export supply', mm: 'နိုင်ငံတကာ ပြည်ပပို့ကုန်' },
@@ -1116,8 +1116,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl overflow-hidden shadow-2xs flex flex-col">
               <VisualAssetFrame
                 type="bamboo-sticks"
-                imagePath="/assets/aistudio/Bamboo_Splits_and_Sticks_Showcase_59bbded3.webp"
-                altText="TB Star Company Limited Bamboo Products Showcase — Bamboo Split (3 mm · 20 to 48 inches) and Bamboo Sticks (1.2–2.5 mm · 8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag)"
+                imagePath="/assets/aistudio/bamboo-products-splits-and-sticks.webp"
+                altText="TB Star Company Limited Bamboo Products — Bamboo Split (Grade: A +++, 3 mm · 20 to 48 inches) and Bamboo Sticks (1.25–2.5 mm · 8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag)"
                 aspectClassName="aspect-[16/9]"
                 label={t(
                   'Bamboo Split & Sticks · 1 KG Per Bundle / 30 Bundles Per Bag Export Supply',

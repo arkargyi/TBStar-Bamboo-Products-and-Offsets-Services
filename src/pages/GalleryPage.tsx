@@ -99,11 +99,11 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               <p className="text-sm text-[#26332B]/85 leading-relaxed mb-4">
                 {isMm ? (
                   <>
-                    ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော <strong>{COMPANY_INFO.nameMm}</strong> သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (Bamboo Split — အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ရောင်းချလျက်ရှိပါသည်။
+                    ၂၀၁၃ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့သော <strong>{COMPANY_INFO.nameMm}</strong> သည် မြန်မာနိုင်ငံထွက် ၁၀၀% သဘာဝဝါးစစ်စစ်ဖြင့် ထုတ်လုပ်ထားသော ဝါးခြမ်းပြား (Bamboo Split — အဆင့် A +++၊ အထူ 3 mm၊ အရှည် ၂၀&quot; မှ ၄၈&quot;၊ အဆစ်ပါ / အဆစ်မပါ) နှင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း (1 KG Per Bundle / 30 Bundles Per Bag) စံနှုန်းဖြင့် ထုပ်ပိုးထားသော ဝါးတံ (Bamboo Sticks — 1.25–2.5 mm) များကို ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်စျေးကွက်များသို့ တင်ပို့ရောင်းချလျက်ရှိပါသည်။
                   </>
                 ) : (
                   <>
-                    Established in 2013, <strong>{COMPANY_INFO.name}</strong> manufactures 100% natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.2–2.5 mm, 8&quot;/9&quot;/10&quot;, packed at 1 KG Per Bundle / 30 Bundles Per Bag) for domestic distribution and international export.
+                    Established in 2013, <strong>{COMPANY_INFO.name}</strong> manufactures 100% natural Myanmar Bamboo Split (Grade: A +++, 3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.25–2.5 mm, 8&quot;/9&quot;/10&quot;, packed at 1 KG Per Bundle / 30 Bundles Per Bag) for domestic distribution and international export.
                   </>
                 )}
               </p>
