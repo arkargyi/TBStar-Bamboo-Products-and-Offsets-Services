@@ -515,7 +515,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
                   type={product.visualType}
                   imagePath={product.naturalImagePath || product.imagePath}
                   altText={product.naturalImageAlt || product.imageAlt}
-                  aspectClassName="aspect-[16/9]"
+                  aspectClassName="aspect-[4/3]"
                   label={
                     isMm && product.placeholderNoteMm
                       ? product.placeholderNoteMm

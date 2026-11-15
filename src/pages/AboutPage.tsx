@@ -378,7 +378,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <VisualAssetFrame
                   type="bamboo-split"
                   imagePath="/assets/aistudio/bamboo-products-splits-and-sticks.webp"
-                  altText="TB Star Company Limited Bamboo Products — Bamboo Split (Grade: A +++, 3 mm · 20 to 48 inches) and Bamboo Sticks (1.25–2.5 mm · 8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag)"
+                  altText="TB Star Company Limited 100% Natural Myanmar Bamboo Products — Bamboo Split and Bamboo Sticks Domestic & Export Supply"
                   aspectClassName="aspect-[16/9]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Production & Export',

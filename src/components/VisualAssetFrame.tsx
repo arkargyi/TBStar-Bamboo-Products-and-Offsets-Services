@@ -21,9 +21,9 @@ const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
 ]);
 
 const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
+  '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
   '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
-  '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
   '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
   '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
   '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
@@ -31,14 +31,16 @@ const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
 ]);
 
 const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
+  '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
   '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
-  '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
   '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
   '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
   '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
   '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
 ]);
+
+const FOUR_BY_THREE_BAMBOO_BANNERS = new Set<string>([]);
 
 const RESPONSIVE_PRODUCT_IMAGE_META: Record<
   string,
@@ -93,11 +95,11 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
  */
 export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
   // Bamboo Split & Bamboo Sticks Assets
-  '/assets/aistudio/bamboo-products-splits-and-sticks.webp':
+  '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
-  '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp':
+  '/assets/aistudio/bamboo-products-splits-and-sticks.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/images/products/bamboo-split-wholesale.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJBNDQzMiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOEI5Rjc2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRDhDRkI4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
@@ -431,6 +433,7 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
   const isPromotionalPrintingBanner = PROMOTIONAL_PRINTING_BANNERS.has(resolvedImage);
   const isBrandedBambooShowcase = BRANDED_BAMBOO_SHOWCASE_ASSETS.has(resolvedImage);
   const isWidescreenBambooBanner = WIDESCREEN_BAMBOO_BANNERS.has(resolvedImage);
+  const isFourByThreeBambooBanner = FOUR_BY_THREE_BAMBOO_BANNERS.has(resolvedImage);
   const isBrandedVisualAsset = isPromotionalPrintingBanner || isBrandedBambooShowcase;
 
   const resolvedObjectFit =
@@ -441,6 +444,9 @@ export const VisualAssetFrame: React.FC<VisualAssetFrameProps> = ({
       aspectClassName === 'aspect-[16/10]' ||
       aspectClassName === 'aspect-[16/9]')
       ? 'aspect-[3/2]'
+      : isFourByThreeBambooBanner &&
+        (aspectClassName === 'aspect-[16/9]' || aspectClassName === 'aspect-[16/10]')
+      ? 'aspect-[4/3]'
       : isWidescreenBambooBanner &&
         (aspectClassName === 'aspect-[4/3]' || aspectClassName === 'aspect-[16/10]')
       ? 'aspect-[16/9]'

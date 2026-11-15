@@ -354,10 +354,11 @@ interface ContactCTAProps {
 export const ContactCTA: React.FC<ContactCTAProps> = ({
   onNavigate,
   onInquireWithCategory,
-  backgroundRoute = '/contact',
+  backgroundRoute = '/activated-carbon',
 }) => {
   const { t } = useLanguage();
-  const bgConfig = PAGE_BACKGROUNDS[backgroundRoute] || PAGE_BACKGROUNDS['/contact'];
+  const bgConfig =
+    PAGE_BACKGROUNDS[backgroundRoute] || PAGE_BACKGROUNDS['/activated-carbon'];
 
   return (
     <section className="relative py-16 md:py-20 bg-[#071A10] text-white border-t border-[#245C3A] overflow-hidden">

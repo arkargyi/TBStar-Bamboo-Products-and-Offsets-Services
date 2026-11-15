@@ -169,46 +169,52 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-100',
   },
   '/about': {
-    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
-    objectPosition: 'object-center',
-    estimatedLuminance: 0.82,
-    highlightIntensity: 0.9,
-    filterMetrics: computeLegibilityFilter(0.82, 0.9),
-    overlayGradient:
-      'bg-linear-to-r from-[#06180F]/94 via-[#0C2618]/86 to-[#133523]/72',
-    vignetteGradient:
-      'bg-linear-to-t from-[#06180F]/90 via-[#0A2015]/38 to-[#06180F]/68',
-    overlayCss:
-      'linear-gradient(90deg, rgba(6, 22, 14, 0.93) 0%, rgba(11, 36, 23, 0.86) 58%, rgba(17, 49, 32, 0.72) 100%)',
-    vignetteCss:
-      'linear-gradient(180deg, rgba(5, 18, 11, 0.72) 0%, rgba(9, 29, 19, 0.35) 50%, rgba(6, 22, 14, 0.90) 100%)',
-    imageOpacityClass: 'opacity-65',
-  },
-  '/bamboo-products': {
-    imagePath: '/assets/aistudio/Bamboo_Products_BG_d40edb7a.png',
-    publicSourceUrl: '/assets/aistudio/Bamboo_Products_BG_d40edb7a.png',
-    alt: 'TB Star Company Limited Bamboo Production Warehouse and Natural Myanmar Bamboo Yard',
-    objectPosition: 'object-center',
-    estimatedLuminance: 0.56,
-    highlightIntensity: 0.62,
+    imagePath: '/assets/aistudio/About_Us_Background_b8896527.webp',
+    publicSourceUrl: '/assets/aistudio/About_Us_Background_b8896527.png',
+    alt: 'TB Star Company Limited Bamboo Splits, Bamboo Sticks, Activated Carbon, and Offset Printing Press Showcase',
+    objectPosition: 'object-[76%_center] sm:object-[72%_center] lg:object-center',
+    estimatedLuminance: 0.48,
+    highlightIntensity: 0.56,
     lockFilterMetrics: true,
     filterMetrics: {
-      brightness: 0.86,
-      contrast: 1.06,
-      saturate: 1.03,
-      cssFilter: 'brightness(0.86) contrast(1.06) saturate(1.03)',
+      brightness: 0.96,
+      contrast: 1.04,
+      saturate: 1.02,
+      cssFilter: 'brightness(0.96) contrast(1.04) saturate(1.02)',
     },
     overlayGradient:
-      'bg-linear-to-r from-[#061A10]/86 via-[#0A2617]/70 to-[#0F3320]/22',
+      'bg-linear-to-r from-[#06180F]/84 via-[#0A2416]/68 to-[#0E301D]/12',
     vignetteGradient:
-      'bg-linear-to-t from-[#05150C]/68 via-[#082013]/20 to-[#05150C]/48',
+      'bg-linear-to-t from-[#05150C]/62 via-[#082013]/14 to-[#05150C]/38',
     overlayCss:
-      'linear-gradient(90deg, rgba(6, 26, 16, 0.86) 0%, rgba(10, 38, 23, 0.72) 48%, rgba(14, 48, 29, 0.35) 76%, rgba(14, 48, 29, 0.16) 100%)',
+      'linear-gradient(90deg, rgba(6, 24, 15, 0.84) 0%, rgba(10, 36, 22, 0.68) 44%, rgba(14, 48, 29, 0.24) 74%, rgba(14, 48, 29, 0.08) 100%)',
     vignetteCss:
-      'linear-gradient(180deg, rgba(5, 21, 12, 0.46) 0%, rgba(8, 30, 18, 0.16) 50%, rgba(5, 21, 12, 0.65) 100%)',
-    imageOpacityClass: 'opacity-95',
+      'linear-gradient(180deg, rgba(5, 21, 12, 0.38) 0%, rgba(8, 30, 18, 0.12) 50%, rgba(5, 21, 12, 0.58) 100%)',
+    imageOpacityClass: 'opacity-100',
+  },
+  '/bamboo-products': {
+    imagePath: '/assets/aistudio/Bamboo_Products_Background_523c510b.webp',
+    publicSourceUrl: '/assets/aistudio/Bamboo_Products_Background_523c510b.png',
+    alt: 'TB Star Company Limited 100% Natural Myanmar Bamboo Splits and Bundled Bamboo Sticks on Wooden Worktable',
+    objectPosition: 'object-[74%_center] sm:object-[70%_center] lg:object-center',
+    estimatedLuminance: 0.46,
+    highlightIntensity: 0.54,
+    lockFilterMetrics: true,
+    filterMetrics: {
+      brightness: 0.96,
+      contrast: 1.04,
+      saturate: 1.02,
+      cssFilter: 'brightness(0.96) contrast(1.04) saturate(1.02)',
+    },
+    overlayGradient:
+      'bg-linear-to-r from-[#061A10]/84 via-[#0A2617]/66 to-[#0F3320]/12',
+    vignetteGradient:
+      'bg-linear-to-t from-[#05150C]/62 via-[#082013]/14 to-[#05150C]/38',
+    overlayCss:
+      'linear-gradient(90deg, rgba(6, 26, 16, 0.84) 0%, rgba(10, 38, 23, 0.66) 44%, rgba(14, 48, 29, 0.24) 74%, rgba(14, 48, 29, 0.08) 100%)',
+    vignetteCss:
+      'linear-gradient(180deg, rgba(5, 21, 12, 0.38) 0%, rgba(8, 30, 18, 0.12) 50%, rgba(5, 21, 12, 0.58) 100%)',
+    imageOpacityClass: 'opacity-100',
   },
   '/activated-carbon': {
     imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
@@ -229,58 +235,76 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-65',
   },
   '/printing-services': {
-    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
-    objectPosition: 'object-center',
-    estimatedLuminance: 0.79,
-    highlightIntensity: 0.85,
-    filterMetrics: computeLegibilityFilter(0.79, 0.85),
+    imagePath: '/assets/aistudio/Offset_Printing_Background_9f9d42bc.webp',
+    publicSourceUrl: '/assets/aistudio/Offset_Printing_Background_9f9d42bc.png',
+    alt: 'TB Star Company Limited Commercial Offset Printing Press and Printed Book & Voucher Deliverables',
+    objectPosition: 'object-[68%_center] sm:object-[64%_center] lg:object-center',
+    estimatedLuminance: 0.48,
+    highlightIntensity: 0.56,
+    lockFilterMetrics: true,
+    filterMetrics: {
+      brightness: 0.96,
+      contrast: 1.04,
+      saturate: 1.02,
+      cssFilter: 'brightness(0.96) contrast(1.04) saturate(1.02)',
+    },
     overlayGradient:
-      'bg-linear-to-r from-[#06180F]/94 via-[#0C2618]/86 to-[#133422]/72',
+      'bg-linear-to-r from-[#06180F]/84 via-[#0C2618]/68 to-[#133422]/14',
     vignetteGradient:
-      'bg-linear-to-t from-[#06180F]/90 via-[#0B2115]/38 to-[#06180F]/68',
+      'bg-linear-to-t from-[#06180F]/64 via-[#0B2115]/14 to-[#06180F]/40',
     overlayCss:
-      'linear-gradient(90deg, rgba(6, 23, 14, 0.93) 0%, rgba(12, 37, 24, 0.86) 58%, rgba(18, 51, 34, 0.72) 100%)',
+      'linear-gradient(90deg, rgba(6, 23, 14, 0.84) 0%, rgba(12, 37, 24, 0.68) 44%, rgba(18, 51, 34, 0.24) 74%, rgba(18, 51, 34, 0.08) 100%)',
     vignetteCss:
-      'linear-gradient(180deg, rgba(5, 19, 12, 0.72) 0%, rgba(10, 31, 20, 0.35) 50%, rgba(6, 23, 14, 0.90) 100%)',
-    imageOpacityClass: 'opacity-65',
+      'linear-gradient(180deg, rgba(5, 19, 12, 0.38) 0%, rgba(10, 31, 20, 0.12) 50%, rgba(6, 23, 14, 0.58) 100%)',
+    imageOpacityClass: 'opacity-100',
   },
   '/gallery': {
-    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
-    objectPosition: 'object-center',
-    estimatedLuminance: 0.8,
-    highlightIntensity: 0.88,
-    filterMetrics: computeLegibilityFilter(0.8, 0.88),
+    imagePath: '/assets/aistudio/Gallery_Background_67ef13cd.webp',
+    publicSourceUrl: '/assets/aistudio/Gallery_Background_67ef13cd.png',
+    alt: 'TB Star Company Limited Industrial Offset Printing Press and Bundled Natural Myanmar Bamboo Sticks',
+    objectPosition: 'object-[72%_center] sm:object-[68%_center] lg:object-center',
+    estimatedLuminance: 0.47,
+    highlightIntensity: 0.55,
+    lockFilterMetrics: true,
+    filterMetrics: {
+      brightness: 0.96,
+      contrast: 1.04,
+      saturate: 1.02,
+      cssFilter: 'brightness(0.96) contrast(1.04) saturate(1.02)',
+    },
     overlayGradient:
-      'bg-linear-to-r from-[#06180F]/94 via-[#0C2618]/86 to-[#133422]/72',
+      'bg-linear-to-r from-[#06180F]/84 via-[#0C2618]/66 to-[#133422]/12',
     vignetteGradient:
-      'bg-linear-to-t from-[#06180F]/90 via-[#0B2115]/38 to-[#06180F]/68',
+      'bg-linear-to-t from-[#06180F]/62 via-[#0B2115]/14 to-[#06180F]/38',
     overlayCss:
-      'linear-gradient(90deg, rgba(6, 23, 14, 0.93) 0%, rgba(12, 37, 24, 0.86) 58%, rgba(18, 51, 34, 0.72) 100%)',
+      'linear-gradient(90deg, rgba(6, 23, 14, 0.84) 0%, rgba(12, 37, 24, 0.66) 44%, rgba(18, 51, 34, 0.24) 74%, rgba(18, 51, 34, 0.08) 100%)',
     vignetteCss:
-      'linear-gradient(180deg, rgba(5, 19, 12, 0.72) 0%, rgba(10, 31, 20, 0.35) 50%, rgba(6, 23, 14, 0.90) 100%)',
-    imageOpacityClass: 'opacity-65',
+      'linear-gradient(180deg, rgba(5, 19, 12, 0.38) 0%, rgba(10, 31, 20, 0.12) 50%, rgba(6, 23, 14, 0.58) 100%)',
+    imageOpacityClass: 'opacity-100',
   },
   '/contact': {
-    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
-    objectPosition: 'object-center',
-    estimatedLuminance: 0.84,
-    highlightIntensity: 0.92,
-    filterMetrics: computeLegibilityFilter(0.84, 0.92),
+    imagePath: '/assets/aistudio/Contact_Us_Background_70f9570f.webp',
+    publicSourceUrl: '/assets/aistudio/Contact_Us_Background_70f9570f.png',
+    alt: 'TB Star Company Limited Bamboo Production and Export Warehouse Facility in Myanmar',
+    objectPosition: 'object-[75%_center] sm:object-[70%_center] lg:object-center',
+    estimatedLuminance: 0.52,
+    highlightIntensity: 0.6,
+    lockFilterMetrics: true,
+    filterMetrics: {
+      brightness: 0.96,
+      contrast: 1.04,
+      saturate: 1.02,
+      cssFilter: 'brightness(0.96) contrast(1.04) saturate(1.02)',
+    },
     overlayGradient:
-      'bg-linear-to-r from-[#06180F]/94 via-[#0C2618]/86 to-[#133422]/72',
+      'bg-linear-to-r from-[#06180F]/86 via-[#0C2618]/70 to-[#133422]/14',
     vignetteGradient:
-      'bg-linear-to-t from-[#06180F]/90 via-[#0B2115]/38 to-[#06180F]/68',
+      'bg-linear-to-t from-[#06180F]/64 via-[#0B2115]/14 to-[#06180F]/40',
     overlayCss:
-      'linear-gradient(90deg, rgba(6, 23, 14, 0.93) 0%, rgba(12, 37, 24, 0.86) 58%, rgba(18, 51, 34, 0.72) 100%)',
+      'linear-gradient(90deg, rgba(6, 23, 14, 0.86) 0%, rgba(12, 37, 24, 0.70) 44%, rgba(18, 51, 34, 0.24) 74%, rgba(18, 51, 34, 0.08) 100%)',
     vignetteCss:
-      'linear-gradient(180deg, rgba(5, 19, 12, 0.72) 0%, rgba(10, 31, 20, 0.35) 50%, rgba(6, 23, 14, 0.90) 100%)',
-    imageOpacityClass: 'opacity-65',
+      'linear-gradient(180deg, rgba(5, 19, 12, 0.38) 0%, rgba(10, 31, 20, 0.12) 50%, rgba(6, 23, 14, 0.58) 100%)',
+    imageOpacityClass: 'opacity-100',
   },
 };
 
@@ -502,10 +526,10 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'TB Star Company Limited Bamboo Splits Comparison and Packaging — With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
       featured: '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
       featuredAlt:
-        'TB Star Company Limited Bamboo Splits Types Showcase — With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle), 3 mm · 20 to 48 inches',
+        'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
       natural: '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
       naturalAlt:
-        'TB Star Company Limited Bamboo Splits Types Showcase — With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle), 3 mm · 20 to 48 inches',
+        'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
       wholesale: '/images/products/bamboo-split-wholesale.webp',
       wholesaleAlt: 'Bamboo splits bundled for commercial supply',
       texture: '/images/products/bamboo-split-texture.webp',
@@ -668,13 +692,13 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'TB Star Company Limited Natural Bamboo Sticks Packaging Showcase — 100% Natural Bamboo, Thickness: 1.25–2.5 mm, Length: 8, 9, 10 inches, Origin: Myanmar, 1 KG Per Bundle / 30 Bundles Per Bag',
       featured: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
       featuredAlt:
-        'TB Star Company Limited Natural Bamboo Sticks Packaging Showcase — 100% Natural Bamboo, Thickness: 1.25–2.5 mm, Length: 8, 9, 10 inches, Origin: Myanmar, 1 KG Per Bundle / 30 Bundles Per Bag',
-      natural: '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
+        'TB Star Company Limited 100% Natural Bamboo Sticks — Domestic & Export Supply, Myanmar Origin, Grade A+++, Thickness: 1.2 to 2.5 mm, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
+      natural: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
       naturalAlt:
-        'TB Star Company Limited Bamboo Products Showcase — Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.25–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag)',
+        'TB Star Company Limited 100% Natural Bamboo Sticks — Domestic & Export Supply, Myanmar Origin, Grade A+++, Thickness: 1.2 to 2.5 mm, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
       wholesale: '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
       wholesaleAlt:
-        'TB Star Company Limited Bamboo Products Showcase — Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.25–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag)',
+        'TB Star Company Limited 100% Natural Bamboo Sticks & Splits — Domestic & Export Supply, Myanmar Origin, Grade A+++, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
       texture: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
       textureAlt:
         'TB Star Company Limited Natural Bamboo Sticks Packaging Showcase — 1 KG Per Bundle / 30 Bundles Per Bag',
@@ -706,17 +730,17 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       {
         kicker: 'DOMESTIC & INTERNATIONAL EXPORT SUPPLY',
         kickerMm: 'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် နိုင်ငံတကာ ပြည်ပပို့ကုန်',
-        title: 'Bamboo Split & Bamboo Sticks Export Showcase',
-        titleMm: 'ဝါးခြမ်းပြားနှင့် ဝါးတံ ပြည်တွင်း/ပြည်ပပို့ကုန် ပြကွက်',
+        title: '100% Natural Myanmar Bamboo Sticks (Grade A+++)',
+        titleMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံ (အဆင့် A+++) ပြည်တွင်း/ပြည်ပပို့ကုန် ပြကွက်',
         description:
-          'Available in 8, 9, and 10 inch lengths (1.25 mm to 2.5 mm thickness) and packed at 1 KG Per Bundle / 30 Bundles Per Bag alongside 3 mm Bamboo Split (20"–48") for domestic distribution in Myanmar and international export.',
+          'Available in 8, 9, and 10 inch lengths and packed at 1 KG Per Bundle / 30 Bundles Per Bag for domestic distribution in Myanmar and international export.',
         descriptionMm:
-          'အထူ 1.25 mm မှ 2.5 mm၊ အရှည် ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးထားသော ဝါးတံများနှင့် ဝါးခြမ်းပြား ပြကွက်။',
+          'အရှည် ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးထားသော သဘာဝဝါးတံများ ပြကွက်။',
         imagePath: '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
         imageAlt:
-          'TB Star Company Limited Bamboo Products Showcase — Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.25–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag)',
-        frameLabel: 'Bamboo Products · Splits & Sticks Showcase',
-        frameLabelMm: 'ဝါးထုတ်ကုန်များ · ဝါးခြမ်းပြားနှင့် ဝါးတံ ပြကွက်',
+          'TB Star Company Limited 100% Natural Bamboo Products — Bamboo Splits and Bamboo Sticks Domestic & Export Supply',
+        frameLabel: 'Bamboo Sticks · Domestic & Export Supply (1 KG/Bundle · 30 Bundles/Bag)',
+        frameLabelMm: 'ဝါးတံ · ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန် (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)',
       },
     ],
     specifications: [
@@ -1839,8 +1863,8 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     title: `About ${COMPANY_INFO.name} – Established in ${COMPANY_INFO.establishedYear} in Yangon, Myanmar`,
     description: `Learn about ${COMPANY_INFO.name}, established in ${COMPANY_INFO.establishedYear} at Central Tower, Kyauktada Township, Yangon, Myanmar—serving domestic and international B2B partners across natural bamboo exports, activated carbon, and offset printing.`,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/about`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Products_BG_d40edb7a.png`,
-    ogImageAlt: `${COMPANY_INFO.name} bamboo warehousing and export operations in Myanmar`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/About_Us_Background_b8896527.webp`,
+    ogImageAlt: `${COMPANY_INFO.name} Bamboo Products, Activated Carbon, and Offset Printing Operations in Myanmar`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
       { name: 'About Us', url: `${COMPANY_INFO.canonicalBase}/about` },
@@ -1851,7 +1875,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     description:
       'Explore 100% natural Myanmar Bamboo Split (Grade: A +++, 3 mm thickness, 20 to 48 inches, with nodes or without nodes) and Bamboo Sticks (1.25 mm to 2.5 mm, 8, 9, 10 inches, packed at 1 KG Per Bundle / 30 Bundles Per Bag) from TB Star Company Limited.',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/bamboo-products`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/bamboo-products-splits-and-sticks.webp`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/Bamboo_Products_Background_523c510b.webp`,
     ogImageAlt: `100% Natural Myanmar Bamboo Split and Bamboo Sticks by ${COMPANY_INFO.name}`,
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
@@ -2241,17 +2265,17 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   },
   {
     id: 'gal-bamboo-sticks-main',
-    title: 'Natural Myanmar Bamboo Split & Sticks Showcase',
-    titleMm: 'သဘာဝ မြန်မာ့ဝါးခြမ်းပြားနှင့် ဝါးတံ ထုတ်ကုန်ပြကွက်',
+    title: '100% Natural Myanmar Bamboo Sticks — Domestic & Export Supply',
+    titleMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံ — ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန် ပြကွက်',
     category: 'Bamboo Products',
     caption:
-      'Manufacturing 100% natural Myanmar Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.25–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag) for domestic and export markets.',
+      'Manufacturing 100% natural Myanmar Bamboo Sticks (8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag) for domestic and export markets.',
     captionMm:
-      'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် မြန်မာနိုင်ငံတွင် ထုတ်လုပ်ထားသော အထူ 3 mm ဝါးခြမ်းပြားနှင့် 1.25–2.5 mm သဘာဝဝါးတံများ (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)။',
+      'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် မြန်မာနိုင်ငံတွင် ထုတ်လုပ်ထားသော သဘာဝဝါးတံများ (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)။',
     visualType: 'bamboo-sticks',
     imagePath: '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
     altText:
-      'TB Star Company Limited Bamboo Products Showcase — Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.25–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag)',
+      'TB Star Company Limited 100% Natural Bamboo Products — Bamboo Splits and Bamboo Sticks Domestic & Export Supply',
   },
   {
     id: 'gal-bamboo-split-brochure',
@@ -2296,17 +2320,17 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   },
   {
     id: 'gal-bamboo-sticks-six-bundle',
-    title: 'Bamboo Splits Types — With Nodes (50 pcs) & Without Nodes (100 pcs)',
-    titleMm: 'ဝါးခြမ်းပြား အမျိုးအစားများ — အဆစ်ပါ (50 pcs) နှင့် အဆစ်မပါ (100 pcs)',
+    title: '100% Natural Myanmar Bamboo Split — Domestic & Export Supply',
+    titleMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြား — ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန် ပြကွက်',
     category: 'Packaging',
     caption:
-      'Side-by-side showcase of TB Star Company Limited Bamboo Splits with nodes (50 pcs Per Bundle) and without nodes (100 pcs Per Bundle) in 3 mm thickness and 20 to 48 inch lengths.',
+      'TB Star Company Limited 100% Natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches) with nodes (50 pcs Per Bundle) and without nodes (100 pcs Per Bundle).',
     captionMm:
-      'အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ ဝါးခြမ်းပြားများကို အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs) ယှဉ်တွဲပြသထားပုံ။',
+      'အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ သဘာဝ မြန်မာ့ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs / အဆစ်မပါ တစ်စည်း 100 pcs) ပြကွက်။',
     visualType: 'bamboo-split',
     imagePath: '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
     altText:
-      'TB Star Company Limited Bamboo Splits Types Showcase — With Nodes: 50 pcs Per Bundle, Without Nodes: 100 pcs Per Bundle, 3 mm · 20 to 48 inches',
+      'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes: 50 pcs Per Bundle, Without Nodes: 100 pcs Per Bundle',
   },
   {
     id: 'gal-bamboo-split-bundles',

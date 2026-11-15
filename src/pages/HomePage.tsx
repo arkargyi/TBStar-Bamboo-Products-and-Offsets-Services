@@ -298,7 +298,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <VisualAssetFrame
                   type="bamboo-split"
                   imagePath="/assets/aistudio/bamboo-products-splits-and-sticks.webp"
-                  altText="TB Star Company Limited Bamboo Products — 100% Natural Myanmar Bamboo Split (Grade: A +++, 3 mm · 20″–48″, With Nodes or Without Nodes options) and Bamboo Sticks (1.25–2.5 mm · 8″, 9″, 10″, 1 KG Per Bundle / 30 Bundles Per Bag)"
+                  altText="TB Star Company Limited 100% Natural Myanmar Bamboo Products — Bamboo Split and Bamboo Sticks Domestic & Export Supply"
                   aspectClassName="aspect-[16/9]"
                   label={t(
                     '100% Natural Myanmar Bamboo · Split & Sticks Export',
@@ -1116,12 +1116,12 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="bg-[#173D2A] text-white border border-[#245C3A] rounded-2xl overflow-hidden shadow-2xs flex flex-col">
               <VisualAssetFrame
                 type="bamboo-sticks"
-                imagePath="/assets/aistudio/bamboo-products-splits-and-sticks.webp"
-                altText="TB Star Company Limited Bamboo Products — Bamboo Split (Grade: A +++, 3 mm · 20 to 48 inches) and Bamboo Sticks (1.25–2.5 mm · 8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag)"
+                imagePath="/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp"
+                altText="TB Star Company Limited 100% Natural Myanmar Bamboo Sticks — Domestic & Export Supply, Grade A+++, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag"
                 aspectClassName="aspect-[16/9]"
                 label={t(
-                  'Bamboo Split & Sticks · 1 KG Per Bundle / 30 Bundles Per Bag Export Supply',
-                  'ဝါးခြမ်းပြားနှင့် ဝါးတံ · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
+                  'Bamboo Sticks · 1 KG Per Bundle / 30 Bundles Per Bag Export Supply',
+                  'ဝါးတံ · တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း ပြည်ပပို့ကုန် ထုပ်ပိုးမှု'
                 )}
               />
               <div className="p-6 sm:p-8 flex-1">
