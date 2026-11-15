@@ -377,7 +377,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div>
                 <VisualAssetFrame
                   type="bamboo-split"
-                  imagePath="/assets/aistudio/bamboo-products-splits-and-sticks.webp"
+                  imagePath="/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp"
                   altText="TB Star Company Limited 100% Natural Myanmar Bamboo Products — Bamboo Split and Bamboo Sticks Domestic & Export Supply"
                   aspectClassName="aspect-[16/9]"
                   label={t(

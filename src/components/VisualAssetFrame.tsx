@@ -21,6 +21,8 @@ const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
 ]);
 
 const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
+  '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
+  '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
   '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
   '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
@@ -31,6 +33,8 @@ const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
 ]);
 
 const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
+  '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
+  '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
   '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
   '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
@@ -41,6 +45,17 @@ const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
 ]);
 
 const FOUR_BY_THREE_BAMBOO_BANNERS = new Set<string>([]);
+
+const ALTERNATE_ASSET_FALLBACKS: Record<string, string> = {
+  '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp':
+    '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
+  '/assets/aistudio/bamboo-products-splits-and-sticks.webp':
+    '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
+  '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp':
+    '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
+  '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp':
+    '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
+};
 
 const RESPONSIVE_PRODUCT_IMAGE_META: Record<
   string,
@@ -65,7 +80,7 @@ const RESPONSIVE_PRODUCT_IMAGE_META: Record<
 const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, string> = {
   'bamboo-split': '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
   'bamboo-sticks': '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
-  'bamboo-custom': '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
+  'bamboo-custom': '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
   'activated-carbon': '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
   'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp',
   'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png',
@@ -95,9 +110,13 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
  */
 export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
   // Bamboo Split & Bamboo Sticks Assets
+  '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
+  '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/bamboo-products-splits-and-sticks.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
@@ -249,6 +268,12 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
     }
   };
 
+  const [activeSrc, setActiveSrc] = useState<string>(src);
+
+  useEffect(() => {
+    setActiveSrc(src);
+  }, [src]);
+
   useEffect(() => {
     const imgEl = imgRef.current;
     if (imgEl && imgEl.complete && imgEl.naturalWidth > 0) {
@@ -257,11 +282,11 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
     } else {
       setIsLoaded(false);
     }
-  }, [src, preserveNaturalLuminance]);
+  }, [activeSrc, preserveNaturalLuminance]);
 
   const placeholderDataUrl =
-    PRODUCT_IMAGE_BASE64_PLACEHOLDERS[src] || DEFAULT_BASE64_PLACEHOLDER;
-  const responsiveMeta = RESPONSIVE_PRODUCT_IMAGE_META[src];
+    PRODUCT_IMAGE_BASE64_PLACEHOLDERS[activeSrc] || DEFAULT_BASE64_PLACEHOLDER;
+  const responsiveMeta = RESPONSIVE_PRODUCT_IMAGE_META[activeSrc];
 
   return (
     <>
@@ -271,7 +296,7 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
       />
       <img
         ref={imgRef}
-        src={src}
+        src={activeSrc}
         srcSet={responsiveMeta?.srcSet}
         sizes={responsiveMeta?.sizes}
         alt={alt}
@@ -286,7 +311,18 @@ const ProgressiveProductImage: React.FC<ProgressiveProductImageProps> = ({
           setIsLoaded(true);
           evaluateProductImageFilter(e.currentTarget);
         }}
-        onError={() => setIsLoaded(true)}
+        onError={() => {
+          const fallback = ALTERNATE_ASSET_FALLBACKS[activeSrc];
+          if (fallback && fallback !== activeSrc && fallback !== src) {
+            setActiveSrc(fallback);
+            return;
+          }
+          if (fallback && activeSrc === src) {
+            setActiveSrc(fallback);
+            return;
+          }
+          setIsLoaded(true);
+        }}
         style={{
           filter:
             isLoaded && computedFilter !== 'none' ? computedFilter : undefined,

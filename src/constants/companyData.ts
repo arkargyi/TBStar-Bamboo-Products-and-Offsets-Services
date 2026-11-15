@@ -524,10 +524,10 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       secondary: '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
       secondaryAlt:
         'TB Star Company Limited Bamboo Splits Comparison and Packaging — With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
-      featured: '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
+      featured: '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
       featuredAlt:
         'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
-      natural: '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
+      natural: '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
       naturalAlt:
         'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
       wholesale: '/images/products/bamboo-split-wholesale.webp',
@@ -696,7 +696,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       natural: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
       naturalAlt:
         'TB Star Company Limited 100% Natural Bamboo Sticks — Domestic & Export Supply, Myanmar Origin, Grade A+++, Thickness: 1.2 to 2.5 mm, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
-      wholesale: '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
+      wholesale: '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
       wholesaleAlt:
         'TB Star Company Limited 100% Natural Bamboo Sticks & Splits — Domestic & Export Supply, Myanmar Origin, Grade A+++, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
       texture: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
@@ -736,7 +736,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
           'Available in 8, 9, and 10 inch lengths and packed at 1 KG Per Bundle / 30 Bundles Per Bag for domestic distribution in Myanmar and international export.',
         descriptionMm:
           'အရှည် ၈၊ ၉ နှင့် ၁၀ လက်မဖြင့် တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးထားသော သဘာဝဝါးတံများ ပြကွက်။',
-        imagePath: '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
+        imagePath: '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
         imageAlt:
           'TB Star Company Limited 100% Natural Bamboo Products — Bamboo Splits and Bamboo Sticks Domestic & Export Supply',
         frameLabel: 'Bamboo Sticks · Domestic & Export Supply (1 KG/Bundle · 30 Bundles/Bag)',
@@ -1855,7 +1855,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     title: `${COMPANY_INFO.name} – Natural Myanmar Bamboo Products, Activated Carbon & Offset Printing Services`,
     description: `Established in ${COMPANY_INFO.establishedYear}, ${COMPANY_INFO.name} operates in Yangon, Myanmar, supplying 100% natural Myanmar ${publishedBambooNames || 'Bamboo Products'}, Activated Carbon, and one-stop Offset Printing Services & Ball Pen stationery.`,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/bamboo-products-splits-and-sticks.webp`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp`,
     ogImageAlt: `Natural Myanmar Bamboo Split and Bamboo Sticks by ${COMPANY_INFO.name}`,
     breadcrumbs: [{ name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` }],
   },
@@ -2273,7 +2273,7 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် မြန်မာနိုင်ငံတွင် ထုတ်လုပ်ထားသော သဘာဝဝါးတံများ (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)။',
     visualType: 'bamboo-sticks',
-    imagePath: '/assets/aistudio/bamboo-products-splits-and-sticks.webp',
+    imagePath: '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
     altText:
       'TB Star Company Limited 100% Natural Bamboo Products — Bamboo Splits and Bamboo Sticks Domestic & Export Supply',
   },
@@ -2328,7 +2328,7 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       'အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ သဘာဝ မြန်မာ့ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs / အဆစ်မပါ တစ်စည်း 100 pcs) ပြကွက်။',
     visualType: 'bamboo-split',
-    imagePath: '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
+    imagePath: '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
     altText:
       'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes: 50 pcs Per Bundle, Without Nodes: 100 pcs Per Bundle',
   },
