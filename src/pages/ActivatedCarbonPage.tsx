@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { ArrowRight, Check, MessageCircle, Phone } from 'lucide-react';
+import { ArrowRight, Check, Mail, MessageCircle, Phone } from 'lucide-react';
 import {
   ACTIVATED_CARBON_PRODUCTS,
   BAMBOO_PRODUCTS,
@@ -137,13 +137,22 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
             </a>
           </div>
 
-          <a
-            href={COMPANY_INFO.telephoneHref}
-            className="text-xs font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1.5"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#245C3A]" />
-            {t('Direct Trade Line:', 'တိုက်ရိုက်ဖုန်း -')} {COMPANY_INFO.telephone}
-          </a>
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href={COMPANY_INFO.telephoneHref}
+              className="text-xs font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1.5"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#245C3A]" />
+              {t('Direct Trade Line:', 'တိုက်ရိုက်ဖုန်း -')} {COMPANY_INFO.telephone}
+            </a>
+            <a
+              href={COMPANY_INFO.emailHref}
+              className="text-xs font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1.5"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#245C3A]" />
+              {COMPANY_INFO.email}
+            </a>
+          </div>
         </div>
       </div>
 
@@ -379,6 +388,13 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
                       >
                         <Phone className="w-3.5 h-3.5 text-[#245C3A]" />
                         <span>{COMPANY_INFO.telephone}</span>
+                      </a>
+                      <a
+                        href={COMPANY_INFO.emailHref}
+                        className="px-4 py-2 bg-white hover:bg-[#EAF5E4] border border-[#DDE5D9] text-[#173D2A] text-xs font-semibold rounded-lg inline-flex items-center gap-2 transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-[#245C3A]" />
+                        <span>{COMPANY_INFO.email}</span>
                       </a>
                       <a
                         href={COMPANY_INFO.whatsappHref}

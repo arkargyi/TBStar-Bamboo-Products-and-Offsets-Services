@@ -21,6 +21,8 @@ const PROMOTIONAL_PRINTING_BANNERS = new Set<string>([
 ]);
 
 const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
+  '/assets/aistudio/tbstar-bamboo-splits-grade-a.webp',
+  '/assets/aistudio/tbstar-bamboo-sticks-grade-a.webp',
   '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
   '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
   '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp',
@@ -44,7 +46,10 @@ const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
   '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
 ]);
 
-const FOUR_BY_THREE_BAMBOO_BANNERS = new Set<string>([]);
+const FOUR_BY_THREE_BAMBOO_BANNERS = new Set<string>([
+  '/assets/aistudio/tbstar-bamboo-splits-grade-a.webp',
+  '/assets/aistudio/tbstar-bamboo-sticks-grade-a.webp',
+]);
 
 const ALTERNATE_ASSET_FALLBACKS: Record<string, string> = {
   '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp':
@@ -110,6 +115,10 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
  */
 export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
   // Bamboo Split & Bamboo Sticks Assets
+  '/assets/aistudio/tbstar-bamboo-splits-grade-a.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0VFRjVFNCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjQzhBMTcyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjN0I1NTMyIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
+  '/assets/aistudio/tbstar-bamboo-sticks-grade-a.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0RDRUJEMiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjNEQ3RTJDIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOEI2MDM3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
   '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjRGN0YwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNFOEVFRTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5Q0I2NzgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
   '/assets/aistudio/bamboo-splits-with-and-without-nodes-types.webp':

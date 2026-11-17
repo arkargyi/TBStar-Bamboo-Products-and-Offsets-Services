@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 import {
   COMPANY_INFO,
   GALLERY_PREVIEW_ITEMS,
@@ -131,6 +131,13 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 >
                   <Phone className="w-3.5 h-3.5 text-[#245C3A]" />
                   <span>{COMPANY_INFO.telephone}</span>
+                </a>
+                <a
+                  href={COMPANY_INFO.emailHref}
+                  className="px-4 py-2 bg-white border border-[#DDE5D9] hover:border-[#245C3A] text-[#173D2A] text-xs font-semibold rounded-lg inline-flex items-center gap-1.5"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#245C3A]" />
+                  <span>{COMPANY_INFO.email}</span>
                 </a>
               </div>
             </div>

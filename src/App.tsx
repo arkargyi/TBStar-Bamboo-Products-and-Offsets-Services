@@ -332,6 +332,7 @@ export default function App({ initialPathname, initialSearch }: AppProps) {
           isNotFound={isNotFound}
           onNavigate={handleNavigate}
           onOpenInquiry={() => handleInquireWithCategory(selectedInquiryType, true)}
+          onInquireWithCategory={handleInquireWithCategory}
         />
 
         {/* Main Content Area */}

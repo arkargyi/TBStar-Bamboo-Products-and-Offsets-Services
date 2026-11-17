@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, Check, Globe2, Phone, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, Globe2, Mail, Phone, ShieldCheck } from 'lucide-react';
 import {
   ACTIVATED_CARBON_PRODUCTS,
   COMPANY_INFO,
@@ -265,14 +265,23 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
               <div className="sm:col-span-1 md:col-span-2 xl:col-span-1">
                 <p className="text-[#173D2A] font-bold mb-0.5">
-                  {t('Direct Telephone', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ်')}
+                  {t('Direct Contact', 'ဆက်သွယ်ရန် ဖုန်းနှင့် အီးမေးလ်')}
                 </p>
-                <a
-                  href={COMPANY_INFO.telephoneHref}
-                  className="font-mono-tabular text-[#173D2A] font-extrabold hover:text-[#245C3A] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#245C3A] rounded-xs"
-                >
-                  {COMPANY_INFO.telephone}
-                </a>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5">
+                  <a
+                    href={COMPANY_INFO.telephoneHref}
+                    className="font-mono-tabular text-[#173D2A] font-extrabold hover:text-[#245C3A] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#245C3A] rounded-xs"
+                  >
+                    {COMPANY_INFO.telephone}
+                  </a>
+                  <span className="text-[#26332B]/40" aria-hidden="true">·</span>
+                  <a
+                    href={COMPANY_INFO.emailHref}
+                    className="font-mono-tabular text-[#173D2A] font-extrabold hover:text-[#245C3A] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#245C3A] rounded-xs"
+                  >
+                    {COMPANY_INFO.email}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -864,6 +873,14 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <Phone className="w-4 h-4 text-[#245C3A]" />
                   {COMPANY_INFO.telephone}
                 </a>
+
+                <a
+                  href={COMPANY_INFO.emailHref}
+                  className="px-5 py-2.5 border border-[#DDE5D9] hover:border-[#245C3A] text-[#173D2A] text-sm font-semibold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+                >
+                  <Mail className="w-4 h-4 text-[#245C3A]" />
+                  {COMPANY_INFO.email}
+                </a>
               </div>
             </div>
 
@@ -914,7 +931,19 @@ export const HomePage: React.FC<HomePageProps> = ({
                     {t('Contact Number', 'ဆက်သွယ်ရန် ဖုန်းနံပါတ်')}
                   </dt>
                   <dd className="font-mono-tabular font-bold text-[#173D2A]">
-                    {COMPANY_INFO.telephone}
+                    <a href={COMPANY_INFO.telephoneHref} className="hover:underline">
+                      {COMPANY_INFO.telephone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Official Email', 'အီးမေးလ် လိပ်စာ')}
+                  </dt>
+                  <dd className="font-mono-tabular font-bold text-[#173D2A]">
+                    <a href={COMPANY_INFO.emailHref} className="hover:underline">
+                      {COMPANY_INFO.email}
+                    </a>
                   </dd>
                 </div>
                 <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between gap-4">

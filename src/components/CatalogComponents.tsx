@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Check, Phone, Search, X } from 'lucide-react';
+import { ArrowRight, Check, Mail, Phone, Search, X } from 'lucide-react';
 import {
   BambooProductItem,
   COMPANY_INFO,
@@ -436,6 +436,19 @@ export const ContactCTA: React.FC<ContactCTAProps> = ({
                 >
                   <Phone className="w-5 h-5 text-[#A8D977]" />
                   {COMPANY_INFO.telephone}
+                </a>
+              </div>
+
+              <div className="pt-4 border-t border-white/15">
+                <p className="text-xs font-semibold text-[#A8D977] mb-1">
+                  {t('Official Email Address', 'တရားဝင် အီးမေးလ် လိပ်စာ')}
+                </p>
+                <a
+                  href={COMPANY_INFO.emailHref}
+                  className="text-base sm:text-lg font-mono-tabular font-bold text-white hover:text-[#A8D977] transition-colors inline-flex items-center gap-2.5 break-all"
+                >
+                  <Mail className="w-4 h-4 text-[#A8D977] shrink-0" />
+                  {COMPANY_INFO.email}
                 </a>
               </div>
 

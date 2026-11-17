@@ -38,6 +38,8 @@ export const COMPANY_INFO = {
   telephoneInternational: '+95 9 450048547',
   telephoneHref: 'tel:+959450048547',
   whatsappHref: 'https://wa.me/959450048547',
+  email: 'info@tbstarcompany.com',
+  emailHref: 'mailto:info@tbstarcompany.com',
   logoPath: '/assets/aistudio/TBStar_073dded3.jpeg',
   tagline: 'Bamboo Export & Offset Printing',
   taglineMm: 'ဝါးပို့ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း',
@@ -217,22 +219,28 @@ export const PAGE_BACKGROUNDS: Record<PageRoute, PageBackgroundConfig> = {
     imageOpacityClass: 'opacity-100',
   },
   '/activated-carbon': {
-    imagePath: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    publicSourceUrl: '/images/backgrounds/tbstar-hero-placeholder.svg',
-    alt: "Placeholder background image — to be replaced with TB Star Company Limited's own photos",
-    objectPosition: 'object-center',
-    estimatedLuminance: 0.54,
-    highlightIntensity: 0.6,
-    filterMetrics: computeLegibilityFilter(0.54, 0.6),
+    imagePath: '/assets/aistudio/Granular_Activated_Carbon_Still_Life_79acd3d5.webp',
+    publicSourceUrl: '/assets/aistudio/Granular_Activated_Carbon_Still_Life_79acd3d5.png',
+    alt: 'TB Star Company Limited Nut Shell Activated Carbon (Jujube Seed) and Coconut Shell Activated Carbon Granules Showcase',
+    objectPosition: 'object-[76%_center] sm:object-[72%_center] lg:object-center',
+    estimatedLuminance: 0.44,
+    highlightIntensity: 0.52,
+    lockFilterMetrics: true,
+    filterMetrics: {
+      brightness: 0.96,
+      contrast: 1.04,
+      saturate: 1.02,
+      cssFilter: 'brightness(0.96) contrast(1.04) saturate(1.02)',
+    },
     overlayGradient:
-      'bg-linear-to-r from-[#07130E]/94 via-[#0D2118]/86 to-[#132E21]/72',
+      'bg-linear-to-r from-[#06180F]/82 via-[#0A2416]/62 to-[#0E301D]/10',
     vignetteGradient:
-      'bg-linear-to-t from-[#07130E]/92 via-[#0B1C14]/38 to-[#07130E]/68',
+      'bg-linear-to-t from-[#05150C]/58 via-[#082013]/12 to-[#05150C]/34',
     overlayCss:
-      'linear-gradient(90deg, rgba(7, 18, 13, 0.93) 0%, rgba(12, 31, 22, 0.86) 58%, rgba(18, 45, 32, 0.72) 100%)',
+      'linear-gradient(90deg, rgba(6, 24, 15, 0.82) 0%, rgba(10, 36, 22, 0.62) 44%, rgba(14, 48, 29, 0.20) 74%, rgba(14, 48, 29, 0.06) 100%)',
     vignetteCss:
-      'linear-gradient(180deg, rgba(6, 15, 11, 0.72) 0%, rgba(10, 25, 18, 0.36) 50%, rgba(7, 18, 13, 0.90) 100%)',
-    imageOpacityClass: 'opacity-65',
+      'linear-gradient(180deg, rgba(5, 21, 12, 0.34) 0%, rgba(8, 30, 18, 0.10) 50%, rgba(5, 21, 12, 0.54) 100%)',
+    imageOpacityClass: 'opacity-100',
   },
   '/printing-services': {
     imagePath: '/assets/aistudio/Offset_Printing_Background_9f9d42bc.webp',
@@ -527,9 +535,9 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       featured: '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
       featuredAlt:
         'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
-      natural: '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
+      natural: '/assets/aistudio/tbstar-bamboo-splits-grade-a.webp',
       naturalAlt:
-        'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
+        'TB Star Company Limited 100% Natural Bamboo Splits — Domestic & Export Supply, Myanmar Origin, Grade A+++, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
       wholesale: '/images/products/bamboo-split-wholesale.webp',
       wholesaleAlt: 'Bamboo splits bundled for commercial supply',
       texture: '/images/products/bamboo-split-texture.webp',
@@ -693,7 +701,7 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
       featured: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
       featuredAlt:
         'TB Star Company Limited 100% Natural Bamboo Sticks — Domestic & Export Supply, Myanmar Origin, Grade A+++, Thickness: 1.2 to 2.5 mm, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
-      natural: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
+      natural: '/assets/aistudio/tbstar-bamboo-sticks-grade-a.webp',
       naturalAlt:
         'TB Star Company Limited 100% Natural Bamboo Sticks — Domestic & Export Supply, Myanmar Origin, Grade A+++, Thickness: 1.2 to 2.5 mm, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
       wholesale: '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
@@ -1926,7 +1934,7 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
   },
   '/contact': {
     title: `Contact ${COMPANY_INFO.name} – Central Tower, Kyauktada Township, Yangon`,
-    description: `Contact ${COMPANY_INFO.name} at ${COMPANY_INFO.address.line1}, ${COMPANY_INFO.address.township}, ${COMPANY_INFO.address.city} (Tel: ${COMPANY_INFO.telephone}) for Bamboo, Activated Carbon, Printing, and Ball Pen inquiries.`,
+    description: `Contact ${COMPANY_INFO.name} at ${COMPANY_INFO.address.line1}, ${COMPANY_INFO.address.township}, ${COMPANY_INFO.address.city} (Tel: ${COMPANY_INFO.telephone}, Email: ${COMPANY_INFO.email}) for Bamboo, Activated Carbon, Printing, and Ball Pen inquiries.`,
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/contact`,
     ogImage: `${COMPANY_INFO.canonicalBase}${COMPANY_INFO.logoPath}`,
     ogImageAlt: `Contact ${COMPANY_INFO.name} at Central Tower, Kyauktada Township, Yangon`,
@@ -1962,6 +1970,7 @@ export function buildStructuredData(route: PageRoute) {
     },
     description: COMPANY_INFO.seoDescription,
     telephone: COMPANY_INFO.telephone,
+    email: COMPANY_INFO.email,
     areaServed: ['MM'],
     address: {
       '@type': 'PostalAddress',
@@ -1987,6 +1996,7 @@ export function buildStructuredData(route: PageRoute) {
     url: `${baseUrl}/`,
     image: `${baseUrl}${COMPANY_INFO.logoPath}`,
     telephone: COMPANY_INFO.telephone,
+    email: COMPANY_INFO.email,
     areaServed: ['MM'],
     address: {
       '@type': 'PostalAddress',

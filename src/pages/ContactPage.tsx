@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Building2, MessageCircle, Navigation } from 'lucide-react';
+import { MapPin, Phone, Mail, Building2, MessageCircle, Navigation } from 'lucide-react';
 import {
   COMPANY_INFO,
   INQUIRY_TYPE_OPTIONS,
@@ -62,6 +62,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             >
               <Phone className="w-4 h-4 text-[#A8D977]" />
               {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
+            </a>
+            <a
+              href={COMPANY_INFO.emailHref}
+              className="px-5 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm font-bold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+            >
+              <Mail className="w-4 h-4 text-[#A8D977]" />
+              {COMPANY_INFO.email}
             </a>
             <a
               href={COMPANY_INFO.whatsappHref}
@@ -206,6 +213,32 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           {t('WhatsApp Chat', 'WhatsApp ပို့ရန်')}
                         </a>
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Email Contact */}
+                  <div className="pt-5 border-t border-[#DDE5D9] flex items-start gap-3.5">
+                    <Mail className="w-5 h-5 text-[#245C3A] shrink-0 mt-1" />
+                    <div className="w-full">
+                      <AnimatedHeading
+                        tag="h3"
+                        className="text-xs font-semibold text-[#245C3A] uppercase tracking-wider mb-1 justify-start"
+                      >
+                        {t('Official Email Contact', 'တရားဝင် အီးမေးလ် ဆက်သွယ်ရန်')}
+                      </AnimatedHeading>
+                      <a
+                        href={COMPANY_INFO.emailHref}
+                        className="text-base sm:text-lg font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] transition-colors block mb-3 break-all"
+                      >
+                        {COMPANY_INFO.email}
+                      </a>
+                      <a
+                        href={COMPANY_INFO.emailHref}
+                        className="px-4 py-2 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-[#A8D977]" />
+                        {t('Send Email', 'အီးမေးလ် ပို့ရန်')}
+                      </a>
                     </div>
                   </div>
 

@@ -5,6 +5,7 @@ import {
   Compass,
   Globe2,
   Handshake,
+  Mail,
   MapPin,
   MessageCircle,
   Phone,
@@ -207,6 +208,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <dd className="font-mono-tabular font-bold text-[#173D2A]">
                     <a href={COMPANY_INFO.telephoneHref} className="hover:underline">
                       {COMPANY_INFO.telephone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="pt-3 border-t border-[#DDE5D9] flex items-center justify-between">
+                  <dt className="text-xs text-[#26332B]/70 font-medium">
+                    {t('Official Email', 'အီးမေးလ် လိပ်စာ')}
+                  </dt>
+                  <dd className="font-mono-tabular font-bold text-[#173D2A]">
+                    <a href={COMPANY_INFO.emailHref} className="hover:underline">
+                      {COMPANY_INFO.email}
                     </a>
                   </dd>
                 </div>
@@ -609,6 +620,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               >
                 <Phone className="w-4 h-4 text-[#A8D977]" />
                 {COMPANY_INFO.telephone}
+              </a>
+              <a
+                href={COMPANY_INFO.emailHref}
+                className="px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+              >
+                <Mail className="w-4 h-4 text-[#A8D977]" />
+                {COMPANY_INFO.email}
               </a>
               <a
                 href={COMPANY_INFO.whatsappHref}

@@ -17,6 +17,7 @@ import {
   Copy,
   ExternalLink,
   LocateFixed,
+  Mail,
   MapPin,
   Navigation,
   Phone,
@@ -541,17 +542,30 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
               </button>
             </div>
 
-            {/* Direct Phone Assistance Link */}
-            <div className="pt-2 flex items-center justify-between text-xs text-[#26332B]/80">
-              <span>{t('Need arrival assistance?', 'လမ်းညွှန် အကူအညီ လိုအပ်ပါသလား?')}</span>
-              <a
-                href={COMPANY_INFO.telephoneHref}
-                aria-label={`Call TB Star Company Limited at ${COMPANY_INFO.telephone}`}
-                className="font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1"
-              >
-                <Phone className="w-3 h-3 text-[#245C3A]" />
-                <span>{COMPANY_INFO.telephone}</span>
-              </a>
+            {/* Direct Phone & Email Assistance Links */}
+            <div className="pt-2 space-y-1.5 text-xs text-[#26332B]/80">
+              <div className="flex items-center justify-between">
+                <span>{t('Need arrival assistance?', 'လမ်းညွှန် အကူအညီ လိုအပ်ပါသလား?')}</span>
+                <a
+                  href={COMPANY_INFO.telephoneHref}
+                  aria-label={`Call TB Star Company Limited at ${COMPANY_INFO.telephone}`}
+                  className="font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1"
+                >
+                  <Phone className="w-3 h-3 text-[#245C3A]" />
+                  <span>{COMPANY_INFO.telephone}</span>
+                </a>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>{t('Official Email:', 'အီးမေးလ် -')}</span>
+                <a
+                  href={COMPANY_INFO.emailHref}
+                  aria-label={`Email TB Star Company Limited at ${COMPANY_INFO.email}`}
+                  className="font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1"
+                >
+                  <Mail className="w-3 h-3 text-[#245C3A]" />
+                  <span>{COMPANY_INFO.email}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

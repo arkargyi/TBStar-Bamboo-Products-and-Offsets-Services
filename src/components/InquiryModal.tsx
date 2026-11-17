@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   X,
   Phone,
+  Mail,
   Copy,
   Check,
   FileText,
@@ -87,7 +88,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       : INQUIRY_TYPE_LABELS[inquiryType].en;
     const summaryText = [
       `INQUIRY REFERENCE: ${refId}`,
-      `INQUIRY FOR: ${COMPANY_INFO.name}`,
+      `INQUIRY FOR: ${COMPANY_INFO.name} (${COMPANY_INFO.email})`,
       `Inquiry Type: ${label}`,
       `Full Name: ${name.trim()}`,
       `Company Name: ${companyName.trim() || 'Not specified'}`,
@@ -269,6 +270,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 <a href={COMPANY_INFO.telephoneHref} className="font-bold underline">
                   {COMPANY_INFO.telephone}
                 </a>{' '}
+                သို့မဟုတ် အီးမေးလ်{' '}
+                <a href={COMPANY_INFO.emailHref} className="font-bold underline">
+                  {COMPANY_INFO.email}
+                </a>{' '}
                 သို့လည်း တိုက်ရိုက် ဆက်သွယ်နိုင်ပါသည်။
               </p>
             ) : (
@@ -276,6 +281,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 Your inquiry (Reference <strong>{deliveryState.inquiryId}</strong>) has been delivered to our team. You may also reach our Yangon office at{' '}
                 <a href={COMPANY_INFO.telephoneHref} className="font-bold underline">
                   {COMPANY_INFO.telephone}
+                </a>{' '}
+                or{' '}
+                <a href={COMPANY_INFO.emailHref} className="font-bold underline">
+                  {COMPANY_INFO.email}
                 </a>
                 .
               </p>
@@ -287,14 +296,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             <div>
               <p className="font-semibold mb-1">
                 {t(
-                  'Server Record Saved — Direct WhatsApp & Phone Contact Available',
-                  'Server တွင် မှတ်တမ်းတင်ပြီးပါပြီ — WhatsApp သို့မဟုတ် ဖုန်းဖြင့် တိုက်ရိုက်ဆက်သွယ်နိုင်ပါသည်'
+                  'Server Record Saved — Direct WhatsApp, Email & Phone Contact Available',
+                  'Server တွင် မှတ်တမ်းတင်ပြီးပါပြီ — WhatsApp၊ အီးမေးလ် သို့မဟုတ် ဖုန်းဖြင့် တိုက်ရိုက်ဆက်သွယ်နိုင်ပါသည်'
                 )}
               </p>
               <p className="text-xs text-amber-900/90 leading-relaxed">
                 {t(
-                  `Your inquiry (${deliveryState.inquiryId}) was validated and saved on the server. To message our Yangon office immediately, click "Send via WhatsApp" or call ${COMPANY_INFO.telephone} below.`,
-                  `သင်၏ မေးမြန်းလွှာ (${deliveryState.inquiryId}) ကို Server တွင် မှတ်တမ်းတင်ထားပြီးဖြစ်ပါသည်။ ရန်ကုန်ရုံးချုပ်သို့ ချက်ချင်းဆက်သွယ်ရန် အောက်ပါ "Send via WhatsApp" ခလုတ်ကိုနှိပ်ပါ သို့မဟုတ် ဖုန်း ${COMPANY_INFO.telephone} သို့ ခေါ်ဆိုနိုင်ပါသည်။`
+                  `Your inquiry (${deliveryState.inquiryId}) was validated and saved on the server. To message our Yangon office immediately, click "Send via WhatsApp", email ${COMPANY_INFO.email}, or call ${COMPANY_INFO.telephone} below.`,
+                  `သင်၏ မေးမြန်းလွှာ (${deliveryState.inquiryId}) ကို Server တွင် မှတ်တမ်းတင်ထားပြီးဖြစ်ပါသည်။ ရန်ကုန်ရုံးချုပ်သို့ ချက်ချင်းဆက်သွယ်ရန် အောက်ပါ "Send via WhatsApp" ခလုတ်ကိုနှိပ်ပါ၊ အီးမေးလ် ${COMPANY_INFO.email} သို့ပို့ပါ သို့မဟုတ် ဖုန်း ${COMPANY_INFO.telephone} သို့ ခေါ်ဆိုနိုင်ပါသည်။`
                 )}
               </p>
             </div>
@@ -335,6 +344,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           >
             <Phone className="w-3.5 h-3.5" />
             {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
+          </a>
+
+          <a
+            href={COMPANY_INFO.emailHref}
+            className="px-4 py-2 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap shrink-0"
+          >
+            <Mail className="w-3.5 h-3.5 text-[#A8D977]" />
+            {COMPANY_INFO.email}
           </a>
 
           <Button
@@ -531,10 +548,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-[#DDE5D9]">
         <p className="text-xs text-[#26332B]/75">
-          {t(
-            `Direct Inquiries: ${COMPANY_INFO.telephone} · Yangon Office`,
-            `တိုက်ရိုက်ဖုန်းဆက်သွယ်ရန် - ${COMPANY_INFO.telephone} · ရန်ကုန်ရုံးချုပ်`
-          )}
+          {t('Direct Inquiries:', 'တိုက်ရိုက်ဆက်သွယ်ရန် -')}{' '}
+          <a href={COMPANY_INFO.telephoneHref} className="font-mono-tabular font-semibold text-[#173D2A] hover:underline">
+            {COMPANY_INFO.telephone}
+          </a>{' '}
+          ·{' '}
+          <a href={COMPANY_INFO.emailHref} className="font-mono-tabular font-semibold text-[#173D2A] hover:underline">
+            {COMPANY_INFO.email}
+          </a>{' '}
+          · {t('Yangon Office', 'ရန်ကုန်ရုံးချုပ်')}
         </p>
         <Button
           type="submit"

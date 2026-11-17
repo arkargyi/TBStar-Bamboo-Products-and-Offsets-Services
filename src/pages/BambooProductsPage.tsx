@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { ArrowRight, Check, Mail, Phone } from 'lucide-react';
 import {
   ACTIVATED_CARBON_PRODUCTS,
   BAMBOO_PRODUCTS,
@@ -337,13 +337,22 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             )}
           </div>
 
-          <a
-            href={COMPANY_INFO.telephoneHref}
-            className="text-xs font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1.5"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#245C3A]" />
-            {t('Direct Trade Line:', 'တိုက်ရိုက်ဖုန်း -')} {COMPANY_INFO.telephone}
-          </a>
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href={COMPANY_INFO.telephoneHref}
+              className="text-xs font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1.5"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#245C3A]" />
+              {t('Direct Trade Line:', 'တိုက်ရိုက်ဖုန်း -')} {COMPANY_INFO.telephone}
+            </a>
+            <a
+              href={COMPANY_INFO.emailHref}
+              className="text-xs font-mono-tabular font-bold text-[#173D2A] hover:text-[#245C3A] inline-flex items-center gap-1.5"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#245C3A]" />
+              {COMPANY_INFO.email}
+            </a>
+          </div>
         </div>
       </div>
 
@@ -622,6 +631,13 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
               >
                 <Phone className="w-4 h-4 text-[#A8D977]" />
                 <span>{COMPANY_INFO.telephone}</span>
+              </a>
+              <a
+                href={COMPANY_INFO.emailHref}
+                className="px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold rounded-lg inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors"
+              >
+                <Mail className="w-4 h-4 text-[#A8D977]" />
+                <span>{COMPANY_INFO.email}</span>
               </a>
             </div>
           </div>
