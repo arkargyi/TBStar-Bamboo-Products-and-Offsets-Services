@@ -2260,32 +2260,36 @@ export interface GalleryPreviewItem {
 
 export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   {
-    id: 'gal-bamboo-split-main',
-    title: 'Natural Myanmar Bamboo Splits (Grade A +++ · 3 mm · 20"–48")',
-    titleMm: 'သဘာဝ မြန်မာ့ဝါးခြမ်းပြား (အဆင့် A +++ · အထူ 3 mm · အရှည် ၂၀"–၄၈")',
+    id: 'gal-bamboo-splits-grade-a-plus',
+    title: 'Bamboo Splits — Grade A+++ (Myanmar Origin · 3 mm · 20"–48")',
+    titleMm: 'ဝါးခြမ်းပြား (Bamboo Splits) — အဆင့် A+++ (မြန်မာ့သဘာဝဝါး · 3 mm · ၂၀"–၄၈")',
     category: 'Bamboo Products',
     caption:
-      '100% natural Myanmar Bamboo Splits (Grade: A +++) in 3 mm thickness and 20 to 48 inch lengths, available with nodes or without nodes.',
+      '100% Natural Myanmar Bamboo Splits (Grade A+++) in 3 mm thickness and 20 to 48 inch lengths — With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle) for domestic and export supply.',
     captionMm:
-      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ် (အဆင့် A +++) ဖြင့် ထုတ်လုပ်ထားသော အထူ 3 mm၊ အရှည် ၂၀ မှ ၄၈ လက်မ ဝါးခြမ်းပြား (အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ)။',
+      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ် ဝါးခြမ်းပြား (အဆင့် A+++) · အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ · အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs) ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်။',
     visualType: 'bamboo-split',
-    imagePath: '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
+    imagePath: '/assets/aistudio/GRADE_-_A____6bcc3911.png',
+    imageWidth: 1200,
+    imageHeight: 896,
     altText:
-      'TB Star Company Limited Bamboo Splits Specification Showcase — 100% Natural Myanmar Bamboo, Grade: A +++, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes / Without Nodes, Origin: Myanmar',
+      'TB Star Company Limited 100% Natural Bamboo Splits — Grade A+++, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, Packaging (with Nodes): 50 pcs Per Bundle, Packaging (without Nodes): 100 pcs Per Bundle',
   },
   {
-    id: 'gal-bamboo-sticks-main',
-    title: '100% Natural Myanmar Bamboo Sticks — Domestic & Export Supply',
-    titleMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါးတံ — ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန် ပြကွက်',
+    id: 'gal-bamboo-sticks-grade-a-plus',
+    title: 'Bamboo Sticks — Grade A+++ (1.2–2.5 mm · 8", 9", 10" · 30 Bundles/Bag)',
+    titleMm: 'ဝါးတံ (Bamboo Sticks) — အဆင့် A+++ (1.2–2.5 mm · ၈"၊ ၉"၊ ၁၀" · တစ်အိတ် ၃၀ စည်း)',
     category: 'Bamboo Products',
     caption:
-      'Manufacturing 100% natural Myanmar Bamboo Sticks (8, 9, 10 inches · 1 KG Per Bundle / 30 Bundles Per Bag) for domestic and export markets.',
+      '100% Natural Myanmar Bamboo Sticks (Grade A+++) in 1.2 to 2.5 mm thickness and 8, 9, and 10 inch sizes — packed at 1 KG Per Bundle / 30 Bundles Per Bag for domestic and export supply.',
     captionMm:
-      'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် မြန်မာနိုင်ငံတွင် ထုတ်လုပ်ထားသော သဘာဝဝါးတံများ (တစ်စည်း ၁ ကီလိုဂရမ် / တစ်အိတ် ၃၀ စည်း)။',
+      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ် ဝါးတံ (အဆင့် A+++) · အထူ 1.2 မှ 2.5 mm · အရွယ်အစား ၈၊ ၉၊ ၁၀ လက်မ · ထုပ်ပိုးမှု တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း။',
     visualType: 'bamboo-sticks',
-    imagePath: '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
+    imagePath: '/assets/aistudio/Bamboo_Sticks_A____2e581a49.jpeg',
+    imageWidth: 2400,
+    imageHeight: 1792,
     altText:
-      'TB Star Company Limited 100% Natural Bamboo Products — Bamboo Splits and Bamboo Sticks Domestic & Export Supply',
+      'TB Star Company Limited 100% Natural Bamboo Sticks — Grade A+++, Myanmar Origin, Thickness: 1.2 to 2.5 mm, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
   },
   {
     id: 'gal-bamboo-split-brochure',
@@ -2327,20 +2331,6 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     imagePath: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
     altText:
       'TB Star Company Limited Natural Bamboo Sticks Packaging Showcase — 100% Natural Bamboo, Thickness: 1.25–2.5 mm, Length: 8, 9, 10 inches, Origin: Myanmar, 1 KG Per Bundle / 30 Bundles Per Bag',
-  },
-  {
-    id: 'gal-bamboo-sticks-six-bundle',
-    title: '100% Natural Myanmar Bamboo Split — Domestic & Export Supply',
-    titleMm: '၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြား — ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန် ပြကွက်',
-    category: 'Packaging',
-    caption:
-      'TB Star Company Limited 100% Natural Myanmar Bamboo Split (3 mm thickness, 20 to 48 inches) with nodes (50 pcs Per Bundle) and without nodes (100 pcs Per Bundle).',
-    captionMm:
-      'အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ သဘာဝ မြန်မာ့ဝါးခြမ်းပြား (အဆစ်ပါ တစ်စည်း 50 pcs / အဆစ်မပါ တစ်စည်း 100 pcs) ပြကွက်။',
-    visualType: 'bamboo-split',
-    imagePath: '/assets/aistudio/tbstar-bamboo-splits-with-and-without-nodes.webp',
-    altText:
-      'TB Star Company Limited 100% Natural Bamboo Split — Domestic & Export Supply, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, With Nodes: 50 pcs Per Bundle, Without Nodes: 100 pcs Per Bundle',
   },
   {
     id: 'gal-bamboo-split-bundles',
@@ -2404,20 +2394,6 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     imagePath: '/assets/aistudio/Branding_Image_V2_cc9a2035.webp',
     altText:
       'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) packaging',
-  },
-  {
-    id: 'gal-ball-pen-designs',
-    title: 'Ball Pen Stationery — Klick & Plano Pen Showcase',
-    titleMm: 'Klick နှင့် Plano ဘောပင် ဒီဇိုင်းနှင့် ထုပ်ပိုးမှုပြခန်း',
-    category: 'Printing Products',
-    caption:
-      'View of Klick (30 pcs per box) and Plano (50 pcs per box) ball pens.',
-    captionMm:
-      'Klick (တစ်ဘူး 30 pcs) နှင့် Plano (တစ်ဘူး 50 pcs) ဘောပင်များ ပြကွက်။',
-    visualType: 'commercial-printing',
-    imagePath: '/assets/aistudio/Branding_Image_V1_c6c098a8.webp',
-    altText:
-      'TB Star Company Limited Ball Pen — Klick (30 pcs per box) and Plano (50 pcs per box) pen showcase',
   },
   {
     id: 'gal-books-printing',

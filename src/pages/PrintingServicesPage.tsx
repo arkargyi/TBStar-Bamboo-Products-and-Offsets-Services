@@ -1,10 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { ArrowRight, Check, Mail, Phone } from 'lucide-react';
 import {
   BALL_PEN_PRODUCT,
   COMPANY_INFO,
-  filterPrintingServicesBySearchQuery,
-  filterProductsBySearchQuery,
   getProductByIdOrSlug,
   getPublishedPrintingServices,
   InquiryTypeOption,
@@ -15,11 +13,9 @@ import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import {
   ContactCTA,
   ProductCard,
-  ProductSearchEmptyState,
   ProductSpecificationTable,
   ServiceCard,
 } from '../components/CatalogComponents';
-import { SearchBar } from '../components/SearchBar';
 import { PrintingIconType, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
 import { AnimatedHeading } from '../components/AnimatedHeading';
@@ -134,49 +130,9 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
   onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState('');
 
   const publishedServices = useMemo(() => getPublishedPrintingServices(), []);
   const ballPenCatalogItem = useMemo(() => getProductByIdOrSlug('ball-pen'), []);
-
-  const filteredServices = useMemo(
-    () => filterPrintingServicesBySearchQuery(publishedServices, searchQuery),
-    [publishedServices, searchQuery]
-  );
-
-  const filteredStationeryProducts = useMemo(() => {
-    if (!ballPenCatalogItem || !BALL_PEN_PRODUCT.published) return [];
-    return filterProductsBySearchQuery([ballPenCatalogItem], searchQuery, 'all');
-  }, [ballPenCatalogItem, searchQuery]);
-
-  const showBallPenSection =
-    BALL_PEN_PRODUCT.published &&
-    (!searchQuery.trim() || filteredStationeryProducts.length > 0);
-
-  const filteredDeliverables = useMemo(() => {
-    const trimmed = searchQuery.trim().toLowerCase();
-    if (!trimmed) return PRINT_DELIVERABLE_HIGHLIGHTS;
-    const tokens = trimmed.split(/\s+/).filter(Boolean);
-    return PRINT_DELIVERABLE_HIGHLIGHTS.filter((item) => {
-      const haystack = [
-        item.title,
-        item.titleMm,
-        item.subtitle,
-        item.subtitleMm,
-        item.description,
-        item.descriptionMm,
-        item.inquiryType,
-      ]
-        .join(' ')
-        .toLowerCase();
-      return tokens.every((token) => haystack.includes(token));
-    });
-  }, [searchQuery]);
-
-  const totalOverviewItems =
-    publishedServices.length + (BALL_PEN_PRODUCT.published && ballPenCatalogItem ? 1 : 0);
-  const matchingOverviewItems =
-    filteredServices.length + filteredStationeryProducts.length;
 
   const scrollToService = (id: string) => {
     const el = document.getElementById(id);
@@ -281,7 +237,7 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
         </div>
       </div>
 
-      {/* Overview Cards Grid with Real-Time SearchBar */}
+      {/* Overview Cards Grid */}
       <section className="py-16 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -289,61 +245,35 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
             kickerMm="အော့ဖ်ဆက် ပုံနှိပ်နှင့် စာရေးကိရိယာ လုပ်ငန်း အကျဉ်းချုပ်"
             title="Offset Printing Categories & Stationery Products"
             titleMm="အော့ဖ်ဆက် ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် စာရေးကိရိယာ ထုတ်ကုန်များ"
-            description="Search printing services and stationery products in real time by name or description, or select a category below to review details."
-            descriptionMm="ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် စာရေးကိရိယာ ထုတ်ကုန်များကို အမည် သို့မဟုတ် အကြောင်းအရာဖြင့် အချိန်နှင့်တစ်ပြေးညီ ရှာဖွေကြည့်ရှုနိုင်ပါသည်။"
+            description="Select a printing service or stationery category below to review detailed specifications."
+            descriptionMm="ပုံနှိပ်ဝန်ဆောင်မှုများနှင့် စာရေးကိရိယာ ထုတ်ကုန်များ၏ အသေးစိတ်အချက်အလက်များကို အောက်တွင် ရွေးချယ်ကြည့်ရှုနိုင်ပါသည်။"
           />
 
-          <SearchBar
-            query={searchQuery}
-            onSearch={setSearchQuery}
-            resultCount={matchingOverviewItems}
-            totalCount={totalOverviewItems}
-            placeholder="Search printing services & stationery by name or description (e.g., Books, Voucher, Brochure, Ball Pen, Klick, Plano)..."
-            placeholderMm="ပုံနှိပ်ဝန်ဆောင်မှုနှင့် စာရေးကိရိယာများကို အမည် သို့မဟုတ် အကြောင်းအရာဖြင့် ရှာဖွေပါ (ဥပမာ - စာအုပ်, ဘောင်ချာ, Ball Pen, Klick, Plano)..."
-            suggestions={[
-              { label: 'Books Printing', labelMm: 'စာအုပ်ပုံနှိပ်ခြင်း', query: 'Books Printing' },
-              { label: 'Voucher Books', labelMm: 'ဘောင်ချာစာအုပ်များ', query: 'Voucher' },
-              { label: 'Brochures & Catalogs', labelMm: 'လက်ကမ်းစာစောင်များ', query: 'Brochures' },
-              { label: 'Ball Pen (Klick / Plano)', labelMm: 'ဘောပင် (Klick / Plano)', query: 'Ball Pen' },
-            ]}
-            inputId="printing-services-search"
-            className="mb-8"
-          />
+          <div className="space-y-8">
+            {publishedServices.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                {publishedServices.map((service) => (
+                  <ServiceCard
+                    key={service.id}
+                    service={service}
+                    onInquireService={(type) => onInquireWithCategory(type, true)}
+                    onViewDetails={() => scrollToService(service.sectionId || `service-${service.id}`)}
+                  />
+                ))}
+              </div>
+            )}
 
-          {matchingOverviewItems > 0 ? (
-            <div className="space-y-8">
-              {filteredServices.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                  {filteredServices.map((service) => (
-                    <ServiceCard
-                      key={service.id}
-                      service={service}
-                      onInquireService={(type) => onInquireWithCategory(type, true)}
-                      onViewDetails={() => scrollToService(service.sectionId || `service-${service.id}`)}
-                    />
-                  ))}
-                </div>
-              )}
-
-              {filteredStationeryProducts.length > 0 && (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                  {filteredStationeryProducts.map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      product={product}
-                      onInquireProduct={(type) => onInquireWithCategory(type, true)}
-                      onViewDetails={() => scrollToService(BALL_PEN_PRODUCT.sectionId)}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          ) : (
-            <ProductSearchEmptyState
-              query={searchQuery}
-              onReset={() => setSearchQuery('')}
-            />
-          )}
+            {BALL_PEN_PRODUCT.published && ballPenCatalogItem && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <ProductCard
+                  key={ballPenCatalogItem.id}
+                  product={ballPenCatalogItem}
+                  onInquireProduct={(type) => onInquireWithCategory(type, true)}
+                  onViewDetails={() => scrollToService(BALL_PEN_PRODUCT.sectionId)}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
@@ -359,9 +289,8 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
             descriptionMm="စာပေထုတ်ဝေမှုစာအုပ်များ၊ မဂ္ဂဇင်းများ၊ ကုမ္ပဏီပရိုဖိုင်စာအုပ်များနှင့် လုပ်ငန်းသုံး ဘောင်ချာစာအုပ်များမှစ၍ လိပ်စာကတ်များ၊ လက်ကမ်းစာစောင်များ၊ ရုံးသုံးပုံစံစာရွက်များနှင့် Ball Pen (Klick နှင့် Plano) စာရေးကိရိယာများအထိ လုပ်ငန်းလိုအပ်ချက်အားလုံးကို တစ်နေရာတည်းတွင် စနစ်တကျ ဆောင်ရွက်ပေးပါသည်။"
           />
 
-          {filteredDeliverables.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredDeliverables.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PRINT_DELIVERABLE_HIGHLIGHTS.map((item) => (
                 <article
                   key={item.id}
                   className="bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 flex flex-col justify-between hover:border-[#245C3A] transition-colors"
@@ -405,19 +334,11 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
                 </article>
               ))}
             </div>
-          ) : (
-            <p className="text-sm text-[#526358] bg-[#F6F8F3] border border-[#DDE5D9] rounded-xl p-6 text-center">
-              {t(
-                `No specialized print deliverables matched "${searchQuery}".`,
-                `"${searchQuery}" နှင့် ကိုက်ညီသော ပုံနှိပ်ထုတ်ကုန် အမျိုးအစား မတွေ့ရှိပါ။`
-              )}
-            </p>
-          )}
         </div>
       </section>
 
       {/* Detailed Dedicated Sections for Each Printing Service */}
-      {filteredServices.map((service, idx) => {
+      {publishedServices.map((service, idx) => {
         const points = isMm ? service.scopePointsMm : service.scopePoints;
         return (
           <section
@@ -517,7 +438,7 @@ export const PrintingServicesPage: React.FC<PrintingServicesPageProps> = ({
       })}
 
       {/* Dedicated Stationery Section: Ball Pen Specifications (Klick & Plano) */}
-      {showBallPenSection && (
+      {BALL_PEN_PRODUCT.published && (
         <section
           id={BALL_PEN_PRODUCT.sectionId}
           aria-labelledby="ball-pen-heading"

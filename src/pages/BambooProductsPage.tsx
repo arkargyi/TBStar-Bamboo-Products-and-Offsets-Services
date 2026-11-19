@@ -1,10 +1,9 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { ArrowRight, Check, Mail, Phone } from 'lucide-react';
 import {
   ACTIVATED_CARBON_PRODUCTS,
   BAMBOO_PRODUCTS,
   COMPANY_INFO,
-  filterProductsBySearchQuery,
   InquiryTypeOption,
   PageRoute,
 } from '../constants/companyData';
@@ -13,10 +12,8 @@ import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import {
   ContactCTA,
   ProductCard,
-  ProductSearchEmptyState,
   ProductSpecificationTable,
 } from '../components/CatalogComponents';
-import { SearchBar } from '../components/SearchBar';
 import {
   BambooProductIcon,
   EcoAdvantageIcon,
@@ -236,12 +233,6 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
   onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const filteredDetailedBambooProducts = useMemo(
-    () => filterProductsBySearchQuery(BAMBOO_PRODUCTS, searchQuery, 'bamboo'),
-    [searchQuery]
-  );
 
   const scrollToProductSection = (id: string) => {
     const el = document.getElementById(id);
@@ -356,7 +347,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
         </div>
       </div>
 
-      {/* Product Overview Cards with Real-Time Centralized Search */}
+      {/* Product Overview Cards */}
       <section className="py-16 bg-[#F6F8F3] border-b border-[#DDE5D9]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -364,46 +355,21 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
             kickerMm="ထုတ်ကုန် အမျိုးအစားများ အကျဉ်းချုပ်"
             title="Natural Bamboo Product Categories"
             titleMm="သဘာဝ ဝါးထုတ်ကုန် အမျိုးအစားများ"
-            description="Search or filter products in real time by name, description, or specification, or select any bamboo product below to inspect its technical specification table."
-            descriptionMm="ထုတ်ကုန်အမည်၊ အကြောင်းအရာ သို့မဟုတ် စံချိန်စံညွှန်းဖြင့် အချိန်နှင့်တစ်ပြေးညီ ရှာဖွေစစ်ထုတ်နိုင်ပြီး သက်ဆိုင်ရာ ဝါးထုတ်ကုန်အလိုက် အသေးစိတ်အချက်အလက်ဇယားကို ကြည့်ရှုနိုင်ပါသည်။"
+            description="Select any bamboo product below to inspect its technical specification table and packaging details."
+            descriptionMm="သက်ဆိုင်ရာ ဝါးထုတ်ကုန်အလိုက် အသေးစိတ်အချက်အလက်ဇယားနှင့် ထုပ်ပိုးမှုစံနှုန်းများကို အောက်တွင် ကြည့်ရှုနိုင်ပါသည်။"
           />
 
-          <SearchBar
-            query={searchQuery}
-            onSearch={setSearchQuery}
-            totalCount={BAMBOO_PRODUCTS.length}
-            resultCount={filteredDetailedBambooProducts.length}
-            showCategoryTabs={false}
-            placeholder="Search bamboo products by name, thickness, length, or packaging (e.g., Bamboo Split, 3 mm, With Nodes, Bamboo Sticks, 1 KG Per Bundle, 30 Bundles Per Bag)..."
-            placeholderMm="ဝါးထုတ်ကုန်အမည်၊ အထူ၊ အရှည် သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - ဝါးခြမ်းပြား, 3 mm, အဆစ်ပါ, ဝါးတံ, ၃၀ စည်း)..."
-            suggestions={[
-              { label: 'Bamboo Split (3 mm)', labelMm: 'ဝါးခြမ်းပြား (3 mm)', query: 'Bamboo Split' },
-              { label: 'With Nodes / Without Nodes', labelMm: 'အဆစ်ပါ / အဆစ်မပါ', query: 'Nodes' },
-              { label: 'Bamboo Sticks (30 Bundles/Bag)', labelMm: 'ဝါးတံ (တစ်အိတ် ၃၀ စည်း)', query: 'Bamboo Sticks' },
-              { label: '8", 9", 10" Lengths', labelMm: 'အရှည် ၈"၊ ၉"၊ ၁၀"', query: 'inches' },
-            ]}
-            inputId="bamboo-page-product-search"
-            className="mb-8"
-          />
-
-          {filteredDetailedBambooProducts.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              {filteredDetailedBambooProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  imageLoading="eager"
-                  onInquireProduct={(type) => onInquireWithCategory(type, true)}
-                  onViewDetails={() => scrollToProductSection(product.sectionId)}
-                />
-              ))}
-            </div>
-          ) : (
-            <ProductSearchEmptyState
-              query={searchQuery}
-              onReset={() => setSearchQuery('')}
-            />
-          )}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {BAMBOO_PRODUCTS.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                imageLoading="eager"
+                onInquireProduct={(type) => onInquireWithCategory(type, true)}
+                onViewDetails={() => scrollToProductSection(product.sectionId)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -645,7 +611,7 @@ export const BambooProductsPage: React.FC<BambooProductsPageProps> = ({
       </section>
 
       {/* DYNAMIC DETAILED SECTIONS FOR EACH PUBLISHED BAMBOO PRODUCT */}
-      {filteredDetailedBambooProducts.map((product, idx) => {
+      {BAMBOO_PRODUCTS.map((product, idx) => {
         const isEvenSection = idx % 2 !== 0;
         const hasVariants = product.variants && product.variants.length > 0;
         const hasSubCards = product.detailSubCards && product.detailSubCards.length > 0;

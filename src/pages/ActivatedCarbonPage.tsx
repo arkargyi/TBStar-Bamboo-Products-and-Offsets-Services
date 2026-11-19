@@ -1,10 +1,9 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { ArrowRight, Check, Mail, MessageCircle, Phone } from 'lucide-react';
 import {
   ACTIVATED_CARBON_PRODUCTS,
   BAMBOO_PRODUCTS,
   COMPANY_INFO,
-  filterProductsBySearchQuery,
   InquiryTypeOption,
   PageRoute,
 } from '../constants/companyData';
@@ -13,10 +12,8 @@ import { Button, HeroSection, SectionHeading } from '../components/SharedUI';
 import {
   ContactCTA,
   ProductCard,
-  ProductSearchEmptyState,
   ProductSpecificationTable,
 } from '../components/CatalogComponents';
-import { SearchBar } from '../components/SearchBar';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
 import { useLanguage } from '../context/LanguageContext';
 import { AnimatedHeading } from '../components/AnimatedHeading';
@@ -31,17 +28,6 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
   onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const filteredActivatedCarbonProducts = useMemo(
-    () =>
-      filterProductsBySearchQuery(
-        ACTIVATED_CARBON_PRODUCTS,
-        searchQuery,
-        'activated-carbon'
-      ),
-    [searchQuery]
-  );
 
   const scrollToProductSection = (id: string) => {
     const el = document.getElementById(id);
@@ -172,63 +158,22 @@ export const ActivatedCarbonPage: React.FC<ActivatedCarbonPageProps> = ({
             descriptionMm="မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Nut Shell Activated Carbon နှင့် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားသော Coconut Shell Activated Carbon ထုတ်ကုန် (၂) မျိုးကို တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) ပို့ကုန်စံနှုန်းဖြင့် လေ့လာကြည့်ရှုနိုင်ပါသည်။"
           />
 
-          <SearchBar
-            query={searchQuery}
-            onSearch={setSearchQuery}
-            totalCount={ACTIVATED_CARBON_PRODUCTS.length}
-            resultCount={filteredActivatedCarbonProducts.length}
-            showCategoryTabs={false}
-            placeholder="Search Activated Carbon products by product name, raw material, or packaging (e.g., Nut Shell, Jujube Seed, Coconut Shell, 25 Kg)..."
-            placeholderMm="Activated Carbon ထုတ်ကုန်အမည်၊ ကုန်ကြမ်း သို့မဟုတ် ထုပ်ပိုးမှုဖြင့် ရှာဖွေပါ (ဥပမာ - Nut Shell, Jujube Seed, Coconut Shell, 25 Kg)..."
-            suggestions={[
-              {
-                label: 'Nut Shell Activated Carbon',
-                labelMm: 'Nut Shell Activated Carbon',
-                query: 'Nut Shell',
-              },
-              {
-                label: 'Raw Material: Jujube Seed',
-                labelMm: 'ဇီးစေ့ခွံ (Jujube Seed)',
-                query: 'Jujube Seed',
-              },
-              {
-                label: 'Coconut Shell Activated Carbon',
-                labelMm: 'Coconut Shell Activated Carbon',
-                query: 'Coconut Shell',
-              },
-              {
-                label: '25 Kg per Bag',
-                labelMm: 'တစ်အိတ် 25 Kg',
-                query: '25 Kg',
-              },
-            ]}
-            inputId="activated-carbon-page-search"
-            className="mb-8"
-          />
-
-          {filteredActivatedCarbonProducts.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              {filteredActivatedCarbonProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  imageLoading="eager"
-                  onInquireProduct={(type) => onInquireWithCategory(type, true)}
-                  onViewDetails={() => scrollToProductSection(product.sectionId)}
-                />
-              ))}
-            </div>
-          ) : (
-            <ProductSearchEmptyState
-              query={searchQuery}
-              onReset={() => setSearchQuery('')}
-            />
-          )}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {ACTIVATED_CARBON_PRODUCTS.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                imageLoading="eager"
+                onInquireProduct={(type) => onInquireWithCategory(type, true)}
+                onViewDetails={() => scrollToProductSection(product.sectionId)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Dynamic Detailed Sections for Each Activated Carbon Product */}
-      {filteredActivatedCarbonProducts.map((product, idx) => {
+      {ACTIVATED_CARBON_PRODUCTS.map((product, idx) => {
         const isEvenSection = idx % 2 !== 0;
 
         return (

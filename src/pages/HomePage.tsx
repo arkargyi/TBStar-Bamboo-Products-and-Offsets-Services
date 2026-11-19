@@ -4,7 +4,6 @@ import {
   ACTIVATED_CARBON_PRODUCTS,
   COMPANY_INFO,
   EXPORT_AND_DOMESTIC_MARKETS,
-  filterProductsBySearchQuery,
   GALLERY_PREVIEW_ITEMS,
   getFeaturedProducts,
   getProductByIdOrSlug,
@@ -26,8 +25,6 @@ import {
   ContactCTA,
   GalleryGrid,
   ProductCard,
-  ProductSearchBar,
-  ProductSearchEmptyState,
   ServiceCard,
 } from '../components/CatalogComponents';
 import { BambooProductIcon, PrintingServiceIcon } from '../components/PrintingIcons';
@@ -71,7 +68,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   onInquireWithCategory,
 }) => {
   const { isMm, t } = useLanguage();
-  const [productSearchQuery, setProductSearchQuery] = useState('');
   const [selectedProductCategory, setSelectedProductCategory] = useState<
     'all' | ProductCategoryId
   >('bamboo');
@@ -89,32 +85,28 @@ export const HomePage: React.FC<HomePageProps> = ({
   const publishedPrintingServices = getPublishedPrintingServices();
   const ballPenProduct = getProductByIdOrSlug('ball-pen');
 
-  const baseProductsForCategory = useMemo(
+  const displayedProducts = useMemo(
     () =>
       selectedProductCategory === 'all'
         ? allPublishedProducts
-        : selectedProductCategory === 'bamboo' && !productSearchQuery.trim()
+        : selectedProductCategory === 'bamboo'
         ? featuredBambooProducts
         : allPublishedProducts.filter(
             (p) => p.categoryKey === selectedProductCategory
           ),
-    [
-      allPublishedProducts,
-      featuredBambooProducts,
-      productSearchQuery,
-      selectedProductCategory,
-    ]
+    [allPublishedProducts, featuredBambooProducts, selectedProductCategory]
   );
 
-  const displayedProducts = useMemo(
-    () =>
-      filterProductsBySearchQuery(
-        allPublishedProducts,
-        productSearchQuery,
-        selectedProductCategory
-      ),
-    [allPublishedProducts, productSearchQuery, selectedProductCategory]
-  );
+  const productCategoryTabs: Array<{
+    id: 'all' | ProductCategoryId;
+    label: string;
+    labelMm: string;
+  }> = [
+    { id: 'all', label: 'All Products', labelMm: 'ထုတ်ကုန်အားလုံး' },
+    { id: 'bamboo', label: 'Bamboo Products', labelMm: 'ဝါးထုတ်ကုန်များ' },
+    { id: 'activated-carbon', label: 'Activated Carbon', labelMm: 'အက်တီဗိတ်တက် ကာဗွန်' },
+    { id: 'stationery', label: 'Stationery (Ball Pen)', labelMm: 'စာရေးကိရိယာ (ဘောပင်)' },
+  ];
 
   return (
     <div>
@@ -510,8 +502,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                 ? 'စာရေးကိရိယာ ထုတ်ကုန် — ဘောပင် (Ball Pen · Klick နှင့် Plano)'
                 : 'အဓိက ထုတ်လုပ်ဖြန့်ဖြူးသော ထုတ်ကုန်များနှင့် စံချိန်စံညွှန်းများ'
             }
-            description="Search and filter our 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon products (Nut Shell Activated Carbon and Coconut Shell Activated Carbon), and Ball Pen stationery (Klick & Plano) with verified specifications for domestic distribution and international export."
-            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်ဈေးကွက်များအတွက် ထုတ်လုပ်ထားသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ (ဝါးခြမ်းပြားနှင့် ဝါးတံ)၊ အက်တီဗိတ်တက် ကာဗွန် ထုတ်ကုန်များ (Nut Shell နှင့် Coconut Shell Activated Carbon) နှင့် ဘောပင် (Ball Pen — Klick နှင့် Plano) စာရေးကိရိယာများ၏ စံချိန်စံညွှန်း အချက်အလက်များကို ကဏ္ဍအလိုက် ရှာဖွေလေ့လာနိုင်ပါသည်။"
+            description="Explore our 100% natural Myanmar bamboo products (Bamboo Split and Bamboo Sticks), Activated Carbon products (Nut Shell Activated Carbon and Coconut Shell Activated Carbon), and Ball Pen stationery (Klick & Plano) with verified specifications for domestic distribution and international export."
+            descriptionMm="ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်ဈေးကွက်များအတွက် ထုတ်လုပ်ထားသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးထုတ်ကုန်များ (ဝါးခြမ်းပြားနှင့် ဝါးတံ)၊ အက်တီဗိတ်တက် ကာဗွန် ထုတ်ကုန်များ (Nut Shell နှင့် Coconut Shell Activated Carbon) နှင့် ဘောပင် (Ball Pen — Klick နှင့် Plano) စာရေးကိရိယာများ၏ စံချိန်စံညွှန်း အချက်အလက်များကို ကဏ္ဍအလိုက် လေ့လာနိုင်ပါသည်။"
             action={
               <Button
                 type="button"
@@ -525,58 +517,43 @@ export const HomePage: React.FC<HomePageProps> = ({
             }
           />
 
-          <ProductSearchBar
-            query={productSearchQuery}
-            onQueryChange={(nextQuery) => {
-              setProductSearchQuery(nextQuery);
-              if (nextQuery.trim() && selectedProductCategory === 'bamboo') {
-                // When searching from the home page, check if query matches outside bamboo and expand to 'all' if bamboo has 0 matches
-                const bambooMatches = filterProductsBySearchQuery(
-                  allPublishedProducts,
-                  nextQuery,
-                  'bamboo'
-                );
-                if (bambooMatches.length === 0) {
-                  const allMatches = filterProductsBySearchQuery(
-                    allPublishedProducts,
-                    nextQuery,
-                    'all'
-                  );
-                  if (allMatches.length > 0) {
-                    setSelectedProductCategory('all');
-                  }
-                }
-              }
-            }}
-            totalCount={baseProductsForCategory.length}
-            resultCount={displayedProducts.length}
-            selectedCategory={selectedProductCategory}
-            onCategoryChange={setSelectedProductCategory}
-            showCategoryTabs={true}
-            inputId="home-page-product-search"
-          />
+          {/* Category Filter Tabs */}
+          <div
+            role="group"
+            aria-label={t('Filter products by category', 'ကဏ္ဍအလိုက် ကြည့်ရှုရန်')}
+            className="flex flex-wrap items-center gap-2 mb-8"
+          >
+            {productCategoryTabs.map((tab) => {
+              const isSelected = selectedProductCategory === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setSelectedProductCategory(tab.id)}
+                  aria-pressed={isSelected}
+                  className={`min-h-[40px] px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border transition-colors cursor-pointer ${
+                    isSelected
+                      ? 'bg-[#173D2A] text-white border-[#173D2A]'
+                      : 'bg-[#F6F8F3] text-[#173D2A] border-[#DDE5D9] hover:border-[#245C3A]'
+                  }`}
+                >
+                  {isMm ? tab.labelMm : tab.label}
+                </button>
+              );
+            })}
+          </div>
 
-          {displayedProducts.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-              {displayedProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  useFeaturedImage={true}
-                  onInquireProduct={(type) => onInquireWithCategory(type, true)}
-                  onViewDetails={() => onNavigate(product.route)}
-                />
-              ))}
-            </div>
-          ) : (
-            <ProductSearchEmptyState
-              query={productSearchQuery}
-              onReset={() => {
-                setProductSearchQuery('');
-                setSelectedProductCategory('bamboo');
-              }}
-            />
-          )}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {displayedProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                useFeaturedImage={true}
+                onInquireProduct={(type) => onInquireWithCategory(type, true)}
+                onViewDetails={() => onNavigate(product.route)}
+              />
+            ))}
+          </div>
 
           {/* Dedicated Activated Carbon Product Page Cross-Link Banner */}
           {ACTIVATED_CARBON_PRODUCTS.length > 0 && (
