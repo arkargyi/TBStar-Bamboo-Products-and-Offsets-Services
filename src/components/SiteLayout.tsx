@@ -514,8 +514,8 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
+            </div>
           </div>
-        </div>
         </div>
       </div>
 
