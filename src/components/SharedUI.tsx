@@ -399,7 +399,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         loading="eager"
         fetchPriority="high"
       />
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14 sm:pt-28 md:pt-36 md:pb-20 lg:pt-40 relative z-10">
         <div
           className={`grid grid-cols-1 ${
             rightSlot ? 'lg:grid-cols-12 gap-12 items-stretch' : 'max-w-3xl'

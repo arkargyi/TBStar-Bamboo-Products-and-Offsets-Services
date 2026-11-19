@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Globe, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import {
   COMPANY_INFO,
@@ -9,6 +9,8 @@ import {
 } from '../constants/companyData';
 import { useLanguage } from '../context/LanguageContext';
 import { AnimatedHeading } from './AnimatedHeading';
+
+const HEADER_SCROLL_THRESHOLD_PX = 24;
 
 export const NAV_ITEMS: { label: string; labelMm: string; route: PageRoute }[] = [
   { label: 'Home', labelMm: 'ပင်မစာမျက်နှာ', route: '/' },
@@ -72,7 +74,7 @@ export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
       }}
       className={`group relative inline-flex items-center rounded-full p-0.5 shrink-0 cursor-pointer select-none transition-all duration-200 ${
         isDark
-          ? 'bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 hover:border-[#A8D977]/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A8D977]'
+          ? 'bg-white/[0.12] hover:bg-white/[0.18] border border-white/20 hover:border-[#A8D977]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A8D977]'
           : 'bg-[#F6F8F3] hover:bg-[#EDF3E8] border border-[#DDE5D9] hover:border-[#245C3A]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173D2A]'
       } ${className}`}
     >
@@ -89,7 +91,7 @@ export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
       <div
         className={`relative grid grid-cols-2 items-center rounded-full p-0.5 ${
           isDark
-            ? 'bg-black/25 min-w-[108px] sm:min-w-[116px]'
+            ? 'bg-[#071A10]/45 min-w-[108px] sm:min-w-[116px]'
             : 'bg-white/90 border border-[#DDE5D9]/80 min-w-[116px] sm:min-w-[124px]'
         }`}
       >
@@ -111,7 +113,7 @@ export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
                 ? 'text-[#112E1F]'
                 : 'text-white'
               : isDark
-              ? 'text-white/75 hover:text-white'
+              ? 'text-white hover:text-[#A8D977]'
               : 'text-[#26332B]/75 hover:text-[#173D2A]'
           }`}
         >
@@ -128,7 +130,7 @@ export const LanguageToggleSwitch: React.FC<LanguageToggleSwitchProps> = ({
                 ? 'text-[#112E1F]'
                 : 'text-white'
               : isDark
-              ? 'text-white/75 hover:text-white'
+              ? 'text-white hover:text-[#A8D977]'
               : 'text-[#26332B]/75 hover:text-[#173D2A]'
           }`}
         >
@@ -157,7 +159,7 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
   return (
     <nav
       aria-label="Primary Navigation"
-      className="hidden lg:flex items-center gap-3 xl:gap-5 text-sm font-medium text-[#26332B]"
+      className="hidden lg:flex items-center gap-3.5 xl:gap-5 text-sm font-medium text-white"
     >
       {NAV_ITEMS.map((item) => {
         const isActive = !isNotFound && currentRoute === item.route;
@@ -170,12 +172,12 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
               e.preventDefault();
               onNavigate(item.route);
             }}
-            className={`py-2 border-b-2 transition-colors whitespace-nowrap shrink-0 ${
+            className={`relative py-2 border-b-2 transition-colors duration-200 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A8D977] rounded-xs ${
               isMm ? 'font-myanmar text-xs xl:text-[13px]' : 'text-xs xl:text-sm'
             } ${
               isActive
-                ? 'border-[#173D2A] text-[#173D2A] font-bold'
-                : 'border-transparent text-[#26332B] hover:text-[#245C3A] hover:border-[#A8D977]'
+                ? 'border-[#A8D977] text-[#A8D977] font-bold drop-shadow-[0_1px_2px_rgba(7,26,16,0.7)]'
+                : 'border-transparent text-white hover:text-[#A8D977] hover:border-[#A8D977]/65 drop-shadow-[0_1px_2px_rgba(7,26,16,0.65)]'
             }`}
           >
             {isMm ? item.labelMm : item.label}
@@ -208,73 +210,93 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden bg-white border-b border-[#DDE5D9] px-4 pt-3 pb-5 space-y-2 shadow-lg">
-      <div className="flex items-center justify-between pb-3 mb-1 border-b border-[#DDE5D9]">
-        <div>
-          <span className="text-xs font-semibold text-[#173D2A] block">
-            {t('Site Language', 'ဘာသာစကား ရွေးချယ်ရန်')}
-          </span>
-          <span className="text-[11px] text-[#245C3A] block">
-            {t('Currently viewing in English', 'လက်ရှိ မြန်မာဘာသာဖြင့် ကြည့်ရှုနေပါသည်')}
-          </span>
+    <>
+      {/* Subtle scrim behind open mobile drawer so tapping outside closes the menu */}
+      <div
+        aria-hidden="true"
+        onClick={onClose}
+        className="lg:hidden fixed inset-0 top-16 sm:top-[72px] md:top-[110px] z-30 bg-[#071A10]/45 backdrop-blur-[2px]"
+      />
+
+      <div className="lg:hidden relative z-40 bg-[#112E1F]/[0.98] text-white border-b border-[#A8D977]/25 px-4 pt-3 pb-5 space-y-2 shadow-2xl max-h-[calc(100dvh-4rem)] sm:max-h-[calc(100dvh-4.5rem)] md:max-h-[calc(100dvh-6.875rem)] overflow-y-auto">
+        <div className="flex items-center justify-between gap-3 pb-3 mb-1 border-b border-white/15">
+          <div>
+            <span className="text-xs font-semibold text-white block">
+              {t('Site Language', 'ဘာသာစကား ရွေးချယ်ရန်')}
+            </span>
+            <span className="text-[11px] text-[#A8D977] block">
+              {t('Currently viewing in English', 'လက်ရှိ မြန်မာဘာသာဖြင့် ကြည့်ရှုနေပါသည်')}
+            </span>
+          </div>
+          <LanguageToggleSwitch variant="dark" compact />
         </div>
-        <LanguageToggleSwitch compact />
-      </div>
 
-      <nav aria-label="Mobile Primary Navigation" className="space-y-1">
-        {NAV_ITEMS.map((item) => {
-          const isActive = !isNotFound && currentRoute === item.route;
-          return (
-            <a
-              key={item.route}
-              href={item.route}
-              aria-current={isActive ? 'page' : undefined}
-              onClick={(e) => {
-                e.preventDefault();
-                onClose();
-                onNavigate(item.route);
-              }}
-              className={`block w-full text-left px-3.5 py-2.5 rounded-lg text-sm transition-colors ${
-                isMm ? 'font-myanmar' : ''
-              } ${
-                isActive
-                  ? 'bg-[#173D2A] text-white font-semibold'
-                  : 'text-[#26332B] font-medium hover:bg-[#F6F8F3] hover:text-[#173D2A]'
-              }`}
-            >
-              {isMm ? item.labelMm : item.label}
-            </a>
-          );
-        })}
-      </nav>
+        <nav aria-label="Mobile Primary Navigation" className="space-y-1">
+          {NAV_ITEMS.map((item) => {
+            const isActive = !isNotFound && currentRoute === item.route;
+            return (
+              <a
+                key={item.route}
+                href={item.route}
+                aria-current={isActive ? 'page' : undefined}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onClose();
+                  onNavigate(item.route);
+                }}
+                className={`flex items-center justify-between w-full text-left min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A8D977] ${
+                  isMm ? 'font-myanmar' : ''
+                } ${
+                  isActive
+                    ? 'bg-[#A8D977] text-[#112E1F] font-bold shadow-xs'
+                    : 'text-white font-medium hover:bg-white/10 hover:text-[#A8D977]'
+                }`}
+              >
+                <span>{isMm ? item.labelMm : item.label}</span>
+                {isActive && (
+                  <span
+                    aria-hidden="true"
+                    className="text-[11px] font-bold tracking-wide uppercase opacity-80"
+                  >
+                    {t('Active', 'လက်ရှိ')}
+                  </span>
+                )}
+              </a>
+            );
+          })}
+        </nav>
 
-      <div className="pt-3 mt-2 border-t border-[#DDE5D9] flex flex-col gap-2">
-        <a
-          href="/contact"
-          onClick={(e) => {
-            e.preventDefault();
-            onClose();
-            onOpenInquiry();
-          }}
-          className="w-full py-2.5 px-4 bg-[#173D2A] text-white text-sm font-semibold rounded-lg text-center cursor-pointer block"
-        >
-          {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
-        </a>
-        <a
-          href={COMPANY_INFO.telephoneHref}
-          className="w-full py-2.5 px-4 bg-[#A8D977] text-[#173D2A] text-sm font-semibold rounded-lg text-center"
-        >
-          {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
-        </a>
-        <a
-          href={COMPANY_INFO.emailHref}
-          className="w-full py-2.5 px-4 bg-[#F6F8F3] hover:bg-[#EAF5E4] text-[#173D2A] border border-[#DDE5D9] text-sm font-semibold rounded-lg text-center inline-flex items-center justify-center gap-2"
-        >
-          <Mail className="w-4 h-4 text-[#245C3A]" />
-          <span>{COMPANY_INFO.email}</span>
-        </a>
+        <div className="pt-3 mt-2 border-t border-white/15 flex flex-col gap-2">
+          <a
+            href="/contact"
+            onClick={(e) => {
+              e.preventDefault();
+              onClose();
+              onOpenInquiry();
+            }}
+            className="w-full min-h-[44px] py-2.5 px-4 bg-[#A8D977] hover:bg-[#b8e589] text-[#112E1F] text-sm font-bold rounded-lg text-center cursor-pointer flex items-center justify-center transition-colors"
+          >
+            {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
+          </a>
+          <a
+            href={COMPANY_INFO.telephoneHref}
+            className="w-full min-h-[44px] py-2.5 px-4 bg-white/12 hover:bg-white/20 text-white border border-white/20 text-sm font-semibold rounded-lg text-center inline-flex items-center justify-center gap-2 transition-colors"
+          >
+            <Phone className="w-4 h-4 text-[#A8D977] shrink-0" />
+            <span>
+              {t(`Call ${COMPANY_INFO.telephone}`, `ဖုန်းခေါ်ဆိုရန် ${COMPANY_INFO.telephone}`)}
+            </span>
+          </a>
+          <a
+            href={COMPANY_INFO.emailHref}
+            className="w-full min-h-[44px] py-2.5 px-4 bg-white/[0.08] hover:bg-white/15 text-white border border-white/15 text-sm font-semibold rounded-lg text-center inline-flex items-center justify-center gap-2 transition-colors"
+          >
+            <Mail className="w-4 h-4 text-[#A8D977] shrink-0" />
+            <span>{COMPANY_INFO.email}</span>
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -293,147 +315,207 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({
   onOpenInquiry,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { isMm, t } = useLanguage();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY >= HEADER_SCROLL_THRESHOLD_PX);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [mobileMenuOpen]);
+
+  const showScrolledSurface = isScrolled || isNotFound;
+
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#DDE5D9]">
-      {/* Executive Corporate Top Utility Bar */}
-      <div className="hidden md:block bg-[#112E1F] text-white/90 border-b border-white/10">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[42px] py-1.5 flex items-center justify-between gap-4 text-xs">
-          {/* Left Zone: Verified Office Location */}
-          <div className="flex items-center gap-3.5 min-w-0 flex-1 overflow-hidden">
+    <header className="fixed top-0 inset-x-0 z-40">
+      <div className="relative z-40">
+        {/* Subtle top-down gradient scrim at page top to keep white nav text crisp across all hero slides */}
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-x-0 top-0 -bottom-7 site-header-top-scrim transition-opacity duration-300 ease-out motion-reduce:transition-none ${
+            showScrolledSurface || mobileMenuOpen ? 'opacity-0' : 'opacity-100'
+          }`}
+        />
+
+        {/* Dedicated translucent theme-matched backdrop layer with 6px blur (only blurs behind-bar content) */}
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-0 site-header-backdrop ${
+            mobileMenuOpen
+              ? 'site-header-backdrop--menu-open'
+              : showScrolledSurface
+              ? 'site-header-backdrop--scrolled'
+              : ''
+          }`}
+        />
+
+        {/* Crisp, fully opaque header content */}
+        <div className="relative z-10">
+        {/* Executive Corporate Top Utility Bar */}
+        <div
+          className={`hidden md:block text-white border-b transition-colors duration-300 ${
+            showScrolledSurface ? 'border-white/15' : 'border-white/12'
+          }`}
+        >
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 min-h-[38px] py-1 flex items-center justify-between gap-4 text-xs">
+            {/* Left Zone: Verified Office Location */}
+            <div className="flex items-center gap-3.5 min-w-0 flex-1 overflow-hidden">
+              <a
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/contact');
+                }}
+                className="group inline-flex items-center gap-2 text-white hover:text-[#A8D977] transition-colors min-w-0 max-w-full overflow-hidden cursor-pointer drop-shadow-[0_1px_2px_rgba(7,26,16,0.6)]"
+                title={t(COMPANY_INFO.address.full, COMPANY_INFO.address.fullMm)}
+              >
+                <span className="relative z-10 w-5 h-5 rounded-full bg-[#112E1F]/80 border border-[#A8D977]/45 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
+                  <MapPin className="w-3 h-3" />
+                </span>
+                <span
+                  className={`animate-slide-ltr ${
+                    isMm ? 'font-myanmar text-[11.5px] leading-relaxed' : 'text-xs font-medium'
+                  }`}
+                >
+                  {t(
+                    COMPANY_INFO.address.shortAddress,
+                    COMPANY_INFO.address.shortAddressMm
+                  )}
+                </span>
+              </a>
+            </div>
+
+            {/* Right Zone: Direct Hotline, Email & Sleek Language Switcher */}
+            <div className="flex items-center gap-3.5 shrink-0">
+              <a
+                href={COMPANY_INFO.emailHref}
+                className="group inline-flex items-center gap-2 text-white hover:text-[#A8D977] transition-colors drop-shadow-[0_1px_2px_rgba(7,26,16,0.6)]"
+                title={t(`Email ${COMPANY_INFO.email}`, `အီးမေးလ်ပို့ရန် ${COMPANY_INFO.email}`)}
+              >
+                <span className="w-5 h-5 rounded-full bg-[#112E1F]/70 border border-[#A8D977]/45 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
+                  <Mail className="w-3 h-3" />
+                </span>
+                <span className="font-mono-tabular font-semibold tracking-tight text-white group-hover:text-[#A8D977] transition-colors">
+                  {COMPANY_INFO.email}
+                </span>
+              </a>
+
+              <span className="h-4 w-px bg-white/25 shrink-0" aria-hidden="true" />
+
+              <a
+                href={COMPANY_INFO.telephoneHref}
+                className="group inline-flex items-center gap-2 text-white hover:text-[#A8D977] transition-colors drop-shadow-[0_1px_2px_rgba(7,26,16,0.6)]"
+                title={t('Call our Yangon Head Office', 'ရန်ကုန်ရုံးချုပ်သို့ ဖုန်းခေါ်ဆိုရန်')}
+              >
+                <span className="w-5 h-5 rounded-full bg-[#112E1F]/70 border border-[#A8D977]/45 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
+                  <Phone className="w-3 h-3" />
+                </span>
+                <span className="font-mono-tabular font-bold tracking-tight text-white group-hover:text-[#A8D977] transition-colors">
+                  {COMPANY_INFO.telephone}
+                </span>
+              </a>
+
+              <span className="h-4 w-px bg-white/25 shrink-0" aria-hidden="true" />
+
+              <LanguageToggleSwitch variant="dark" compact />
+            </div>
+          </div>
+        </div>
+
+        {/* Main Navigation Row */}
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] lg:h-[76px] flex items-center justify-between gap-3 xl:gap-4 relative">
+          {/* Zone 1: Official TB Star Company Limited Logo + Brand Title */}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              setMobileMenuOpen(false);
+              onNavigate('/');
+            }}
+            className="flex items-center gap-2.5 sm:gap-3 whitespace-nowrap shrink-0 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A8D977] rounded-lg"
+          >
+            <img
+              src={COMPANY_INFO.logoPath}
+              alt="TB Star Company Limited Official Logo"
+              width={48}
+              height={48}
+              decoding="async"
+              referrerPolicy="no-referrer"
+              className="h-10 w-10 sm:h-11 sm:w-11 xl:h-12 xl:w-12 object-contain shrink-0 rounded-full ring-1 ring-white/50 bg-white p-0.5 shadow-sm"
+            />
+            <div className="min-w-0">
+              <span
+                className={`font-display text-sm sm:text-base xl:text-lg font-bold tracking-tight text-white group-hover:text-[#A8D977] transition-colors block whitespace-nowrap drop-shadow-[0_1px_2px_rgba(7,26,16,0.7)] ${
+                  isMm ? 'font-myanmar' : ''
+                }`}
+              >
+                {isMm ? 'TBStar Company Limited' : COMPANY_INFO.name}
+              </span>
+              <span className="text-[11px] text-[#A8D977] font-semibold hidden sm:block drop-shadow-[0_1px_2px_rgba(7,26,16,0.75)]">
+                {t('Bamboo Export & Offset Printing', 'ဝါးပို့ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း')}
+              </span>
+            </div>
+          </a>
+
+          {/* Zone 2: Desktop Navigation */}
+          <DesktopNavigation
+            currentRoute={currentRoute}
+            isNotFound={isNotFound}
+            onNavigate={onNavigate}
+          />
+
+          {/* Zone 3: Primary Action Button + Mobile Menu Button */}
+          <div className="flex items-center gap-2 shrink-0">
             <a
               href="/contact"
               onClick={(e) => {
                 e.preventDefault();
-                onNavigate('/contact');
+                setMobileMenuOpen(false);
+                onOpenInquiry();
               }}
-              className="group inline-flex items-center gap-2 text-white/85 hover:text-white transition-colors min-w-0 max-w-full overflow-hidden cursor-pointer"
-              title={t(COMPANY_INFO.address.full, COMPANY_INFO.address.fullMm)}
+              className="hidden sm:inline-flex items-center justify-center px-3.5 xl:px-4 py-2.5 bg-[#A8D977] hover:bg-[#b8e589] text-[#112E1F] text-xs font-bold rounded-lg shadow-xs transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A8D977]"
             >
-              <span className="relative z-10 w-5 h-5 rounded-full bg-[#112E1F] border border-[#A8D977]/30 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors shadow-[4px_0_8px_#112E1F]">
-                <MapPin className="w-3 h-3" />
-              </span>
-              <span
-                className={`animate-slide-ltr ${
-                  isMm ? 'font-myanmar text-[11.5px] leading-relaxed' : 'text-xs font-medium'
-                }`}
-              >
-                {t(
-                  COMPANY_INFO.address.shortAddress,
-                  COMPANY_INFO.address.shortAddressMm
-                )}
-              </span>
-            </a>
-          </div>
-
-          {/* Right Zone: Direct Hotline, Email & Sleek Language Switcher */}
-          <div className="flex items-center gap-3.5 shrink-0">
-            <a
-              href={COMPANY_INFO.emailHref}
-              className="group inline-flex items-center gap-2 text-white/90 hover:text-[#A8D977] transition-colors"
-              title={t(`Email ${COMPANY_INFO.email}`, `အီးမေးလ်ပို့ရန် ${COMPANY_INFO.email}`)}
-            >
-              <span className="w-5 h-5 rounded-full bg-[#A8D977]/15 border border-[#A8D977]/30 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
-                <Mail className="w-3 h-3" />
-              </span>
-              <span className="font-mono-tabular font-semibold tracking-tight text-white group-hover:text-[#A8D977] transition-colors">
-                {COMPANY_INFO.email}
-              </span>
+              {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
             </a>
 
-            <span
-              className="h-4 w-px bg-white/15 shrink-0"
-              aria-hidden="true"
-            />
-
-            <a
-              href={COMPANY_INFO.telephoneHref}
-              className="group inline-flex items-center gap-2 text-white/90 hover:text-[#A8D977] transition-colors"
-              title={t('Call our Yangon Head Office', 'ရန်ကုန်ရုံးချုပ်သို့ ဖုန်းခေါ်ဆိုရန်')}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="lg:hidden min-w-11 min-h-11 inline-flex items-center justify-center p-2.5 text-white hover:text-[#A8D977] bg-[#112E1F]/40 hover:bg-white/15 border border-white/25 rounded-lg transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A8D977]"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
             >
-              <span className="w-5 h-5 rounded-full bg-[#A8D977]/15 border border-[#A8D977]/30 flex items-center justify-center shrink-0 group-hover:bg-[#A8D977] group-hover:text-[#112E1F] text-[#A8D977] transition-colors">
-                <Phone className="w-3 h-3" />
-              </span>
-              <span className="font-mono-tabular font-bold tracking-tight text-white group-hover:text-[#A8D977] transition-colors">
-                {COMPANY_INFO.telephone}
-              </span>
-            </a>
-
-            <span
-              className="h-4 w-px bg-white/15 shrink-0"
-              aria-hidden="true"
-            />
-
-            <LanguageToggleSwitch variant="dark" compact />
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
-      </div>
-
-      {/* Main Navigation Row */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3 xl:gap-4 relative">
-        {/* Zone 1: Official TB Star Company Limited Logo + Brand Title */}
-        <a
-          href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            setMobileMenuOpen(false);
-            onNavigate('/');
-          }}
-          className="flex items-center gap-2.5 sm:gap-3 whitespace-nowrap shrink-0 group"
-        >
-          <img
-            src={COMPANY_INFO.logoPath}
-            alt="TB Star Company Limited Official Logo"
-            width={48}
-            height={48}
-            decoding="async"
-            referrerPolicy="no-referrer"
-            className="h-10 w-10 sm:h-11 sm:w-11 xl:h-12 xl:w-12 object-contain shrink-0 rounded-full border border-[#DDE5D9] bg-white p-0.5"
-          />
-          <div className="min-w-0">
-            <span
-              className={`font-display text-sm sm:text-base xl:text-lg font-bold tracking-tight text-[#173D2A] group-hover:text-[#245C3A] transition-colors block whitespace-nowrap ${
-                isMm ? 'font-myanmar' : ''
-              }`}
-            >
-              {isMm ? 'TBStar Company Limited' : COMPANY_INFO.name}
-            </span>
-            <span className="text-[11px] text-[#245C3A] font-medium hidden sm:block">
-              {t('Bamboo Export & Offset Printing', 'ဝါးပို့ကုန်နှင့် အော့ဖ်ဆက်ပုံနှိပ်လုပ်ငန်း')}
-            </span>
-          </div>
-        </a>
-
-        {/* Zone 2: Desktop Navigation */}
-        <DesktopNavigation
-          currentRoute={currentRoute}
-          isNotFound={isNotFound}
-          onNavigate={onNavigate}
-        />
-
-        {/* Zone 3: Primary Action Button + Mobile Menu Button */}
-        <div className="flex items-center gap-2 shrink-0">
-          <a
-            href="/contact"
-            onClick={(e) => {
-              e.preventDefault();
-              onOpenInquiry();
-            }}
-            className="hidden sm:inline-flex items-center justify-center px-3.5 xl:px-4 py-2.5 bg-[#173D2A] hover:bg-[#245C3A] text-white text-xs font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-          >
-            {t('Request Inquiry', 'ဆက်သွယ်မေးမြန်းရန်')}
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="lg:hidden p-2.5 text-[#173D2A] hover:bg-[#F6F8F3] rounded-lg transition-colors cursor-pointer"
-            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
       </div>
 

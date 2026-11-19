@@ -49,7 +49,7 @@ const NotFoundView: React.FC<{ onNavigate: (route: PageRoute) => void }> = ({
   return (
     <section
       aria-labelledby="not-found-heading"
-      className="py-20 md:py-28 bg-[#F6F8F3] border-b border-[#DDE5D9]"
+      className="pt-28 pb-20 md:pt-40 md:pb-28 bg-[#F6F8F3] border-b border-[#DDE5D9]"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-white border border-[#DDE5D9] text-xs font-mono-tabular font-bold text-[#245C3A] uppercase mb-4">
@@ -302,7 +302,7 @@ export default function App({ initialPathname, initialSearch }: AppProps) {
     <LanguageProvider>
       <div className="min-h-screen flex flex-col bg-[#F6F8F3] text-[#26332B]">
         {gmpQuotaExceeded && (
-          <div className="bg-amber-50 border-b border-amber-200 text-amber-900 px-4 py-2.5 text-xs md:text-sm text-center sticky top-0 z-50 shadow-sm">
+          <div className="fixed bottom-4 inset-x-4 z-50 max-w-2xl mx-auto rounded-lg bg-amber-50 border border-amber-200 text-amber-900 px-4 py-2.5 text-xs md:text-sm text-center shadow-lg">
             <span>
               Google Maps Platform quota reached. If you are the app owner, visit{' '}
               <a

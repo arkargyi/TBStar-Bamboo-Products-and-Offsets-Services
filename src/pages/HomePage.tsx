@@ -113,7 +113,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* HERO SECTION WITH ANIMATED 3-SLIDE BACKGROUND SLIDESHOW */}
       <section
         aria-label="Hero Banner"
-        className="relative bg-[#1E4628] text-[#173D2A] overflow-hidden border-b border-[#D0CEBE] min-h-[540px] sm:min-h-[560px] md:min-h-[580px]"
+        className="relative bg-[#1E4628] text-[#173D2A] overflow-hidden border-b border-[#D0CEBE] min-h-[600px] sm:min-h-[620px] md:min-h-[640px] lg:min-h-[680px]"
       >
         {/* Animated Background Slideshow: Company Overview -> Offset Printing -> Bamboo Products */}
         <div
@@ -141,27 +141,27 @@ export const HomePage: React.FC<HomePageProps> = ({
           })}
         </div>
 
-        {/* Mobile readability overlay: keeps the fixed headline and buttons clear at top while keeping the main subjects visible below */}
+        {/* Mobile readability overlay: fades in cleanly below the transparent navigation bar */}
         <div
           aria-hidden="true"
-          className="md:hidden absolute inset-0 z-[1] pointer-events-none"
+          className="md:hidden absolute inset-0 z-[1] pointer-events-none hero-readability-mask-mobile"
           style={{
             background:
-              'linear-gradient(180deg, rgba(244, 242, 233, 0.92) 0%, rgba(244, 242, 233, 0.86) 58%, rgba(244, 242, 233, 0.42) 82%, rgba(244, 242, 233, 0.15) 100%)',
+              'linear-gradient(180deg, rgba(244, 242, 233, 0.92) 0%, rgba(244, 242, 233, 0.88) 62%, rgba(244, 242, 233, 0.44) 84%, rgba(244, 242, 233, 0.15) 100%)',
           }}
         />
 
-        {/* Tablet & Desktop readability overlay behind the left text column, keeping the right-side subjects vivid and unobstructed */}
+        {/* Tablet & Desktop readability overlay behind the left text column, masked at the top so the hero photo remains unobstructed behind the transparent nav bar */}
         <div
           aria-hidden="true"
-          className="hidden md:block absolute inset-0 z-[1] pointer-events-none"
+          className="hidden md:block absolute inset-0 z-[1] pointer-events-none hero-readability-mask-desktop"
           style={{
             background:
-              'linear-gradient(90deg, rgba(244, 242, 233, 0.92) 0%, rgba(244, 242, 233, 0.82) 36%, rgba(244, 242, 233, 0.30) 48%, rgba(244, 242, 233, 0) 58%)',
+              'linear-gradient(90deg, rgba(244, 242, 233, 0.92) 0%, rgba(244, 242, 233, 0.84) 36%, rgba(244, 242, 233, 0.30) 48%, rgba(244, 242, 233, 0) 58%)',
           }}
         />
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28 sm:pt-10 sm:pb-32 md:py-14 lg:py-18 xl:py-22 relative z-10">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-28 sm:pt-28 sm:pb-32 md:pt-36 md:pb-16 lg:pt-40 lg:pb-20 xl:pt-44 xl:pb-24 relative z-10">
           {/* Left Column: 40–45% width on desktop, keeping the bamboo products and printing samples visible on the right */}
           <div className="w-full md:w-[45%] lg:w-[43%] xl:w-[44%] flex flex-col justify-center">
             <div className="flex flex-wrap items-center gap-2 text-xs text-[#245C3A] font-bold tracking-wide mb-3.5">
