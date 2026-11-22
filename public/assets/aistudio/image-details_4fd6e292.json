@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Nut Shell Activated Carbon",
+    "logo": "Au",
+    "rawMaterial": "Jujube Seed",
+    "packaging": "25 Kg per Bag",
+    "countryOfOrigin": "Myanmar",
+    "src": "tbstar-nut-shell-au-v2.webp",
+    "srcSet": "tbstar-nut-shell-au-v2-960.webp 960w, tbstar-nut-shell-au-v2.webp 1600w",
+    "width": 1600,
+    "height": 900,
+    "alt": "Nut Shell Activated Carbon advertising design showing Au branding, Jujube Seed raw material, 25 Kg per Bag and Myanmar origin."
+  },
+  {
+    "name": "Coconut Shell Activated Carbon",
+    "logo": "JIN YE",
+    "rawMaterial": "Coconut Shell",
+    "packaging": "25 Kg per Bag",
+    "countryOfOrigin": "Myanmar",
+    "src": "tbstar-coconut-shell-jinye-v2.webp",
+    "srcSet": "tbstar-coconut-shell-jinye-v2-960.webp 960w, tbstar-coconut-shell-jinye-v2.webp 1600w",
+    "width": 1600,
+    "height": 900,
+    "alt": "Coconut Shell Activated Carbon advertising design showing JIN YE branding, Coconut Shell raw material, 25 Kg per Bag and Myanmar origin."
+  }
+]

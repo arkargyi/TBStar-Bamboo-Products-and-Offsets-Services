@@ -579,7 +579,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       loading="lazy"
                       decoding="async"
                       referrerPolicy="no-referrer"
-                      className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                      className="w-full aspect-[16/9] object-contain bg-white transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                     <div className="px-3.5 py-2.5 bg-white border-t border-[#DDE5D9] flex items-center justify-between gap-2 text-xs">
                       <span className="font-bold text-[#173D2A] truncate">

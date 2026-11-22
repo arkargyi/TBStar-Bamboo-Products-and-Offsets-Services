@@ -30,8 +30,8 @@ const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
   '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
   '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
-  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
-  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
+  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
+  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp',
 ]);
 
 const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
@@ -42,8 +42,8 @@ const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
   '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
   '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
-  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
-  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
+  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
+  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp',
 ]);
 
 const FOUR_BY_THREE_BAMBOO_BANNERS = new Set<string>([
@@ -66,16 +66,16 @@ const RESPONSIVE_PRODUCT_IMAGE_META: Record<
   string,
   { srcSet: string; sizes: string; width: number; height: number }
 > = {
-  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp': {
+  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp': {
     srcSet:
-      '/assets/aistudio/tbstar-nut-shell-activated-carbon-960_dc7d4828.webp 960w, /assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp 1600w',
+      '/assets/aistudio/tbstar-nut-shell-au-v2-960_ed035107.webp 960w, /assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp 1600w',
     sizes: '(max-width: 1024px) 100vw, 50vw',
     width: 1600,
     height: 900,
   },
-  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp': {
+  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp': {
     srcSet:
-      '/assets/aistudio/tbstar-coconut-shell-activated-carbon-960_23364002.webp 960w, /assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp 1600w',
+      '/assets/aistudio/tbstar-coconut-shell-jinye-v2-960_ce40f5d7.webp 960w, /assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp 1600w',
     sizes: '(max-width: 1024px) 100vw, 50vw',
     width: 1600,
     height: 900,
@@ -86,7 +86,7 @@ const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, str
   'bamboo-split': '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
   'bamboo-sticks': '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
   'bamboo-custom': '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
-  'activated-carbon': '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+  'activated-carbon': '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
   'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp',
   'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png',
   'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp',
@@ -100,7 +100,7 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
   'bamboo-custom':
     'TB Star Company Limited Bamboo Products — Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.25–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag)',
   'activated-carbon':
-    'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
+    'Nut Shell Activated Carbon advertising design showing Au branding, Jujube Seed raw material, 25 Kg per Bag and Myanmar origin.',
   'books-printing':
     'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
   'voucher-printing':
@@ -154,11 +154,11 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
   '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
 
-  // Activated Carbon Studio Product Assets (Sage-Green & Warm Ivory Backdrop)
-  '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRDZFMEM5Ii8+PHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNDN0Q0QjgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFRUVBRTAAIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjkiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=',
-  '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp':
-    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRDZFMEM5Ii8+PHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiNDN0Q0QjgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNFRUVBRTAAIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjkiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=',
+  // Activated Carbon Branded Product Assets (Ivory & Deep Forest Green Backdrop)
+  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjVGMkVBIi8+PHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNFQ0U4REQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjM5MjIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
+  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp':
+    'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjVGMkVBIi8+PHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNFQ0U4REQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjM5MjIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
 };
 
 const DEFAULT_BASE64_PLACEHOLDER =

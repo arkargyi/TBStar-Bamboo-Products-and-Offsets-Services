@@ -1,0 +1,67 @@
+nut-shell-au-v2
+
+Use case: ads-marketing.
+Asset type: finished professional B2B website product advertisement, landscape 16:9 (1920x1080 preferred), ONE image only, no device mockup, no website screenshot.
+
+REFERENCE ROLES:
+Reference image 1 is VISUAL STYLE inspiration only: an elegant white woven wholesale sack, dark emerald-green lettering, restrained metallic-gold accents, subtle green/gold swooshes, a photographic carbon heap, softly blurred industrial backdrop and an orderly white information panel. Adapt that portrait reference into a generous 16:9 horizontal editorial composition. Do not reproduce its HASCARB brand, Indonesian origin, gold recovery copy, gold nugget, technical numbers, performance claims, checklist, WhatsApp icon or button, or other text. No refinery towers: use only an understated generic softly blurred industrial supply/warehouse background with warm daylight, presented as illustrative atmosphere, not a depiction of the supplier's own facility.
+Reference image 2 is the CORRECT SUPPLIED PRODUCT LOGO to reproduce with the exact geometry, proportions, lettering, Chinese characters and green color. Incorporate it naturally as printed ink on the white sack front, crisp and clear. Do not redesign or combine logos. Do not add HASCARB or a made-up TB Star symbol.
+Reference image 3 is the ACTUAL CARBON PRODUCT shape and texture reference, which takes precedence over any carbon visible in the advertisement reference.
+
+DESIGN SYSTEM:
+Premium coherent commercial photograph plus clean graphic typography, forest green, white/soft ivory, fine mustard-gold accents. Left 53%: a large realistic upright 25 Kg white woven polypropylene sack with professional custom label artwork featuring the supplied logo and the supplied product name; it is a branded packaging visualization for the requested advertisement. Realistic sack weave, folds, seams, printed ink conforms to slight wrinkles; the label remains legible. Beside its lower front show a modest separate pile of the ACTUAL referenced product, tack sharp charcoal-black texture, detail visible in dark tones. No scoop, bowl, seed, nut, coconut or other props.
+Right 43%: calm ivory information panel with generous margins; large product heading at top, short gold rule; three well-spaced specification rows with small forest-green circle line icons (raw material, packaging, origin). Only these 3 verified specifications, no extra icons implying certification. Large typographic values and smaller tidy uppercase labels. Whole canvas: refined dark forest-green curved footer ribbon with a fine gold border, supplier name on left and domain on right, both white. Keep all content inside safe margins with no clipped bag or type.
+High-end photorealistic bag and product, restrained natural daylight, natural contact shadows, professionally balanced contrast, very clear polished English sans-serif typography. Make the scene credible, sophisticated and usable at normal website image size. Avoid visual clutter, tiny paragraphs and a dense table.
+
+ONLY PERMITTED WRITTEN CONTENT beyond the exact supplied logo is the product-specific text listed below plus:
+"TB Star Company Limited"
+"tbstarcompany.com"
+"EXPORT & WHOLESALE SUPPLY"
+"RAW MATERIAL"
+"PACKAGING"
+"COUNTRY OF ORIGIN"
+"25 Kg per Bag"
+"Myanmar"
+On bag lower label: "NET WEIGHT 25 Kg" and "MADE IN MYANMAR".
+Do not invent iodine values, mesh sizes, ash or moisture percentages, purity claims, chemical-free claims, CTC values, performance claims, gold applications, prices, phone numbers, certifications or flags. No watermarks. Do not insert any production instruction into the artwork.
+
+PRODUCT-SPECIFIC CONTENT:
+Main heading exactly "NUT SHELL" on first line and "ACTIVATED CARBON" across the next one or two lines. A small subtitle "Jujube Seed Activated Carbon". Raw material value exactly "Jujube Seed".
+Bag label uses the full Au supplied logo from reference 2: EXACTLY THREE interlinked green circles, "Au" with capital A and lowercase u, "ACTIVATED CARBON", and the Chinese characters "活性炭", preserving the reference order and typography. All three circles and all text must remain intact, centered and readable. Under the logo place "NUT SHELL ACTIVATED CARBON" and "Jujube Seed".
+Material appearance: the sample in reference 3 is carbonized jujube-seed shell fragments: irregular, crumpled, curled, cupped, hollow kernel-like black pieces with mixed rough broken edges, characteristic small rounded shell forms. Faithfully preserve this distinctive texture and irregularity. NOT uniform pellets, round beads, rods, powder or flat angular coconut chips. Do not substitute the shiny gravel seen in reference 1.
+Create this as the Nut Shell member of a coordinated pair using the shared layout.
+
+---
+
+coconut-shell-jinye-v2
+
+Use case: ads-marketing.
+Asset type: finished professional B2B website product advertisement, landscape 16:9 (1920x1080 preferred), ONE image only, no device mockup, no website screenshot.
+
+REFERENCE ROLES:
+Reference image 1 is VISUAL STYLE inspiration only: an elegant white woven wholesale sack, dark emerald-green lettering, restrained metallic-gold accents, subtle green/gold swooshes, a photographic carbon heap, softly blurred industrial backdrop and an orderly white information panel. Adapt that portrait reference into a generous 16:9 horizontal editorial composition. Do not reproduce its HASCARB brand, Indonesian origin, gold recovery copy, gold nugget, technical numbers, performance claims, checklist, WhatsApp icon or button, or other text. No refinery towers: use only an understated generic softly blurred industrial supply/warehouse background with warm daylight, presented as illustrative atmosphere, not a depiction of the supplier's own facility.
+Reference image 2 is the CORRECT SUPPLIED PRODUCT LOGO to reproduce with the exact geometry, proportions, lettering, Chinese characters and green color. Incorporate it naturally as printed ink on the white sack front, crisp and clear. Do not redesign or combine logos. Do not add HASCARB or a made-up TB Star symbol.
+Reference image 3 is the ACTUAL CARBON PRODUCT shape and texture reference, which takes precedence over any carbon visible in the advertisement reference.
+
+DESIGN SYSTEM:
+Premium coherent commercial photograph plus clean graphic typography, forest green, white/soft ivory, fine mustard-gold accents. Left 53%: a large realistic upright 25 Kg white woven polypropylene sack with professional custom label artwork featuring the supplied logo and the supplied product name; it is a branded packaging visualization for the requested advertisement. Realistic sack weave, folds, seams, printed ink conforms to slight wrinkles; the label remains legible. Beside its lower front show a modest separate pile of the ACTUAL referenced product, tack sharp charcoal-black texture, detail visible in dark tones. No scoop, bowl, seed, nut, coconut or other props.
+Right 43%: calm ivory information panel with generous margins; large product heading at top, short gold rule; three well-spaced specification rows with small forest-green circle line icons (raw material, packaging, origin). Only these 3 verified specifications, no extra icons implying certification. Large typographic values and smaller tidy uppercase labels. Whole canvas: refined dark forest-green curved footer ribbon with a fine gold border, supplier name on left and domain on right, both white. Keep all content inside safe margins with no clipped bag or type.
+High-end photorealistic bag and product, restrained natural daylight, natural contact shadows, professionally balanced contrast, very clear polished English sans-serif typography. Make the scene credible, sophisticated and usable at normal website image size. Avoid visual clutter, tiny paragraphs and a dense table.
+
+ONLY PERMITTED WRITTEN CONTENT beyond the exact supplied logo is the product-specific text listed below plus:
+"TB Star Company Limited"
+"tbstarcompany.com"
+"EXPORT & WHOLESALE SUPPLY"
+"RAW MATERIAL"
+"PACKAGING"
+"COUNTRY OF ORIGIN"
+"25 Kg per Bag"
+"Myanmar"
+On bag lower label: "NET WEIGHT 25 Kg" and "MADE IN MYANMAR".
+Do not invent iodine values, mesh sizes, ash or moisture percentages, purity claims, chemical-free claims, CTC values, performance claims, gold applications, prices, phone numbers, certifications or flags. No watermarks. Do not insert any production instruction into the artwork.
+
+PRODUCT-SPECIFIC CONTENT:
+Main heading exactly "COCONUT SHELL" on first line and "ACTIVATED CARBON" across the next one or two lines. Raw material value exactly "Coconut Shell".
+Bag label uses the full JIN YE supplied logo from reference 2: the exact three-piece dark green geometric leaf/wing emblem at top, Chinese characters "金叶" below, followed by "JIN YE" in the original serif lettering with short horizontal rules on the left and right. Keep the supplied geometry, relative sizes, exact Chinese text and exact spaced English name. Under the logo place "COCONUT SHELL ACTIVATED CARBON" and "Coconut Shell".
+Material appearance: the sample in reference 3 is angular flattened coconut-shell carbon chips, irregular rough black/charcoal-gray pieces, some curved shell fragments, sharp broken edges, natural variation. Preserve the actual chips from that photograph. NOT curled round jujube kernels, spherical beads, uniform cylindrical pellets, powder or shiny smooth gravel. No gold nugget or coconut props.
+Create this as the Coconut Shell member of a coordinated pair using the shared layout.

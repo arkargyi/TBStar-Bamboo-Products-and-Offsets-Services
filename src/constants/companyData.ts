@@ -834,11 +834,11 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     },
     visualType: 'activated-carbon',
     images: {
-      main: '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+      main: '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
       mainAlt:
-        'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
+        'Nut Shell Activated Carbon advertising design showing Au branding, Jujube Seed raw material, 25 Kg per Bag and Myanmar origin.',
       srcSet:
-        '/assets/aistudio/tbstar-nut-shell-activated-carbon-960_dc7d4828.webp 960w, /assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp 1600w',
+        '/assets/aistudio/tbstar-nut-shell-au-v2-960_ed035107.webp 960w, /assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp 1600w',
       width: 1600,
       height: 900,
     },
@@ -889,9 +889,9 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'Nut Shell Activated Carbon Exporter Myanmar (Jujube Seed · 25 Kg/Bag) | TB Star',
       description:
         'Wholesale Nut Shell Activated Carbon (Jujube Seed raw material) from Myanmar. Packed 25 Kg per Bag for B2B commercial supply and international export by TB Star Company Limited.',
-      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp`,
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp`,
       ogImageAlt:
-        'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
+        'Nut Shell Activated Carbon advertising design showing Au branding, Jujube Seed raw material, 25 Kg per Bag and Myanmar origin.',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-nut-shell-activated-carbon`,
     },
   },
@@ -918,11 +918,11 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
     },
     visualType: 'activated-carbon',
     images: {
-      main: '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
+      main: '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp',
       mainAlt:
-        'Coconut shell activated carbon chips beside a plain white woven wholesale sack.',
+        'Coconut Shell Activated Carbon advertising design showing JIN YE branding, Coconut Shell raw material, 25 Kg per Bag and Myanmar origin.',
       srcSet:
-        '/assets/aistudio/tbstar-coconut-shell-activated-carbon-960_23364002.webp 960w, /assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp 1600w',
+        '/assets/aistudio/tbstar-coconut-shell-jinye-v2-960_ce40f5d7.webp 960w, /assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp 1600w',
       width: 1600,
       height: 900,
     },
@@ -973,9 +973,9 @@ export const RAW_CENTRALIZED_PRODUCTS: CentralizedProductInput[] = [
         'Coconut Shell Activated Carbon Exporter Myanmar (25 Kg/Bag) | TB Star',
       description:
         'Wholesale Coconut Shell Activated Carbon (Coconut Shell raw material) from Myanmar. Packed 25 Kg per Bag for B2B commercial supply and international export by TB Star Company Limited.',
-      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp`,
+      ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp`,
       ogImageAlt:
-        'Coconut shell activated carbon chips beside a plain white woven wholesale sack.',
+        'Coconut Shell Activated Carbon advertising design showing JIN YE branding, Coconut Shell raw material, 25 Kg per Bag and Myanmar origin.',
       canonicalAnchor: `${COMPANY_INFO.canonicalBase}/activated-carbon#product-coconut-shell-activated-carbon`,
     },
   },
@@ -1896,9 +1896,9 @@ export const PAGE_SEO: Record<PageRoute, PageSeoMetadata> = {
     description:
       'B2B wholesale supplier and exporter of Myanmar Activated Carbon: Nut Shell Activated Carbon (Jujube Seed) and Coconut Shell Activated Carbon, packed 25 Kg per Bag by TB Star Company Limited.',
     canonicalUrl: `${COMPANY_INFO.canonicalBase}/activated-carbon`,
-    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp`,
+    ogImage: `${COMPANY_INFO.canonicalBase}/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp`,
     ogImageAlt:
-      'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
+      'Nut Shell Activated Carbon advertising design showing Au branding, Jujube Seed raw material, 25 Kg per Bag and Myanmar origin.',
     breadcrumbs: [
       { name: 'Home', url: `${COMPANY_INFO.canonicalBase}/` },
       { name: 'Activated Carbon', url: `${COMPANY_INFO.canonicalBase}/activated-carbon` },
@@ -2355,13 +2355,13 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       'မြန်မာနိုင်ငံထွက် ဇီးစေ့ခွံ (Jujube Seed) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Nut Shell Activated Carbon။',
     visualType: 'activated-carbon',
-    imagePath: '/assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp',
+    imagePath: '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
     imageSrcSet:
-      '/assets/aistudio/tbstar-nut-shell-activated-carbon-960_dc7d4828.webp 960w, /assets/aistudio/tbstar-nut-shell-activated-carbon_b2a2a6ec.webp 1600w',
+      '/assets/aistudio/tbstar-nut-shell-au-v2-960_ed035107.webp 960w, /assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp 1600w',
     imageWidth: 1600,
     imageHeight: 900,
     altText:
-      'Nut shell activated carbon made from jujube seeds beside its green-printed woven wholesale sack.',
+      'Nut Shell Activated Carbon advertising design showing Au branding, Jujube Seed raw material, 25 Kg per Bag and Myanmar origin.',
   },
   {
     id: 'gal-coconut-shell-activated-carbon',
@@ -2373,13 +2373,13 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     captionMm:
       'မြန်မာနိုင်ငံထွက် အုန်းမှုတ်ခွံ (Coconut Shell) ကုန်ကြမ်းဖြင့် ထုတ်လုပ်ထားပြီး တစ်အိတ်လျှင် ၂၅ ကီလိုဂရမ် (25 Kg per Bag) လက်ကားစံနှုန်းဖြင့် ထုပ်ပိုးထားသော Coconut Shell Activated Carbon။',
     visualType: 'activated-carbon',
-    imagePath: '/assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp',
+    imagePath: '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp',
     imageSrcSet:
-      '/assets/aistudio/tbstar-coconut-shell-activated-carbon-960_23364002.webp 960w, /assets/aistudio/tbstar-coconut-shell-activated-carbon_5714100a.webp 1600w',
+      '/assets/aistudio/tbstar-coconut-shell-jinye-v2-960_ce40f5d7.webp 960w, /assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp 1600w',
     imageWidth: 1600,
     imageHeight: 900,
     altText:
-      'Coconut shell activated carbon chips beside a plain white woven wholesale sack.',
+      'Coconut Shell Activated Carbon advertising design showing JIN YE branding, Coconut Shell raw material, 25 Kg per Bag and Myanmar origin.',
   },
   {
     id: 'gal-ball-pen-packaging',
