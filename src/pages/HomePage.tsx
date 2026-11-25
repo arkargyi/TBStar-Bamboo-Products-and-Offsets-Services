@@ -572,7 +572,11 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <img
                       src={acProd.imagePath}
                       srcSet={acProd.images.srcSet}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                      sizes={
+                        acProd.images.srcSet
+                          ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px'
+                          : undefined
+                      }
                       alt={acProd.imageAlt}
                       width={acProd.images.width ?? 1600}
                       height={acProd.images.height ?? 900}

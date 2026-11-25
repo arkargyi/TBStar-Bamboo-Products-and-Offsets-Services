@@ -30,8 +30,8 @@ const BRANDED_BAMBOO_SHOWCASE_ASSETS = new Set<string>([
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
   '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
   '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
-  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
-  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp',
+  '/assets/aistudio/Jujube_seed_carbon_fragments_banner_6cc5961d.png',
+  '/assets/aistudio/Expanded_coconut_shell_carbon_banner_cca3e10f.png',
 ]);
 
 const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
@@ -42,8 +42,8 @@ const WIDESCREEN_BAMBOO_BANNERS = new Set<string>([
   '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
   '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
   '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
-  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
-  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp',
+  '/assets/aistudio/Jujube_seed_carbon_fragments_banner_6cc5961d.png',
+  '/assets/aistudio/Expanded_coconut_shell_carbon_banner_cca3e10f.png',
 ]);
 
 const FOUR_BY_THREE_BAMBOO_BANNERS = new Set<string>([
@@ -64,21 +64,15 @@ const ALTERNATE_ASSET_FALLBACKS: Record<string, string> = {
 
 const RESPONSIVE_PRODUCT_IMAGE_META: Record<
   string,
-  { srcSet: string; sizes: string; width: number; height: number }
+  { srcSet?: string; sizes?: string; width: number; height: number }
 > = {
-  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp': {
-    srcSet:
-      '/assets/aistudio/tbstar-nut-shell-au-v2-960_ed035107.webp 960w, /assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp 1600w',
-    sizes: '(max-width: 1024px) 100vw, 50vw',
-    width: 1600,
-    height: 900,
+  '/assets/aistudio/Jujube_seed_carbon_fragments_banner_6cc5961d.png': {
+    width: 1672,
+    height: 941,
   },
-  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp': {
-    srcSet:
-      '/assets/aistudio/tbstar-coconut-shell-jinye-v2-960_ce40f5d7.webp 960w, /assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp 1600w',
-    sizes: '(max-width: 1024px) 100vw, 50vw',
-    width: 1600,
-    height: 900,
+  '/assets/aistudio/Expanded_coconut_shell_carbon_banner_cca3e10f.png': {
+    width: 1671,
+    height: 941,
   },
 };
 
@@ -86,7 +80,7 @@ const DEFAULT_IMAGE_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, str
   'bamboo-split': '/assets/aistudio/myanmar-bamboo-splits-specification-showcase.webp',
   'bamboo-sticks': '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
   'bamboo-custom': '/assets/aistudio/tbstar-bamboo-products-splits-and-sticks.webp',
-  'activated-carbon': '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp',
+  'activated-carbon': '/assets/aistudio/Jujube_seed_carbon_fragments_banner_6cc5961d.png',
   'books-printing': '/assets/aistudio/Books_Printing_for_a_Brighter_Future_c52d7121.webp',
   'voucher-printing': '/assets/aistudio/TBStar_Voucher_Book_Printing_1_16533922.png',
   'commercial-printing': '/assets/aistudio/TBStar_Offset_Printing_Services_Banner__2__3434b565.webp',
@@ -100,7 +94,7 @@ const DEFAULT_ALT_BY_TYPE: Record<Exclude<VisualAssetType, 'hero-bamboo'>, strin
   'bamboo-custom':
     'TB Star Company Limited Bamboo Products — Bamboo Split (3 mm · 20"–48") and Bamboo Sticks (1.25–2.5 mm · 8", 9", 10" · 1 KG Per Bundle / 30 Bundles Per Bag)',
   'activated-carbon':
-    'Nut Shell Activated Carbon advertising design showing Au branding, Jujube Seed raw material, 25 Kg per Bag and Myanmar origin.',
+    'Nut Shell Activated Carbon (Jujube Seed Activated Carbon) product banner showing Au three-ring logo 25 Kg bag, crushed jujube seed carbon fragments, Jujube Seed raw material, 25 Kg per Bag packaging, and Myanmar origin for TB Star Company Limited.',
   'books-printing':
     'TB Star Company Limited Books Printing — One-stop offset printing for books, educational publications, manuals, and multi-page editions with clean typography and durable binding',
   'voucher-printing':
@@ -155,9 +149,9 @@ export const PRODUCT_IMAGE_BASE64_PLACEHOLDERS: Record<string, string> = {
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNSAxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjRjRGN0YyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTczRDJBIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+',
 
   // Activated Carbon Branded Product Assets (Ivory & Deep Forest Green Backdrop)
-  '/assets/aistudio/tbstar-nut-shell-au-v2_440a1c64.webp':
+  '/assets/aistudio/Jujube_seed_carbon_fragments_banner_6cc5961d.png':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjVGMkVBIi8+PHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNFQ0U4REQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjM5MjIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
-  '/assets/aistudio/tbstar-coconut-shell-jinye-v2_db83f7ff.webp':
+  '/assets/aistudio/Expanded_coconut_shell_carbon_banner_cca3e10f.png':
     'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiA5Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjVGMkVBIi8+PHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNFQ0U4REQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjM5MjIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
 };
 
