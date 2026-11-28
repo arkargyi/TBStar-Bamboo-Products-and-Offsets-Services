@@ -2256,20 +2256,68 @@ export interface GalleryPreviewItem {
 
 export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
   {
-    id: 'gal-bamboo-splits-grade-a-plus',
-    title: 'Bamboo Splits — Grade A+++ (Myanmar Origin · 3 mm · 20"–48")',
-    titleMm: 'ဝါးခြမ်းပြား (Bamboo Splits) — အဆင့် A+++ (မြန်မာ့သဘာဝဝါး · 3 mm · ၂၀"–၄၈")',
+    id: 'gal-bamboo-splits-without-nodes-inner',
+    title: 'Bamboo Splits Without Nodes — Inner Surface',
+    titleMm: 'အဆစ်မပါ ဝါးခြမ်းပြား — အတွင်းမျက်နှာပြင်',
     category: 'Bamboo Products',
     caption:
-      '100% Natural Myanmar Bamboo Splits (Grade A+++) in 3 mm thickness and 20 to 48 inch lengths — With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle) for domestic and export supply.',
+      'Five golden natural Myanmar bamboo splits processed without nodes, highlighting the smooth pale inner surface finish (3 mm thickness, 20 to 48 inches).',
     captionMm:
-      '၁၀၀% သဘာဝ မြန်မာ့ဝါးစစ်စစ် ဝါးခြမ်းပြား (အဆင့် A+++) · အထူ 3 mm · အရှည် ၂၀ မှ ၄၈ လက်မ · အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs) ပြည်တွင်းနှင့် ပြည်ပပို့ကုန်။',
+      'အဆစ်ဖယ်ရှားသန့်စင်ထားပြီး ချောမွေ့သော ရွှေဝါရောင် အတွင်းမျက်နှာပြင်ပါရှိသည့် မြန်မာ့သဘာဝ ဝါးခြမ်းပြား ၅ ချောင်း (အထူ 3 mm · အရှည် ၂၀"–၄၈")။',
     visualType: 'bamboo-split',
-    imagePath: '/assets/aistudio/GRADE_-_A____6bcc3911.png',
-    imageWidth: 1200,
-    imageHeight: 896,
+    imagePath: '/images/products/bamboo-splits-without-nodes-inner.webp',
+    imageWidth: 1672,
+    imageHeight: 941,
     altText:
-      'TB Star Company Limited 100% Natural Bamboo Splits — Grade A+++, Myanmar Origin, Thickness: 3 mm, Length: 20 to 48 inches, Packaging (with Nodes): 50 pcs Per Bundle, Packaging (without Nodes): 100 pcs Per Bundle',
+      'Five golden natural Myanmar bamboo splits without nodes displaying their smooth inner concave surfaces on a sage green background',
+  },
+  {
+    id: 'gal-bamboo-splits-without-nodes-inner-outer',
+    title: 'Bamboo Splits Without Nodes — Inner and Outer Surfaces',
+    titleMm: 'အဆစ်မပါ ဝါးခြမ်းပြား — အတွင်းနှင့် အပြင်မျက်နှာပြင်များ',
+    category: 'Bamboo Products',
+    caption:
+      'Six smooth node-free bamboo splits showing three pale inner concave surfaces alongside three natural green and weathered gray outer surfaces.',
+    captionMm:
+      'အဆစ်မပါ ချောမွေ့သော ဝါးခြမ်းပြား ၆ ချောင်း — အဝါနုရောင် အတွင်းမျက်နှာပြင် ၃ ချောင်းနှင့် သဘာဝ အစိမ်းနှင့် မီးခိုးရောင် အပြင်မျက်နှာပြင် ၃ ချောင်း ယှဉ်တွဲပြသပုံ။',
+    visualType: 'bamboo-split',
+    imagePath: '/images/products/bamboo-splits-without-nodes-inner-outer.webp',
+    imageWidth: 1672,
+    imageHeight: 941,
+    altText:
+      'Six smooth bamboo splits without nodes displaying three pale inner surfaces and three green and gray outer surfaces on a sage green background',
+  },
+  {
+    id: 'gal-bamboo-splits-with-nodes-inner',
+    title: 'Bamboo Splits With Nodes — Inner Surface',
+    titleMm: 'အဆစ်ပါ ဝါးခြမ်းပြား — အတွင်းမျက်နှာပြင်',
+    category: 'Bamboo Products',
+    caption:
+      'Four golden natural Myanmar bamboo splits with intact raised node ridges visible along the inner concave surfaces (3 mm thickness, 20 to 48 inches).',
+    captionMm:
+      'အတွင်းမျက်နှာပြင်ပေါ်တွင် သဘာဝဝါးဆစ်များ ထင်ရှားစွာ ပါရှိသည့် ရွှေဝါရောင် အဆစ်ပါ ဝါးခြမ်းပြား ၄ ချောင်း (အထူ 3 mm · အရှည် ၂၀"–၄၈")။',
+    visualType: 'bamboo-split',
+    imagePath: '/images/products/bamboo-splits-with-nodes-inner.webp',
+    imageWidth: 1672,
+    imageHeight: 941,
+    altText:
+      'Four golden bamboo splits with visible raised inner nodes arranged side by side on a sage green background',
+  },
+  {
+    id: 'gal-bamboo-splits-with-nodes-inner-outer',
+    title: 'Bamboo Splits With Nodes — Inner and Outer Surfaces',
+    titleMm: 'အဆစ်ပါ ဝါးခြမ်းပြား — အတွင်းနှင့် အပြင်မျက်နှာပြင်များ',
+    category: 'Bamboo Products',
+    caption:
+      'Five natural bamboo splits with intact nodes, pairing three green outer bark faces with two golden inner concave faces showing raised node rings.',
+    captionMm:
+      'ဝါးဆစ်များပါရှိသည့် သဘာဝ ဝါးခြမ်းပြား ၅ ချောင်း — အစိမ်းရောင် အပြင်မျက်နှာပြင် ၃ ချောင်းနှင့် အဆစ်ပါ ရွှေဝါရောင် အတွင်းမျက်နှာပြင် ၂ ချောင်း ယှဉ်တွဲပြသပုံ။',
+    visualType: 'bamboo-split',
+    imagePath: '/images/products/bamboo-splits-with-nodes-inner-outer.webp',
+    imageWidth: 1672,
+    imageHeight: 941,
+    altText:
+      'Five bamboo splits with visible nodes showing three green outer surfaces and two golden inner surfaces on a sage green background',
   },
   {
     id: 'gal-bamboo-sticks-grade-a-plus',
@@ -2288,33 +2336,6 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
       'TB Star Company Limited 100% Natural Bamboo Sticks — Grade A+++, Myanmar Origin, Thickness: 1.2 to 2.5 mm, Sizes: 8, 9, 10 inches, Packaging: 1 KG Per Bundle / 30 Bundles Per Bag',
   },
   {
-    id: 'gal-bamboo-split-brochure',
-    title: 'Bamboo Splits — With Nodes & Without Nodes Bundle Packaging',
-    titleMm: 'ဝါးခြမ်းပြား — အဆစ်ပါ နှင့် အဆစ်မပါ အစည်းထုပ်ပိုးမှု ပြကွက်',
-    category: 'Bamboo Products',
-    caption:
-      'Official TB Star Company Limited Bamboo Splits comparison and packaging showcase presenting With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle).',
-    captionMm:
-      'အဆစ်ပါ (တစ်စည်း 50 pcs) နှင့် အဆစ်မပါ (တစ်စည်း 100 pcs) မြန်မာ့သဘာဝဝါးခြမ်းပြား ထုပ်ပိုးမှုနှင့် စံချိန်စံညွှန်းပြကွက်။',
-    visualType: 'bamboo-split',
-    imagePath: '/assets/aistudio/bamboo-splits-comparison-and-packaging.webp',
-    altText:
-      'TB Star Company Limited Bamboo Splits Comparison and Packaging — With Nodes (50 pcs Per Bundle) and Without Nodes (100 pcs Per Bundle)',
-  },
-  {
-    id: 'gal-bamboo-split-texture',
-    title: 'Bamboo Split Fiber & Node Processing',
-    titleMm: 'ဝါးခြမ်းပြား သဘာဝအသားနှင့် အဆစ် စိတ်ဖြာထုတ်လုပ်မှု',
-    category: 'Bamboo Production',
-    caption:
-      '3 mm Myanmar bamboo splits available with nodes or without nodes.',
-    captionMm:
-      'အထူ 3 mm မြန်မာ့ဝါးခြမ်းပြားများကို အဆစ်ပါ သို့မဟုတ် အဆစ်မပါ ပုံစံနှစ်မျိုးဖြင့် ရရှိနိုင်ပုံ။',
-    visualType: 'bamboo-split',
-    imagePath: '/images/products/bamboo-split-texture.webp',
-    altText: 'Close-up texture of 3 mm natural Myanmar bamboo splits',
-  },
-  {
     id: 'gal-bamboo-sticks-packaging',
     title: 'Bamboo Sticks — 1 KG Per Bundle / 30 Bundles Per Bag Packaging',
     titleMm: 'ဝါးတံ — တစ်စည်းလျှင် ၁ ကီလိုဂရမ် / တစ်အိတ်လျှင် ၃၀ စည်း ထုပ်ပိုးမှုပုံစံ',
@@ -2327,19 +2348,6 @@ export const GALLERY_PREVIEW_ITEMS: GalleryPreviewItem[] = [
     imagePath: '/assets/aistudio/natural-bamboo-sticks-packaging-showcase.webp',
     altText:
       'TB Star Company Limited Natural Bamboo Sticks Packaging Showcase — 100% Natural Bamboo, Thickness: 1.25–2.5 mm, Length: 8, 9, 10 inches, Origin: Myanmar, 1 KG Per Bundle / 30 Bundles Per Bag',
-  },
-  {
-    id: 'gal-bamboo-split-bundles',
-    title: 'Bamboo Split — Bundled Supply (20"–48")',
-    titleMm: 'ဝါးခြမ်းပြား — အစည်းလိုက် ထုပ်ပိုးမှု (၂၀"–၄၈")',
-    category: 'Packaging',
-    caption:
-      '100% natural Myanmar Bamboo Split bundled for domestic distribution and international export.',
-    captionMm:
-      'ပြည်တွင်းဖြန့်ဖြူးရေးနှင့် ပြည်ပပို့ကုန်အတွက် စည်းနှောင်ထုပ်ပိုးထားသော ၁၀၀% သဘာဝ မြန်မာ့ဝါးခြမ်းပြားများ။',
-    visualType: 'bamboo-split',
-    imagePath: '/images/products/bamboo-split-wholesale.webp',
-    altText: 'Bamboo splits bundled for commercial supply',
   },
   {
     id: 'gal-nut-shell-activated-carbon',
